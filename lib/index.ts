@@ -31,6 +31,13 @@ export type Content
     ;
 
 /**
+ * Template is a function that given a View
+ * will provide DOM content as well as performing 
+ * the side-effects of adding ids etc.
+ */
+export type Template<V extends View> = (v:V) => Content;
+
+/**
  * @private
  */
 type Iterable<V> = V[] | object;
@@ -127,16 +134,6 @@ export interface Widget extends Renderable {
 
 };
 
-/**
- * Template is a function that given a View
- * will provide DOM content as well as performing 
- * the side-effects of adding ids etc.
- */
-export interface Template {
-
-    (view: View): Content
-
-}
 
 /**
  * ContentProvider is the type of the function fun statements return.
@@ -472,7 +469,7 @@ export class AppView<C> implements View {
 
     tree: Content = document.createElement('div');
 
-    template: Template = () => document.createElement('div');
+  template: Template<AppView<C>> = () => document.createElement('div');
 
     _fragRoot: Node = document.createElement('div');
 

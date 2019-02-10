@@ -15,6 +15,12 @@ export declare type WMLElement = Content | Widget;
  */
 export declare type Content = Node | Element | HTMLElement;
 /**
+ * Template is a function that given a View
+ * will provide DOM content as well as performing
+ * the side-effects of adding ids etc.
+ */
+export declare type Template<V extends View> = (v: V) => Content;
+/**
  * @private
  */
 declare type Iterable<V> = V[] | object;
@@ -94,14 +100,6 @@ export interface Widget extends Renderable {
      * in some other way.
      */
     removed(): void;
-}
-/**
- * Template is a function that given a View
- * will provide DOM content as well as performing
- * the side-effects of adding ids etc.
- */
-export interface Template {
-    (view: View): Content;
 }
 /**
  * ContentProvider is the type of the function fun statements return.
@@ -243,7 +241,7 @@ export declare class AppView<C> implements View {
     };
     widgets: Widget[];
     tree: Content;
-    template: Template;
+    template: Template<AppView<C>>;
     _fragRoot: Node;
     constructor(context: C);
     registerWidget(w: Widget): AppView<C>;
