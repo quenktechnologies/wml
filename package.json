@@ -1,0 +1,25 @@
+{
+  "name": "@quenk/wml",
+  "version": "0.17.0",
+  "description": "Widget Markup Language",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "author": "Quenk Technologies Limited <info@quenk.com> (https://quenk.com)",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@quenk/test": "^2.1.0",
+    "@types/mocha": "^2.2.48",
+    "@types/node": "^10.12.24",
+    "mocha": "^2.3.4",
+    "ts-node": "^8.0.2",
+    "typedoc": "^0.14.2",
+    "typescript": "^3.3.3"
+  },
+  "dependencies": {
+    "@quenk/noni": "^1.15.1",
+    "property-seek": "^3.1.1"
+  }
+}
