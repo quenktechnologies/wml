@@ -1,9 +1,10 @@
 import * as property from 'property-seek';
 import {
-  Maybe, 
-  nothing,
-  fromArray,
-  fromNullable } from '@quenk/noni/lib/data/maybe';
+    Maybe,
+    nothing,
+    fromArray,
+    fromNullable
+} from '@quenk/noni/lib/data/maybe';
 
 /**
  * Maybe from afpl used here as an option type.
@@ -35,7 +36,7 @@ export type Content
  * will provide DOM content as well as performing 
  * the side-effects of adding ids etc.
  */
-export type Template<V extends View> = (v:V) => Content;
+export type Template<V extends View> = (v: V) => Content;
 
 /**
  * @private
@@ -417,7 +418,7 @@ export const ifthen = <P>(predicate: P, positive: () => Content, negative: () =>
  */
 export interface MapCallback<V> {
 
-    (value: V, index?: string | number, source?: V[] | object): Content;
+    (value: V, index: string | number, source: V[] | object): Content;
 
 }
 
@@ -432,7 +433,7 @@ export const map = <V>(
 
     var frag = document.createDocumentFragment();
 
-    if (collection instanceof Array) {
+    if (Array.isArray(collection)) {
 
         if (collection.length > 0)
             collection.forEach((v, k, a) => frag.appendChild(cb(v, k, a)));
@@ -469,7 +470,7 @@ export class AppView<C> implements View {
 
     tree: Content = document.createElement('div');
 
-  template: Template<AppView<C>> = () => document.createElement('div');
+    template: Template<AppView<C>> = () => document.createElement('div');
 
     _fragRoot: Node = document.createElement('div');
 
