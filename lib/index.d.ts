@@ -1,9 +1,6 @@
 import { Maybe } from '@quenk/noni/lib/data/maybe';
 /**
- * Maybe from afpl used here as an option type.
- *
- * Limit usage of this class to the monad map, chain and orElse for now.
- * It is subject to change.
+ * Maybe type.
  */
 export declare type Maybe<A> = Maybe<A>;
 /**
@@ -19,11 +16,24 @@ export declare type Content = Node | Element | HTMLElement;
  * will provide DOM content as well as performing
  * the side-effects of adding ids etc.
  */
-export declare type Template<V extends View> = (v: V) => Content;
+export declare type Template = (r: Registry) => Content;
 /**
- * @private
+ * Registry keeps track of the WMLElements in a view.
  */
-declare type Iterable<V> = V[] | object;
+export interface Registry {
+    /**
+     * register an element.
+     */
+    register<A>(e: WMLElement, attrs: AttributeMap<A>): WMLElement;
+    /**
+     * node registers a Node.
+     */
+    node<A>(tag: string, attrs: AttributeMap<A>, children: Content[]): WMLElement;
+    /**
+     * widget registers a Widget.
+     */
+    widget<A>(c: WidgetConstructor<A>, attrs: AttributeMap<A>, children: Content): WMLElement;
+}
 /**
  * Renderable is an interface for providing Content.
  *
@@ -60,29 +70,14 @@ export interface View extends Renderable {
      */
     findById<A extends WMLElement>(id: string): Maybe<A>;
     /**
-     * findGroupByName retrives an array of WMLElements that have a `wml:group`
+     * findByGroup retrives an array of WMLElements that have a `wml:group`
      * attribute matching name.
      *
      * Returns a Maybe type from the afpl library.
      */
-    findGroupByName(name: string): Maybe<WMLElement[]>;
-    /**
-     * registerWidget registers a widget with the view.
-     *
-     * This widget will be notified during lifecycle event.
-     */
-    registerWidget(w: Widget): View;
-    /**
-     * registerById a WMLElement with this View.
-     */
-    registerById(id: string, w: WMLElement): View;
-    /**
-     * registerByGroup a WMLELement with this View.
-     */
-    registerByGroup(group: string, e: WMLElement): View;
+    findByGroup(name: string): Maybe<WMLElement[]>;
 }
 /**
- *
  * Widget is the user land api of custom Renderable objects
  * that provide desired functionality.
  *
@@ -110,7 +105,6 @@ export interface ContentProvider {
 /**
  * Component is an abstract Widget implementation
  * that can be used instead of manually implementing the whole interface.
- *
  */
 export declare abstract class Component<A extends Attrs> implements Widget {
     attrs: A;
@@ -166,90 +160,8 @@ export interface Groups {
     [key: string]: WMLElement[];
 }
 /**
- * @private
+ * WidgetConstructor
  */
 export interface WidgetConstructor<A> {
     new (attributes: A, children: Content[]): Widget;
 }
-/**
- * read a value form an object.
- *
- * This is an alternative to regular property access that will throw exceptions
- * if any of the values in the part are null.
- * @param {string} path - The path to look up on the object.
- * @param {object} o - The object
- * @param {A} [defaultValue] - This value is returned if the value is not set.
- * @private
- */
-export declare const read: <A>(path: string, o: object, defaultValue?: A | undefined) => A;
-/**
- * @private
- */
-export declare const box: (...content: Content[]) => Content;
-/**
- * @private
- */
-export declare const domify: <A>(a: A) => Content;
-/**
- * text creates a new TextNode.
- * @private
- */
-export declare const text: (value: string | number | boolean) => Text;
-/**
- * node is called to create a regular DOM node
- * @private
- */
-export declare const node: <A>(tag: string, attributes: AttributeMap<A>, children: Content[], view: View) => Node;
-/**
- * widget creates and renders a new wml widget instance.
- * @param {function} Construtor
- * @param {object} attributes
- * @param {array<string|number|Widget>} children
- * @param {View} view
- * @private
- * @return {Widget}
- */
-export declare const widget: <A>(Constructor: WidgetConstructor<A>, attributes: A, children: Content[], view: View) => Content;
-/**
- * ifthen provides an if then expression
- * @private
- */
-export declare const ifthen: <P>(predicate: P, positive: () => Content, negative: () => Content) => Node;
-/**
- * @private
- */
-export interface MapCallback<V> {
-    (value: V, index?: string | number, source?: V[] | object): Content;
-}
-/**
- * forE provides a for expression
- * @private
- */
-export declare const map: <V>(collection: Iterable<V>, cb: MapCallback<V>, cb2: () => Content) => Content;
-/**
- * AppView is the concrete implementation of a View.
- *
- * @property {<C>} context - The context the view is rendered in.
- */
-export declare class AppView<C> implements View {
-    context: C;
-    ids: {
-        [key: string]: WMLElement;
-    };
-    groups: {
-        [key: string]: WMLElement[];
-    };
-    widgets: Widget[];
-    tree: Content;
-    template: Template<AppView<C>>;
-    _fragRoot: Node;
-    constructor(context: C);
-    registerWidget(w: Widget): AppView<C>;
-    registerById(id: string, w: WMLElement): AppView<C>;
-    registerByGroup(group: string, e: WMLElement): AppView<C>;
-    findById<A extends WMLElement>(id: string): Maybe<A>;
-    findGroupByName(name: string): Maybe<WMLElement[]>;
-    invalidate(): void;
-    render(): Content;
-}
-export {};
