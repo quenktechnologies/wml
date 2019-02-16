@@ -32,7 +32,7 @@ export interface Registry {
     /**
      * widget registers a Widget.
      */
-    widget<A>(c: WidgetConstructor<A>, attrs: AttributeMap<A>, children: Content): WMLElement;
+    widget<A>(c: WidgetConstructor<AttributeMap<A>>, attrs: AttributeMap<A>, children: Content): WMLElement;
 }
 /**
  * Renderable is an interface for providing Content.
@@ -68,14 +68,14 @@ export interface View extends Renderable {
      *
      * Returns a Maybe type from the afpl library.
      */
-    findById<A extends WMLElement>(id: string): Maybe<A>;
+    findById<E extends WMLElement>(id: string): Maybe<E>;
     /**
      * findByGroup retrives an array of WMLElements that have a `wml:group`
      * attribute matching name.
      *
      * Returns a Maybe type from the afpl library.
      */
-    findByGroup(name: string): Maybe<WMLElement[]>;
+    findByGroup<E extends WMLElement>(name: string): Maybe<E[]>;
 }
 /**
  * Widget is the user land api of custom Renderable objects

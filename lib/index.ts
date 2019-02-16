@@ -1,4 +1,4 @@
-import {    Maybe} from '@quenk/noni/lib/data/maybe';
+import { Maybe } from '@quenk/noni/lib/data/maybe';
 
 /**
  * Maybe type.
@@ -47,9 +47,10 @@ export interface Registry {
     /**
      * widget registers a Widget.
      */
-    widget<A>(c: WidgetConstructor<A>,
-        attrs: AttributeMap<A>, children: Content): WMLElement
-
+    widget<A>(
+        c: WidgetConstructor<AttributeMap<A>>,
+        attrs: AttributeMap<A>,
+        children: Content): WMLElement
 
 }
 
@@ -92,7 +93,7 @@ export interface View extends Renderable {
      *
      * Returns a Maybe type from the afpl library.
      */
-    findById<A extends WMLElement>(id: string): Maybe<A>;
+    findById<E extends WMLElement>(id: string): Maybe<E>;
 
     /**
      * findByGroup retrives an array of WMLElements that have a `wml:group`
@@ -100,7 +101,7 @@ export interface View extends Renderable {
      *
      * Returns a Maybe type from the afpl library.
      */
-    findByGroup(name: string): Maybe<WMLElement[]>;
+    findByGroup<E extends WMLElement>(name: string): Maybe<E[]>;
 
 }
 
