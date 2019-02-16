@@ -32,7 +32,7 @@ export interface Registry {
     /**
      * widget registers a Widget.
      */
-    widget<A>(c: WidgetConstructor<AttributeMap<A>>, attrs: AttributeMap<A>, children: Content): WMLElement;
+    widget<A>(c: WidgetConstructor<AttributeMap<A>>, attrs: AttributeMap<A>, children: Content[]): WMLElement;
 }
 /**
  * Renderable is an interface for providing Content.

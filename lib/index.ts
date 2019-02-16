@@ -50,7 +50,7 @@ export interface Registry {
     widget<A>(
         c: WidgetConstructor<AttributeMap<A>>,
         attrs: AttributeMap<A>,
-        children: Content): WMLElement
+        children: Content[]): WMLElement
 
 }
 
