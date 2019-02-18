@@ -6,6 +6,13 @@ import { Maybe } from '@quenk/noni/lib/data/maybe';
 export type Maybe<A> = Maybe<A>;
 
 /**
+ * WidgetConstructor
+ */
+export type WidgetConstructor<A extends Attrs>
+    = new (attributes: A, children: Content[]) => Widget
+    ;
+
+/**
  * WMLElement can be DOM content or a user defined widget. 
  */
 export type WMLElement
@@ -23,6 +30,16 @@ export type Content
     ;
 
 /**
+ * HTMLAttributeValue
+ */
+export type HTMLAttributeValue
+    = string
+    | number
+    | boolean
+    | Function
+    ;
+
+/**
  * Template is a function that given a View
  * will provide DOM content as well as performing 
  * the side-effects of adding ids etc.
@@ -37,20 +54,19 @@ export interface Registry {
     /**
      * register an element.
      */
-    register<A>(e: WMLElement, attrs: AttributeMap<A>): WMLElement;
+    register< A extends Attrs>(e: WMLElement, attrs: A): WMLElement;
 
     /**
      * node registers a Node.
      */
-    node<A>(tag: string, attrs: AttributeMap<A>, children: Content[]): WMLElement
+  node<A extends Attrs>(tag: string, attrs: Attributes<A>, 
+    children: Content[]): WMLElement
 
     /**
      * widget registers a Widget.
      */
-    widget<A>(
-        c: WidgetConstructor<AttributeMap<A>>,
-        attrs: AttributeMap<A>,
-        children: Content[]): WMLElement
+    widget<A extends Attrs, W extends WidgetConstructor<A>>
+        (c: W, attrs: A, children: Content[]): Widget
 
 }
 
@@ -152,13 +168,9 @@ export abstract class Component<A extends Attrs> implements Widget {
     abstract view: View;
 
     /**
-     * attrs is the attributes this Component excepts.
+     * @param {A} attrs is the attributes this Component excepts.
+     * @param {Content[]} children is an array of content for Component.
      */
-
-    /**
-     * children is an array of content passed to this Component.
-     */
-
     constructor(public attrs: A, public children: Content[]) { }
 
     rendered(): void { }
@@ -170,12 +182,12 @@ export abstract class Component<A extends Attrs> implements Widget {
 };
 
 /**
- * AttributeMap is a map of values suitable for attributes on
+ * Attributes is a map of values suitable for attributes on
  * a DOM Node.
  */
-export interface AttributeMap<A> {
+export interface Attributes<V> {
 
-    [key: string]: A
+    [key: string]: V
 
 }
 
@@ -191,10 +203,11 @@ export interface Attrs {
     wml: {
 
         id?: string,
+
         group?: string
 
     },
-    html: AttributeMap<string | number | boolean | Function>
+    html: Attributes<HTMLAttributeValue>
 
 }
 
@@ -213,14 +226,5 @@ export interface Ids {
 export interface Groups {
 
     [key: string]: WMLElement[]
-
-}
-
-/**
- * WidgetConstructor
- */
-export interface WidgetConstructor<A> {
-
-    new(attributes: A, children: Content[]): Widget;
 
 }

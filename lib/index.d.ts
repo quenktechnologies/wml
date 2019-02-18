@@ -4,6 +4,10 @@ import { Maybe } from '@quenk/noni/lib/data/maybe';
  */
 export declare type Maybe<A> = Maybe<A>;
 /**
+ * WidgetConstructor
+ */
+export declare type WidgetConstructor<A extends Attrs> = new (attributes: A, children: Content[]) => Widget;
+/**
  * WMLElement can be DOM content or a user defined widget.
  */
 export declare type WMLElement = Content | Widget;
@@ -11,6 +15,10 @@ export declare type WMLElement = Content | Widget;
  * Content is what is actually intended to be rendered on a web page.
  */
 export declare type Content = Node | Element | HTMLElement;
+/**
+ * HTMLAttributeValue
+ */
+export declare type HTMLAttributeValue = string | number | boolean | Function;
 /**
  * Template is a function that given a View
  * will provide DOM content as well as performing
@@ -24,15 +32,15 @@ export interface Registry {
     /**
      * register an element.
      */
-    register<A>(e: WMLElement, attrs: AttributeMap<A>): WMLElement;
+    register<A extends Attrs>(e: WMLElement, attrs: A): WMLElement;
     /**
      * node registers a Node.
      */
-    node<A>(tag: string, attrs: AttributeMap<A>, children: Content[]): WMLElement;
+    node<A extends Attrs>(tag: string, attrs: Attributes<A>, children: Content[]): WMLElement;
     /**
      * widget registers a Widget.
      */
-    widget<A>(c: WidgetConstructor<AttributeMap<A>>, attrs: AttributeMap<A>, children: Content[]): WMLElement;
+    widget<A extends Attrs, W extends WidgetConstructor<A>>(c: W, attrs: A, children: Content[]): Widget;
 }
 /**
  * Renderable is an interface for providing Content.
@@ -116,10 +124,8 @@ export declare abstract class Component<A extends Attrs> implements Widget {
      */
     abstract view: View;
     /**
-     * attrs is the attributes this Component excepts.
-     */
-    /**
-     * children is an array of content passed to this Component.
+     * @param {A} attrs is the attributes this Component excepts.
+     * @param {Content[]} children is an array of content for Component.
      */
     constructor(attrs: A, children: Content[]);
     rendered(): void;
@@ -127,11 +133,11 @@ export declare abstract class Component<A extends Attrs> implements Widget {
     render(): Content;
 }
 /**
- * AttributeMap is a map of values suitable for attributes on
+ * Attributes is a map of values suitable for attributes on
  * a DOM Node.
  */
-export interface AttributeMap<A> {
-    [key: string]: A;
+export interface Attributes<V> {
+    [key: string]: V;
 }
 /**
  * Attrs is an interface describing the minimum attributes
@@ -145,7 +151,7 @@ export interface Attrs {
         id?: string;
         group?: string;
     };
-    html: AttributeMap<string | number | boolean | Function>;
+    html: Attributes<HTMLAttributeValue>;
 }
 /**
  * Ids is a map of WMLElements that have been given an id.
@@ -158,10 +164,4 @@ export interface Ids {
  */
 export interface Groups {
     [key: string]: WMLElement[];
-}
-/**
- * WidgetConstructor
- */
-export interface WidgetConstructor<A> {
-    new (attributes: A, children: Content[]): Widget;
 }
