@@ -36,11 +36,11 @@ export interface Registry {
     /**
      * node registers a Node.
      */
-    node<A extends Attrs>(tag: string, attrs: Attributes<A>, children: Content[]): WMLElement;
+    node<A extends Attrs>(tag: string, attrs: Attributes<A>, children: Content[]): Content;
     /**
      * widget registers a Widget.
      */
-    widget<A extends Attrs, W extends WidgetConstructor<A>>(c: W, attrs: A, children: Content[]): Widget;
+    widget<A extends Attrs, W extends WidgetConstructor<A>>(c: W, attrs: A, children: Content[]): Content;
 }
 /**
  * Renderable is an interface for providing Content.

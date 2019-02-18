@@ -60,13 +60,13 @@ export interface Registry {
      * node registers a Node.
      */
   node<A extends Attrs>(tag: string, attrs: Attributes<A>, 
-    children: Content[]): WMLElement
+    children: Content[]): Content
 
     /**
      * widget registers a Widget.
      */
     widget<A extends Attrs, W extends WidgetConstructor<A>>
-        (c: W, attrs: A, children: Content[]): Widget
+        (c: W, attrs: A, children: Content[]): Content
 
 }
 
