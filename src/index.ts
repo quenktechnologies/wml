@@ -5,6 +5,7 @@ import { Maybe } from '@quenk/noni/lib/data/maybe';
  */
 export type Maybe<A> = Maybe<A>;
 
+
 /**
  * WidgetConstructor
  */
@@ -40,11 +41,16 @@ export type HTMLAttributeValue
     ;
 
 /**
- * Template is a function that given a View
+ * Template is a function that given a View (Registry)
  * will provide DOM content as well as performing 
  * the side-effects of adding ids etc.
  */
 export type Template = (r: Registry) => Content;
+
+/**
+ * Fun corresponds to the compiled signature of fun statements.
+ */
+export type Fun = (r:Registry) => Content[];
 
 /**
  * Registry keeps track of the WMLElements in a view.

@@ -20,11 +20,15 @@ export declare type Content = Node | Element | HTMLElement;
  */
 export declare type HTMLAttributeValue = string | number | boolean | Function;
 /**
- * Template is a function that given a View
+ * Template is a function that given a View (Registry)
  * will provide DOM content as well as performing
  * the side-effects of adding ids etc.
  */
 export declare type Template = (r: Registry) => Content;
+/**
+ * Fun corresponds to the compiled signature of fun statements.
+ */
+export declare type Fun = (r: Registry) => Content[];
 /**
  * Registry keeps track of the WMLElements in a view.
  */
