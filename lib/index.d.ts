@@ -18,7 +18,7 @@ export declare type Content = Node | Element | HTMLElement;
 /**
  * HTMLAttributeValue
  */
-export declare type HTMLAttributeValue = string | number | boolean | Function;
+export declare type HTMLAttributeValue = string | number | boolean | null | undefined | Function;
 /**
  * Template is a function that given a View (Registry)
  * will provide DOM content as well as performing
@@ -40,7 +40,7 @@ export interface Registry {
     /**
      * node registers a Node.
      */
-    node<A extends Attrs>(tag: string, attrs: Attributes<A>, children: Content[]): Content;
+    node(tag: string, attrs: Attrs, children: Content[]): Content;
     /**
      * widget registers a Widget.
      */

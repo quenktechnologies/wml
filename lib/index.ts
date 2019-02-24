@@ -37,6 +37,8 @@ export type HTMLAttributeValue
     = string
     | number
     | boolean
+    | null
+    | undefined
     | Function
     ;
 
@@ -50,7 +52,7 @@ export type Template = (r: Registry) => Content;
 /**
  * Fun corresponds to the compiled signature of fun statements.
  */
-export type Fun = (r:Registry) => Content[];
+export type Fun = (r: Registry) => Content[];
 
 /**
  * Registry keeps track of the WMLElements in a view.
@@ -60,13 +62,13 @@ export interface Registry {
     /**
      * register an element.
      */
-    register< A extends Attrs>(e: WMLElement, attrs: A): WMLElement;
+    register<A extends Attrs>(e: WMLElement, attrs: A): WMLElement;
 
     /**
      * node registers a Node.
      */
-  node<A extends Attrs>(tag: string, attrs: Attributes<A>, 
-    children: Content[]): Content
+    node(tag: string, attrs: Attrs, children: Content[])
+        : Content
 
     /**
      * widget registers a Widget.
