@@ -323,6 +323,13 @@ export const tests: { [key: string]: any } = {
 
         input: '{% fun test[A:String] (a:A) %} {{A}} {% endfun %}'
 
+    },
+
+    'should allow ifs without elses': {
+
+        input: '{% view Test (Object) %}' +
+            '<div> {% if (value == true) %} <span/> {% endif %} </div>'
+
     }
 
 }

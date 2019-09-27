@@ -303,7 +303,7 @@ export class IfStatement {
     constructor(
         public condition: Expression,
         public then: Child[],
-        public elseClause: ElseIfClause | ElseClause,
+        public elseClause: ElseIfClause | ElseClause | undefined,
         public location: Location) { }
 
 }
@@ -345,7 +345,6 @@ export type Expression
     | BinaryExpression
     | UnaryExpression
     | ViewConstruction
-    | FunApplication
     | ConstructExpression
     | CallExpression
     | MemberExpression
@@ -399,18 +398,6 @@ export class ViewConstruction {
     constructor(
         public cons: Constructor,
         public context: Expression,
-        public location: Location) { }
-
-}
-
-export class FunApplication {
-
-    type = 'fun-application';
-
-    constructor(
-        public target: Expression,
-        public typeArgs: Type[],
-        public args: Expression[],
         public location: Location) { }
 
 }
