@@ -7,6 +7,9 @@
   "files": [
     "lib"
   ],
+  "bin": {
+    "wmlc": "./lib/main.js"
+  },
   "author": "Quenk Technologies Limited <info@quenk.com> (https://quenk.com)",
   "license": "Apache-2.0",
   "devDependencies": {
@@ -17,7 +20,9 @@
     "mocha": "^6.2.0",
     "ts-node": "^8.4.1",
     "typedoc": "^0.14.2",
-    "typescript": "^3.6.3"
+    "typescript": "^3.6.3",
+    "@types/docopt": "^0.6.31",
+    "docopt": "^0.6.2"
   },
   "dependencies": {
     "@quenk/noni": "^1.32.0",
