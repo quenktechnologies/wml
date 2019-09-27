@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import { assert } from '@quenk/test/lib/assert';
-import { tests } from '../src/parser/test';
-import { parse } from '../src/parser';
+import { tests } from '../src/parse/test';
+import { parse } from '../src/parse';
 
 function json(tree: any): string {
     return JSON.stringify(tree);

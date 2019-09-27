@@ -176,7 +176,7 @@ module
             {$$ = new yy.ast.Module([], $1, @$); return $$;}
 
           | EOF
-            {$$ = new yy.ast.Module([], [], null, @$);     }
+            {$$ = new yy.ast.Module([], [], undefined, @$);     }
           ;
 
 imports
@@ -278,13 +278,13 @@ type_parameter_list
 
 type_parameter
           : unqualified_identifier 
-           {$$ = new yy.ast.TypeParameter($1, null, @$);}
+           {$$ = new yy.ast.TypeParameter($1, undefined, @$);}
 
           | unqualified_identifier ':' type
            {$$ = new yy.ast.TypeParameter($1, $3, @$);}
 
           | unqualified_constructor 
-           {$$ = new yy.ast.TypeParameter($1, null, @$);}
+           {$$ = new yy.ast.TypeParameter($1, undefined, @$);}
 
           | unqualified_constructor ':' type
            {$$ = new yy.ast.TypeParameter($1, $3, @$);}
@@ -458,7 +458,7 @@ for_parameters
             
 if_statement
           : '{%' IF expression '%}' children '{%' ENDIF '%}'
-           {$$ = new yy.ast.IfStatement($3, $5, null, @$); }
+           {$$ = new yy.ast.IfStatement($3, $5, undefined, @$); }
     
           | '{%' IF expression '%}' children else_clause
            {$$ = new yy.ast.IfStatement($3, $5, $6, @$); }

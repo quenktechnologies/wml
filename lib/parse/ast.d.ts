@@ -185,10 +185,10 @@ export declare class ForOfStatement {
 export declare class IfStatement {
     condition: Expression;
     then: Child[];
-    elseClause: ElseIfClause | ElseClause;
+    elseClause: ElseIfClause | ElseClause | undefined;
     location: Location;
     type: string;
-    constructor(condition: Expression, then: Child[], elseClause: ElseIfClause | ElseClause, location: Location);
+    constructor(condition: Expression, then: Child[], elseClause: ElseIfClause | ElseClause | undefined, location: Location);
 }
 export declare class ElseClause {
     children: Child[];
@@ -210,7 +210,7 @@ export declare class Characters {
     type: string;
     constructor(value: string, location: Location);
 }
-export declare type Expression = IfThenExpression | BinaryExpression | UnaryExpression | ViewConstruction | FunApplication | ConstructExpression | CallExpression | MemberExpression | ReadExpression | FunctionExpression | Literal | ContextProperty | Constructor | Identifier | ContextVariable;
+export declare type Expression = IfThenExpression | BinaryExpression | UnaryExpression | ViewConstruction | ConstructExpression | CallExpression | MemberExpression | ReadExpression | FunctionExpression | Literal | ContextProperty | Constructor | Identifier | ContextVariable;
 export declare class IfThenExpression {
     condition: Expression;
     iftrue: Expression;
@@ -239,14 +239,6 @@ export declare class ViewConstruction {
     location: Location;
     type: string;
     constructor(cons: Constructor, context: Expression, location: Location);
-}
-export declare class FunApplication {
-    target: Expression;
-    typeArgs: Type[];
-    args: Expression[];
-    location: Location;
-    type: string;
-    constructor(target: Expression, typeArgs: Type[], args: Expression[], location: Location);
 }
 export declare class ConstructExpression {
     cons: Constructor;
