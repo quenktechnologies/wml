@@ -151,11 +151,10 @@ export interface Attributes<V> {
  * can be passed in a type safe way.
  */
 export interface Attrs {
-    wml: {
+    wml?: {
         id?: string;
         group?: string;
     };
-    html: Attributes<HTMLAttributeValue>;
 }
 /**
  * Ids is a map of WMLElements that have been given an id.

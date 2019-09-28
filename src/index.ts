@@ -208,14 +208,13 @@ export interface Attributes<V> {
  */
 export interface Attrs {
 
-    wml: {
+    wml?: {
 
         id?: string,
 
         group?: string
 
-    },
-    html: Attributes<HTMLAttributeValue>
+    }
 
 }
 
