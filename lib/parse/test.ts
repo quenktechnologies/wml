@@ -321,7 +321,7 @@ export const tests: { [key: string]: any } = {
 
     'should recognize type parameters': {
 
-        input: '{% fun test[A:String] (a:A) %} {{A}} {% endfun %}'
+        input: '{% fun test[A:String] (a:A) %} {{a}} {% endfun %}'
 
     },
 

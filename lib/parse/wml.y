@@ -562,13 +562,13 @@ view_construction
           : '<' cons '(' expression ')' '>'
             { $$ = new yy.ast.ViewConstruction($2, $4, @$); }
           ;
-
+          
 fun_application
           : '<' fun_target type_arguments arguments '>'
-            { $$ = new yy.ast.FunApplication($2, $3, $4||[], @$); }
+            { $$ = new yy.ast.FunApplication($2, $3, $4, @$); }
 
           | '<' fun_target arguments '>'
-            { $$ = new yy.ast.FunApplication($2, [], $3 ||[], @$); }
+            { $$ = new yy.ast.FunApplication($2, [], $3, @$); }
 
           | '<' fun_target '>'
             { $$ = new yy.ast.FunApplication($2, [], [], @$); }

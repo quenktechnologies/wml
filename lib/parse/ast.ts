@@ -345,6 +345,7 @@ export type Expression
     | BinaryExpression
     | UnaryExpression
     | ViewConstruction
+    | FunApplication
     | ConstructExpression
     | CallExpression
     | MemberExpression
@@ -398,6 +399,18 @@ export class ViewConstruction {
     constructor(
         public cons: Constructor,
         public context: Expression,
+        public location: Location) { }
+
+}
+
+export class FunApplication {
+
+    type = 'fun-application';
+
+    constructor(
+        public target: Expression,
+        public typeArgs: Type[],
+        public args: Expression[],
         public location: Location) { }
 
 }

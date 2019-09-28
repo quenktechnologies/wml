@@ -147,7 +147,10 @@ export declare const unaryExpression2TS: (ctx: Context, n: nodes.UnaryExpression
  * viewConstruction2TS
  */
 export declare const viewConstruction2TS: (ctx: Context, n: nodes.ViewConstruction) => string;
-export declare const partialApplication2TS: (ctx: Context, ns: nodes.Expression[]) => string;
+/**
+ * funApplication2TS
+ */
+export declare const funApplication2TS: (ctx: Context, n: nodes.FunApplication) => string;
 /**
  * constructExpression2TS
  */
