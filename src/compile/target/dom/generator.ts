@@ -106,7 +106,7 @@ export class DOMGenerator implements Generator {
             `${IGNORE_UNUSED}`,
             `const ${IF} = (__expr:boolean, __conseq:${IFARG},__alt?:${IFARG}) ` +
             `: Content[]=>`,
-            `(__expr) ? __conseq() :  alt ? __alt() : [];`,
+            `(__expr) ? __conseq() :  __alt ? __alt() : [];`,
             ``,
             `${IGNORE_UNUSED}`,
             `const ${FOR_IN} = <A>(list:A[], f:${FOR_IN_BODY}, alt:` +
@@ -333,7 +333,7 @@ export class DOMGenerator implements Generator {
 
             `export const ${id} = `,
             ``,
-            `${typeParams}(${params})${factory} {`,
+            `${typeParams}(${params})=>${factory} {`,
             ``,
             `   return ${body};`,
             ``,

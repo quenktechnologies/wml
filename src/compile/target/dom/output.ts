@@ -6,7 +6,7 @@
 
 import * as nodes from '../../../parse/ast';
 
-import { merge, map } from '@quenk/noni/lib/data/record';
+import { merge } from '@quenk/noni/lib/data/record';
 
 import { Code, Context } from '../../code';
 import { partition } from '@quenk/noni/lib/data/array';
@@ -264,10 +264,10 @@ export const attributeValue2TS =
  */
 export const attrs2String = (attrs: { [key: string]: string | string[] }) =>
     '{' +
-
-    map(attrs, (val, name) => `${name} :` + Array.isArray(val) ?
-        `{ ${(<string[]>val).join(',')}` : val) +
-
+    Object.keys(attrs).map(name =>
+        Array.isArray(attrs[name]) ?
+            `${name} : { ${(<string[]>attrs[name]).join(',')} }` :
+            `${name}: ${attrs[name]}`) +
     '}';
 
 /**
@@ -286,7 +286,7 @@ export const groupAttrs = (ctx: Context, attrs: nodes.Attribute[])
 
     return nns.reduce((p, n) => merge(p, {
 
-        [n.name.id]: attribute2TS(ctx, n)
+        [n.name.id]: attributeValue2TS(ctx, n.value)
 
     }), <{ [key: string]: string | string[] }>nso);
 
@@ -336,6 +336,8 @@ export const expression2TS = (ctx: Context, n: nodes.Expression): string => {
         return unaryExpression2TS(ctx, n);
     else if (n instanceof nodes.ViewConstruction)
         return viewConstruction2TS(ctx, n);
+    else if (n instanceof nodes.FunApplication)
+        return funApplication2TS(ctx, n);
     else if (n instanceof nodes.ConstructExpression)
         return constructExpression2TS(ctx, n);
     else if (n instanceof nodes.CallExpression)
@@ -412,8 +414,12 @@ export const unaryExpression2TS = (ctx: Context, n: nodes.UnaryExpression) =>
 export const viewConstruction2TS = (ctx: Context, n: nodes.ViewConstruction) =>
     `(new ${constructor2TS(n.cons)}(${expression2TS(ctx, n.context)})).render()`;
 
-export const partialApplication2TS = (ctx: Context, ns: nodes.Expression[]) =>
-    (ns.length === 0) ? '()' : ns.map(e => `(${expression2TS(ctx, e)})`).join('');
+/**
+ * funApplication2TS 
+ */
+export const funApplication2TS = (ctx: Context, n: nodes.FunApplication) =>
+    `${expression2TS(ctx, n.target)}${typeArgs2TS(n.typeArgs)} ` +
+    `${args2TS(ctx, n.args)}(${THIS})`;
 
 /**
  * constructExpression2TS 
@@ -500,7 +506,7 @@ export const boolean2TS = (n: nodes.BooleanLiteral) => `${n.value} `;
 /**
  * string2TS
  */
-export const string2TS = (n: nodes.StringLiteral) => `\`${n.value}\``;
+export const string2TS = (n: nodes.StringLiteral) => `'${n.value}'`;
 
 /**
  * number2TS 
