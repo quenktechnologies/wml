@@ -54,7 +54,7 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
-__this.node('tr', {}, [
+__this.node('tr', <__wml.Attrs>{}, [
 
         ...__forIn (y, (x , i , _$$all)=> 
 ([

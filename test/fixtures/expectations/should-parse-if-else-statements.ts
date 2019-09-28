@@ -54,21 +54,21 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
-__this.widget(Tag, {}, [
+__this.widget(new Tag({}, [
 
         ...(__if(value,
    ()=> ([
 
-        __this.node('text', {}, [
+        __this.node('text', <__wml.Attrs>{}, [
 
         document.createTextNode(`Text`)
      ])
      ]),
    ()=> ([
 
-        __this.node('text', {}, [
+        __this.node('text', <__wml.Attrs>{}, [
 
         document.createTextNode(`else`)
      ])
      ]))) 
-     ])
+     ]),<__wml.Attrs>{})

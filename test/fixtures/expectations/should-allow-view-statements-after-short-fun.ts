@@ -70,7 +70,7 @@ export class Results <A  >  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.node('ul', {}, [
+           return __this.node('ul', <__wml.Attrs>{}, [
 
         ...__forIn ([
 
@@ -80,7 +80,7 @@ export class Results <A  >  implements __wml.View {
             ], (option , index , _$$all)=> 
 ([
 
-        __this.node('li', {}, [
+        __this.node('li', <__wml.Attrs>{}, [
 
         option,
 document.createTextNode(`and`),
@@ -89,7 +89,7 @@ index
      ]), 
 ()=> ([
 
-        __this.node('p', {}, [
+        __this.node('p', <__wml.Attrs>{}, [
 
         document.createTextNode(`De nada!`)
      ])
@@ -112,37 +112,39 @@ index
 
    register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
 
-       let id = (<__wml.Attrs><any>attrs).wml.id;
-       let group = <string>(<__wml.Attrs><any>attrs).wml.group;
+       let attrsMap = (<__wml.Attrs><any>attrs)
 
-       if(id != null) {
+       if(attrsMap.wml) {
 
-           if (this.ids.hasOwnProperty(id))
-             throw new Error(`Duplicate id '${id}' detected!`);
+         let {id, group} = attrsMap.wml;
 
-           this.ids[id] = e;
+         if(id != null) {
 
-       }
+             if (this.ids.hasOwnProperty(id))
+               throw new Error(`Duplicate id '${id}' detected!`);
 
-       if(group != null) {
+             this.ids[id] = e;
 
-           this.groups[group] = this.groups[group] || [];
-           this.groups[group].push(e);
+         }
 
-       }
+         if(group != null) {
 
+             this.groups[group] = this.groups[group] || [];
+             this.groups[group].push(e);
+
+         }
+
+         }
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
        let e = document.createElement(tag);
 
-       if (typeof attrs['html'] === 'object')
+       Object.keys(attrs).forEach(key => {
 
-       Object.keys(attrs['html']).forEach(key => {
-
-           let value = (<any>attrs['html'])[key];
+           let value = (<any>attrs)[key];
 
            if (typeof value === 'function') {
 
@@ -179,7 +181,6 @@ index
 
                }})
 
-
        this.register(e, attrs);
 
        return e;
@@ -187,10 +188,7 @@ index
    }
 
 
-   widget<A extends __wml.Attrs, W extends __wml.
-   WidgetConstructor<A>>(C: W, attrs:A, children: __wml.Content[]) {
-
-       let w = new C(attrs, children);
+   widget(w: __wml.Widget, attrs:__wml.Attrs) {
 
        this.register(w, attrs);
 

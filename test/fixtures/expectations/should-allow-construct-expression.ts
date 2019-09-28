@@ -54,10 +54,13 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
-__this.widget(TextView, {android : { 'thing' : {
+__this.widget(new TextView({android : { 'thing' : {
  
       'value' : 1
      }  }}, [
 
         new Person(__context.value)
-     ])
+     ]),<__wml.Attrs>{android : { 'thing' : {
+ 
+      'value' : 1
+     }  }})

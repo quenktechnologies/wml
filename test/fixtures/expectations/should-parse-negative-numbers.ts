@@ -54,7 +54,7 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
-__this.node('tag', {n: (-0.5 + 3),m: (4 + -2),g: (10 - -5)}, [
+__this.node('tag', <__wml.Attrs>{'n': (-0.5 + 3),'m': (4 + -2),'g': (10 - -5)}, [
 
         
      ])

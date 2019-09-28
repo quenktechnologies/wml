@@ -73,8 +73,7 @@ export interface Registry {
     /**
      * widget registers a Widget.
      */
-    widget<A extends Attrs, W extends WidgetConstructor<A>>
-        (c: W, attrs: A, children: Content[]): Content
+    widget(w: Widget, attrs: Attrs): Content
 
 }
 

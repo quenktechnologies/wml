@@ -94,7 +94,11 @@ export declare const attribute2TS: (ctx: Context, n: nodes.Attribute) => string;
 /**
  * attributeValue2TS
  */
-export declare const attributeValue2TS: (ctx: Context, n: nodes.AttributeValue) => string;
+export declare const attributeValue2TS: (ctx: Context, n: nodes.Attribute) => string;
+/**
+ * attributeName2TS
+ */
+export declare const attributeName2TS: (_: Context, n: nodes.Attribute) => string;
 /**
  * attrs2String
  */

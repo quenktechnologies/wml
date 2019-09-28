@@ -54,17 +54,17 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
-__this.node('panel', {}, [
+__this.node('panel', <__wml.Attrs>{}, [
 
-        __this.node('a', {href: 'link'}, [
+        __this.node('a', <__wml.Attrs>{'href': 'link'}, [
 
         document.createTextNode(`Click Here`)
      ]),
-__this.node('table', {}, [
+__this.node('table', <__wml.Attrs>{}, [
 
         
      ]),
-__this.node('panel', {c: '22'}, [
+__this.node('panel', <__wml.Attrs>{'c': '22'}, [
 
         
      ])

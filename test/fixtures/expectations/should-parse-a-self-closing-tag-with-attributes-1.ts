@@ -54,7 +54,7 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
-__this.node('user', {app : { 'enabled' : true   },id: 24}, [
+__this.node('user', <__wml.Attrs>{app : { 'enabled' : true   },'id': 24}, [
 
         
      ])

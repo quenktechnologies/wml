@@ -54,7 +54,7 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
-__this.node('panel', {type: 'default',size: '40',align: 'left'}, [
+__this.node('panel', <__wml.Attrs>{'type': 'default','size': '40','align': 'left'}, [
 
         
      ])

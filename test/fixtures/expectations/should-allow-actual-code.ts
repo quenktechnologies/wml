@@ -67,42 +67,42 @@ export class Main  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.widget(Panel, {ww : { 'class' : __context.values.root .class   }}, [
+           return __this.widget(new Panel({ww : { 'class' : __context.values.root .class   }}, [
 
         ...(__if(((__context.values.header .tabs .length  > 0) || __context.values.header .additionalTabs ),
    ()=> ([
 
-        __this.widget(PanelHeader, {}, [
+        __this.widget(new PanelHeader({}, [
 
-        __this.widget(TabBar, {}, [
+        __this.widget(new TabBar({}, [
 
         ...__forIn (__context.values.header .tabs , (tab , _$$i, _$$all)=> 
 ([
 
-        __this.widget(Tab, {ww : { 'name' : tab.name ,'onClick' : tab.onClick  }}, [
+        __this.widget(new Tab({ww : { 'name' : tab.name ,'onClick' : tab.onClick  }}, [
 
         
-     ])
+     ]),<__wml.Attrs>{ww : { 'name' : tab.name ,'onClick' : tab.onClick  }})
      ]), 
 ()=> ([])),
 ...(__if(__context.values.header .additionalTabs ,
    ()=> ([
 
-        __context.values.header .additionalTabs  __context(__this)
+        __context.values.header .additionalTabs  (__context)(__this)
      ]),
    ()=> ([
 
         ''
      ]))) 
-     ])
-     ])
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{})
      ]),
    ()=> ([
 
         ''
      ]))) ,
 __context.children
-     ]);
+     ]),<__wml.Attrs>{ww : { 'class' : __context.values.root .class   }});
 
        }
 
@@ -120,37 +120,39 @@ __context.children
 
    register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
 
-       let id = (<__wml.Attrs><any>attrs).wml.id;
-       let group = <string>(<__wml.Attrs><any>attrs).wml.group;
+       let attrsMap = (<__wml.Attrs><any>attrs)
 
-       if(id != null) {
+       if(attrsMap.wml) {
 
-           if (this.ids.hasOwnProperty(id))
-             throw new Error(`Duplicate id '${id}' detected!`);
+         let {id, group} = attrsMap.wml;
 
-           this.ids[id] = e;
+         if(id != null) {
 
-       }
+             if (this.ids.hasOwnProperty(id))
+               throw new Error(`Duplicate id '${id}' detected!`);
 
-       if(group != null) {
+             this.ids[id] = e;
 
-           this.groups[group] = this.groups[group] || [];
-           this.groups[group].push(e);
+         }
 
-       }
+         if(group != null) {
 
+             this.groups[group] = this.groups[group] || [];
+             this.groups[group].push(e);
+
+         }
+
+         }
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
        let e = document.createElement(tag);
 
-       if (typeof attrs['html'] === 'object')
+       Object.keys(attrs).forEach(key => {
 
-       Object.keys(attrs['html']).forEach(key => {
-
-           let value = (<any>attrs['html'])[key];
+           let value = (<any>attrs)[key];
 
            if (typeof value === 'function') {
 
@@ -187,7 +189,6 @@ __context.children
 
                }})
 
-
        this.register(e, attrs);
 
        return e;
@@ -195,10 +196,7 @@ __context.children
    }
 
 
-   widget<A extends __wml.Attrs, W extends __wml.
-   WidgetConstructor<A>>(C: W, attrs:A, children: __wml.Content[]) {
-
-       let w = new C(attrs, children);
+   widget(w: __wml.Widget, attrs:__wml.Attrs) {
 
        this.register(w, attrs);
 

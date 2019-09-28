@@ -54,7 +54,7 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
-__this.node('div', {class: ((Styles.A + ' ') + Style.B)}, [
+__this.node('div', <__wml.Attrs>{'class': ((Styles.A + ' ') + Style.B)}, [
 
         
      ])

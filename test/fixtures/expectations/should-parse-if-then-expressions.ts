@@ -54,7 +54,7 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
-__this.widget(Html, {id: __context.id}, [
+__this.widget(new Html({'id': __context.id}, [
 
         (__context.check()) ? a :  b
-     ])
+     ]),<__wml.Attrs>{'id': __context.id})

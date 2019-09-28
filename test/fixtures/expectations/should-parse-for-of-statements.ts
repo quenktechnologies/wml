@@ -54,7 +54,7 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
-__this.node('root', {}, [
+__this.node('root', <__wml.Attrs>{}, [
 
         ...__forOf ({
  
@@ -62,7 +62,7 @@ __this.node('root', {}, [
      }, (value , key , _$$all) => 
        ([
 
-        __this.node('stem', {}, [
+        __this.node('stem', <__wml.Attrs>{}, [
 
         key,
 document.createTextNode(` ~ `),

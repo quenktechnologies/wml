@@ -60,10 +60,10 @@ export const vue =
 
    return [
 
-        __this.widget(View, {a: a,b: b,c: c}, [
+        __this.widget(new View({'a': a,'b': b,'c': c}, [
 
         
-     ])
+     ]),<__wml.Attrs>{'a': a,'b': b,'c': c})
      ];
 
 };

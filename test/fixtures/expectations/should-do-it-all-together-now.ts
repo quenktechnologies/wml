@@ -54,25 +54,25 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
-__this.node('modal', {name: 'mymodal',x: '1',y: '2'}, [
+__this.node('modal', <__wml.Attrs>{'name': 'mymodal','x': '1','y': '2'}, [
 
-        __this.node('modal-header', {}, [
+        __this.node('modal-header', <__wml.Attrs>{}, [
 
         document.createTextNode(`My Modal`)
      ]),
-__this.node('modal-body', {}, [
+__this.node('modal-body', <__wml.Attrs>{}, [
 
         document.createTextNode(`Creativxity is inhibxited by greed and corruption.`),
-__this.node('vote-button', {}, [
+__this.node('vote-button', <__wml.Attrs>{}, [
 
         
      ]),
-__this.node('vote-count', {source: __context}, [
+__this.node('vote-count', <__wml.Attrs>{'source': __context}, [
 
         
      ]),
 document.createTextNode(` Votes`),
-__this.node('textarea', {wml : { 'id' : 'ta'  },disabled: true ,size: 32,onchange: __context.setText}, [
+__this.node('textarea', <__wml.Attrs>{wml : { 'id' : 'ta'  },'disabled': true ,'size': 32,'onchange': __context.setText}, [
 
         document.createTextNode(` Various text`)
      ])
