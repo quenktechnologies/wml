@@ -6,9 +6,10 @@
 
 import * as nodes from '../../../parse/ast';
 
-import { merge } from '@quenk/noni/lib/data/record';
+import { merge, map } from '@quenk/noni/lib/data/record';
 
 import { Code, Context } from '../../code';
+import { partition } from '@quenk/noni/lib/data/array';
 
 export const CONTEXT = '__context';
 export const VIEW = '__view';
@@ -261,17 +262,35 @@ export const attributeValue2TS =
 /**
  * attrs2String 
  */
-export const attrs2String = (attrs: { [key: string]: string[] }) => '{' +
-    (Object.keys(attrs).map(ns => `${ns} : { ${attrs[ns].join(',')} } `)) + '}';
+export const attrs2String = (attrs: { [key: string]: string | string[] }) =>
+    '{' +
+
+    map(attrs, (val, name) => `${name} :` + Array.isArray(val) ?
+        `{ ${(<string[]>val).join(',')}` : val) +
+
+    '}';
 
 /**
  * groupAttrs
  */
-export const groupAttrs = (ctx: Context, ns: nodes.Attribute[]) => ns.reduce((p, c) =>
-    merge(p, {
-        [c.namespace.id || 'html']: (p[c.namespace.id || 'html'] || []).concat(
-            attribute2TS(ctx, c))
-    }), ({ html: [], wml: [] } as { [key: string]: string[] }));
+export const groupAttrs = (ctx: Context, attrs: nodes.Attribute[])
+    : { [key: string]: string | string[] } => {
+
+    let [nns, ns] = partition(attrs, a => (a.namespace.id === ''));
+
+    let nso = ns.reduce((p, n) => merge(p, {
+
+        [n.namespace.id]: (p[n.namespace.id] || []).concat(attribute2TS(ctx, n))
+
+    }), <{ [key: string]: string[] }>{});
+
+    return nns.reduce((p, n) => merge(p, {
+
+        [n.name.id]: attribute2TS(ctx, n)
+
+    }), <{ [key: string]: string | string[] }>nso);
+
+}
 
 /**
  * interpolation2TS 

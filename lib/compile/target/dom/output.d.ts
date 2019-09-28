@@ -99,13 +99,13 @@ export declare const attributeValue2TS: (ctx: Context, n: nodes.AttributeValue) 
  * attrs2String
  */
 export declare const attrs2String: (attrs: {
-    [key: string]: string[];
+    [key: string]: string | string[];
 }) => string;
 /**
  * groupAttrs
  */
-export declare const groupAttrs: (ctx: Context, ns: nodes.Attribute[]) => {
-    [key: string]: string[];
+export declare const groupAttrs: (ctx: Context, attrs: nodes.Attribute[]) => {
+    [key: string]: string | string[];
 };
 /**
  * interpolation2TS

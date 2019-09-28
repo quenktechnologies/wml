@@ -25,7 +25,7 @@
     "typescript": "^3.6.3"
   },
   "dependencies": {
-    "@quenk/noni": "^1.32.0",
+    "@quenk/noni": "^1.33.0",
     "property-seek": "^3.1.1"
   }
 }

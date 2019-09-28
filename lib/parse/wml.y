@@ -379,7 +379,7 @@ attribute
 
           | unqualified_identifier '=' attribute_value
             {$$ =
-            new yy.ast.Attribute(new yy.ast.UnqualifiedIdentifier('html', @$),
+            new yy.ast.Attribute(new yy.ast.UnqualifiedIdentifier('', @$),
             $1, $3, @$);}
 
           | unqualified_identifier ':' unqualified_identifier
@@ -388,7 +388,7 @@ attribute
 
           | unqualified_identifier
             {$$ = new yy.ast.Attribute(
-            new yy.ast.UnqualifiedIdentifier('html', @$),
+            new yy.ast.UnqualifiedIdentifier('', @$),
             $1, new yy.ast.BooleanLiteral(true, @$), @$);  }
           ;
 
