@@ -27,11 +27,11 @@ const FROM_NULLABLE = '__fromNullable';
 
 const FROM_ARRAY = '__fromArray';
 
-const NODE_PARAMS = `tag:string, attrs:${WML}.Attributes<any>, ` +
+const NODE_PARAMS = `tag:string, attrs:${WML}.Attrs, ` +
     `children: ${WML}.Content[]`;
 
 const WIDGET_PARAMS =
-    `C: W, attrs:A, children: ${WML}.Content[]`;
+    `w: ${WML}.Widget, attrs:${WML}.Attrs`;
 
 const REGISTER_PARAMS = `e:${WML}.WMLElement, ` +
     `attrs:${WML}.Attributes<any>`;
@@ -174,25 +174,29 @@ export class DOMGenerator implements Generator {
             ``,
             `   register(${REGISTER_PARAMS}) {`,
             ``,
-            `       let id = (<${WML}.Attrs><any>attrs).wml.id;`,
-            `       let group = <string>(<${WML}.Attrs><any>attrs).wml.group;`,
+            `       let attrsMap = (<${WML}.Attrs><any>attrs)`,
             ``,
-            `       if(id != null) {`,
+            `       if(attrsMap.wml) {`,
             ``,
-            `           if (this.ids.hasOwnProperty(id))`,
-            `             throw new Error(\`Duplicate id '\${id}' detected!\`);`,
+            `         let {id, group} = attrsMap.wml;`,
             ``,
-            `           this.ids[id] = e;`,
+            `         if(id != null) {`,
             ``,
-            `       }`,
+            `             if (this.ids.hasOwnProperty(id))`,
+            `               throw new Error(\`Duplicate id '\${id}' detected!\`);`,
             ``,
-            `       if(group != null) {`,
+            `             this.ids[id] = e;`,
             ``,
-            `           this.groups[group] = this.groups[group] || [];`,
-            `           this.groups[group].push(e);`,
+            `         }`,
             ``,
-            `       }`,
+            `         if(group != null) {`,
             ``,
+            `             this.groups[group] = this.groups[group] || [];`,
+            `             this.groups[group].push(e);`,
+            ``,
+            `         }`,
+            ``,
+            `         }`,
             `       return e;`,
             `}`,
             ``,
@@ -200,11 +204,9 @@ export class DOMGenerator implements Generator {
             ``,
             `       let e = document.createElement(tag);`,
             ``,
-            `       if (typeof attrs['html'] === 'object')`,
+            `       Object.keys(attrs).forEach(key => {`,
             ``,
-            `       Object.keys(attrs['html']).forEach(key => {`,
-            ``,
-            `           let value = (<any>attrs['html'])[key];`,
+            `           let value = (<any>attrs)[key];`,
             ``,
             `           if (typeof value === 'function') {`,
             ``,
@@ -241,7 +243,6 @@ export class DOMGenerator implements Generator {
             ``,
             `               }})`,
             ``,
-            ``,
             `       this.register(e, attrs);`,
             ``,
             `       return e;`,
@@ -249,10 +250,7 @@ export class DOMGenerator implements Generator {
             `   }`,
             ``,
             ``,
-            `   widget<A extends ${WML}.Attrs, W extends ${WML}.`,
-            `   WidgetConstructor<A>>(${WIDGET_PARAMS}) {`,
-            ``,
-            `       let w = new C(attrs, children);`,
+            `   widget(${WIDGET_PARAMS}) {`,
             ``,
             `       this.register(w, attrs);`,
             ``,
@@ -322,7 +320,7 @@ export class DOMGenerator implements Generator {
 
         let typeParams = typeParameters(n.typeParameters);
 
-        let params = (n.parameters.length === 0) ? '() =>' :
+        let params = (n.parameters.length === 0) ? '' :
             n.parameters.map(parameter2TS).join(',');
 
         let factory = `(${THIS}:${WML}.Registry) : ${WML}.Content[] =>`;
@@ -349,7 +347,8 @@ export class DOMGenerator implements Generator {
         let attrs = attrs2String(groupAttrs(ctx, w.attributes));
         let childs = children2TS(ctx, w.children);
 
-        return `${THIS}.widget(${name}, ${attrs}, ${childs})`;
+        return `${THIS}.widget(new ${name}(${attrs}, ${childs}),` +
+            `<${WML}.Attrs>${attrs})`;
 
     }
 
@@ -359,7 +358,7 @@ export class DOMGenerator implements Generator {
         let attrs = attrs2String(groupAttrs(ctx, n.attributes));
         let childs = children2TS(ctx, n.children);
 
-        return `${THIS}.node('${name}', ${attrs}, ${childs})`;
+        return `${THIS}.node('${name}', <${WML}.Attrs>${attrs}, ${childs})`;
 
     }
 

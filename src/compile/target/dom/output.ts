@@ -248,16 +248,22 @@ export const tag2TS = (ctx: Context, n: nodes.Tag) => {
  * attribute2Value 
  */
 export const attribute2TS = (ctx: Context, n: nodes.Attribute) =>
-    `'${unqualifiedIdentifier2TS(n.name)}' : ${attributeValue2TS(ctx, n.value)} `;
+    `${attributeName2TS(ctx, n)} : ${attributeValue2TS(ctx, n)} `;
 
 /**
  * attributeValue2TS
  */
 export const attributeValue2TS =
-    (ctx: Context, n: nodes.Interpolation | nodes.Literal) =>
-        (n instanceof nodes.Interpolation) ?
-            interpolation2TS(ctx, n) :
-            literal2TS(ctx, n);
+    (ctx: Context, n: nodes.Attribute) =>
+        (n.value instanceof nodes.Interpolation) ?
+            interpolation2TS(ctx, n.value) :
+            literal2TS(ctx, n.value);
+
+/**
+ * attributeName2TS
+ */
+export const attributeName2TS = (_: Context, n: nodes.Attribute) =>
+    `'${unqualifiedIdentifier2TS(n.name)}'`;
 
 /**
  * attrs2String 
@@ -286,7 +292,7 @@ export const groupAttrs = (ctx: Context, attrs: nodes.Attribute[])
 
     return nns.reduce((p, n) => merge(p, {
 
-        [n.name.id]: attributeValue2TS(ctx, n.value)
+        [attributeName2TS(ctx, n)]: attributeValue2TS(ctx, n)
 
     }), <{ [key: string]: string | string[] }>nso);
 
@@ -419,7 +425,7 @@ export const viewConstruction2TS = (ctx: Context, n: nodes.ViewConstruction) =>
  */
 export const funApplication2TS = (ctx: Context, n: nodes.FunApplication) =>
     `${expression2TS(ctx, n.target)}${typeArgs2TS(n.typeArgs)} ` +
-    `${args2TS(ctx, n.args)}(${THIS})`;
+    `(${args2TS(ctx, n.args)})(${THIS})`;
 
 /**
  * constructExpression2TS 
