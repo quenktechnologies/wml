@@ -469,6 +469,9 @@ else_clause
          :  '{%' ELSE '%}' children '{%' ENDIF '%}'
             { $$ = new yy.ast.ElseClause($4, @$); }
 
+         |  '{%' ELSE IF expression '%}' children '{%' ENDIF '%}'
+            { $$ = new yy.ast.ElseIfClause($4, $6, undefined, @$); }
+
          |  '{%' ELSE IF expression '%}' children else_clause 
             { $$ = new yy.ast.ElseIfClause($4, $6, $7, @$); }
          ;

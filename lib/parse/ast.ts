@@ -54,7 +54,7 @@ export class ImportStatement {
 }
 
 /**
- * ImportMember 
+ * ImportMember
  */
 export type ImportMember
     = AggregateMember
@@ -63,7 +63,7 @@ export type ImportMember
     ;
 
 /**
- * AliasedMember 
+ * AliasedMember
  * @property {Identifier} alias - The identifier introduced to scope.
  * @property {Identifier} member - The identifier that is aliased.
  */
@@ -90,7 +90,7 @@ export class AggregateMember {
 }
 
 /**
- * CompositeMember 
+ * CompositeMember
  * @property {...Identifier|Aliased_Member} members
  */
 export class CompositeMember {
@@ -325,7 +325,7 @@ export class ElseIfClause {
     constructor(
         public condition: Expression,
         public then: Child[],
-        public elseClause: ElseClause | ElseIfClause,
+        public elseClause: ElseClause | ElseIfClause | undefined,
         public location: Location) { }
 
 }
@@ -439,7 +439,7 @@ export class CallExpression {
 }
 
 /**
- * MemberExpression 
+ * MemberExpression
  */
 export class MemberExpression {
 
@@ -582,7 +582,7 @@ export class QualifiedConstructor {
 }
 
 /**
- * Identifier 
+ * Identifier
  */
 export type Identifier
     = UnqualifiedIdentifier

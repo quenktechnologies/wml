@@ -199,10 +199,10 @@ export declare class ElseClause {
 export declare class ElseIfClause {
     condition: Expression;
     then: Child[];
-    elseClause: ElseClause | ElseIfClause;
+    elseClause: ElseClause | ElseIfClause | undefined;
     location: Location;
     type: string;
-    constructor(condition: Expression, then: Child[], elseClause: ElseClause | ElseIfClause, location: Location);
+    constructor(condition: Expression, then: Child[], elseClause: ElseClause | ElseIfClause | undefined, location: Location);
 }
 export declare class Characters {
     value: string;
