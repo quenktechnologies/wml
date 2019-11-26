@@ -419,7 +419,7 @@ export const unaryExpression2TS = (ctx: Context, n: nodes.UnaryExpression) =>
  */
 export const viewConstruction2TS = (ctx: Context, n: nodes.ViewConstruction) =>
     `${THIS}.registerView((new ${constructor2TS(n.cons)}` +
-    `(${expression2TS(ctx, n.context)})).render())`;
+    `(${expression2TS(ctx, n.context)}))).render()`;
 
 /**
  * funApplication2TS 
