@@ -1,10 +1,6 @@
 import { Maybe } from '@quenk/noni/lib/data/maybe';
 
-/**
- * Maybe type.
- */
-export type Maybe<A> = Maybe<A>;
-
+export { Maybe }
 
 /**
  * WidgetConstructor
