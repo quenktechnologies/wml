@@ -60,6 +60,11 @@ export type Fun = (r: Registry) => Content[];
 export interface Registry {
 
     /**
+     * registerView
+     */
+    registerView(v: View): View;
+
+    /**
      * register an element.
      */
     register<A extends Attrs>(e: WMLElement, attrs: A): WMLElement;

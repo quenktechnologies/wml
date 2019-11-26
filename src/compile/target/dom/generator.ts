@@ -33,6 +33,8 @@ const NODE_PARAMS = `tag:string, attrs:${WML}.Attrs, ` +
 const WIDGET_PARAMS =
     `w: ${WML}.Widget, attrs:${WML}.Attrs`;
 
+const REGISTER_VIEW_PARAMS = `v:${WML}.View`;
+
 const REGISTER_PARAMS = `e:${WML}.WMLElement, ` +
     `attrs:${WML}.Attributes<any>`;
 
@@ -166,12 +168,21 @@ export class DOMGenerator implements Generator {
             ``,
             `   groups: { [key: string]: ${WML}.WMLElement[] } = {};`,
             ``,
+            `   views: ${WML}.View[] = [];`,
+            ``,
             `   widgets: ${WML}.Widget[] = [];`,
             ``,
             `   tree: ${WML}.Content = document.createElement('div');`,
             ``,
             `   template: ${WML}.Template;`,
             ``,
+            `   registerView(${REGISTER_VIEW_PARAMS}) : ${WML}.View {`,
+            ``,
+            `       this.views.push(v);`,
+            ``,
+            `       return v;`,
+            ``,
+            `}`,
             `   register(${REGISTER_PARAMS}) {`,
             ``,
             `       let attrsMap = (<${WML}.Attrs><any>attrs)`,
@@ -262,16 +273,23 @@ export class DOMGenerator implements Generator {
             ``,
             `   findById<E extends ${WML}.WMLElement>(id: string): ${MAYBE}<E> {`,
             ``,
-            `       return ${FROM_NULLABLE}<E>(<E>this.ids[id])`,
+            `       let mW:${MAYBE}<E> = ${FROM_NULLABLE}<E>(<E>this.ids[id])`,
+            ``,
+            `       return this.views.reduce((p,c)=>`,
+            `       p.isJust() ? p : c.findById(id), mW);`,
             ``,
             `   }`,
             ``,
             `   findByGroup<E extends ${WML}.WMLElement>(name: string): ` +
             `${MAYBE}<E[]> {`,
             ``,
-            `       return ${FROM_ARRAY}(this.groups.hasOwnProperty(name) ?`,
+            `      let mGroup:${MAYBE}<E[]> =`,
+            `           ${FROM_ARRAY}(this.groups.hasOwnProperty(name) ?`,
             `           <any>this.groups[name] : `,
             `           []);`,
+            ``,
+            `      return this.views.reduce((p,c) =>`,
+            `       p.isJust() ? p : c.findByGroup(name), mGroup);`,
             ``,
             `   }`,
             ``,
@@ -296,6 +314,7 @@ export class DOMGenerator implements Generator {
             `       this.ids = {};`,
             `       this.widgets.forEach(w => w.removed());`,
             `       this.widgets = [];`,
+            `       this.views = [];`,
             `       this.tree = this.template(this);`,
             ``,
             `       this.ids['root'] = (this.ids['root']) ?`,
