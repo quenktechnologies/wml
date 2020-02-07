@@ -1,1 +1,256 @@
-{"imports":[],"exports":[{"open":{"id":"panel","location":{"first_line":1,"first_column":1,"last_line":1,"last_column":6,"range":[1,6]},"type":"unqualified-identifier"},"attributes":[],"children":[{"open":{"id":"a","location":{"first_line":1,"first_column":8,"last_line":1,"last_column":9,"range":[8,9]},"type":"unqualified-identifier"},"attributes":[{"namespace":{"id":"","location":{"first_line":1,"first_column":10,"last_line":1,"last_column":21,"range":[10,21]},"type":"unqualified-identifier"},"name":{"id":"href","location":{"first_line":1,"first_column":10,"last_line":1,"last_column":14,"range":[10,14]},"type":"unqualified-identifier"},"value":{"value":"link","type":"string"},"location":{"first_line":1,"first_column":10,"last_line":1,"last_column":21,"range":[10,21]},"type":"attribute"}],"children":[{"value":"Click Here","location":{"first_line":1,"first_column":22,"last_line":1,"last_column":32,"range":[22,32]},"type":"characters"}],"close":{"id":"a","location":{"first_line":1,"first_column":34,"last_line":1,"last_column":35,"range":[34,35]},"type":"unqualified-identifier"},"type":"node"},{"open":{"id":"table","location":{"first_line":1,"first_column":37,"last_line":1,"last_column":42,"range":[37,42]},"type":"unqualified-identifier"},"attributes":[],"children":[],"close":{"id":"table","location":{"first_line":1,"first_column":37,"last_line":1,"last_column":42,"range":[37,42]},"type":"unqualified-identifier"},"type":"node"},{"open":{"id":"panel","location":{"first_line":1,"first_column":45,"last_line":1,"last_column":50,"range":[45,50]},"type":"unqualified-identifier"},"attributes":[{"namespace":{"id":"","location":{"first_line":1,"first_column":51,"last_line":1,"last_column":57,"range":[51,57]},"type":"unqualified-identifier"},"name":{"id":"c","location":{"first_line":1,"first_column":51,"last_line":1,"last_column":52,"range":[51,52]},"type":"unqualified-identifier"},"value":{"value":"22","type":"string"},"location":{"first_line":1,"first_column":51,"last_line":1,"last_column":57,"range":[51,57]},"type":"attribute"}],"children":[],"close":{"id":"panel","location":{"first_line":1,"first_column":60,"last_line":1,"last_column":65,"range":[60,65]},"type":"unqualified-identifier"},"type":"node"}],"close":{"id":"panel","location":{"first_line":1,"first_column":68,"last_line":1,"last_column":73,"range":[68,73]},"type":"unqualified-identifier"},"type":"node"}],"location":{"first_line":1,"first_column":0,"last_line":1,"last_column":74,"range":[0,74]},"type":"module"}
+{
+  "imports": [],
+  "exports": [
+    {
+      "open": {
+        "value": "panel",
+        "location": {
+          "first_line": 1,
+          "first_column": 1,
+          "last_line": 1,
+          "last_column": 6,
+          "range": [
+            1,
+            6
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "attributes": [],
+      "children": [
+        {
+          "open": {
+            "value": "a",
+            "location": {
+              "first_line": 1,
+              "first_column": 8,
+              "last_line": 1,
+              "last_column": 9,
+              "range": [
+                8,
+                9
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "attributes": [
+            {
+              "namespace": {
+                "value": "",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 10,
+                  "last_line": 1,
+                  "last_column": 21,
+                  "range": [
+                    10,
+                    21
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "name": {
+                "value": "href",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 10,
+                  "last_line": 1,
+                  "last_column": 14,
+                  "range": [
+                    10,
+                    14
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "value": {
+                "value": "link",
+                "type": "string"
+              },
+              "location": {
+                "first_line": 1,
+                "first_column": 10,
+                "last_line": 1,
+                "last_column": 21,
+                "range": [
+                  10,
+                  21
+                ]
+              },
+              "type": "attribute"
+            }
+          ],
+          "children": [
+            {
+              "value": "Click Here",
+              "location": {
+                "first_line": 1,
+                "first_column": 22,
+                "last_line": 1,
+                "last_column": 32,
+                "range": [
+                  22,
+                  32
+                ]
+              },
+              "type": "characters"
+            }
+          ],
+          "close": {
+            "value": "a",
+            "location": {
+              "first_line": 1,
+              "first_column": 34,
+              "last_line": 1,
+              "last_column": 35,
+              "range": [
+                34,
+                35
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "type": "node"
+        },
+        {
+          "open": {
+            "value": "table",
+            "location": {
+              "first_line": 1,
+              "first_column": 37,
+              "last_line": 1,
+              "last_column": 42,
+              "range": [
+                37,
+                42
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "attributes": [],
+          "children": [],
+          "close": {
+            "value": "table",
+            "location": {
+              "first_line": 1,
+              "first_column": 37,
+              "last_line": 1,
+              "last_column": 42,
+              "range": [
+                37,
+                42
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "type": "node"
+        },
+        {
+          "open": {
+            "value": "panel",
+            "location": {
+              "first_line": 1,
+              "first_column": 45,
+              "last_line": 1,
+              "last_column": 50,
+              "range": [
+                45,
+                50
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "attributes": [
+            {
+              "namespace": {
+                "value": "",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 51,
+                  "last_line": 1,
+                  "last_column": 57,
+                  "range": [
+                    51,
+                    57
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "name": {
+                "value": "c",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 51,
+                  "last_line": 1,
+                  "last_column": 52,
+                  "range": [
+                    51,
+                    52
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "value": {
+                "value": "22",
+                "type": "string"
+              },
+              "location": {
+                "first_line": 1,
+                "first_column": 51,
+                "last_line": 1,
+                "last_column": 57,
+                "range": [
+                  51,
+                  57
+                ]
+              },
+              "type": "attribute"
+            }
+          ],
+          "children": [],
+          "close": {
+            "value": "panel",
+            "location": {
+              "first_line": 1,
+              "first_column": 60,
+              "last_line": 1,
+              "last_column": 65,
+              "range": [
+                60,
+                65
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "type": "node"
+        }
+      ],
+      "close": {
+        "value": "panel",
+        "location": {
+          "first_line": 1,
+          "first_column": 68,
+          "last_line": 1,
+          "last_column": 73,
+          "range": [
+            68,
+            73
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "type": "node"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 74,
+    "range": [
+      0,
+      74
+    ]
+  },
+  "type": "module"
+}

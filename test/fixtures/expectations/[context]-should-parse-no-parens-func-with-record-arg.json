@@ -1,0 +1,108 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "Test",
+        "location": {
+          "first_line": 1,
+          "first_column": 11,
+          "last_line": 1,
+          "last_column": 15,
+          "range": [
+            11,
+            15
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "members": [
+        {
+          "path": [
+            {
+              "value": "value",
+              "location": {
+                "first_line": 1,
+                "first_column": 16,
+                "last_line": 1,
+                "last_column": 21,
+                "range": [
+                  16,
+                  21
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "parameters": [
+              {
+                "members": [],
+                "location": {
+                  "first_line": 1,
+                  "first_column": 23,
+                  "last_line": 1,
+                  "last_column": 25,
+                  "range": [
+                    23,
+                    25
+                  ]
+                },
+                "type": "record-type"
+              }
+            ],
+            "returnType": {
+              "members": [],
+              "location": {
+                "first_line": 1,
+                "first_column": 29,
+                "last_line": 1,
+                "last_column": 32,
+                "range": [
+                  29,
+                  32
+                ]
+              },
+              "type": "record-type"
+            },
+            "location": {
+              "first_line": 1,
+              "first_column": 23,
+              "last_line": 1,
+              "last_column": 32,
+              "range": [
+                23,
+                32
+              ]
+            },
+            "type": "function-type"
+          },
+          "location": {
+            "first_line": 1,
+            "first_column": 16,
+            "last_line": 1,
+            "last_column": 32,
+            "range": [
+              16,
+              32
+            ]
+          },
+          "type": "member-declaration"
+        }
+      ],
+      "type": "context-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 35,
+    "range": [
+      0,
+      35
+    ]
+  },
+  "type": "module"
+}

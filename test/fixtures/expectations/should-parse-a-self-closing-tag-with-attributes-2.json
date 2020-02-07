@@ -1,1 +1,185 @@
-{"imports":[],"exports":[{"open":{"id":"user","location":{"first_line":1,"first_column":1,"last_line":1,"last_column":5,"range":[1,5]},"type":"unqualified-identifier"},"attributes":[{"namespace":{"id":"","location":{"first_line":1,"first_column":6,"last_line":1,"last_column":21,"range":[6,21]},"type":"unqualified-identifier"},"name":{"id":"name","location":{"first_line":1,"first_column":6,"last_line":1,"last_column":10,"range":[6,10]},"type":"unqualified-identifier"},"value":{"value":"xyaa aaz","type":"string"},"location":{"first_line":1,"first_column":6,"last_line":1,"last_column":21,"range":[6,21]},"type":"attribute"},{"namespace":{"id":"","location":{"first_line":1,"first_column":22,"last_line":1,"last_column":29,"range":[22,29]},"type":"unqualified-identifier"},"name":{"id":"id","location":{"first_line":1,"first_column":22,"last_line":1,"last_column":24,"range":[22,24]},"type":"unqualified-identifier"},"value":{"value":"24","type":"string"},"location":{"first_line":1,"first_column":22,"last_line":1,"last_column":29,"range":[22,29]},"type":"attribute"},{"namespace":{"id":"","location":{"first_line":1,"first_column":30,"last_line":1,"last_column":42,"range":[30,42]},"type":"unqualified-identifier"},"name":{"id":"align","location":{"first_line":1,"first_column":30,"last_line":1,"last_column":35,"range":[30,35]},"type":"unqualified-identifier"},"value":{"value":"left","type":"string"},"location":{"first_line":1,"first_column":30,"last_line":1,"last_column":42,"range":[30,42]},"type":"attribute"}],"children":[],"close":{"id":"user","location":{"first_line":1,"first_column":1,"last_line":1,"last_column":5,"range":[1,5]},"type":"unqualified-identifier"},"type":"node"}],"location":{"first_line":1,"first_column":0,"last_line":1,"last_column":44,"range":[0,44]},"type":"module"}
+{
+  "imports": [],
+  "exports": [
+    {
+      "open": {
+        "value": "user",
+        "location": {
+          "first_line": 1,
+          "first_column": 1,
+          "last_line": 1,
+          "last_column": 5,
+          "range": [
+            1,
+            5
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "attributes": [
+        {
+          "namespace": {
+            "value": "",
+            "location": {
+              "first_line": 1,
+              "first_column": 6,
+              "last_line": 1,
+              "last_column": 21,
+              "range": [
+                6,
+                21
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "name": {
+            "value": "name",
+            "location": {
+              "first_line": 1,
+              "first_column": 6,
+              "last_line": 1,
+              "last_column": 10,
+              "range": [
+                6,
+                10
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "value": {
+            "value": "xyaa aaz",
+            "type": "string"
+          },
+          "location": {
+            "first_line": 1,
+            "first_column": 6,
+            "last_line": 1,
+            "last_column": 21,
+            "range": [
+              6,
+              21
+            ]
+          },
+          "type": "attribute"
+        },
+        {
+          "namespace": {
+            "value": "",
+            "location": {
+              "first_line": 1,
+              "first_column": 22,
+              "last_line": 1,
+              "last_column": 29,
+              "range": [
+                22,
+                29
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "name": {
+            "value": "id",
+            "location": {
+              "first_line": 1,
+              "first_column": 22,
+              "last_line": 1,
+              "last_column": 24,
+              "range": [
+                22,
+                24
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "value": {
+            "value": "24",
+            "type": "string"
+          },
+          "location": {
+            "first_line": 1,
+            "first_column": 22,
+            "last_line": 1,
+            "last_column": 29,
+            "range": [
+              22,
+              29
+            ]
+          },
+          "type": "attribute"
+        },
+        {
+          "namespace": {
+            "value": "",
+            "location": {
+              "first_line": 1,
+              "first_column": 30,
+              "last_line": 1,
+              "last_column": 42,
+              "range": [
+                30,
+                42
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "name": {
+            "value": "align",
+            "location": {
+              "first_line": 1,
+              "first_column": 30,
+              "last_line": 1,
+              "last_column": 35,
+              "range": [
+                30,
+                35
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "value": {
+            "value": "left",
+            "type": "string"
+          },
+          "location": {
+            "first_line": 1,
+            "first_column": 30,
+            "last_line": 1,
+            "last_column": 42,
+            "range": [
+              30,
+              42
+            ]
+          },
+          "type": "attribute"
+        }
+      ],
+      "children": [],
+      "close": {
+        "value": "user",
+        "location": {
+          "first_line": 1,
+          "first_column": 1,
+          "last_line": 1,
+          "last_column": 5,
+          "range": [
+            1,
+            5
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "type": "node"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 44,
+    "range": [
+      0,
+      44
+    ]
+  },
+  "type": "module"
+}

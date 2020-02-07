@@ -1,1 +1,198 @@
-{"imports":[],"exports":[{"open":{"id":"root","location":{"first_line":1,"first_column":1,"last_line":1,"last_column":5,"range":[1,5]},"type":"unqualified-identifier"},"attributes":[],"children":[{"variables":[{"id":{"id":"value","location":{"first_line":1,"first_column":13,"last_line":1,"last_column":18,"range":[13,18]},"type":"unqualified-identifier"},"location":{"first_line":1,"first_column":13,"last_line":1,"last_column":18,"range":[13,18]},"type":"untyped-parameter"},{"id":{"id":"key","location":{"first_line":1,"first_column":19,"last_line":1,"last_column":22,"range":[19,22]},"type":"unqualified-identifier"},"location":{"first_line":1,"first_column":19,"last_line":1,"last_column":22,"range":[19,22]},"type":"untyped-parameter"}],"expression":{"members":[],"location":{"first_line":1,"first_column":26,"last_line":1,"last_column":28,"range":[26,28]},"type":"list"},"body":[{"open":{"id":"stem","location":{"first_line":1,"first_column":32,"last_line":1,"last_column":36,"range":[32,36]},"type":"unqualified-identifier"},"attributes":[],"children":[{"expression":{"id":"value","location":{"first_line":1,"first_column":39,"last_line":1,"last_column":44,"range":[39,44]},"type":"unqualified-identifier"},"filters":[],"location":{"first_line":1,"first_column":37,"last_line":1,"last_column":46,"range":[37,46]},"type":"interpolation"}],"close":{"id":"stem","location":{"first_line":1,"first_column":48,"last_line":1,"last_column":52,"range":[48,52]},"type":"unqualified-identifier"},"type":"node"}],"otherwise":[],"location":{"first_line":1,"first_column":6,"last_line":1,"last_column":65,"range":[6,65]},"type":"for-in-statement"}],"close":{"id":"root","location":{"first_line":1,"first_column":67,"last_line":1,"last_column":71,"range":[67,71]},"type":"unqualified-identifier"},"type":"node"}],"location":{"first_line":1,"first_column":0,"last_line":1,"last_column":72,"range":[0,72]},"type":"module"}
+{
+  "imports": [],
+  "exports": [
+    {
+      "open": {
+        "value": "root",
+        "location": {
+          "first_line": 1,
+          "first_column": 1,
+          "last_line": 1,
+          "last_column": 5,
+          "range": [
+            1,
+            5
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "attributes": [],
+      "children": [
+        {
+          "variables": [
+            {
+              "id": {
+                "value": "value",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 13,
+                  "last_line": 1,
+                  "last_column": 18,
+                  "range": [
+                    13,
+                    18
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "location": {
+                "first_line": 1,
+                "first_column": 13,
+                "last_line": 1,
+                "last_column": 18,
+                "range": [
+                  13,
+                  18
+                ]
+              },
+              "type": "untyped-parameter"
+            },
+            {
+              "id": {
+                "value": "key",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 19,
+                  "last_line": 1,
+                  "last_column": 22,
+                  "range": [
+                    19,
+                    22
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "location": {
+                "first_line": 1,
+                "first_column": 19,
+                "last_line": 1,
+                "last_column": 22,
+                "range": [
+                  19,
+                  22
+                ]
+              },
+              "type": "untyped-parameter"
+            }
+          ],
+          "expression": {
+            "members": [],
+            "location": {
+              "first_line": 1,
+              "first_column": 26,
+              "last_line": 1,
+              "last_column": 28,
+              "range": [
+                26,
+                28
+              ]
+            },
+            "type": "list"
+          },
+          "body": [
+            {
+              "open": {
+                "value": "stem",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 32,
+                  "last_line": 1,
+                  "last_column": 36,
+                  "range": [
+                    32,
+                    36
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "attributes": [],
+              "children": [
+                {
+                  "expression": {
+                    "value": "value",
+                    "location": {
+                      "first_line": 1,
+                      "first_column": 39,
+                      "last_line": 1,
+                      "last_column": 44,
+                      "range": [
+                        39,
+                        44
+                      ]
+                    },
+                    "type": "unqualified-identifier"
+                  },
+                  "filters": [],
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 37,
+                    "last_line": 1,
+                    "last_column": 46,
+                    "range": [
+                      37,
+                      46
+                    ]
+                  },
+                  "type": "interpolation"
+                }
+              ],
+              "close": {
+                "value": "stem",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 48,
+                  "last_line": 1,
+                  "last_column": 52,
+                  "range": [
+                    48,
+                    52
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "type": "node"
+            }
+          ],
+          "otherwise": [],
+          "location": {
+            "first_line": 1,
+            "first_column": 6,
+            "last_line": 1,
+            "last_column": 65,
+            "range": [
+              6,
+              65
+            ]
+          },
+          "type": "for-in-statement"
+        }
+      ],
+      "close": {
+        "value": "root",
+        "location": {
+          "first_line": 1,
+          "first_column": 67,
+          "last_line": 1,
+          "last_column": 71,
+          "range": [
+            67,
+            71
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "type": "node"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 72,
+    "range": [
+      0,
+      72
+    ]
+  },
+  "type": "module"
+}

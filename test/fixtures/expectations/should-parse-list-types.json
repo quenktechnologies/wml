@@ -1,1 +1,210 @@
-{"imports":[],"exports":[{"id":{"id":"action","location":{"first_line":1,"first_column":7,"last_line":1,"last_column":13,"range":[7,13]},"type":"unqualified-identifier"},"typeParameters":[{"id":{"id":"A","location":{"first_line":1,"first_column":15,"last_line":1,"last_column":16,"range":[15,16]},"type":"unqualified-constructor"},"location":{"first_line":1,"first_column":15,"last_line":1,"last_column":16,"range":[15,16]},"type":"type-parameter"}],"parameters":[{"id":{"id":"s","location":{"first_line":1,"first_column":19,"last_line":1,"last_column":20,"range":[19,20]},"type":"unqualified-identifier"},"hint":{"id":{"id":"String","location":{"first_line":1,"first_column":22,"last_line":1,"last_column":28,"range":[22,28]},"type":"unqualified-constructor"},"typeParameters":[],"list":true,"location":{"first_line":1,"first_column":22,"last_line":1,"last_column":30,"range":[22,30]},"type":"type"},"location":{"first_line":1,"first_column":19,"last_line":1,"last_column":30,"range":[19,30]},"type":"typed-parameter"},{"id":{"id":"a","location":{"first_line":1,"first_column":32,"last_line":1,"last_column":33,"range":[32,33]},"type":"unqualified-identifier"},"hint":{"id":{"id":"A","location":{"first_line":1,"first_column":34,"last_line":1,"last_column":35,"range":[34,35]},"type":"unqualified-constructor"},"typeParameters":[],"list":true,"location":{"first_line":1,"first_column":34,"last_line":1,"last_column":37,"range":[34,37]},"type":"type"},"location":{"first_line":1,"first_column":32,"last_line":1,"last_column":37,"range":[32,37]},"type":"typed-parameter"}],"body":[{"expression":{"value":"${s}${a}","type":"string"},"filters":[],"location":{"first_line":1,"first_column":41,"last_line":1,"last_column":58,"range":[41,58]},"type":"interpolation"}],"location":{"first_line":1,"first_column":0,"last_line":1,"last_column":61,"range":[0,61]},"type":"fun-statement"}],"location":{"first_line":1,"first_column":0,"last_line":1,"last_column":61,"range":[0,61]},"type":"module"}
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "action",
+        "location": {
+          "first_line": 1,
+          "first_column": 7,
+          "last_line": 1,
+          "last_column": 13,
+          "range": [
+            7,
+            13
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "typeParameters": [
+        {
+          "id": {
+            "value": "A",
+            "location": {
+              "first_line": 1,
+              "first_column": 15,
+              "last_line": 1,
+              "last_column": 16,
+              "range": [
+                15,
+                16
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "location": {
+            "first_line": 1,
+            "first_column": 15,
+            "last_line": 1,
+            "last_column": 16,
+            "range": [
+              15,
+              16
+            ]
+          },
+          "type": "type-parameter"
+        }
+      ],
+      "parameters": [
+        {
+          "id": {
+            "value": "s",
+            "location": {
+              "first_line": 1,
+              "first_column": 19,
+              "last_line": 1,
+              "last_column": 20,
+              "range": [
+                19,
+                20
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "hint": {
+            "elementType": {
+              "id": {
+                "value": "String",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 22,
+                  "last_line": 1,
+                  "last_column": 28,
+                  "range": [
+                    22,
+                    28
+                  ]
+                },
+                "type": "unqualified-constructor"
+              },
+              "typeParameters": [],
+              "type": "constructor-type"
+            },
+            "location": {
+              "first_line": 1,
+              "first_column": 22,
+              "last_line": 1,
+              "last_column": 30,
+              "range": [
+                22,
+                30
+              ]
+            },
+            "type": "array-type"
+          },
+          "location": {
+            "first_line": 1,
+            "first_column": 19,
+            "last_line": 1,
+            "last_column": 30,
+            "range": [
+              19,
+              30
+            ]
+          },
+          "type": "typed-parameter"
+        },
+        {
+          "id": {
+            "value": "a",
+            "location": {
+              "first_line": 1,
+              "first_column": 32,
+              "last_line": 1,
+              "last_column": 33,
+              "range": [
+                32,
+                33
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "hint": {
+            "elementType": {
+              "id": {
+                "value": "A",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 34,
+                  "last_line": 1,
+                  "last_column": 35,
+                  "range": [
+                    34,
+                    35
+                  ]
+                },
+                "type": "unqualified-constructor"
+              },
+              "typeParameters": [],
+              "type": "constructor-type"
+            },
+            "location": {
+              "first_line": 1,
+              "first_column": 34,
+              "last_line": 1,
+              "last_column": 37,
+              "range": [
+                34,
+                37
+              ]
+            },
+            "type": "array-type"
+          },
+          "location": {
+            "first_line": 1,
+            "first_column": 32,
+            "last_line": 1,
+            "last_column": 37,
+            "range": [
+              32,
+              37
+            ]
+          },
+          "type": "typed-parameter"
+        }
+      ],
+      "body": [
+        {
+          "expression": {
+            "value": "${s}${a}",
+            "type": "string"
+          },
+          "filters": [],
+          "location": {
+            "first_line": 1,
+            "first_column": 41,
+            "last_line": 1,
+            "last_column": 58,
+            "range": [
+              41,
+              58
+            ]
+          },
+          "type": "interpolation"
+        }
+      ],
+      "location": {
+        "first_line": 1,
+        "first_column": 0,
+        "last_line": 1,
+        "last_column": 61,
+        "range": [
+          0,
+          61
+        ]
+      },
+      "type": "fun-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 61,
+    "range": [
+      0,
+      61
+    ]
+  },
+  "type": "module"
+}

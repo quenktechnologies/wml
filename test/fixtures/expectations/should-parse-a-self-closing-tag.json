@@ -1,1 +1,49 @@
-{"imports":[],"exports":[{"open":{"id":"simple","location":{"first_line":1,"first_column":1,"last_line":1,"last_column":7,"range":[1,7]},"type":"unqualified-identifier"},"attributes":[],"children":[],"close":{"id":"simple","location":{"first_line":1,"first_column":1,"last_line":1,"last_column":7,"range":[1,7]},"type":"unqualified-identifier"},"type":"node"}],"location":{"first_line":1,"first_column":0,"last_line":1,"last_column":9,"range":[0,9]},"type":"module"}
+{
+  "imports": [],
+  "exports": [
+    {
+      "open": {
+        "value": "simple",
+        "location": {
+          "first_line": 1,
+          "first_column": 1,
+          "last_line": 1,
+          "last_column": 7,
+          "range": [
+            1,
+            7
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "attributes": [],
+      "children": [],
+      "close": {
+        "value": "simple",
+        "location": {
+          "first_line": 1,
+          "first_column": 1,
+          "last_line": 1,
+          "last_column": 7,
+          "range": [
+            1,
+            7
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "type": "node"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 9,
+    "range": [
+      0,
+      9
+    ]
+  },
+  "type": "module"
+}

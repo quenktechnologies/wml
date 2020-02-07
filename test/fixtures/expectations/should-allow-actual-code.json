@@ -1,1 +1,1540 @@
-{"imports":[{"member":{"members":[{"id":"Table","location":{"first_line":2,"first_column":19,"last_line":2,"last_column":24,"range":[20,25]},"type":"unqualified-constructor"}],"location":{"first_line":2,"first_column":18,"last_line":2,"last_column":25,"range":[19,26]},"type":"composite-member"},"module":{"value":"@quenk/wml-widgets/lib/data/table","type":"string"},"location":{"first_line":2,"first_column":8,"last_line":2,"last_column":69,"range":[9,70]},"type":"import-statement"},{"member":{"members":[{"id":"TextField","location":{"first_line":3,"first_column":19,"last_line":3,"last_column":28,"range":[90,99]},"type":"unqualified-constructor"}],"location":{"first_line":3,"first_column":18,"last_line":3,"last_column":29,"range":[89,100]},"type":"composite-member"},"module":{"value":"@quenk/wml-widgets/lib/control/text-field","type":"string"},"location":{"first_line":3,"first_column":8,"last_line":3,"last_column":81,"range":[79,152]},"type":"import-statement"},{"member":{"members":[{"id":"Panel","location":{"first_line":4,"first_column":19,"last_line":4,"last_column":24,"range":[172,177]},"type":"unqualified-constructor"}],"location":{"first_line":4,"first_column":18,"last_line":4,"last_column":25,"range":[171,178]},"type":"composite-member"},"module":{"value":"@quenk/wml-widgets/lib/layout/panel","type":"string"},"location":{"first_line":4,"first_column":8,"last_line":4,"last_column":71,"range":[161,224]},"type":"import-statement"},{"member":{"members":[{"id":"PanelHeader","location":{"first_line":5,"first_column":19,"last_line":5,"last_column":30,"range":[244,255]},"type":"unqualified-constructor"}],"location":{"first_line":5,"first_column":18,"last_line":5,"last_column":31,"range":[243,256]},"type":"composite-member"},"module":{"value":"@quenk/wml-widgets/lib/layout/panel","type":"string"},"location":{"first_line":5,"first_column":8,"last_line":5,"last_column":77,"range":[233,302]},"type":"import-statement"},{"member":{"members":[{"id":"Tab","location":{"first_line":6,"first_column":19,"last_line":6,"last_column":22,"range":[322,325]},"type":"unqualified-constructor"}],"location":{"first_line":6,"first_column":18,"last_line":6,"last_column":23,"range":[321,326]},"type":"composite-member"},"module":{"value":"@quenk/wml-widgets/lib/control/tab-bar","type":"string"},"location":{"first_line":6,"first_column":8,"last_line":6,"last_column":72,"range":[311,375]},"type":"import-statement"},{"member":{"members":[{"id":"TabBar","location":{"first_line":7,"first_column":19,"last_line":7,"last_column":25,"range":[395,401]},"type":"unqualified-constructor"}],"location":{"first_line":7,"first_column":18,"last_line":7,"last_column":26,"range":[394,402]},"type":"composite-member"},"module":{"value":"@quenk/wml-widgets/lib/control/tab-bar","type":"string"},"location":{"first_line":7,"first_column":8,"last_line":7,"last_column":75,"range":[384,451]},"type":"import-statement"},{"member":{"members":[{"id":"TabSpec","location":{"first_line":8,"first_column":19,"last_line":8,"last_column":26,"range":[471,478]},"type":"unqualified-constructor"}],"location":{"first_line":8,"first_column":18,"last_line":8,"last_column":27,"range":[470,479]},"type":"composite-member"},"module":{"value":"..","type":"string"},"location":{"first_line":8,"first_column":8,"last_line":8,"last_column":40,"range":[460,492]},"type":"import-statement"},{"member":{"members":[{"id":"TabbedPanel","location":{"first_line":9,"first_column":19,"last_line":9,"last_column":30,"range":[512,523]},"type":"unqualified-constructor"}],"location":{"first_line":9,"first_column":18,"last_line":9,"last_column":31,"range":[511,524]},"type":"composite-member"},"module":{"value":"..","type":"string"},"location":{"first_line":9,"first_column":8,"last_line":9,"last_column":44,"range":[501,537]},"type":"import-statement"}],"exports":[{"id":{"id":"Main","location":{"first_line":11,"first_column":16,"last_line":11,"last_column":20,"range":[555,559]},"type":"unqualified-constructor"},"typeParameters":[],"context":{"id":{"id":"TabbedPanel","location":{"first_line":11,"first_column":22,"last_line":11,"last_column":33,"range":[561,572]},"type":"unqualified-constructor"},"typeParameters":[],"list":false,"location":{"first_line":11,"first_column":22,"last_line":11,"last_column":33,"range":[561,572]},"type":"type"},"root":{"open":{"id":"Panel","location":{"first_line":13,"first_column":11,"last_line":13,"last_column":16,"range":[589,594]},"type":"unqualified-constructor"},"attributes":[{"namespace":{"id":"ww","location":{"first_line":13,"first_column":17,"last_line":13,"last_column":19,"range":[595,597]},"type":"unqualified-identifier"},"name":{"id":"class","location":{"first_line":13,"first_column":20,"last_line":13,"last_column":25,"range":[598,603]},"type":"unqualified-identifier"},"value":{"expression":{"target":{"target":{"member":{"id":"values","location":{"first_line":13,"first_column":29,"last_line":13,"last_column":35,"range":[607,613]},"type":"unqualified-identifier"},"location":{"first_line":13,"first_column":28,"last_line":13,"last_column":35,"range":[606,613]},"type":"context-property"},"member":{"id":"root","location":{"first_line":13,"first_column":36,"last_line":13,"last_column":40,"range":[614,618]},"type":"unqualified-identifier"},"location":{"first_line":13,"first_column":28,"last_line":13,"last_column":40,"range":[606,618]}},"member":{"id":"class","location":{"first_line":13,"first_column":41,"last_line":13,"last_column":46,"range":[619,624]},"type":"unqualified-identifier"},"location":{"first_line":13,"first_column":28,"last_line":13,"last_column":46,"range":[606,624]}},"filters":[],"location":{"first_line":13,"first_column":26,"last_line":13,"last_column":48,"range":[604,626]},"type":"interpolation"},"location":{"first_line":13,"first_column":17,"last_line":13,"last_column":48,"range":[595,626]},"type":"attribute"}],"children":[{"condition":{"left":{"left":{"target":{"target":{"target":{"member":{"id":"values","location":{"first_line":15,"first_column":19,"last_line":15,"last_column":25,"range":[648,654]},"type":"unqualified-identifier"},"location":{"first_line":15,"first_column":18,"last_line":15,"last_column":25,"range":[647,654]},"type":"context-property"},"member":{"id":"header","location":{"first_line":15,"first_column":26,"last_line":15,"last_column":32,"range":[655,661]},"type":"unqualified-identifier"},"location":{"first_line":15,"first_column":18,"last_line":15,"last_column":32,"range":[647,661]}},"member":{"id":"tabs","location":{"first_line":15,"first_column":33,"last_line":15,"last_column":37,"range":[662,666]},"type":"unqualified-identifier"},"location":{"first_line":15,"first_column":18,"last_line":15,"last_column":37,"range":[647,666]}},"member":{"id":"length","location":{"first_line":15,"first_column":38,"last_line":15,"last_column":44,"range":[667,673]},"type":"unqualified-identifier"},"location":{"first_line":15,"first_column":18,"last_line":15,"last_column":44,"range":[647,673]}},"operator":">","right":{"value":"0","location":{"first_line":15,"first_column":47,"last_line":15,"last_column":48,"range":[676,677]},"type":"number-literal"},"location":{"first_line":15,"first_column":18,"last_line":15,"last_column":48,"range":[647,677]},"type":"binary-expression"},"operator":"||","right":{"target":{"target":{"member":{"id":"values","location":{"first_line":15,"first_column":55,"last_line":15,"last_column":61,"range":[684,690]},"type":"unqualified-identifier"},"location":{"first_line":15,"first_column":54,"last_line":15,"last_column":61,"range":[683,690]},"type":"context-property"},"member":{"id":"header","location":{"first_line":15,"first_column":62,"last_line":15,"last_column":68,"range":[691,697]},"type":"unqualified-identifier"},"location":{"first_line":15,"first_column":54,"last_line":15,"last_column":68,"range":[683,697]}},"member":{"id":"additionalTabs","location":{"first_line":15,"first_column":69,"last_line":15,"last_column":83,"range":[698,712]},"type":"unqualified-identifier"},"location":{"first_line":15,"first_column":54,"last_line":15,"last_column":83,"range":[683,712]}},"location":{"first_line":15,"first_column":17,"last_line":15,"last_column":84,"range":[646,713]},"type":"binary-expression"},"then":[{"open":{"id":"PanelHeader","location":{"first_line":17,"first_column":14,"last_line":17,"last_column":25,"range":[732,743]},"type":"unqualified-constructor"},"attributes":[],"children":[{"open":{"id":"TabBar","location":{"first_line":19,"first_column":16,"last_line":19,"last_column":22,"range":[762,768]},"type":"unqualified-constructor"},"attributes":[],"children":[{"variables":[{"id":{"id":"tab","location":{"first_line":21,"first_column":23,"last_line":21,"last_column":26,"range":[794,797]},"type":"unqualified-identifier"},"location":{"first_line":21,"first_column":23,"last_line":21,"last_column":26,"range":[794,797]},"type":"untyped-parameter"}],"expression":{"target":{"target":{"member":{"id":"values","location":{"first_line":21,"first_column":31,"last_line":21,"last_column":37,"range":[802,808]},"type":"unqualified-identifier"},"location":{"first_line":21,"first_column":30,"last_line":21,"last_column":37,"range":[801,808]},"type":"context-property"},"member":{"id":"header","location":{"first_line":21,"first_column":38,"last_line":21,"last_column":44,"range":[809,815]},"type":"unqualified-identifier"},"location":{"first_line":21,"first_column":30,"last_line":21,"last_column":44,"range":[801,815]}},"member":{"id":"tabs","location":{"first_line":21,"first_column":45,"last_line":21,"last_column":49,"range":[816,820]},"type":"unqualified-identifier"},"location":{"first_line":21,"first_column":30,"last_line":21,"last_column":49,"range":[801,820]}},"body":[{"open":{"id":"Tab","location":{"first_line":23,"first_column":19,"last_line":23,"last_column":22,"range":[844,847]},"type":"unqualified-constructor"},"attributes":[{"namespace":{"id":"ww","location":{"first_line":24,"first_column":19,"last_line":24,"last_column":21,"range":[867,869]},"type":"unqualified-identifier"},"name":{"id":"name","location":{"first_line":24,"first_column":22,"last_line":24,"last_column":26,"range":[870,874]},"type":"unqualified-identifier"},"value":{"expression":{"qualifier":"tab","member":"name","location":{"first_line":24,"first_column":29,"last_line":24,"last_column":37,"range":[877,885]},"type":"qualified-identifier"},"filters":[],"location":{"first_line":24,"first_column":27,"last_line":24,"last_column":39,"range":[875,887]},"type":"interpolation"},"location":{"first_line":24,"first_column":19,"last_line":24,"last_column":39,"range":[867,887]},"type":"attribute"},{"namespace":{"id":"ww","location":{"first_line":25,"first_column":19,"last_line":25,"last_column":21,"range":[907,909]},"type":"unqualified-identifier"},"name":{"id":"onClick","location":{"first_line":25,"first_column":22,"last_line":25,"last_column":29,"range":[910,917]},"type":"unqualified-identifier"},"value":{"expression":{"qualifier":"tab","member":"onClick","location":{"first_line":25,"first_column":32,"last_line":25,"last_column":43,"range":[920,931]},"type":"qualified-identifier"},"filters":[],"location":{"first_line":25,"first_column":30,"last_line":25,"last_column":45,"range":[918,933]},"type":"interpolation"},"location":{"first_line":25,"first_column":19,"last_line":25,"last_column":45,"range":[907,933]},"type":"attribute"}],"children":[],"close":{"id":"Tab","location":{"first_line":23,"first_column":19,"last_line":23,"last_column":22,"range":[844,847]},"type":"unqualified-constructor"},"type":"widget"}],"otherwise":[],"location":{"first_line":21,"first_column":16,"last_line":27,"last_column":28,"range":[787,966]},"type":"for-in-statement"},{"condition":{"target":{"target":{"member":{"id":"values","location":{"first_line":29,"first_column":23,"last_line":29,"last_column":29,"range":[991,997]},"type":"unqualified-identifier"},"location":{"first_line":29,"first_column":22,"last_line":29,"last_column":29,"range":[990,997]},"type":"context-property"},"member":{"id":"header","location":{"first_line":29,"first_column":30,"last_line":29,"last_column":36,"range":[998,1004]},"type":"unqualified-identifier"},"location":{"first_line":29,"first_column":22,"last_line":29,"last_column":36,"range":[990,1004]}},"member":{"id":"additionalTabs","location":{"first_line":29,"first_column":37,"last_line":29,"last_column":51,"range":[1005,1019]},"type":"unqualified-identifier"},"location":{"first_line":29,"first_column":22,"last_line":29,"last_column":51,"range":[990,1019]}},"then":[{"expression":{"target":{"target":{"target":{"member":{"id":"values","location":{"first_line":31,"first_column":23,"last_line":31,"last_column":29,"range":[1047,1053]},"type":"unqualified-identifier"},"location":{"first_line":31,"first_column":22,"last_line":31,"last_column":29,"range":[1046,1053]},"type":"context-property"},"member":{"id":"header","location":{"first_line":31,"first_column":30,"last_line":31,"last_column":36,"range":[1054,1060]},"type":"unqualified-identifier"},"location":{"first_line":31,"first_column":22,"last_line":31,"last_column":36,"range":[1046,1060]}},"member":{"id":"additionalTabs","location":{"first_line":31,"first_column":37,"last_line":31,"last_column":51,"range":[1061,1075]},"type":"unqualified-identifier"},"location":{"first_line":31,"first_column":22,"last_line":31,"last_column":51,"range":[1046,1075]}},"typeArgs":[],"args":[{"location":{"first_line":31,"first_column":53,"last_line":31,"last_column":54,"range":[1077,1078]},"type":"context-variable"}],"location":{"first_line":31,"first_column":20,"last_line":31,"last_column":56,"range":[1044,1080]},"type":"fun-application"},"filters":[],"location":{"first_line":31,"first_column":18,"last_line":31,"last_column":58,"range":[1042,1082]},"type":"interpolation"}],"elseClause":{"children":[{"expression":{"value":"","type":"string"},"filters":[],"location":{"first_line":35,"first_column":16,"last_line":35,"last_column":22,"range":[1127,1133]},"type":"interpolation"}],"location":{"first_line":33,"first_column":15,"last_line":37,"last_column":26,"range":[1099,1161]},"type":"else-clause"},"location":{"first_line":29,"first_column":16,"last_line":37,"last_column":26,"range":[984,1161]},"type":"if-statement"}],"close":{"id":"TabBar","location":{"first_line":39,"first_column":15,"last_line":39,"last_column":21,"range":[1178,1184]},"type":"unqualified-constructor"},"type":"widget"}],"close":{"id":"PanelHeader","location":{"first_line":41,"first_column":13,"last_line":41,"last_column":24,"range":[1200,1211]},"type":"unqualified-constructor"},"type":"widget"}],"elseClause":{"children":[{"expression":{"value":"","type":"string"},"filters":[],"location":{"first_line":45,"first_column":10,"last_line":45,"last_column":16,"range":[1245,1251]},"type":"interpolation"}],"location":{"first_line":43,"first_column":9,"last_line":47,"last_column":19,"range":[1223,1272]},"type":"else-clause"},"location":{"first_line":15,"first_column":11,"last_line":47,"last_column":19,"range":[640,1272]},"type":"if-statement"},{"expression":{"member":{"id":"children","location":{"first_line":49,"first_column":11,"last_line":49,"last_column":19,"range":[1285,1293]},"type":"unqualified-identifier"},"location":{"first_line":49,"first_column":10,"last_line":49,"last_column":19,"range":[1284,1293]},"type":"context-property"},"filters":[],"location":{"first_line":49,"first_column":8,"last_line":49,"last_column":21,"range":[1282,1295]},"type":"interpolation"}],"close":{"id":"Panel","location":{"first_line":51,"first_column":2,"last_line":51,"last_column":7,"range":[1299,1304]},"type":"unqualified-constructor"},"type":"widget"},"location":{"first_line":11,"first_column":8,"last_line":51,"last_column":8,"range":[547,1305]},"type":"view-statement"}],"location":{"first_line":2,"first_column":8,"last_line":51,"last_column":8,"range":[9,1305]},"type":"module"}
+{
+  "imports": [
+    {
+      "member": {
+        "members": [
+          {
+            "value": "Table",
+            "location": {
+              "first_line": 2,
+              "first_column": 19,
+              "last_line": 2,
+              "last_column": 24,
+              "range": [
+                20,
+                25
+              ]
+            },
+            "type": "unqualified-constructor"
+          }
+        ],
+        "location": {
+          "first_line": 2,
+          "first_column": 18,
+          "last_line": 2,
+          "last_column": 25,
+          "range": [
+            19,
+            26
+          ]
+        },
+        "type": "composite-member"
+      },
+      "module": {
+        "value": "@quenk/wml-widgets/lib/data/table",
+        "type": "string"
+      },
+      "location": {
+        "first_line": 2,
+        "first_column": 8,
+        "last_line": 2,
+        "last_column": 69,
+        "range": [
+          9,
+          70
+        ]
+      },
+      "type": "import-statement"
+    },
+    {
+      "member": {
+        "members": [
+          {
+            "value": "TextField",
+            "location": {
+              "first_line": 3,
+              "first_column": 19,
+              "last_line": 3,
+              "last_column": 28,
+              "range": [
+                90,
+                99
+              ]
+            },
+            "type": "unqualified-constructor"
+          }
+        ],
+        "location": {
+          "first_line": 3,
+          "first_column": 18,
+          "last_line": 3,
+          "last_column": 29,
+          "range": [
+            89,
+            100
+          ]
+        },
+        "type": "composite-member"
+      },
+      "module": {
+        "value": "@quenk/wml-widgets/lib/control/text-field",
+        "type": "string"
+      },
+      "location": {
+        "first_line": 3,
+        "first_column": 8,
+        "last_line": 3,
+        "last_column": 81,
+        "range": [
+          79,
+          152
+        ]
+      },
+      "type": "import-statement"
+    },
+    {
+      "member": {
+        "members": [
+          {
+            "value": "Panel",
+            "location": {
+              "first_line": 4,
+              "first_column": 19,
+              "last_line": 4,
+              "last_column": 24,
+              "range": [
+                172,
+                177
+              ]
+            },
+            "type": "unqualified-constructor"
+          }
+        ],
+        "location": {
+          "first_line": 4,
+          "first_column": 18,
+          "last_line": 4,
+          "last_column": 25,
+          "range": [
+            171,
+            178
+          ]
+        },
+        "type": "composite-member"
+      },
+      "module": {
+        "value": "@quenk/wml-widgets/lib/layout/panel",
+        "type": "string"
+      },
+      "location": {
+        "first_line": 4,
+        "first_column": 8,
+        "last_line": 4,
+        "last_column": 71,
+        "range": [
+          161,
+          224
+        ]
+      },
+      "type": "import-statement"
+    },
+    {
+      "member": {
+        "members": [
+          {
+            "value": "PanelHeader",
+            "location": {
+              "first_line": 5,
+              "first_column": 19,
+              "last_line": 5,
+              "last_column": 30,
+              "range": [
+                244,
+                255
+              ]
+            },
+            "type": "unqualified-constructor"
+          }
+        ],
+        "location": {
+          "first_line": 5,
+          "first_column": 18,
+          "last_line": 5,
+          "last_column": 31,
+          "range": [
+            243,
+            256
+          ]
+        },
+        "type": "composite-member"
+      },
+      "module": {
+        "value": "@quenk/wml-widgets/lib/layout/panel",
+        "type": "string"
+      },
+      "location": {
+        "first_line": 5,
+        "first_column": 8,
+        "last_line": 5,
+        "last_column": 77,
+        "range": [
+          233,
+          302
+        ]
+      },
+      "type": "import-statement"
+    },
+    {
+      "member": {
+        "members": [
+          {
+            "value": "Tab",
+            "location": {
+              "first_line": 6,
+              "first_column": 19,
+              "last_line": 6,
+              "last_column": 22,
+              "range": [
+                322,
+                325
+              ]
+            },
+            "type": "unqualified-constructor"
+          }
+        ],
+        "location": {
+          "first_line": 6,
+          "first_column": 18,
+          "last_line": 6,
+          "last_column": 23,
+          "range": [
+            321,
+            326
+          ]
+        },
+        "type": "composite-member"
+      },
+      "module": {
+        "value": "@quenk/wml-widgets/lib/control/tab-bar",
+        "type": "string"
+      },
+      "location": {
+        "first_line": 6,
+        "first_column": 8,
+        "last_line": 6,
+        "last_column": 72,
+        "range": [
+          311,
+          375
+        ]
+      },
+      "type": "import-statement"
+    },
+    {
+      "member": {
+        "members": [
+          {
+            "value": "TabBar",
+            "location": {
+              "first_line": 7,
+              "first_column": 19,
+              "last_line": 7,
+              "last_column": 25,
+              "range": [
+                395,
+                401
+              ]
+            },
+            "type": "unqualified-constructor"
+          }
+        ],
+        "location": {
+          "first_line": 7,
+          "first_column": 18,
+          "last_line": 7,
+          "last_column": 26,
+          "range": [
+            394,
+            402
+          ]
+        },
+        "type": "composite-member"
+      },
+      "module": {
+        "value": "@quenk/wml-widgets/lib/control/tab-bar",
+        "type": "string"
+      },
+      "location": {
+        "first_line": 7,
+        "first_column": 8,
+        "last_line": 7,
+        "last_column": 75,
+        "range": [
+          384,
+          451
+        ]
+      },
+      "type": "import-statement"
+    },
+    {
+      "member": {
+        "members": [
+          {
+            "value": "TabSpec",
+            "location": {
+              "first_line": 8,
+              "first_column": 19,
+              "last_line": 8,
+              "last_column": 26,
+              "range": [
+                471,
+                478
+              ]
+            },
+            "type": "unqualified-constructor"
+          }
+        ],
+        "location": {
+          "first_line": 8,
+          "first_column": 18,
+          "last_line": 8,
+          "last_column": 27,
+          "range": [
+            470,
+            479
+          ]
+        },
+        "type": "composite-member"
+      },
+      "module": {
+        "value": "..",
+        "type": "string"
+      },
+      "location": {
+        "first_line": 8,
+        "first_column": 8,
+        "last_line": 8,
+        "last_column": 40,
+        "range": [
+          460,
+          492
+        ]
+      },
+      "type": "import-statement"
+    },
+    {
+      "member": {
+        "members": [
+          {
+            "value": "TabbedPanel",
+            "location": {
+              "first_line": 9,
+              "first_column": 19,
+              "last_line": 9,
+              "last_column": 30,
+              "range": [
+                512,
+                523
+              ]
+            },
+            "type": "unqualified-constructor"
+          }
+        ],
+        "location": {
+          "first_line": 9,
+          "first_column": 18,
+          "last_line": 9,
+          "last_column": 31,
+          "range": [
+            511,
+            524
+          ]
+        },
+        "type": "composite-member"
+      },
+      "module": {
+        "value": "..",
+        "type": "string"
+      },
+      "location": {
+        "first_line": 9,
+        "first_column": 8,
+        "last_line": 9,
+        "last_column": 44,
+        "range": [
+          501,
+          537
+        ]
+      },
+      "type": "import-statement"
+    }
+  ],
+  "exports": [
+    {
+      "id": {
+        "value": "Main",
+        "location": {
+          "first_line": 11,
+          "first_column": 16,
+          "last_line": 11,
+          "last_column": 20,
+          "range": [
+            555,
+            559
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "context": {
+        "id": {
+          "value": "TabbedPanel",
+          "location": {
+            "first_line": 11,
+            "first_column": 22,
+            "last_line": 11,
+            "last_column": 33,
+            "range": [
+              561,
+              572
+            ]
+          },
+          "type": "unqualified-constructor"
+        },
+        "typeParameters": [],
+        "location": {
+          "first_line": 11,
+          "first_column": 22,
+          "last_line": 11,
+          "last_column": 33,
+          "range": [
+            561,
+            572
+          ]
+        },
+        "type": "constructor-type"
+      },
+      "root": {
+        "open": {
+          "value": "Panel",
+          "location": {
+            "first_line": 13,
+            "first_column": 11,
+            "last_line": 13,
+            "last_column": 16,
+            "range": [
+              589,
+              594
+            ]
+          },
+          "type": "unqualified-constructor"
+        },
+        "attributes": [
+          {
+            "namespace": {
+              "value": "ww",
+              "location": {
+                "first_line": 13,
+                "first_column": 17,
+                "last_line": 13,
+                "last_column": 19,
+                "range": [
+                  595,
+                  597
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            "name": {
+              "value": "class",
+              "location": {
+                "first_line": 13,
+                "first_column": 20,
+                "last_line": 13,
+                "last_column": 25,
+                "range": [
+                  598,
+                  603
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            "value": {
+              "expression": {
+                "target": {
+                  "target": {
+                    "member": {
+                      "value": "values",
+                      "location": {
+                        "first_line": 13,
+                        "first_column": 29,
+                        "last_line": 13,
+                        "last_column": 35,
+                        "range": [
+                          607,
+                          613
+                        ]
+                      },
+                      "type": "unqualified-identifier"
+                    },
+                    "location": {
+                      "first_line": 13,
+                      "first_column": 28,
+                      "last_line": 13,
+                      "last_column": 35,
+                      "range": [
+                        606,
+                        613
+                      ]
+                    },
+                    "type": "context-property"
+                  },
+                  "member": {
+                    "value": "root",
+                    "location": {
+                      "first_line": 13,
+                      "first_column": 36,
+                      "last_line": 13,
+                      "last_column": 40,
+                      "range": [
+                        614,
+                        618
+                      ]
+                    },
+                    "type": "unqualified-identifier"
+                  },
+                  "location": {
+                    "first_line": 13,
+                    "first_column": 28,
+                    "last_line": 13,
+                    "last_column": 40,
+                    "range": [
+                      606,
+                      618
+                    ]
+                  }
+                },
+                "member": {
+                  "value": "class",
+                  "location": {
+                    "first_line": 13,
+                    "first_column": 41,
+                    "last_line": 13,
+                    "last_column": 46,
+                    "range": [
+                      619,
+                      624
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "location": {
+                  "first_line": 13,
+                  "first_column": 28,
+                  "last_line": 13,
+                  "last_column": 46,
+                  "range": [
+                    606,
+                    624
+                  ]
+                }
+              },
+              "filters": [],
+              "location": {
+                "first_line": 13,
+                "first_column": 26,
+                "last_line": 13,
+                "last_column": 48,
+                "range": [
+                  604,
+                  626
+                ]
+              },
+              "type": "interpolation"
+            },
+            "location": {
+              "first_line": 13,
+              "first_column": 17,
+              "last_line": 13,
+              "last_column": 48,
+              "range": [
+                595,
+                626
+              ]
+            },
+            "type": "attribute"
+          }
+        ],
+        "children": [
+          {
+            "condition": {
+              "left": {
+                "left": {
+                  "target": {
+                    "target": {
+                      "target": {
+                        "member": {
+                          "value": "values",
+                          "location": {
+                            "first_line": 15,
+                            "first_column": 19,
+                            "last_line": 15,
+                            "last_column": 25,
+                            "range": [
+                              648,
+                              654
+                            ]
+                          },
+                          "type": "unqualified-identifier"
+                        },
+                        "location": {
+                          "first_line": 15,
+                          "first_column": 18,
+                          "last_line": 15,
+                          "last_column": 25,
+                          "range": [
+                            647,
+                            654
+                          ]
+                        },
+                        "type": "context-property"
+                      },
+                      "member": {
+                        "value": "header",
+                        "location": {
+                          "first_line": 15,
+                          "first_column": 26,
+                          "last_line": 15,
+                          "last_column": 32,
+                          "range": [
+                            655,
+                            661
+                          ]
+                        },
+                        "type": "unqualified-identifier"
+                      },
+                      "location": {
+                        "first_line": 15,
+                        "first_column": 18,
+                        "last_line": 15,
+                        "last_column": 32,
+                        "range": [
+                          647,
+                          661
+                        ]
+                      }
+                    },
+                    "member": {
+                      "value": "tabs",
+                      "location": {
+                        "first_line": 15,
+                        "first_column": 33,
+                        "last_line": 15,
+                        "last_column": 37,
+                        "range": [
+                          662,
+                          666
+                        ]
+                      },
+                      "type": "unqualified-identifier"
+                    },
+                    "location": {
+                      "first_line": 15,
+                      "first_column": 18,
+                      "last_line": 15,
+                      "last_column": 37,
+                      "range": [
+                        647,
+                        666
+                      ]
+                    }
+                  },
+                  "member": {
+                    "value": "length",
+                    "location": {
+                      "first_line": 15,
+                      "first_column": 38,
+                      "last_line": 15,
+                      "last_column": 44,
+                      "range": [
+                        667,
+                        673
+                      ]
+                    },
+                    "type": "unqualified-identifier"
+                  },
+                  "location": {
+                    "first_line": 15,
+                    "first_column": 18,
+                    "last_line": 15,
+                    "last_column": 44,
+                    "range": [
+                      647,
+                      673
+                    ]
+                  }
+                },
+                "operator": ">",
+                "right": {
+                  "value": "0",
+                  "location": {
+                    "first_line": 15,
+                    "first_column": 47,
+                    "last_line": 15,
+                    "last_column": 48,
+                    "range": [
+                      676,
+                      677
+                    ]
+                  },
+                  "type": "number-literal"
+                },
+                "location": {
+                  "first_line": 15,
+                  "first_column": 18,
+                  "last_line": 15,
+                  "last_column": 48,
+                  "range": [
+                    647,
+                    677
+                  ]
+                },
+                "type": "binary-expression"
+              },
+              "operator": "||",
+              "right": {
+                "target": {
+                  "target": {
+                    "member": {
+                      "value": "values",
+                      "location": {
+                        "first_line": 15,
+                        "first_column": 55,
+                        "last_line": 15,
+                        "last_column": 61,
+                        "range": [
+                          684,
+                          690
+                        ]
+                      },
+                      "type": "unqualified-identifier"
+                    },
+                    "location": {
+                      "first_line": 15,
+                      "first_column": 54,
+                      "last_line": 15,
+                      "last_column": 61,
+                      "range": [
+                        683,
+                        690
+                      ]
+                    },
+                    "type": "context-property"
+                  },
+                  "member": {
+                    "value": "header",
+                    "location": {
+                      "first_line": 15,
+                      "first_column": 62,
+                      "last_line": 15,
+                      "last_column": 68,
+                      "range": [
+                        691,
+                        697
+                      ]
+                    },
+                    "type": "unqualified-identifier"
+                  },
+                  "location": {
+                    "first_line": 15,
+                    "first_column": 54,
+                    "last_line": 15,
+                    "last_column": 68,
+                    "range": [
+                      683,
+                      697
+                    ]
+                  }
+                },
+                "member": {
+                  "value": "additionalTabs",
+                  "location": {
+                    "first_line": 15,
+                    "first_column": 69,
+                    "last_line": 15,
+                    "last_column": 83,
+                    "range": [
+                      698,
+                      712
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "location": {
+                  "first_line": 15,
+                  "first_column": 54,
+                  "last_line": 15,
+                  "last_column": 83,
+                  "range": [
+                    683,
+                    712
+                  ]
+                }
+              },
+              "location": {
+                "first_line": 15,
+                "first_column": 17,
+                "last_line": 15,
+                "last_column": 84,
+                "range": [
+                  646,
+                  713
+                ]
+              },
+              "type": "binary-expression"
+            },
+            "then": [
+              {
+                "open": {
+                  "value": "PanelHeader",
+                  "location": {
+                    "first_line": 17,
+                    "first_column": 14,
+                    "last_line": 17,
+                    "last_column": 25,
+                    "range": [
+                      732,
+                      743
+                    ]
+                  },
+                  "type": "unqualified-constructor"
+                },
+                "attributes": [],
+                "children": [
+                  {
+                    "open": {
+                      "value": "TabBar",
+                      "location": {
+                        "first_line": 19,
+                        "first_column": 16,
+                        "last_line": 19,
+                        "last_column": 22,
+                        "range": [
+                          762,
+                          768
+                        ]
+                      },
+                      "type": "unqualified-constructor"
+                    },
+                    "attributes": [],
+                    "children": [
+                      {
+                        "variables": [
+                          {
+                            "id": {
+                              "value": "tab",
+                              "location": {
+                                "first_line": 21,
+                                "first_column": 23,
+                                "last_line": 21,
+                                "last_column": 26,
+                                "range": [
+                                  794,
+                                  797
+                                ]
+                              },
+                              "type": "unqualified-identifier"
+                            },
+                            "location": {
+                              "first_line": 21,
+                              "first_column": 23,
+                              "last_line": 21,
+                              "last_column": 26,
+                              "range": [
+                                794,
+                                797
+                              ]
+                            },
+                            "type": "untyped-parameter"
+                          }
+                        ],
+                        "expression": {
+                          "target": {
+                            "target": {
+                              "member": {
+                                "value": "values",
+                                "location": {
+                                  "first_line": 21,
+                                  "first_column": 31,
+                                  "last_line": 21,
+                                  "last_column": 37,
+                                  "range": [
+                                    802,
+                                    808
+                                  ]
+                                },
+                                "type": "unqualified-identifier"
+                              },
+                              "location": {
+                                "first_line": 21,
+                                "first_column": 30,
+                                "last_line": 21,
+                                "last_column": 37,
+                                "range": [
+                                  801,
+                                  808
+                                ]
+                              },
+                              "type": "context-property"
+                            },
+                            "member": {
+                              "value": "header",
+                              "location": {
+                                "first_line": 21,
+                                "first_column": 38,
+                                "last_line": 21,
+                                "last_column": 44,
+                                "range": [
+                                  809,
+                                  815
+                                ]
+                              },
+                              "type": "unqualified-identifier"
+                            },
+                            "location": {
+                              "first_line": 21,
+                              "first_column": 30,
+                              "last_line": 21,
+                              "last_column": 44,
+                              "range": [
+                                801,
+                                815
+                              ]
+                            }
+                          },
+                          "member": {
+                            "value": "tabs",
+                            "location": {
+                              "first_line": 21,
+                              "first_column": 45,
+                              "last_line": 21,
+                              "last_column": 49,
+                              "range": [
+                                816,
+                                820
+                              ]
+                            },
+                            "type": "unqualified-identifier"
+                          },
+                          "location": {
+                            "first_line": 21,
+                            "first_column": 30,
+                            "last_line": 21,
+                            "last_column": 49,
+                            "range": [
+                              801,
+                              820
+                            ]
+                          }
+                        },
+                        "body": [
+                          {
+                            "open": {
+                              "value": "Tab",
+                              "location": {
+                                "first_line": 23,
+                                "first_column": 19,
+                                "last_line": 23,
+                                "last_column": 22,
+                                "range": [
+                                  844,
+                                  847
+                                ]
+                              },
+                              "type": "unqualified-constructor"
+                            },
+                            "attributes": [
+                              {
+                                "namespace": {
+                                  "value": "ww",
+                                  "location": {
+                                    "first_line": 24,
+                                    "first_column": 19,
+                                    "last_line": 24,
+                                    "last_column": 21,
+                                    "range": [
+                                      867,
+                                      869
+                                    ]
+                                  },
+                                  "type": "unqualified-identifier"
+                                },
+                                "name": {
+                                  "value": "name",
+                                  "location": {
+                                    "first_line": 24,
+                                    "first_column": 22,
+                                    "last_line": 24,
+                                    "last_column": 26,
+                                    "range": [
+                                      870,
+                                      874
+                                    ]
+                                  },
+                                  "type": "unqualified-identifier"
+                                },
+                                "value": {
+                                  "expression": {
+                                    "qualifier": "tab",
+                                    "member": "name",
+                                    "location": {
+                                      "first_line": 24,
+                                      "first_column": 29,
+                                      "last_line": 24,
+                                      "last_column": 37,
+                                      "range": [
+                                        877,
+                                        885
+                                      ]
+                                    },
+                                    "type": "qualified-identifier"
+                                  },
+                                  "filters": [],
+                                  "location": {
+                                    "first_line": 24,
+                                    "first_column": 27,
+                                    "last_line": 24,
+                                    "last_column": 39,
+                                    "range": [
+                                      875,
+                                      887
+                                    ]
+                                  },
+                                  "type": "interpolation"
+                                },
+                                "location": {
+                                  "first_line": 24,
+                                  "first_column": 19,
+                                  "last_line": 24,
+                                  "last_column": 39,
+                                  "range": [
+                                    867,
+                                    887
+                                  ]
+                                },
+                                "type": "attribute"
+                              },
+                              {
+                                "namespace": {
+                                  "value": "ww",
+                                  "location": {
+                                    "first_line": 25,
+                                    "first_column": 19,
+                                    "last_line": 25,
+                                    "last_column": 21,
+                                    "range": [
+                                      907,
+                                      909
+                                    ]
+                                  },
+                                  "type": "unqualified-identifier"
+                                },
+                                "name": {
+                                  "value": "onClick",
+                                  "location": {
+                                    "first_line": 25,
+                                    "first_column": 22,
+                                    "last_line": 25,
+                                    "last_column": 29,
+                                    "range": [
+                                      910,
+                                      917
+                                    ]
+                                  },
+                                  "type": "unqualified-identifier"
+                                },
+                                "value": {
+                                  "expression": {
+                                    "qualifier": "tab",
+                                    "member": "onClick",
+                                    "location": {
+                                      "first_line": 25,
+                                      "first_column": 32,
+                                      "last_line": 25,
+                                      "last_column": 43,
+                                      "range": [
+                                        920,
+                                        931
+                                      ]
+                                    },
+                                    "type": "qualified-identifier"
+                                  },
+                                  "filters": [],
+                                  "location": {
+                                    "first_line": 25,
+                                    "first_column": 30,
+                                    "last_line": 25,
+                                    "last_column": 45,
+                                    "range": [
+                                      918,
+                                      933
+                                    ]
+                                  },
+                                  "type": "interpolation"
+                                },
+                                "location": {
+                                  "first_line": 25,
+                                  "first_column": 19,
+                                  "last_line": 25,
+                                  "last_column": 45,
+                                  "range": [
+                                    907,
+                                    933
+                                  ]
+                                },
+                                "type": "attribute"
+                              }
+                            ],
+                            "children": [],
+                            "close": {
+                              "value": "Tab",
+                              "location": {
+                                "first_line": 23,
+                                "first_column": 19,
+                                "last_line": 23,
+                                "last_column": 22,
+                                "range": [
+                                  844,
+                                  847
+                                ]
+                              },
+                              "type": "unqualified-constructor"
+                            },
+                            "type": "widget"
+                          }
+                        ],
+                        "otherwise": [],
+                        "location": {
+                          "first_line": 21,
+                          "first_column": 16,
+                          "last_line": 27,
+                          "last_column": 28,
+                          "range": [
+                            787,
+                            966
+                          ]
+                        },
+                        "type": "for-in-statement"
+                      },
+                      {
+                        "condition": {
+                          "target": {
+                            "target": {
+                              "member": {
+                                "value": "values",
+                                "location": {
+                                  "first_line": 29,
+                                  "first_column": 23,
+                                  "last_line": 29,
+                                  "last_column": 29,
+                                  "range": [
+                                    991,
+                                    997
+                                  ]
+                                },
+                                "type": "unqualified-identifier"
+                              },
+                              "location": {
+                                "first_line": 29,
+                                "first_column": 22,
+                                "last_line": 29,
+                                "last_column": 29,
+                                "range": [
+                                  990,
+                                  997
+                                ]
+                              },
+                              "type": "context-property"
+                            },
+                            "member": {
+                              "value": "header",
+                              "location": {
+                                "first_line": 29,
+                                "first_column": 30,
+                                "last_line": 29,
+                                "last_column": 36,
+                                "range": [
+                                  998,
+                                  1004
+                                ]
+                              },
+                              "type": "unqualified-identifier"
+                            },
+                            "location": {
+                              "first_line": 29,
+                              "first_column": 22,
+                              "last_line": 29,
+                              "last_column": 36,
+                              "range": [
+                                990,
+                                1004
+                              ]
+                            }
+                          },
+                          "member": {
+                            "value": "additionalTabs",
+                            "location": {
+                              "first_line": 29,
+                              "first_column": 37,
+                              "last_line": 29,
+                              "last_column": 51,
+                              "range": [
+                                1005,
+                                1019
+                              ]
+                            },
+                            "type": "unqualified-identifier"
+                          },
+                          "location": {
+                            "first_line": 29,
+                            "first_column": 22,
+                            "last_line": 29,
+                            "last_column": 51,
+                            "range": [
+                              990,
+                              1019
+                            ]
+                          }
+                        },
+                        "then": [
+                          {
+                            "expression": {
+                              "target": {
+                                "target": {
+                                  "target": {
+                                    "member": {
+                                      "value": "values",
+                                      "location": {
+                                        "first_line": 31,
+                                        "first_column": 23,
+                                        "last_line": 31,
+                                        "last_column": 29,
+                                        "range": [
+                                          1047,
+                                          1053
+                                        ]
+                                      },
+                                      "type": "unqualified-identifier"
+                                    },
+                                    "location": {
+                                      "first_line": 31,
+                                      "first_column": 22,
+                                      "last_line": 31,
+                                      "last_column": 29,
+                                      "range": [
+                                        1046,
+                                        1053
+                                      ]
+                                    },
+                                    "type": "context-property"
+                                  },
+                                  "member": {
+                                    "value": "header",
+                                    "location": {
+                                      "first_line": 31,
+                                      "first_column": 30,
+                                      "last_line": 31,
+                                      "last_column": 36,
+                                      "range": [
+                                        1054,
+                                        1060
+                                      ]
+                                    },
+                                    "type": "unqualified-identifier"
+                                  },
+                                  "location": {
+                                    "first_line": 31,
+                                    "first_column": 22,
+                                    "last_line": 31,
+                                    "last_column": 36,
+                                    "range": [
+                                      1046,
+                                      1060
+                                    ]
+                                  }
+                                },
+                                "member": {
+                                  "value": "additionalTabs",
+                                  "location": {
+                                    "first_line": 31,
+                                    "first_column": 37,
+                                    "last_line": 31,
+                                    "last_column": 51,
+                                    "range": [
+                                      1061,
+                                      1075
+                                    ]
+                                  },
+                                  "type": "unqualified-identifier"
+                                },
+                                "location": {
+                                  "first_line": 31,
+                                  "first_column": 22,
+                                  "last_line": 31,
+                                  "last_column": 51,
+                                  "range": [
+                                    1046,
+                                    1075
+                                  ]
+                                }
+                              },
+                              "typeArgs": [],
+                              "args": [
+                                {
+                                  "location": {
+                                    "first_line": 31,
+                                    "first_column": 53,
+                                    "last_line": 31,
+                                    "last_column": 54,
+                                    "range": [
+                                      1077,
+                                      1078
+                                    ]
+                                  },
+                                  "type": "context-variable"
+                                }
+                              ],
+                              "location": {
+                                "first_line": 31,
+                                "first_column": 20,
+                                "last_line": 31,
+                                "last_column": 56,
+                                "range": [
+                                  1044,
+                                  1080
+                                ]
+                              },
+                              "type": "fun-application"
+                            },
+                            "filters": [],
+                            "location": {
+                              "first_line": 31,
+                              "first_column": 18,
+                              "last_line": 31,
+                              "last_column": 58,
+                              "range": [
+                                1042,
+                                1082
+                              ]
+                            },
+                            "type": "interpolation"
+                          }
+                        ],
+                        "elseClause": {
+                          "children": [
+                            {
+                              "expression": {
+                                "value": "",
+                                "type": "string"
+                              },
+                              "filters": [],
+                              "location": {
+                                "first_line": 35,
+                                "first_column": 16,
+                                "last_line": 35,
+                                "last_column": 22,
+                                "range": [
+                                  1127,
+                                  1133
+                                ]
+                              },
+                              "type": "interpolation"
+                            }
+                          ],
+                          "location": {
+                            "first_line": 33,
+                            "first_column": 15,
+                            "last_line": 37,
+                            "last_column": 26,
+                            "range": [
+                              1099,
+                              1161
+                            ]
+                          },
+                          "type": "else-clause"
+                        },
+                        "location": {
+                          "first_line": 29,
+                          "first_column": 16,
+                          "last_line": 37,
+                          "last_column": 26,
+                          "range": [
+                            984,
+                            1161
+                          ]
+                        },
+                        "type": "if-statement"
+                      }
+                    ],
+                    "close": {
+                      "value": "TabBar",
+                      "location": {
+                        "first_line": 39,
+                        "first_column": 15,
+                        "last_line": 39,
+                        "last_column": 21,
+                        "range": [
+                          1178,
+                          1184
+                        ]
+                      },
+                      "type": "unqualified-constructor"
+                    },
+                    "type": "widget"
+                  }
+                ],
+                "close": {
+                  "value": "PanelHeader",
+                  "location": {
+                    "first_line": 41,
+                    "first_column": 13,
+                    "last_line": 41,
+                    "last_column": 24,
+                    "range": [
+                      1200,
+                      1211
+                    ]
+                  },
+                  "type": "unqualified-constructor"
+                },
+                "type": "widget"
+              }
+            ],
+            "elseClause": {
+              "children": [
+                {
+                  "expression": {
+                    "value": "",
+                    "type": "string"
+                  },
+                  "filters": [],
+                  "location": {
+                    "first_line": 45,
+                    "first_column": 10,
+                    "last_line": 45,
+                    "last_column": 16,
+                    "range": [
+                      1245,
+                      1251
+                    ]
+                  },
+                  "type": "interpolation"
+                }
+              ],
+              "location": {
+                "first_line": 43,
+                "first_column": 9,
+                "last_line": 47,
+                "last_column": 19,
+                "range": [
+                  1223,
+                  1272
+                ]
+              },
+              "type": "else-clause"
+            },
+            "location": {
+              "first_line": 15,
+              "first_column": 11,
+              "last_line": 47,
+              "last_column": 19,
+              "range": [
+                640,
+                1272
+              ]
+            },
+            "type": "if-statement"
+          },
+          {
+            "expression": {
+              "member": {
+                "value": "children",
+                "location": {
+                  "first_line": 49,
+                  "first_column": 11,
+                  "last_line": 49,
+                  "last_column": 19,
+                  "range": [
+                    1285,
+                    1293
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "location": {
+                "first_line": 49,
+                "first_column": 10,
+                "last_line": 49,
+                "last_column": 19,
+                "range": [
+                  1284,
+                  1293
+                ]
+              },
+              "type": "context-property"
+            },
+            "filters": [],
+            "location": {
+              "first_line": 49,
+              "first_column": 8,
+              "last_line": 49,
+              "last_column": 21,
+              "range": [
+                1282,
+                1295
+              ]
+            },
+            "type": "interpolation"
+          }
+        ],
+        "close": {
+          "value": "Panel",
+          "location": {
+            "first_line": 51,
+            "first_column": 2,
+            "last_line": 51,
+            "last_column": 7,
+            "range": [
+              1299,
+              1304
+            ]
+          },
+          "type": "unqualified-constructor"
+        },
+        "type": "widget"
+      },
+      "location": {
+        "first_line": 11,
+        "first_column": 8,
+        "last_line": 51,
+        "last_column": 8,
+        "range": [
+          547,
+          1305
+        ]
+      },
+      "type": "view-statement"
+    }
+  ],
+  "location": {
+    "first_line": 2,
+    "first_column": 8,
+    "last_line": 51,
+    "last_column": 8,
+    "range": [
+      9,
+      1305
+    ]
+  },
+  "type": "module"
+}

@@ -1,1 +1,49 @@
-{"imports":[],"exports":[{"open":{"id":"panel","location":{"first_line":1,"first_column":1,"last_line":1,"last_column":6,"range":[1,6]},"type":"unqualified-identifier"},"attributes":[],"children":[],"close":{"id":"panel","location":{"first_line":10,"first_column":4,"last_line":10,"last_column":9,"range":[22,27]},"type":"unqualified-identifier"},"type":"node"}],"location":{"first_line":1,"first_column":0,"last_line":10,"last_column":10,"range":[0,28]},"type":"module"}
+{
+  "imports": [],
+  "exports": [
+    {
+      "open": {
+        "value": "panel",
+        "location": {
+          "first_line": 1,
+          "first_column": 1,
+          "last_line": 1,
+          "last_column": 6,
+          "range": [
+            1,
+            6
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "attributes": [],
+      "children": [],
+      "close": {
+        "value": "panel",
+        "location": {
+          "first_line": 10,
+          "first_column": 4,
+          "last_line": 10,
+          "last_column": 9,
+          "range": [
+            22,
+            27
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "type": "node"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 10,
+    "last_column": 10,
+    "range": [
+      0,
+      28
+    ]
+  },
+  "type": "module"
+}

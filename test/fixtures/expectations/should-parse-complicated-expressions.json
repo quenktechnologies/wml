@@ -1,1 +1,167 @@
-{"imports":[],"exports":[{"open":{"id":"div","location":{"first_line":1,"first_column":1,"last_line":1,"last_column":4,"range":[1,4]},"type":"unqualified-identifier"},"attributes":[{"namespace":{"id":"","location":{"first_line":1,"first_column":5,"last_line":1,"last_column":43,"range":[5,43]},"type":"unqualified-identifier"},"name":{"id":"class","location":{"first_line":1,"first_column":5,"last_line":1,"last_column":10,"range":[5,10]},"type":"unqualified-identifier"},"value":{"expression":{"left":{"left":{"qualifier":"Styles","member":"A","location":{"first_line":1,"first_column":15,"last_line":1,"last_column":23,"range":[15,23]},"type":"qualified-constructor"},"operator":"+","right":{"value":" ","type":"string"},"location":{"first_line":1,"first_column":15,"last_line":1,"last_column":29,"range":[15,29]},"type":"binary-expression"},"operator":"+","right":{"qualifier":"Style","member":"B","location":{"first_line":1,"first_column":33,"last_line":1,"last_column":40,"range":[33,40]},"type":"qualified-constructor"},"location":{"first_line":1,"first_column":14,"last_line":1,"last_column":40,"range":[14,40]},"type":"binary-expression"},"filters":[],"location":{"first_line":1,"first_column":11,"last_line":1,"last_column":43,"range":[11,43]},"type":"interpolation"},"location":{"first_line":1,"first_column":5,"last_line":1,"last_column":43,"range":[5,43]},"type":"attribute"}],"children":[],"close":{"id":"div","location":{"first_line":1,"first_column":1,"last_line":1,"last_column":4,"range":[1,4]},"type":"unqualified-identifier"},"type":"node"}],"location":{"first_line":1,"first_column":0,"last_line":1,"last_column":45,"range":[0,45]},"type":"module"}
+{
+  "imports": [],
+  "exports": [
+    {
+      "open": {
+        "value": "div",
+        "location": {
+          "first_line": 1,
+          "first_column": 1,
+          "last_line": 1,
+          "last_column": 4,
+          "range": [
+            1,
+            4
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "attributes": [
+        {
+          "namespace": {
+            "value": "",
+            "location": {
+              "first_line": 1,
+              "first_column": 5,
+              "last_line": 1,
+              "last_column": 43,
+              "range": [
+                5,
+                43
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "name": {
+            "value": "class",
+            "location": {
+              "first_line": 1,
+              "first_column": 5,
+              "last_line": 1,
+              "last_column": 10,
+              "range": [
+                5,
+                10
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "value": {
+            "expression": {
+              "left": {
+                "left": {
+                  "qualifier": "Styles",
+                  "member": "A",
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 15,
+                    "last_line": 1,
+                    "last_column": 23,
+                    "range": [
+                      15,
+                      23
+                    ]
+                  },
+                  "type": "qualified-constructor"
+                },
+                "operator": "+",
+                "right": {
+                  "value": " ",
+                  "type": "string"
+                },
+                "location": {
+                  "first_line": 1,
+                  "first_column": 15,
+                  "last_line": 1,
+                  "last_column": 29,
+                  "range": [
+                    15,
+                    29
+                  ]
+                },
+                "type": "binary-expression"
+              },
+              "operator": "+",
+              "right": {
+                "qualifier": "Style",
+                "member": "B",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 33,
+                  "last_line": 1,
+                  "last_column": 40,
+                  "range": [
+                    33,
+                    40
+                  ]
+                },
+                "type": "qualified-constructor"
+              },
+              "location": {
+                "first_line": 1,
+                "first_column": 14,
+                "last_line": 1,
+                "last_column": 40,
+                "range": [
+                  14,
+                  40
+                ]
+              },
+              "type": "binary-expression"
+            },
+            "filters": [],
+            "location": {
+              "first_line": 1,
+              "first_column": 11,
+              "last_line": 1,
+              "last_column": 43,
+              "range": [
+                11,
+                43
+              ]
+            },
+            "type": "interpolation"
+          },
+          "location": {
+            "first_line": 1,
+            "first_column": 5,
+            "last_line": 1,
+            "last_column": 43,
+            "range": [
+              5,
+              43
+            ]
+          },
+          "type": "attribute"
+        }
+      ],
+      "children": [],
+      "close": {
+        "value": "div",
+        "location": {
+          "first_line": 1,
+          "first_column": 1,
+          "last_line": 1,
+          "last_column": 4,
+          "range": [
+            1,
+            4
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "type": "node"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 45,
+    "range": [
+      0,
+      45
+    ]
+  },
+  "type": "module"
+}

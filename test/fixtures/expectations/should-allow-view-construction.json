@@ -1,1 +1,104 @@
-{"imports":[],"exports":[{"open":{"id":"p","location":{"first_line":1,"first_column":1,"last_line":1,"last_column":2,"range":[1,2]},"type":"unqualified-identifier"},"attributes":[],"children":[{"expression":{"cons":{"id":"Panel","location":{"first_line":1,"first_column":7,"last_line":1,"last_column":12,"range":[7,12]},"type":"unqualified-constructor"},"context":{"location":{"first_line":1,"first_column":13,"last_line":1,"last_column":14,"range":[13,14]},"type":"context-variable"},"location":{"first_line":1,"first_column":6,"last_line":1,"last_column":16,"range":[6,16]},"type":"view-construction"},"filters":[],"location":{"first_line":1,"first_column":3,"last_line":1,"last_column":19,"range":[3,19]},"type":"interpolation"}],"close":{"id":"p","location":{"first_line":1,"first_column":21,"last_line":1,"last_column":22,"range":[21,22]},"type":"unqualified-identifier"},"type":"node"}],"location":{"first_line":1,"first_column":0,"last_line":1,"last_column":23,"range":[0,23]},"type":"module"}
+{
+  "imports": [],
+  "exports": [
+    {
+      "open": {
+        "value": "p",
+        "location": {
+          "first_line": 1,
+          "first_column": 1,
+          "last_line": 1,
+          "last_column": 2,
+          "range": [
+            1,
+            2
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "attributes": [],
+      "children": [
+        {
+          "expression": {
+            "cons": {
+              "value": "Panel",
+              "location": {
+                "first_line": 1,
+                "first_column": 7,
+                "last_line": 1,
+                "last_column": 12,
+                "range": [
+                  7,
+                  12
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "context": {
+              "location": {
+                "first_line": 1,
+                "first_column": 13,
+                "last_line": 1,
+                "last_column": 14,
+                "range": [
+                  13,
+                  14
+                ]
+              },
+              "type": "context-variable"
+            },
+            "location": {
+              "first_line": 1,
+              "first_column": 6,
+              "last_line": 1,
+              "last_column": 16,
+              "range": [
+                6,
+                16
+              ]
+            },
+            "type": "view-construction"
+          },
+          "filters": [],
+          "location": {
+            "first_line": 1,
+            "first_column": 3,
+            "last_line": 1,
+            "last_column": 19,
+            "range": [
+              3,
+              19
+            ]
+          },
+          "type": "interpolation"
+        }
+      ],
+      "close": {
+        "value": "p",
+        "location": {
+          "first_line": 1,
+          "first_column": 21,
+          "last_line": 1,
+          "last_column": 22,
+          "range": [
+            21,
+            22
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "type": "node"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 23,
+    "range": [
+      0,
+      23
+    ]
+  },
+  "type": "module"
+}

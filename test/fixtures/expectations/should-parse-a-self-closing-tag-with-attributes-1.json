@@ -1,1 +1,160 @@
-{"imports":[],"exports":[{"open":{"id":"user","location":{"first_line":1,"first_column":1,"last_line":1,"last_column":5,"range":[1,5]},"type":"unqualified-identifier"},"attributes":[{"namespace":{"id":"app","location":{"first_line":1,"first_column":6,"last_line":1,"last_column":9,"range":[6,9]},"type":"unqualified-identifier"},"name":{"id":"enabled","location":{"first_line":1,"first_column":10,"last_line":1,"last_column":17,"range":[10,17]},"type":"unqualified-identifier"},"value":{"value":true,"location":{"first_line":1,"first_column":6,"last_line":1,"last_column":17,"range":[6,17]},"type":"boolean-literal"},"location":{"first_line":1,"first_column":6,"last_line":1,"last_column":17,"range":[6,17]},"type":"attribute"},{"namespace":{"id":"","location":{"first_line":1,"first_column":18,"last_line":1,"last_column":23,"range":[18,23]},"type":"unqualified-identifier"},"name":{"id":"id","location":{"first_line":1,"first_column":18,"last_line":1,"last_column":20,"range":[18,20]},"type":"unqualified-identifier"},"value":{"value":"24","location":{"first_line":1,"first_column":21,"last_line":1,"last_column":23,"range":[21,23]},"type":"number-literal"},"location":{"first_line":1,"first_column":18,"last_line":1,"last_column":23,"range":[18,23]},"type":"attribute"}],"children":[],"close":{"id":"user","location":{"first_line":1,"first_column":1,"last_line":1,"last_column":5,"range":[1,5]},"type":"unqualified-identifier"},"type":"node"}],"location":{"first_line":1,"first_column":0,"last_line":1,"last_column":26,"range":[0,26]},"type":"module"}
+{
+  "imports": [],
+  "exports": [
+    {
+      "open": {
+        "value": "user",
+        "location": {
+          "first_line": 1,
+          "first_column": 1,
+          "last_line": 1,
+          "last_column": 5,
+          "range": [
+            1,
+            5
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "attributes": [
+        {
+          "namespace": {
+            "value": "app",
+            "location": {
+              "first_line": 1,
+              "first_column": 6,
+              "last_line": 1,
+              "last_column": 9,
+              "range": [
+                6,
+                9
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "name": {
+            "value": "enabled",
+            "location": {
+              "first_line": 1,
+              "first_column": 10,
+              "last_line": 1,
+              "last_column": 17,
+              "range": [
+                10,
+                17
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "value": {
+            "value": true,
+            "location": {
+              "first_line": 1,
+              "first_column": 6,
+              "last_line": 1,
+              "last_column": 17,
+              "range": [
+                6,
+                17
+              ]
+            },
+            "type": "boolean-literal"
+          },
+          "location": {
+            "first_line": 1,
+            "first_column": 6,
+            "last_line": 1,
+            "last_column": 17,
+            "range": [
+              6,
+              17
+            ]
+          },
+          "type": "attribute"
+        },
+        {
+          "namespace": {
+            "value": "",
+            "location": {
+              "first_line": 1,
+              "first_column": 18,
+              "last_line": 1,
+              "last_column": 23,
+              "range": [
+                18,
+                23
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "name": {
+            "value": "id",
+            "location": {
+              "first_line": 1,
+              "first_column": 18,
+              "last_line": 1,
+              "last_column": 20,
+              "range": [
+                18,
+                20
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "value": {
+            "value": "24",
+            "location": {
+              "first_line": 1,
+              "first_column": 21,
+              "last_line": 1,
+              "last_column": 23,
+              "range": [
+                21,
+                23
+              ]
+            },
+            "type": "number-literal"
+          },
+          "location": {
+            "first_line": 1,
+            "first_column": 18,
+            "last_line": 1,
+            "last_column": 23,
+            "range": [
+              18,
+              23
+            ]
+          },
+          "type": "attribute"
+        }
+      ],
+      "children": [],
+      "close": {
+        "value": "user",
+        "location": {
+          "first_line": 1,
+          "first_column": 1,
+          "last_line": 1,
+          "last_column": 5,
+          "range": [
+            1,
+            5
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "type": "node"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 26,
+    "range": [
+      0,
+      26
+    ]
+  },
+  "type": "module"
+}
