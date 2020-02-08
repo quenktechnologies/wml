@@ -85,7 +85,6 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <CONTROL>'elseif'                                        return 'ELSEIF';
 <CONTROL>'in'                                            return 'IN';
 <CONTROL>'of'                                            return 'OF';
-<CONTROL>'export'                                        return 'EXPORT';
 <CONTROL>'from'                                          return 'FROM';
 <CONTROL>'view'                                          return 'VIEW';
 <CONTROL>'instanceof'                                    return 'INSTANCEOF';
@@ -93,6 +92,7 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <CONTROL>'fun'                                           return 'FUN';
 <CONTROL>'endfun'                                        return 'ENDFUN';
 <CONTROL>'as'                                            return 'AS';
+<CONTROL>'context'                                       return 'CONTEXT'
 <CONTROL>'@'                                             return '@';
 <CONTROL>'=' this.popState();this.begin('CONTROL_CHILD');return '=';
 <CONTROL>{Constructor}                                   return 'CONSTRUCTOR';
@@ -142,6 +142,7 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <*>'!='                                                  return '!=';
 <*>'>='                                                  return '>=';
 <*>'<='                                                  return '<=';
+<*>'=>'                                                  return '=>';
 <*>'+'                                                   return '+';
 <*>'-'                                                   return '-';
 <*>'*'                                                   return '*';
@@ -176,7 +177,7 @@ module
             {$$ = new yy.ast.Module([], $1, @$); return $$;}
 
           | EOF
-            {$$ = new yy.ast.Module([], [], undefined, @$);     }
+            {$$ = new yy.ast.Module([], [], undefined, @$);}
           ;
 
 imports
@@ -231,10 +232,46 @@ exports
           ;
 
 export
-          : view_statement           
+          : context_statement
+
+          | view_statement           
+
           | fun_statement 
+
           | element
             {$$ = $1; }
+          ;
+
+context_statement
+          
+          : '{%' CONTEXT unqualified_constructor type_parameters? 
+             member_declarations? '%}'
+            { $$ = new yy.ast.ContextStatement($3, $4||[], $5||[]);   }
+          ;
+
+member_declarations
+
+          : member_declaration
+            { $$ = [$1];                                   }
+
+          | member_declarations member_declaration
+            { $$ = $1.concat($2);                          }
+          ;
+
+member_declaration
+          
+          : member_path ':' type
+            { $$ = new yy.ast.MemberDeclaration($1, $3, @$); }
+          ;
+
+member_path
+
+          : unqualified_identifier
+           { $$ = [$1];                             }
+
+          | member_path '.' unqualified_identifier 
+            { $$ = $1.concat($3);                   }
+
           ;
 
 view_statement
@@ -277,28 +314,113 @@ type_parameter_list
           ;
 
 type_parameter
-          : unqualified_identifier 
-           {$$ = new yy.ast.TypeParameter($1, undefined, @$);}
-
-          | unqualified_identifier ':' type
-           {$$ = new yy.ast.TypeParameter($1, $3, @$);}
-
-          | unqualified_constructor 
-           {$$ = new yy.ast.TypeParameter($1, undefined, @$);}
+        
+          : unqualified_constructor 
+           {$$ = new yy.ast.TypeParameter($1, undefined, @$);           }
 
           | unqualified_constructor ':' type
-           {$$ = new yy.ast.TypeParameter($1, $3, @$);}
+           {$$ = new yy.ast.TypeParameter($1, $3, @$);                  }
           ;
 
-type 
-          : cons type_parameters?
-            { $$ = new yy.ast.Type($1, $2||[], false, @$); }               
+type
+          : non_function_type
+            { $$ = $1;                                                  }
 
-          | cons type_parameters '[' ']'
-            { $$ = new yy.ast.Type($1, $2, true, @$); }
+          | function_type
+            { $$ = $1;                                                  }
 
-          | cons '[' ']'
-            { $$ = new yy.ast.Type($1, [], true, @$); }
+          | grouped_type 
+            { $$ = $1;                                                  }
+          ;
+
+grouped_type
+          : '(' non_function_type ')'
+            { $$ = $2;                                                  }
+
+          | '(' function_type ')'
+            { $$ = $2;                                                  }
+          ;
+
+non_function_type
+          : constructor_type
+            { $$ = $1;                                                  }
+
+          | record_type
+            { $$ = $1;                                                  }
+         
+          | list_type
+            { $$ = $1;                                                  }
+          ;
+
+constructor_type
+          : cons
+            { $$ = new yy.ast.ConstructorType($1, [], @$);              }
+
+          | cons type_parameters
+            { $$ = new yy.ast.ConstructorType($1, $2, @$);               }
+          ;
+
+record_type
+          : '{' member_declarations '}'
+            { $$ = new yy.ast.RecordType($2, @$);                       }
+
+          | '{' '}'
+            { $$ = new yy.ast.RecordType([], @$);                       }
+
+          ;
+
+list_type
+          : cons '[' ']'
+            { $$ = new yy.ast.ListType(
+                     new yy.ast.ConstructorType($1, []), @$);           }
+
+           | cons type_parameters '[' ']'
+            { $$ = new yy.ast.ListType(
+                     new yy.ast.ConstructorType($1, $2), @$);           }
+
+          | record_type '[' ']'
+            { $$ = new yy.ast.ListType($1, @$);                         }
+         
+          // a function list type MUST be grouped!
+          | grouped_type '[' ']'
+            { $$ = new yy.ast.ListType($1, @$);                         }
+
+          | list_type '[' ']'
+            { $$ = new yy.ast.ListType($1, @$);                         }
+          ; 
+
+function_type
+          : '=>' type
+            { $$ = new yy.ast.FunctionType([], $2, @$);                 }
+
+          | '('  ')' '=>' type
+            { $$ = new yy.ast.FunctionType([], $4, @$);                 }
+
+          | non_function_type '=>' type                                 
+            { $$ = new yy.ast.FunctionType([$1], $3, @$);               }
+
+          // If we don't use grouped_type here jison will trip up on the 
+          // ambiguity that implicitly exists between the type sub rules
+          | grouped_type '=>' type
+            { $$ = new yy.ast.FunctionType([$1], $3, @$);               }
+
+          | '(' function_type_parameters ')' '=>' type
+            { $$ = new yy.ast.FunctionType($2, $5, @$);                 }
+          ;
+
+function_type_parameters
+
+          : non_function_type ',' non_function_type
+            { $$ = [$1, $3];                                             }
+
+          | '(' function_type ')' ',' '(' function_type ')'
+            { $$ = [$2, $6];                                             }
+
+          | function_type_parameters ',' non_function_type
+            { $$ = $1.concat($3);                                        }
+
+          | function_type_parameters ',' '(' function_type ')'
+            { $$ = $1.concat($4);                                        }
           ;
 
 parameters
@@ -535,7 +657,6 @@ binary_expression
 
          | '(' expression ')' binary_operator '(' expression ')'
            {$$ = new yy.ast.BinaryExpression($2, $4, $6, @$); }
-         
          ;
 
 unary_expression

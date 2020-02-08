@@ -3,12 +3,34 @@
  */
 /** imports */
 import * as nodes from '../../../parse/ast';
+import { Record } from '@quenk/noni/lib/data/record';
 import { Context } from '../../code';
 export declare const CONTEXT = "__context";
 export declare const VIEW = "__view";
 export declare const WML = "__wml";
 export declare const THIS = "__this";
 declare type Ifs = nodes.IfStatement | nodes.ElseIfClause;
+/**
+ *  TypeScript code.
+ */
+export declare type TypeScript = string;
+/**
+ * TypeOrMap
+ */
+export declare type TypeOrMap = TypeScript | ExpandedTypeMap;
+/**
+ * TypeMap contains a recursive map of dotted paths to Type nodes.
+ */
+export interface TypeMap extends Record<nodes.Type> {
+}
+/**
+ * ExpandedTypeMap is an expanded version of TypeMap.
+ *
+ * Each dotted path is expanded recursively into records
+ * so that no path contain dots.
+ */
+export interface ExpandedTypeMap extends Record<TypeOrMap> {
+}
 /**
  * eol sugar
  */
@@ -43,6 +65,10 @@ export declare const compositeMember2TS: (n: nodes.CompositeMember) => string;
  */
 export declare const exports2TS: (ctx: Context, n: nodes.Export) => string;
 /**
+ * contextStatement2TS
+ */
+export declare const contextStatement2TS: (n: nodes.ContextStatement) => string;
+/**
  * funStatement2TS
  */
 export declare const funStatement2TS: (ctx: Context, n: nodes.FunStatement) => string;
@@ -51,10 +77,10 @@ export declare const funStatement2TS: (ctx: Context, n: nodes.FunStatement) => s
  */
 export declare const viewStatement2TS: (ctx: Context, n: nodes.ViewStatement) => string;
 /**
- * typeParameters converts a list of typeParameters into the a list of
- * typescript typeParameters.
+ * typeParameters2TS converts a list of typeParameters2TS into the a list of
+ * typescript typeParameters2TS.
  */
-export declare const typeParameters: (ns: nodes.TypeParameter[]) => string;
+export declare const typeParameters2TS: (ns: nodes.TypeParameter[]) => string;
 /**
  * typeParameter2TS converts a type parameter into a typescript type parameter.
  */
@@ -63,6 +89,53 @@ export declare const typeParameter2TS: (n: nodes.TypeParameter) => string;
  * type2TS
  */
 export declare const type2TS: (n: nodes.Type) => string;
+/**
+ * constructorType2TS converts a ConstructorType into its id.
+ *
+ * If the node is generic, the type parameters will be generated as well.
+ */
+export declare const constructorType2TS: (n: nodes.ConstructorType) => string;
+/**
+ * functionType2TS
+ */
+export declare const functionType2TS: (n: nodes.FunctionType) => string;
+/**
+ * listType2TS
+ */
+export declare const listType2TS: (n: nodes.ListType) => string;
+/**
+ * recordType2TS converts the RecordType node to the body of a TypeScript
+ * record interface.
+ */
+export declare const recordType2Ts: (n: nodes.RecordType) => string;
+/**
+ * memberDeclarations2TS converts a list of MemberDeclarations to TypeScript.
+ *
+ * The paths of the MemberDeclarations are expanded so that paths
+ * using the "<path1>.<path2>.<path3>" syntax occur as nested records.
+ */
+export declare const memberDeclarations2TS: (n: nodes.MemberDeclaration[]) => string;
+/**
+ * typeMapFromMemberDecs creates a TypeMap from a list of memberDeclarations.
+ *
+ * This works recursively and any RecordTypes encountered will be flattened.
+ */
+export declare const typeMapFromMemberDecs: (list: nodes.MemberDeclaration[]) => TypeMap;
+/**
+ * typeMapFromRecordType produces a map of node.Type instances from
+ * a RecordType recursively.
+ *
+ * Any encountered RecordTypes will be flattened.
+ */
+export declare const typeMapFromRecordType: (n: nodes.RecordType, init: TypeMap, prefix: string[]) => TypeMap;
+/**
+ * expandTypeMap to an ExpandedTypeMap.
+ */
+export declare const expandTypeMap: (m: TypeMap) => ExpandedTypeMap;
+/**
+ * typeMap2TS converts a map of type values to TypeScript.
+ */
+export declare const typeMap2TS: (m: ExpandedTypeMap) => string;
 /**
  * parameter2TS
  */
@@ -222,7 +295,7 @@ export declare const contextVariable2TS: (_: nodes.ContextVariable) => string;
 /**
  * identifierOrConstructor2TS
  */
-export declare const identifierOrConstructor2TS: (n: nodes.UnqualifiedIdentifier | nodes.UnqualifiedConstructor | nodes.QualifiedIdentifier | nodes.QualifiedConstructor) => string | undefined;
+export declare const identifierOrConstructor2TS: (n: nodes.UnqualifiedIdentifier | nodes.UnqualifiedConstructor | nodes.QualifiedIdentifier | nodes.QualifiedConstructor) => string;
 /**
  * constructor2TS
  */

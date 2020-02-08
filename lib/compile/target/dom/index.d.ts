@@ -1,3 +1,4 @@
+import { Except } from '@quenk/noni/lib/control/error';
 /**
  * OptionValue
  */
@@ -18,4 +19,4 @@ export interface Options {
 /**
  * compile a string of WML into typescript code.
  */
-export declare const compile: (src: string, opts?: Options) => import("@quenk/noni/lib/data/either").Either<import("@quenk/noni/lib/control/error").Err, string>;
+export declare const compile: (src: string, opts?: Options) => Except<string>;

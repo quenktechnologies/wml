@@ -109,10 +109,40 @@ export type Member
     ;
 
 export type Export
-    = FunStatement
+    = ContextStatement
+    | FunStatement
     | ViewStatement
     | Tag
     ;
+
+/**
+ * ContextStatement
+ */
+export class ContextStatement {
+
+    type = 'context-statement';
+
+    constructor(
+        public id: UnqualifiedConstructor,
+        public typeParameters: TypeParameter[],
+        public members: MemberDeclaration[],
+        public location: Location) { }
+
+}
+
+/**
+ * MemberDeclaration
+ */
+export class MemberDeclaration {
+
+    type = 'member-declaration';
+
+    constructor(
+        public path: UnqualifiedIdentifier[],
+        public kind: Type,
+        public location: Location) { }
+
+}
 
 /**
  * ViewStatement
@@ -157,23 +187,81 @@ export class TypeParameter {
 
 }
 
-export class Type {
+/**
+ * Type
+ */
+export type Type
+    = ConstructorType
+    | FunctionType
+    | RecordType
+    | ListType
+    ;
 
-    type = 'type';
+/**
+ * ConstructorType
+ */
+export class ConstructorType {
+
+    type = 'constructor-type';
 
     constructor(
         public id: UnqualifiedIdentifier | Constructor,
         public typeParameters: TypeParameter[],
-        public list: boolean,
         public location: Location) { }
 
 }
 
+/**
+ * FunctionType
+ */
+export class FunctionType {
+
+    type = 'function-type';
+
+    constructor(
+        public parameters: Type[],
+        public returnType: Type,
+        public location: Location) { }
+
+}
+
+/**
+ * RecordType
+ */
+export class RecordType {
+
+    type = 'record-type';
+
+    constructor(
+        public members: MemberDeclaration[],
+        public location: Location) { }
+
+}
+
+/**
+ * ListType
+ */
+export class ListType {
+
+    type = 'list-type';
+
+    constructor(
+        public elementType: Type,
+        public location: Location) { }
+
+}
+
+/**
+ * Parameter
+ */
 export type Parameter
     = TypedParameter
     | UntypedParameter
     ;
 
+/**
+ * TypeParameter
+ */
 export class TypedParameter {
 
     type = 'typed-parameter';
@@ -565,7 +653,7 @@ export class UnqualifiedConstructor {
     type = 'unqualified-constructor';
 
     constructor(
-        public id: string,
+        public value: string,
         public location: Location) { }
 
 }
@@ -593,7 +681,7 @@ export class UnqualifiedIdentifier {
 
     type = 'unqualified-identifier';
 
-    constructor(public id: string, public location: Location) { }
+    constructor(public value: string, public location: Location) { }
 
 }
 
@@ -610,4 +698,3 @@ export class QualifiedIdentifier {
         public location: Location) { }
 
 }
-

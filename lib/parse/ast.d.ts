@@ -74,7 +74,28 @@ export declare class CompositeMember {
     constructor(members: (Member | AliasedMember)[], location: Location);
 }
 export declare type Member = UnqualifiedIdentifier | UnqualifiedConstructor;
-export declare type Export = FunStatement | ViewStatement | Tag;
+export declare type Export = ContextStatement | FunStatement | ViewStatement | Tag;
+/**
+ * ContextStatement
+ */
+export declare class ContextStatement {
+    id: UnqualifiedConstructor;
+    typeParameters: TypeParameter[];
+    members: MemberDeclaration[];
+    location: Location;
+    type: string;
+    constructor(id: UnqualifiedConstructor, typeParameters: TypeParameter[], members: MemberDeclaration[], location: Location);
+}
+/**
+ * MemberDeclaration
+ */
+export declare class MemberDeclaration {
+    path: UnqualifiedIdentifier[];
+    kind: Type;
+    location: Location;
+    type: string;
+    constructor(path: UnqualifiedIdentifier[], kind: Type, location: Location);
+}
 /**
  * ViewStatement
  */
@@ -106,15 +127,55 @@ export declare class TypeParameter {
     type: string;
     constructor(id: UnqualifiedConstructor, constraint: Type, location: Location);
 }
-export declare class Type {
+/**
+ * Type
+ */
+export declare type Type = ConstructorType | FunctionType | RecordType | ListType;
+/**
+ * ConstructorType
+ */
+export declare class ConstructorType {
     id: UnqualifiedIdentifier | Constructor;
     typeParameters: TypeParameter[];
-    list: boolean;
     location: Location;
     type: string;
-    constructor(id: UnqualifiedIdentifier | Constructor, typeParameters: TypeParameter[], list: boolean, location: Location);
+    constructor(id: UnqualifiedIdentifier | Constructor, typeParameters: TypeParameter[], location: Location);
 }
+/**
+ * FunctionType
+ */
+export declare class FunctionType {
+    parameters: Type[];
+    returnType: Type;
+    location: Location;
+    type: string;
+    constructor(parameters: Type[], returnType: Type, location: Location);
+}
+/**
+ * RecordType
+ */
+export declare class RecordType {
+    members: MemberDeclaration[];
+    location: Location;
+    type: string;
+    constructor(members: MemberDeclaration[], location: Location);
+}
+/**
+ * ListType
+ */
+export declare class ListType {
+    elementType: Type;
+    location: Location;
+    type: string;
+    constructor(elementType: Type, location: Location);
+}
+/**
+ * Parameter
+ */
 export declare type Parameter = TypedParameter | UntypedParameter;
+/**
+ * TypeParameter
+ */
 export declare class TypedParameter {
     id: UnqualifiedIdentifier;
     hint: Type;
@@ -339,10 +400,10 @@ export declare class ContextVariable {
 }
 export declare type Constructor = UnqualifiedConstructor | QualifiedConstructor;
 export declare class UnqualifiedConstructor {
-    id: string;
+    value: string;
     location: Location;
     type: string;
-    constructor(id: string, location: Location);
+    constructor(value: string, location: Location);
 }
 export declare class QualifiedConstructor {
     qualifier: string;
@@ -356,10 +417,10 @@ export declare class QualifiedConstructor {
  */
 export declare type Identifier = UnqualifiedIdentifier | QualifiedIdentifier;
 export declare class UnqualifiedIdentifier {
-    id: string;
+    value: string;
     location: Location;
     type: string;
-    constructor(id: string, location: Location);
+    constructor(value: string, location: Location);
 }
 /**
  * QualifiedIdentifier
