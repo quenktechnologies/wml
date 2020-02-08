@@ -36,37 +36,39 @@
             }
           ],
           "kind": {
-            "parameters": {
-              "elementType": {
-                "id": {
-                  "value": "String",
-                  "location": {
-                    "first_line": 1,
-                    "first_column": 24,
-                    "last_line": 1,
-                    "last_column": 30,
-                    "range": [
-                      24,
-                      30
-                    ]
+            "parameters": [
+              {
+                "elementType": {
+                  "id": {
+                    "value": "String",
+                    "location": {
+                      "first_line": 1,
+                      "first_column": 24,
+                      "last_line": 1,
+                      "last_column": 30,
+                      "range": [
+                        24,
+                        30
+                      ]
+                    },
+                    "type": "unqualified-constructor"
                   },
-                  "type": "unqualified-constructor"
+                  "typeParameters": [],
+                  "type": "constructor-type"
                 },
-                "typeParameters": [],
-                "type": "constructor-type"
-              },
-              "location": {
-                "first_line": 1,
-                "first_column": 24,
-                "last_line": 1,
-                "last_column": 32,
-                "range": [
-                  24,
-                  32
-                ]
-              },
-              "type": "list-type"
-            },
+                "location": {
+                  "first_line": 1,
+                  "first_column": 24,
+                  "last_line": 1,
+                  "last_column": 32,
+                  "range": [
+                    24,
+                    32
+                  ]
+                },
+                "type": "list-type"
+              }
+            ],
             "returnType": {
               "elementType": {
                 "id": {

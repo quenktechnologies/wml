@@ -54,24 +54,24 @@
                     "value": "e",
                     "location": {
                       "first_line": 1,
-                      "first_column": 19,
+                      "first_column": 18,
                       "last_line": 1,
-                      "last_column": 20,
+                      "last_column": 19,
                       "range": [
-                        19,
-                        20
+                        18,
+                        19
                       ]
                     },
                     "type": "unqualified-identifier"
                   },
                   "location": {
                     "first_line": 1,
-                    "first_column": 19,
+                    "first_column": 18,
                     "last_line": 1,
-                    "last_column": 20,
+                    "last_column": 19,
                     "range": [
-                      19,
-                      20
+                      18,
+                      19
                     ]
                   },
                   "type": "untyped-parameter"

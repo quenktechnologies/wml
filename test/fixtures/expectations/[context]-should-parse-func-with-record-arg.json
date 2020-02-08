@@ -36,20 +36,22 @@
             }
           ],
           "kind": {
-            "parameters": {
-              "members": [],
-              "location": {
-                "first_line": 1,
-                "first_column": 24,
-                "last_line": 1,
-                "last_column": 27,
-                "range": [
-                  24,
-                  27
-                ]
-              },
-              "type": "record-type"
-            },
+            "parameters": [
+              {
+                "members": [],
+                "location": {
+                  "first_line": 1,
+                  "first_column": 24,
+                  "last_line": 1,
+                  "last_column": 27,
+                  "range": [
+                    24,
+                    27
+                  ]
+                },
+                "type": "record-type"
+              }
+            ],
             "returnType": {
               "members": [],
               "location": {

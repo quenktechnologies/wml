@@ -36,9 +36,23 @@
             }
           ],
           "kind": {
-            "parameters": {
-              "id": {
-                "value": "String",
+            "parameters": [
+              {
+                "id": {
+                  "value": "String",
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 24,
+                    "last_line": 1,
+                    "last_column": 30,
+                    "range": [
+                      24,
+                      30
+                    ]
+                  },
+                  "type": "unqualified-constructor"
+                },
+                "typeParameters": [],
                 "location": {
                   "first_line": 1,
                   "first_column": 24,
@@ -49,21 +63,9 @@
                     30
                   ]
                 },
-                "type": "unqualified-constructor"
-              },
-              "typeParameters": [],
-              "location": {
-                "first_line": 1,
-                "first_column": 24,
-                "last_line": 1,
-                "last_column": 30,
-                "range": [
-                  24,
-                  30
-                ]
-              },
-              "type": "constructor-type"
-            },
+                "type": "constructor-type"
+              }
+            ],
             "returnType": {
               "id": {
                 "value": "String",
