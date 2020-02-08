@@ -92,7 +92,8 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <CONTROL>'fun'                                           return 'FUN';
 <CONTROL>'endfun'                                        return 'ENDFUN';
 <CONTROL>'as'                                            return 'AS';
-<CONTROL>'context'                                       return 'CONTEXT'
+<CONTROL>'context'                                       return 'CONTEXT';
+<CONTROL>'alias'                                         return 'ALIAS';
 <CONTROL>'@'                                             return '@';
 <CONTROL>'=' this.popState();this.begin('CONTROL_CHILD');return '=';
 <CONTROL>{Constructor}                                   return 'CONSTRUCTOR';
@@ -154,6 +155,7 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <*>'!'                                                   return '!';
 <*>','                                                   return ',';
 <*>'?'                                                   return '?';
+<*>'|'                                                   return '|';
 <*>'...'                                                 return '...';
 <*>'.'                                                   return '.';
 
@@ -232,7 +234,9 @@ exports
           ;
 
 export
-          : context_statement
+          : alias_statement
+
+          | context_statement
 
           | view_statement           
 
@@ -240,6 +244,20 @@ export
 
           | element
             {$$ = $1; }
+          ;
+
+alias_statement
+          : '{%' ALIAS unqualified_constructor type_parameters? '='
+            alias_members '%}'
+            { $$ = new yy.ast.AliasStatement($3, $4||[], $6);   }
+          ;
+
+alias_members
+          : type
+            { $$ = [$1];                                        }
+
+          | alias_members '|' type
+            { $$ = $1.concat($3);                               }
           ;
 
 context_statement

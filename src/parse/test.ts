@@ -435,7 +435,7 @@ export const tests: { [key: string]: any } = {
     '[context] should parse funct that return array of array':
         `{% context Test value: String => Number[][] %}`,
 
-    'should parse context definitions': {
+    '[context] should parse context definitions': {
 
         input: `{% context Manager[A]
 
@@ -502,6 +502,9 @@ export const tests: { [key: string]: any } = {
 
         %} `
 
-    }
+    },
+
+    'should parse alias statements':
+        `{% alias Type = String | Number | Boolean | Type[] | Type => Type %}`
 
 }

@@ -109,11 +109,27 @@ export type Member
     ;
 
 export type Export
-    = ContextStatement
+    = AliasStatement
+    | ContextStatement
     | FunStatement
     | ViewStatement
     | Tag
     ;
+
+/**
+ * AliasStatement
+ */
+export class AliasStatement {
+
+    type = 'alias-statement';
+
+    constructor(
+        public id: UnqualifiedConstructor,
+        public typeParameters: TypeParameter[],
+        public members: Type[],
+        public location: Location) { }
+
+}
 
 /**
  * ContextStatement
