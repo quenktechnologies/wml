@@ -4,7 +4,7 @@ import { tests } from '../src/parse/test';
 import { parse } from '../src/parse';
 
 function json(tree: any): string {
-    return JSON.stringify(tree);
+    return JSON.stringify(tree, null, 2);
 }
 
 function compare(tree: any, that: any): void {
@@ -19,7 +19,7 @@ function makeTest(test: any, index: string) {
 
     if (process.env.GENERATE) {
 
-        return parse(test.input)
+        return parse(typeof test === 'string' ? test : test.input)
             .map(json)
             .map(txt => {
                 fs.writeFileSync(`./test/fixtures/expectations/${file}.json`, txt);
@@ -29,7 +29,7 @@ function makeTest(test: any, index: string) {
 
     if (!test.skip) {
 
-        parse(test.input)
+        parse(typeof test === 'string' ? test : test.input)
             .map(json)
             .map(txt =>
                 compare(txt, fs.readFileSync(`./test/fixtures/expectations/${file}.json`, {
