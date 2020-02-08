@@ -340,162 +340,162 @@ export const tests: { [key: string]: any } = {
 
     },
 
-    '[context] should parse constructors': '{% context Test name: String %}',
+    '[contract] should parse constructors': '{% contract Test = name: String %}',
 
-    '[context] should parse generic constructors':
-        '{% context Test table.name: Text[A] %}',
+    '[contract] should parse generic constructors':
+        '{% contract Test = table.name: Text[A] %}',
 
-    '[context] should parse record types': `{% context Test[A]
+    '[contract] should parse record types': `{% contract Test[A] =
          
         table.data.record: { 
 
-          name: String 
-          table.name: Text[A] 
+          name: String,
+          table.name: Text[A],
           table.data.list: A[] 
           } 
         %}`,
 
-    '[context] should parse list types':
-        `{% context Test[A] table.data.list: A[] %}`,
+    '[contract] should parse list types':
+        `{% contract Test[A] = table.data.list: A[] %}`,
 
-    '[context] should parse 2d list types':
-        `{% context Test[A,B] table.data.list2: A[][] %}`,
+    '[contract] should parse 2d list types':
+        `{% contract Test[A,B] = table.data.list2: A[][] %}`,
 
-    '[context] should parse 3d list types':
-        `{% context Test[A, B, C] table.data.list3: A[][][] %}`,
+    '[contract] should parse 3d list types':
+        `{% contract Test[A, B, C] = table.data.list3: A[][][] %}`,
 
-    '[context] should parse func with no args or parens':
-        `{% context Test value: Test -> Number %}`,
+    '[contract] should parse func with no args or parens':
+        `{% contract Test = value: Test -> Number %}`,
 
-    '[context] should parse func with no args':
-        `{% context Test value: () -> Number %}`,
+    '[contract] should parse func with no args':
+        `{% contract Test = value: () -> Number %}`,
 
-    '[context] should parse no-parens func with constructor':
-        `{% context Test value: String -> String %}`,
+    '[contract] should parse no-parens func with constructor':
+        `{% contract Test = value: String -> String %}`,
 
-    '[context] should parse no-parens func with generic constructor':
-        `{% context Test value: Text[A] -> Text[A] %}`,
+    '[contract] should parse no-parens func with generic constructor':
+        `{% contract Test = value: Text[A] -> Text[A] %}`,
 
-    '[context] should parse no-parens func with record arg':
-        `{% context Test value: {} -> { } %}`,
+    '[contract] should parse no-parens func with record arg':
+        `{% contract Test = value: {} -> { } %}`,
 
-    '[context] should parse no-parens func with list arg':
-        `{% context Test value: String[] -> String[] %}`,
+    '[contract] should parse no-parens func with list arg':
+        `{% contract Test = value: String[] -> String[] %}`,
 
-    '[context] should parse func with cons arg':
-        `{% context Test value: (String) -> String %}`,
+    '[contract] should parse func with cons arg':
+        `{% contract Test = value: (String) -> String %}`,
 
-    '[context] should parse func with 2 cons args':
-        `{% context Test value: (String, String) -> String %}`,
+    '[contract] should parse func with 2 cons args':
+        `{% contract Test = value: (String, String) -> String %}`,
 
-    '[context] should parse func with 3 cons args':
-        `{% context Test value: (String, String, String) -> String %}`,
+    '[contract] should parse func with 3 cons args':
+        `{% contract Test = value: (String, String, String) -> String %}`,
 
-    '[context] should parse func with generic cons arg':
-        `{% context Test[A] value: (Text[A]) -> Text[A] %}`,
+    '[contract] should parse func with generic cons arg':
+        `{% contract Test[A] = value: (Text[A]) -> Text[A] %}`,
 
-    '[context] should parse func with 2 generic cons args':
-        `{% context Test[A] value: (Text[A], Text[A]) -> Text[A] %}`,
+    '[contract] should parse func with 2 generic cons args':
+        `{% contract Test[A] = value: (Text[A], Text[A]) -> Text[A] %}`,
 
-    '[context] should parse func with 3 generic cons args':
-        `{% context Test[A] value: (Text[A], Text[A], Text[A]) -> Text[A] %}`,
+    '[contract] should parse func with 3 generic cons args':
+        `{% contract Test[A] = value: (Text[A], Text[A], Text[A]) -> Text[A] %}`,
 
-    '[context] should parse func with record arg':
-        `{% context Test value: ({ }) -> { } %}`,
+    '[contract] should parse func with record arg':
+        `{% contract Test = value: ({ }) -> { } %}`,
 
-    '[context] should parse func with 2 record args':
-        `{% context Test value: ({ }, { name: String }) -> { } %}`,
+    '[contract] should parse func with 2 record args':
+        `{% contract Test = value: ({ }, { name: String }) -> { } %}`,
 
-    '[context] should parse func with 3 record args':
-        `{% context Test value: ({ }, { name: String }, { value: A[]}) -> { } %}`,
+    '[contract] should parse func with 3 record args':
+        `{% contract Test = value: ({ }, { name: String }, { value: A[]}) -> { } %}`,
 
-    '[context] should parse func with list arg':
-        `{% context Test value: (String[]) -> String[] %}`,
+    '[contract] should parse func with list arg':
+        `{% contract Test = value: (String[]) -> String[] %}`,
 
-    '[context] should parse func with 2 list args':
-        `{% context Test value: (String[], String[]) -> String[] %}`,
+    '[contract] should parse func with 2 list args':
+        `{% contract Test = value: (String[], String[]) -> String[] %}`,
 
-    '[context] should parse func with 3 list args':
-        `{% context Test value: (String[], String[], String[]) -> String[] %}`,
+    '[contract] should parse func with 3 list args':
+        `{% contract Test = value: (String[], String[], String[]) -> String[] %}`,
 
-    '[context] should parse func with func arg':
-        `{% context Test value: (String -> String) -> String %}`,
+    '[contract] should parse func with func arg':
+        `{% contract Test = value: (String -> String) -> String %}`,
 
-    '[context] should parse func with 2 func args':
-        `{% context Test value: ((String -> String), (String -> String)) -> String %}`,
+    '[contract] should parse func with 2 func args':
+        `{% contract Test = value: ((String -> String), (String -> String)) -> String %}`,
 
-    '[context] should parse func with 3 func args':
-        `{% context Test 
+    '[contract] should parse func with 3 func args':
+        `{% contract Test =
           value: ((String -> String), (String -> String), (String -> String)) -> String 
          %}`,
 
-    '[context] should parse func that return array of generic type':
-        `{% context Test[A] value: Number -> Text[A][] %}`,
+    '[contract] should parse func that return array of generic type':
+        `{% contract Test[A] = value: Number -> Text[A][] %}`,
 
-    '[context] should parse funct that return array of array':
-        `{% context Test value: String -> Number[][] %}`,
+    '[contract] should parse funct that return array of array':
+        `{% contract Test = value: String -> Number[][] %}`,
 
-    '[context] should parse context definitions': {
+    '[contract] should parse contract definitions': {
 
-        input: `{% context Manager[A]
+        input: `{% contract Manager[A] =
 
-    name: String
+    name: String,
 
-    table.name: Text[A]
+    table.name: Text[A],
 
-    table.data.record: { name: String table.name: Text[A] table.data.list: A[] }
+    table.data.record: { name: String, table.name: Text[A], table.data.list: A[] },
 
-    table.data.list: A[]
+    table.data.list: A[],
 
-    table.data.list2: A[][]
+    table.data.list2: A[][],
 
-    table.data.list3: A[][][]
+    table.data.list3: A[][][],
 
-    noArgsFunc1: -> Number
+    noArgsFunc1: -> Number,
 
-    noArgsFunc0: () -> Number
+    noArgsFunc0: () -> Number,
 
-    noParensConsArgFunc: String -> String
+    noParensConsArgFunc: String -> String,
 
-    noParensConsGenericArgFunc: Text[A] -> Text[A]
+    noParensConsGenericArgFunc: Text[A] -> Text[A],
 
-    noParensRecordArgFunc: { } -> { }
+    noParensRecordArgFunc: { } -> { },
 
-    noParensListArgFunc: String[] -> String[]
+    noParensListArgFunc: String[] -> String[],
 
-    parensConsArgFunc: (String) -> String
+    parensConsArgFunc: (String) -> String,
 
-    parensConsArg2Func: (String, String) -> String
+    parensConsArg2Func: (String, String) -> String,
 
-    parensConsArg3Func: (String, String, String) -> String
+    parensConsArg3Func: (String, String, String) -> String,
 
-    parensConsGenericArgFunc: (Text[A]) -> Text[A]
+    parensConsGenericArgFunc: (Text[A]) -> Text[A],
 
-    parensConsGenericArg2Func: (Text[A], Text[A]) -> Text[A]
+    parensConsGenericArg2Func: (Text[A], Text[A]) -> Text[A],
 
-    parensConsGenericArg3Func: (Text[A], Text[A], Text[A]) -> Text[A]
+    parensConsGenericArg3Func: (Text[A], Text[A], Text[A]) -> Text[A],
 
-    parensRecordArgFunc: ({ }) -> { }
+    parensRecordArgFunc: ({ }) -> { },
 
-    parensRecordArg2Func: ({ }, { name: String }) -> { }
+    parensRecordArg2Func: ({ }, { name: String }) -> { },
 
-    parensRecordArgFunc: ({ }, { name: String }, { value: A[]}) -> { }
+    parensRecordArgFunc: ({ }, { name: String }, { value: A[]}) -> { },
 
-    parensListArgFunc: (String[]) -> String[]
+    parensListArgFunc: (String[]) -> String[],
 
-    parensListArg2Func: (String[], String[]) -> String[]
+    parensListArg2Func: (String[], String[]) -> String[],
 
-    parensListArg3Func: (String[], String[], String[]) -> String[]
+    parensListArg3Func: (String[], String[], String[]) -> String[],
 
-    funcArgFunc1: (String -> String) -> String
+    funcArgFunc1: (String -> String) -> String,
 
-    funcArgFunc2: (String -> String -> String) -> String
+    funcArgFunc2: (String -> String -> String) -> String,
 
-    funcArg2Func: ((String -> String), (String -> String)) -> String
+    funcArg2Func: ((String -> String), (String -> String)) -> String,
 
-    funcArg3Func: ((String -> String), (String -> String), (String -> String)) -> String
+    funcArg3Func: ((String -> String), (String -> String), (String -> String)) -> String,
 
-    funcRetGenArray: Number -> Text[A][]
+    funcRetGenArray: Number -> Text[A][],
 
     funcRetMultiArray: String -> Number[][]
 

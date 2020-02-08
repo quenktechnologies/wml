@@ -141,8 +141,8 @@ export const exports2TS = (ctx: Context, n: nodes.Export) => {
 
     if (n instanceof nodes.AliasStatement)
         return aliasStatement2TS(n);
-    else if (n instanceof nodes.ContextStatement)
-        return contextStatement2TS(n);
+    else if (n instanceof nodes.ContractStatement)
+        return contractStatement2TS(n);
     else if (n instanceof nodes.FunStatement)
         return funStatement2TS(ctx, n);
     else if (n instanceof nodes.ViewStatement)
@@ -171,9 +171,9 @@ export const aliasStatement2TS = (n: nodes.AliasStatement) => {
 }
 
 /**
- * contextStatement2TS
+ * contractStatement2TS
  */
-export const contextStatement2TS = (n: nodes.ContextStatement) => {
+export const contractStatement2TS = (n: nodes.ContractStatement) => {
 
     let preamble = `export interface ${n.id.value}`;
 

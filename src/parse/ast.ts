@@ -110,7 +110,7 @@ export type Member
 
 export type Export
     = AliasStatement
-    | ContextStatement
+    | ContractStatement
     | FunStatement
     | ViewStatement
     | Tag
@@ -132,9 +132,9 @@ export class AliasStatement {
 }
 
 /**
- * ContextStatement
+ * ContractStatement
  */
-export class ContextStatement {
+export class ContractStatement {
 
     type = 'context-statement';
 

@@ -92,7 +92,7 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <CONTROL>'fun'                                           return 'FUN';
 <CONTROL>'endfun'                                        return 'ENDFUN';
 <CONTROL>'as'                                            return 'AS';
-<CONTROL>'context'                                       return 'CONTEXT';
+<CONTROL>'contract'                                      return 'CONTRACT';
 <CONTROL>'alias'                                         return 'ALIAS';
 <CONTROL>'@'                                             return '@';
 <CONTROL>'=' this.popState();this.begin('CONTROL_CHILD');return '=';
@@ -237,7 +237,7 @@ exports
 export
           : alias_statement
 
-          | context_statement
+          | contract_statement
 
           | view_statement           
 
@@ -261,11 +261,11 @@ alias_members
             { $$ = $1.concat($3);                               }
           ;
 
-context_statement
+contract_statement
           
-          : '{%' CONTEXT unqualified_constructor type_parameters? 
+          : '{%' CONTRACT unqualified_constructor type_parameters? '='
              member_declarations? '%}'
-            { $$ = new yy.ast.ContextStatement($3, $4||[], $5||[]);   }
+            { $$ = new yy.ast.ContractStatement($3, $4||[], $6||[]);    }
           ;
 
 member_declarations
@@ -273,8 +273,8 @@ member_declarations
           : member_declaration
             { $$ = [$1];                                   }
 
-          | member_declarations member_declaration
-            { $$ = $1.concat($2);                          }
+          | member_declarations ',' member_declaration
+            { $$ = $1.concat($3);                          }
           ;
 
 member_declaration
