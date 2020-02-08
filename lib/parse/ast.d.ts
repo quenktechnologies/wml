@@ -74,11 +74,22 @@ export declare class CompositeMember {
     constructor(members: (Member | AliasedMember)[], location: Location);
 }
 export declare type Member = UnqualifiedIdentifier | UnqualifiedConstructor;
-export declare type Export = ContextStatement | FunStatement | ViewStatement | Tag;
+export declare type Export = AliasStatement | ContractStatement | FunStatement | ViewStatement | Tag;
 /**
- * ContextStatement
+ * AliasStatement
  */
-export declare class ContextStatement {
+export declare class AliasStatement {
+    id: UnqualifiedConstructor;
+    typeParameters: TypeParameter[];
+    members: Type[];
+    location: Location;
+    type: string;
+    constructor(id: UnqualifiedConstructor, typeParameters: TypeParameter[], members: Type[], location: Location);
+}
+/**
+ * ContractStatement
+ */
+export declare class ContractStatement {
     id: UnqualifiedConstructor;
     typeParameters: TypeParameter[];
     members: MemberDeclaration[];

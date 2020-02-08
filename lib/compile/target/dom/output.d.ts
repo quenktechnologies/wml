@@ -65,9 +65,13 @@ export declare const compositeMember2TS: (n: nodes.CompositeMember) => string;
  */
 export declare const exports2TS: (ctx: Context, n: nodes.Export) => string;
 /**
- * contextStatement2TS
+ * aliasStatement2TS
  */
-export declare const contextStatement2TS: (n: nodes.ContextStatement) => string;
+export declare const aliasStatement2TS: (n: nodes.AliasStatement) => string;
+/**
+ * contractStatement2TS
+ */
+export declare const contractStatement2TS: (n: nodes.ContractStatement) => string;
 /**
  * funStatement2TS
  */

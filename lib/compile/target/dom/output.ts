@@ -139,8 +139,10 @@ export const compositeMember2TS = (n: nodes.CompositeMember): string =>
  */
 export const exports2TS = (ctx: Context, n: nodes.Export) => {
 
-    if (n instanceof nodes.ContextStatement)
-        return contextStatement2TS(n);
+    if (n instanceof nodes.AliasStatement)
+        return aliasStatement2TS(n);
+    else if (n instanceof nodes.ContractStatement)
+        return contractStatement2TS(n);
     else if (n instanceof nodes.FunStatement)
         return funStatement2TS(ctx, n);
     else if (n instanceof nodes.ViewStatement)
@@ -153,9 +155,25 @@ export const exports2TS = (ctx: Context, n: nodes.Export) => {
 }
 
 /**
- * contextStatement2TS
+ * aliasStatement2TS
  */
-export const contextStatement2TS = (n: nodes.ContextStatement) => {
+export const aliasStatement2TS = (n: nodes.AliasStatement) => {
+
+    let typeArgs = (n.typeParameters.length > 0) ?
+        typeParameters2TS(n.typeParameters) : '';
+
+    let preamble = `export type ${n.id.value}${typeArgs}`;
+
+    let members = n.members.map(m => type2TS(m)).join('|');
+
+    return `${preamble} = ${members};`;
+
+}
+
+/**
+ * contractStatement2TS
+ */
+export const contractStatement2TS = (n: nodes.ContractStatement) => {
 
     let preamble = `export interface ${n.id.value}`;
 

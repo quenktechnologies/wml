@@ -92,7 +92,8 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <CONTROL>'fun'                                           return 'FUN';
 <CONTROL>'endfun'                                        return 'ENDFUN';
 <CONTROL>'as'                                            return 'AS';
-<CONTROL>'context'                                       return 'CONTEXT'
+<CONTROL>'contract'                                      return 'CONTRACT';
+<CONTROL>'alias'                                         return 'ALIAS';
 <CONTROL>'@'                                             return '@';
 <CONTROL>'=' this.popState();this.begin('CONTROL_CHILD');return '=';
 <CONTROL>{Constructor}                                   return 'CONSTRUCTOR';
@@ -143,6 +144,7 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <*>'>='                                                  return '>=';
 <*>'<='                                                  return '<=';
 <*>'=>'                                                  return '=>';
+<*>'->'                                                  return '->';
 <*>'+'                                                   return '+';
 <*>'-'                                                   return '-';
 <*>'*'                                                   return '*';
@@ -154,6 +156,7 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <*>'!'                                                   return '!';
 <*>','                                                   return ',';
 <*>'?'                                                   return '?';
+<*>'|'                                                   return '|';
 <*>'...'                                                 return '...';
 <*>'.'                                                   return '.';
 
@@ -232,7 +235,9 @@ exports
           ;
 
 export
-          : context_statement
+          : alias_statement
+
+          | contract_statement
 
           | view_statement           
 
@@ -242,11 +247,25 @@ export
             {$$ = $1; }
           ;
 
-context_statement
+alias_statement
+          : '{%' ALIAS unqualified_constructor type_parameters? '='
+            alias_members '%}'
+            { $$ = new yy.ast.AliasStatement($3, $4||[], $6);   }
+          ;
+
+alias_members
+          : type
+            { $$ = [$1];                                        }
+
+          | alias_members '|' type
+            { $$ = $1.concat($3);                               }
+          ;
+
+contract_statement
           
-          : '{%' CONTEXT unqualified_constructor type_parameters? 
+          : '{%' CONTRACT unqualified_constructor type_parameters? '='
              member_declarations? '%}'
-            { $$ = new yy.ast.ContextStatement($3, $4||[], $5||[]);   }
+            { $$ = new yy.ast.ContractStatement($3, $4||[], $6||[]);    }
           ;
 
 member_declarations
@@ -254,8 +273,8 @@ member_declarations
           : member_declaration
             { $$ = [$1];                                   }
 
-          | member_declarations member_declaration
-            { $$ = $1.concat($2);                          }
+          | member_declarations ',' member_declaration
+            { $$ = $1.concat($3);                          }
           ;
 
 member_declaration
@@ -390,21 +409,21 @@ list_type
           ; 
 
 function_type
-          : '=>' type
+          : '->' type
             { $$ = new yy.ast.FunctionType([], $2, @$);                 }
 
-          | '('  ')' '=>' type
+          | '('  ')' '->' type
             { $$ = new yy.ast.FunctionType([], $4, @$);                 }
 
-          | non_function_type '=>' type                                 
+          | non_function_type '->' type                                 
             { $$ = new yy.ast.FunctionType([$1], $3, @$);               }
 
           // If we don't use grouped_type here jison will trip up on the 
           // ambiguity that implicitly exists between the type sub rules
-          | grouped_type '=>' type
+          | grouped_type '->' type
             { $$ = new yy.ast.FunctionType([$1], $3, @$);               }
 
-          | '(' function_type_parameters ')' '=>' type
+          | '(' function_type_parameters ')' '->' type
             { $$ = new yy.ast.FunctionType($2, $5, @$);                 }
           ;
 
@@ -442,9 +461,11 @@ parameter_list
 parameter
           : unqualified_identifier ':' type
             { $$ = new yy.ast.TypedParameter($1, $3, @$); }
+          ;
 
-          | unqualified_identifier
-            { $$ = new yy.ast.UntypedParameter($1, @$);  }
+untyped_parameter
+          : unqualified_identifier
+            { $$ = new yy.ast.UntypedParameter($1, @$);   }
           ;
 
 children
@@ -572,10 +593,16 @@ for_of
 
 for_parameters
           : parameter 
-            {$$ = [$1];}
+            {$$ = [$1];                                                 }
+
+          | untyped_parameter
+            { $$ = [$1];                                                }
 
           | for_parameters ',' parameter
-            {$$ = $1.concat($3); }
+            {$$ = $1.concat($3);                                        }
+
+          | for_parameters ',' untyped_parameter
+            {$$ = $1.concat($3);                                        }
           ;
             
 if_statement
@@ -789,11 +816,14 @@ member_expression
 
 function_expression
 
-          : '\\' parameter_list '->'  expression
-            {$$ = new yy.ast.FunctionExpression($2, $4, @$); }
+          : parameters '->'  expression
+            {$$ = new yy.ast.FunctionExpression($1, $3, @$); }
 
-          | '\\' '->' expression
-            {$$ = new yy.ast.FunctionExpression([], $3, @$); }
+          | untyped_parameter '->' expression
+            {$$ = new yy.ast.FunctionExpression([$1], $3, @$); }
+
+          | '->' expression
+            {$$ = new yy.ast.FunctionExpression([], $2, @$); }
           ;
 
 literal 
