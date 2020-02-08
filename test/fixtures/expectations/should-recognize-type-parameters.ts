@@ -56,7 +56,7 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 export const test = 
 
-<A extends string   > (a: A   )=>(__this:__wml.Registry) : __wml.Content[] => {
+<A extends string > (a: A )=>(__this:__wml.Registry) : __wml.Content[] => {
 
    return [
 

@@ -479,7 +479,7 @@
                       144
                     ]
                   },
-                  "type": "array-type"
+                  "type": "list-type"
                 },
                 "location": {
                   "first_line": 7,
@@ -592,7 +592,7 @@
                 172
               ]
             },
-            "type": "array-type"
+            "type": "list-type"
           },
           "location": {
             "first_line": 9,
@@ -681,7 +681,7 @@
                   199
                 ]
               },
-              "type": "array-type"
+              "type": "list-type"
             },
             "location": {
               "first_line": 11,
@@ -693,7 +693,7 @@
                 201
               ]
             },
-            "type": "array-type"
+            "type": "list-type"
           },
           "location": {
             "first_line": 11,
@@ -783,7 +783,7 @@
                     228
                   ]
                 },
-                "type": "array-type"
+                "type": "list-type"
               },
               "location": {
                 "first_line": 13,
@@ -795,7 +795,7 @@
                   230
                 ]
               },
-              "type": "array-type"
+              "type": "list-type"
             },
             "location": {
               "first_line": 13,
@@ -807,7 +807,7 @@
                 232
               ]
             },
-            "type": "array-type"
+            "type": "list-type"
           },
           "location": {
             "first_line": 13,
@@ -1339,7 +1339,7 @@
                     460
                   ]
                 },
-                "type": "array-type"
+                "type": "list-type"
               }
             ],
             "returnType": {
@@ -1371,7 +1371,7 @@
                   472
                 ]
               },
-              "type": "array-type"
+              "type": "list-type"
             },
             "location": {
               "first_line": 25,
@@ -2780,7 +2780,7 @@
                           972
                         ]
                       },
-                      "type": "array-type"
+                      "type": "list-type"
                     },
                     "location": {
                       "first_line": 43,
@@ -2893,7 +2893,7 @@
                   1015
                 ]
               },
-              "type": "array-type"
+              "type": "list-type"
             },
             "returnType": {
               "elementType": {
@@ -2924,7 +2924,7 @@
                   1028
                 ]
               },
-              "type": "array-type"
+              "type": "list-type"
             },
             "location": {
               "first_line": 45,
@@ -2998,7 +2998,7 @@
                     1063
                   ]
                 },
-                "type": "array-type"
+                "type": "list-type"
               },
               {
                 "elementType": {
@@ -3029,7 +3029,7 @@
                     1073
                   ]
                 },
-                "type": "array-type"
+                "type": "list-type"
               }
             ],
             "returnType": {
@@ -3061,7 +3061,7 @@
                   1086
                 ]
               },
-              "type": "array-type"
+              "type": "list-type"
             },
             "location": {
               "first_line": 47,
@@ -3135,7 +3135,7 @@
                     1121
                   ]
                 },
-                "type": "array-type"
+                "type": "list-type"
               },
               {
                 "elementType": {
@@ -3166,7 +3166,7 @@
                     1131
                   ]
                 },
-                "type": "array-type"
+                "type": "list-type"
               },
               {
                 "elementType": {
@@ -3197,7 +3197,7 @@
                     1141
                   ]
                 },
-                "type": "array-type"
+                "type": "list-type"
               }
             ],
             "returnType": {
@@ -3229,7 +3229,7 @@
                   1154
                 ]
               },
-              "type": "array-type"
+              "type": "list-type"
             },
             "location": {
               "first_line": 49,
@@ -4184,7 +4184,7 @@
                   1462
                 ]
               },
-              "type": "array-type"
+              "type": "list-type"
             },
             "location": {
               "first_line": 59,
@@ -4288,7 +4288,7 @@
                     1505
                   ]
                 },
-                "type": "array-type"
+                "type": "list-type"
               },
               "location": {
                 "first_line": 61,
@@ -4300,7 +4300,7 @@
                   1507
                 ]
               },
-              "type": "array-type"
+              "type": "list-type"
             },
             "location": {
               "first_line": 61,

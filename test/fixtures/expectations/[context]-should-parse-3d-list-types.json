@@ -176,7 +176,7 @@
                     46
                   ]
                 },
-                "type": "array-type"
+                "type": "list-type"
               },
               "location": {
                 "first_line": 1,
@@ -188,7 +188,7 @@
                   48
                 ]
               },
-              "type": "array-type"
+              "type": "list-type"
             },
             "location": {
               "first_line": 1,
@@ -200,7 +200,7 @@
                 50
               ]
             },
-            "type": "array-type"
+            "type": "list-type"
           },
           "location": {
             "first_line": 1,

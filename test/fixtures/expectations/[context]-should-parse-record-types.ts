@@ -54,13 +54,16 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
-export const vue = 
-
-<A  ,B extends C ,C  > (a: A ,b: B )=>(__this:__wml.Registry) : __wml.Content[] => {
-
-   return [
-
-        ((a + b) + c)
-     ];
-
-};
+export interface Test<A  > {table : {
+data : {
+record : {
+name : string,
+table : {
+name : Text<A  > ,
+data : {
+list : (A)[]
+}
+}
+}
+}
+} }

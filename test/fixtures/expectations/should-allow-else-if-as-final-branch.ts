@@ -54,15 +54,31 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
-export class Main  implements __wml.View {
+export class Test  implements __wml.View {
 
-   constructor(__context: Context<String  > ) {
+   constructor(__context: object) {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.node('p', <__wml.Attrs>{}, [
+           return __this.node('div', <__wml.Attrs>{}, [
 
-        __context.value
+        ...(__if((show === 'span'),
+   ()=> ([
+
+        __this.node('span', <__wml.Attrs>{}, [
+
+        
+     ])
+     ]),
+   ()=> ([...(__if((show === 'div'),
+   ()=> ([
+
+        __this.node('div', <__wml.Attrs>{}, [
+
+        
+     ])
+     ]),
+   ()=> ([]))) ]))) 
      ]);
 
        }

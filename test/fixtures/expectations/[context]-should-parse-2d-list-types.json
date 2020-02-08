@@ -148,7 +148,7 @@
                   42
                 ]
               },
-              "type": "array-type"
+              "type": "list-type"
             },
             "location": {
               "first_line": 1,
@@ -160,7 +160,7 @@
                 44
               ]
             },
-            "type": "array-type"
+            "type": "list-type"
           },
           "location": {
             "first_line": 1,

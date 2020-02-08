@@ -74,8 +74,8 @@ __this.widget(new Tag({}, [
      ]),
    ()=> ([
 
-        document.createTextNode(` 
-            no 
+        document.createTextNode(`
+            no
           `)
      ]))) ]))) 
      ]),<__wml.Attrs>{})

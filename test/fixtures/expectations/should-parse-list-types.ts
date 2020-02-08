@@ -56,7 +56,7 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 export const action = 
 
-<A  > (s: string  [] ,a: A  [] )=>(__this:__wml.Registry) : __wml.Content[] => {
+<A  > (s: (string)[] ,a: (A)[] )=>(__this:__wml.Registry) : __wml.Content[] => {
 
    return [
 

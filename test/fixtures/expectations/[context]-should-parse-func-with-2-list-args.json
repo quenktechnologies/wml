@@ -66,7 +66,7 @@
                     32
                   ]
                 },
-                "type": "array-type"
+                "type": "list-type"
               },
               {
                 "elementType": {
@@ -97,7 +97,7 @@
                     42
                   ]
                 },
-                "type": "array-type"
+                "type": "list-type"
               }
             ],
             "returnType": {
@@ -129,7 +129,7 @@
                   55
                 ]
               },
-              "type": "array-type"
+              "type": "list-type"
             },
             "location": {
               "first_line": 1,

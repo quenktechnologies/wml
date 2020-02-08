@@ -323,7 +323,7 @@
                       145
                     ]
                   },
-                  "type": "array-type"
+                  "type": "list-type"
                 },
                 "location": {
                   "first_line": 7,

@@ -63,7 +63,7 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 export class Main  implements __wml.View {
 
-   constructor(__context: TabbedPanel  ) {
+   constructor(__context: TabbedPanel) {
 
        this.template = (__this:__wml.Registry) => {
 
@@ -112,12 +112,21 @@ __context.children
 
    groups: { [key: string]: __wml.WMLElement[] } = {};
 
+   views: __wml.View[] = [];
+
    widgets: __wml.Widget[] = [];
 
    tree: __wml.Content = document.createElement('div');
 
    template: __wml.Template;
 
+   registerView(v:__wml.View) : __wml.View {
+
+       this.views.push(v);
+
+       return v;
+
+}
    register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
 
        let attrsMap = (<__wml.Attrs><any>attrs)
@@ -208,15 +217,22 @@ __context.children
 
    findById<E extends __wml.WMLElement>(id: string): __Maybe<E> {
 
-       return __fromNullable<E>(<E>this.ids[id])
+       let mW:__Maybe<E> = __fromNullable<E>(<E>this.ids[id])
+
+       return this.views.reduce((p,c)=>
+       p.isJust() ? p : c.findById(id), mW);
 
    }
 
    findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]> {
 
-       return __fromArray(this.groups.hasOwnProperty(name) ?
+      let mGroup:__Maybe<E[]> =
+           __fromArray(this.groups.hasOwnProperty(name) ?
            <any>this.groups[name] : 
            []);
+
+      return this.views.reduce((p,c) =>
+       p.isJust() ? p : c.findByGroup(name), mGroup);
 
    }
 
@@ -240,6 +256,7 @@ __context.children
        this.ids = {};
        this.widgets.forEach(w => w.removed());
        this.widgets = [];
+       this.views = [];
        this.tree = this.template(this);
 
        this.ids['root'] = (this.ids['root']) ?

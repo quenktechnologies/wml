@@ -56,5 +56,5 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 __this.node('p', <__wml.Attrs>{}, [
 
-        (new Panel(__context)).render()
+        __this.registerView((new Panel(__context))).render()
      ])
