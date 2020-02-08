@@ -78,7 +78,7 @@ export const tests: { [key: string]: any } = {
     },
     'should parse function expressions': {
 
-        input: '<button onclick={{\\e ->call(e)}}/>'
+        input: '<button onclick={{e -> call(e)}}/>'
 
     },
 
@@ -365,75 +365,75 @@ export const tests: { [key: string]: any } = {
         `{% context Test[A, B, C] table.data.list3: A[][][] %}`,
 
     '[context] should parse func with no args or parens':
-        `{% context Test value: Test => Number %}`,
+        `{% context Test value: Test -> Number %}`,
 
     '[context] should parse func with no args':
-        `{% context Test value: () => Number %}`,
+        `{% context Test value: () -> Number %}`,
 
     '[context] should parse no-parens func with constructor':
-        `{% context Test value: String => String %}`,
+        `{% context Test value: String -> String %}`,
 
     '[context] should parse no-parens func with generic constructor':
-        `{% context Test value: Text[A] => Text[A] %}`,
+        `{% context Test value: Text[A] -> Text[A] %}`,
 
     '[context] should parse no-parens func with record arg':
-        `{% context Test value: {} => { } %}`,
+        `{% context Test value: {} -> { } %}`,
 
     '[context] should parse no-parens func with list arg':
-        `{% context Test value: String[] => String[] %}`,
+        `{% context Test value: String[] -> String[] %}`,
 
     '[context] should parse func with cons arg':
-        `{% context Test value: (String) => String %}`,
+        `{% context Test value: (String) -> String %}`,
 
     '[context] should parse func with 2 cons args':
-        `{% context Test value: (String, String) => String %}`,
+        `{% context Test value: (String, String) -> String %}`,
 
     '[context] should parse func with 3 cons args':
-        `{% context Test value: (String, String, String) => String %}`,
+        `{% context Test value: (String, String, String) -> String %}`,
 
     '[context] should parse func with generic cons arg':
-        `{% context Test[A] value: (Text[A]) => Text[A] %}`,
+        `{% context Test[A] value: (Text[A]) -> Text[A] %}`,
 
     '[context] should parse func with 2 generic cons args':
-        `{% context Test[A] value: (Text[A], Text[A]) => Text[A] %}`,
+        `{% context Test[A] value: (Text[A], Text[A]) -> Text[A] %}`,
 
     '[context] should parse func with 3 generic cons args':
-        `{% context Test[A] value: (Text[A], Text[A], Text[A]) => Text[A] %}`,
+        `{% context Test[A] value: (Text[A], Text[A], Text[A]) -> Text[A] %}`,
 
     '[context] should parse func with record arg':
-        `{% context Test value: ({ }) => { } %}`,
+        `{% context Test value: ({ }) -> { } %}`,
 
     '[context] should parse func with 2 record args':
-        `{% context Test value: ({ }, { name: String }) => { } %}`,
+        `{% context Test value: ({ }, { name: String }) -> { } %}`,
 
     '[context] should parse func with 3 record args':
-        `{% context Test value: ({ }, { name: String }, { value: A[]}) => { } %}`,
+        `{% context Test value: ({ }, { name: String }, { value: A[]}) -> { } %}`,
 
     '[context] should parse func with list arg':
-        `{% context Test value: (String[]) => String[] %}`,
+        `{% context Test value: (String[]) -> String[] %}`,
 
     '[context] should parse func with 2 list args':
-        `{% context Test value: (String[], String[]) => String[] %}`,
+        `{% context Test value: (String[], String[]) -> String[] %}`,
 
     '[context] should parse func with 3 list args':
-        `{% context Test value: (String[], String[], String[]) => String[] %}`,
+        `{% context Test value: (String[], String[], String[]) -> String[] %}`,
 
     '[context] should parse func with func arg':
-        `{% context Test value: (String => String) => String %}`,
+        `{% context Test value: (String -> String) -> String %}`,
 
     '[context] should parse func with 2 func args':
-        `{% context Test value: ((String => String), (String => String)) => String %}`,
+        `{% context Test value: ((String -> String), (String -> String)) -> String %}`,
 
     '[context] should parse func with 3 func args':
         `{% context Test 
-          value: ((String => String), (String => String), (String => String)) => String 
+          value: ((String -> String), (String -> String), (String -> String)) -> String 
          %}`,
 
     '[context] should parse func that return array of generic type':
-        `{% context Test[A] value: Number => Text[A][] %}`,
+        `{% context Test[A] value: Number -> Text[A][] %}`,
 
     '[context] should parse funct that return array of array':
-        `{% context Test value: String => Number[][] %}`,
+        `{% context Test value: String -> Number[][] %}`,
 
     '[context] should parse context definitions': {
 
@@ -451,53 +451,53 @@ export const tests: { [key: string]: any } = {
 
     table.data.list3: A[][][]
 
-    noArgsFunc1: => Number
+    noArgsFunc1: -> Number
 
-    noArgsFunc0: () => Number
+    noArgsFunc0: () -> Number
 
-    noParensConsArgFunc: String => String
+    noParensConsArgFunc: String -> String
 
-    noParensConsGenericArgFunc: Text[A] => Text[A]
+    noParensConsGenericArgFunc: Text[A] -> Text[A]
 
-    noParensRecordArgFunc: { } => { }
+    noParensRecordArgFunc: { } -> { }
 
-    noParensListArgFunc: String[] => String[]
+    noParensListArgFunc: String[] -> String[]
 
-    parensConsArgFunc: (String) => String
+    parensConsArgFunc: (String) -> String
 
-    parensConsArg2Func: (String, String) => String
+    parensConsArg2Func: (String, String) -> String
 
-    parensConsArg3Func: (String, String, String) => String
+    parensConsArg3Func: (String, String, String) -> String
 
-    parensConsGenericArgFunc: (Text[A]) => Text[A]
+    parensConsGenericArgFunc: (Text[A]) -> Text[A]
 
-    parensConsGenericArg2Func: (Text[A], Text[A]) => Text[A]
+    parensConsGenericArg2Func: (Text[A], Text[A]) -> Text[A]
 
-    parensConsGenericArg3Func: (Text[A], Text[A], Text[A]) => Text[A]
+    parensConsGenericArg3Func: (Text[A], Text[A], Text[A]) -> Text[A]
 
-    parensRecordArgFunc: ({ }) => { }
+    parensRecordArgFunc: ({ }) -> { }
 
-    parensRecordArg2Func: ({ }, { name: String }) => { }
+    parensRecordArg2Func: ({ }, { name: String }) -> { }
 
-    parensRecordArgFunc: ({ }, { name: String }, { value: A[]}) => { }
+    parensRecordArgFunc: ({ }, { name: String }, { value: A[]}) -> { }
 
-    parensListArgFunc: (String[]) => String[]
+    parensListArgFunc: (String[]) -> String[]
 
-    parensListArg2Func: (String[], String[]) => String[]
+    parensListArg2Func: (String[], String[]) -> String[]
 
-    parensListArg3Func: (String[], String[], String[]) => String[]
+    parensListArg3Func: (String[], String[], String[]) -> String[]
 
-    funcArgFunc1: (String => String) => String
+    funcArgFunc1: (String -> String) -> String
 
-    funcArgFunc2: (String => String => String) => String
+    funcArgFunc2: (String -> String -> String) -> String
 
-    funcArg2Func: ((String => String), (String => String)) => String
+    funcArg2Func: ((String -> String), (String -> String)) -> String
 
-    funcArg3Func: ((String => String), (String => String), (String => String)) => String
+    funcArg3Func: ((String -> String), (String -> String), (String -> String)) -> String
 
-    funcRetGenArray: Number => Text[A][]
+    funcRetGenArray: Number -> Text[A][]
 
-    funcRetMultiArray: String => Number[][]
+    funcRetMultiArray: String -> Number[][]
 
 
         %} `
@@ -505,6 +505,6 @@ export const tests: { [key: string]: any } = {
     },
 
     'should parse alias statements':
-        `{% alias Type = String | Number | Boolean | Type[] | Type => Type %}`
+        `{% alias Type = String | Number | Boolean | Type[] | Type -> Type %}`
 
 }

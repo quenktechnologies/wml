@@ -459,13 +459,12 @@ parameter_list
           ;
 
 parameter
-          : unqualified_identifier ':' type
-            { $$ = new yy.ast.TypedParameter($1, $3, @$); }
-          ;
-
-untyped_parameter
           : unqualified_identifier
             { $$ = new yy.ast.UntypedParameter($1, @$);   }
+
+          | unqualified_identifier ':' type
+            { $$ = new yy.ast.TypedParameter($1, $3, @$); }
+
           ;
 
 children
@@ -593,16 +592,10 @@ for_of
 
 for_parameters
           : parameter 
-            {$$ = [$1];                                                 }
-
-          | untyped_parameter
-            { $$ = [$1];                                                }
+            {$$ = [$1];}
 
           | for_parameters ',' parameter
-            {$$ = $1.concat($3);                                        }
-
-          | for_parameters ',' untyped_parameter
-            {$$ = $1.concat($3);                                        }
+            {$$ = $1.concat($3); }
           ;
             
 if_statement
@@ -818,9 +811,6 @@ function_expression
 
           : parameters '->'  expression
             {$$ = new yy.ast.FunctionExpression($1, $3, @$); }
-
-          | untyped_parameter '->' expression
-            {$$ = new yy.ast.FunctionExpression([$1], $3, @$); }
 
           | '->' expression
             {$$ = new yy.ast.FunctionExpression([], $2, @$); }
