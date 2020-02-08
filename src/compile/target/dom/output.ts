@@ -6,7 +6,14 @@
 
 import * as nodes from '../../../parse/ast';
 
-import { merge } from '@quenk/noni/lib/data/record';
+import { set } from '@quenk/noni/lib/data/record/path';
+import {
+    Record,
+    merge,
+    mapTo,
+    reduce,
+    isRecord
+} from '@quenk/noni/lib/data/record';
 
 import { Code, Context } from '../../code';
 import { partition } from '@quenk/noni/lib/data/array';
@@ -17,6 +24,29 @@ export const WML = '__wml';
 export const THIS = '__this';
 
 type Ifs = nodes.IfStatement | nodes.ElseIfClause;
+
+/**
+ *  TypeScript code.
+ */
+export type TypeScript = string;
+
+/**
+ * TypeOrMap
+ */
+export type TypeOrMap = TypeScript | ExpandedTypeMap;
+
+/**
+ * TypeMap contains a recursive map of dotted paths to Type nodes.
+ */
+export interface TypeMap extends Record<nodes.Type> { }
+
+/**
+ * ExpandedTypeMap is an expanded version of TypeMap.
+ *
+ * Each dotted path is expanded recursively into records 
+ * so that no path contain dots.
+ */
+export interface ExpandedTypeMap extends Record<TypeOrMap> { }
 
 const prims = [
     'String',
@@ -109,7 +139,9 @@ export const compositeMember2TS = (n: nodes.CompositeMember): string =>
  */
 export const exports2TS = (ctx: Context, n: nodes.Export) => {
 
-    if (n instanceof nodes.FunStatement)
+    if (n instanceof nodes.ContextStatement)
+        return contextStatement2TS(n);
+    else if (n instanceof nodes.FunStatement)
         return funStatement2TS(ctx, n);
     else if (n instanceof nodes.ViewStatement)
         return viewStatement2TS(ctx, n);
@@ -117,6 +149,20 @@ export const exports2TS = (ctx: Context, n: nodes.Export) => {
         return tag2TS(ctx, n);
     else
         return '';
+
+}
+
+/**
+ * contextStatement2TS
+ */
+export const contextStatement2TS = (n: nodes.ContextStatement) => {
+
+    let preamble = `export interface ${n.id.value}`;
+
+    let typeArgs = (n.typeParameters.length > 0) ?
+        typeParameters2TS(n.typeParameters) : '';
+
+    return `${preamble}${typeArgs}{${memberDeclarations2TS(n.members)} }`;
 
 }
 
@@ -133,10 +179,10 @@ export const viewStatement2TS = (ctx: Context, n: nodes.ViewStatement) =>
     ctx.generator.view(ctx, n);
 
 /**
- * typeParameters converts a list of typeParameters into the a list of 
- * typescript typeParameters.
+ * typeParameters2TS converts a list of typeParameters2TS into the a list of 
+ * typescript typeParameters2TS.
  */
-export const typeParameters = (ns: nodes.TypeParameter[]): string =>
+export const typeParameters2TS = (ns: nodes.TypeParameter[]): string =>
     (ns.length === 0) ? '' : `<${ns.map(typeParameter2TS).join(',')}> `;
 
 /**
@@ -149,17 +195,138 @@ export const typeParameter2TS = (n: nodes.TypeParameter) =>
 /**
  * type2TS 
  */
-export const type2TS = (n: nodes.Type) => {
+export const type2TS = (n: nodes.Type): TypeScript => {
 
-    let typ = <string>identifierOrConstructor2TS(n.id);
+    if (n instanceof nodes.ConstructorType)
+        return constructorType2TS(n);
+    else if (n instanceof nodes.RecordType)
+        return recordType2Ts(n);
+    else if (n instanceof nodes.ListType)
+        return listType2TS(n);
+    else if (n instanceof nodes.FunctionType)
+        return functionType2TS(n);
 
-    let asPrim = prims.indexOf(typ) > -1 ? typ.toLowerCase() : typ;
-
-    let typeParams = typeParameters(n.typeParameters);
-
-    return `${asPrim} ${typeParams} ${n.list ? '[]' : ''}`;
+    return '';
 
 }
+
+/**
+ * constructorType2TS converts a ConstructorType into its id.
+ *
+ * If the node is generic, the type parameters will be generated as well.
+ */
+export const constructorType2TS =
+    (n: nodes.ConstructorType) => {
+
+        let id = identifierOrConstructor2TS(n.id);
+
+        id = prims.indexOf(id) > - 1 ? id.toLowerCase() : id;
+
+        return (n.typeParameters.length > 0) ?
+            id + typeParameters2TS(n.typeParameters) : id;
+
+    }
+
+/**
+ * functionType2TS
+ */
+export const functionType2TS = (n: nodes.FunctionType) => {
+
+    let params = n.parameters.map((t, k) => `$${k}:${type2TS(t)}`).join(',');
+    let ret = type2TS(n.returnType);
+
+    return `(${params}) => ${ret}`
+
+}
+
+/**
+ * listType2TS
+ */
+export const listType2TS = (n: nodes.ListType) =>
+    `(${type2TS(n.elementType)})[]`;
+
+/**
+ * recordType2TS converts the RecordType node to the body of a TypeScript
+ * record interface.
+ */
+export const recordType2Ts = (n: nodes.RecordType) =>
+    '{' + memberDeclarations2TS(n.members) + '}';
+
+/**
+ * memberDeclarations2TS converts a list of MemberDeclarations to TypeScript.
+ *
+ * The paths of the MemberDeclarations are expanded so that paths
+ * using the "<path1>.<path2>.<path3>" syntax occur as nested records.
+ */
+export const memberDeclarations2TS = (n: nodes.MemberDeclaration[]) =>
+    typeMap2TS(expandTypeMap(typeMapFromMemberDecs(n)));
+
+/**
+ * typeMapFromMemberDecs creates a TypeMap from a list of memberDeclarations.
+ *
+ * This works recursively and any RecordTypes encountered will be flattened.
+ */
+export const typeMapFromMemberDecs =
+    (list: nodes.MemberDeclaration[]) =>
+        list.reduce((p, m) => {
+
+            let path = m.path.map(p => p.value);
+
+            if (m.kind instanceof nodes.RecordType) {
+
+                return typeMapFromRecordType(m.kind, p, path);
+
+            } else {
+
+                p[paths2String(path)] = m.kind;
+
+                return p;
+
+            }
+
+        }, <TypeMap>{});
+
+/**
+ * typeMapFromRecordType produces a map of node.Type instances from
+ * a RecordType recursively.
+ *
+ * Any encountered RecordTypes will be flattened.
+ */
+export const typeMapFromRecordType =
+    (n: nodes.RecordType, init: TypeMap, prefix: string[]): TypeMap =>
+        n.members.reduce((p, m) => {
+
+            let path = [...prefix, ...(m.path.map(p => p.value))];
+
+            if (m.kind instanceof nodes.RecordType) {
+
+                return typeMapFromRecordType(m.kind, init, path);
+
+            } else {
+
+                p[paths2String(path)] = m.kind;
+
+                return p;
+
+            }
+
+        }, init);
+
+const paths2String = (paths: string[]) => paths.join('.');
+
+/**
+ * expandTypeMap to an ExpandedTypeMap.
+ */
+export const expandTypeMap = (m: TypeMap): ExpandedTypeMap =>
+    reduce(m, <ExpandedTypeMap>{}, (p, c, k) =>
+        set<TypeOrMap, ExpandedTypeMap>(k, type2TS(c), p));
+
+/**
+ * typeMap2TS converts a map of type values to TypeScript.
+ */
+export const typeMap2TS = (m: ExpandedTypeMap): TypeScript =>
+    mapTo(m, (t, k) =>
+        `${k} : ${isRecord(t) ? '{\n' + typeMap2TS(t) + '\n}' : t}`).join(',\n');
 
 /**
  * parameter2TS 
@@ -282,11 +449,11 @@ export const attrs2String = (attrs: { [key: string]: string | string[] }) =>
 export const groupAttrs = (ctx: Context, attrs: nodes.Attribute[])
     : { [key: string]: string | string[] } => {
 
-    let [nns, ns] = partition(attrs, a => (a.namespace.id === ''));
+    let [nns, ns] = partition(attrs, a => (a.namespace.value === ''));
 
     let nso = ns.reduce((p, n) => merge(p, {
 
-        [n.namespace.id]: (p[n.namespace.id] || []).concat(attribute2TS(ctx, n))
+        [n.namespace.value]: (p[n.namespace.value] || []).concat(attribute2TS(ctx, n))
 
     }), <{ [key: string]: string[] }>{});
 
@@ -577,7 +744,7 @@ export const identifierOrConstructor2TS =
             (n instanceof nodes.QualifiedConstructor))
             return constructor2TS(n);
         else
-            '';
+            return '';
 
     }
 
@@ -599,7 +766,7 @@ export const constructor2TS = (n: nodes.Constructor) => {
  * unqualifiedConstructor2TS 
  */
 export const unqualifiedConstructor2TS = (n: nodes.UnqualifiedConstructor) =>
-    `${n.id}`;
+    `${n.value}`;
 
 /**
  * qualifiedConstructor
@@ -631,4 +798,4 @@ export const qualifiedIdentifier2TS = (n: nodes.QualifiedIdentifier) =>
  * unqualifiedIdentifier2TS 
  */
 export const unqualifiedIdentifier2TS = (n: nodes.UnqualifiedIdentifier) =>
-    `${n.id}`;
+    `${n.value}`;

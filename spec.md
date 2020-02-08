@@ -22,7 +22,7 @@ dreaded "x is not a function" class of errors.
 As a result, the WML syntax was redesigned to be compatible with the 
 TypeScript extension.
 
-## Definitionso
+## Definitions
 
 ### Target, Target Code
 
@@ -101,6 +101,64 @@ within a WML module.
    qualified import.
 
 3) Imports do NOT support identifier aliasing.
+
+## Contexts
+
+A context is a record like data structure that provides the values 
+used in a view's template, prefixed with `@`.
+
+In the wml language, a context usually comes from the target runtime, however
+its structure can be described in wml via the `{% context %}` statement. This 
+allows views to indicate their context type independant of the target language.
+
+The alternative, is to import a context from a target language module or from
+another wml module.
+
+### Context Statement
+
+The context statement allows a context to be described in wml. For most
+purposes, a context statement can be seen as the equivalent of an interface
+in object oriented languages.
+
+The context statement has the following syntax:
+
+```ebnf
+
+context
+       : '{%' 'context' identifier ( '[' type_parameter+ ']' ) ? 
+              (member_declaration+) ?
+         '%}'
+       ;
+```
+
+The directive begins with the opening '{%' followed by the keyword 'context'.
+The name of the context type is next, followed by an optional list of generic
+type parameters, member declarations and finally the closing '%}'.
+
+The context statement has no children and is defined completely within the '{%'
+and '%}'.
+
+Example Context:
+
+```wml
+{% context Panel 
+  
+   id : String
+   
+   header.title : String
+
+   body.content : String
+
+   onClick: e:Event => Void
+
+%}
+
+```
+
+When compiled, the compiler MUST represent a context in a format that will 
+retain its meaning if it was defined in the target language instead. The
+same structure describe in wml, MUST be interchangable with the same structure
+described in the target language.
 
 ## Funs
 
@@ -218,7 +276,7 @@ parameters to vary output.
 1) A constructor SHOULD be compiled verbatim in the target code.
 2) If an constructor is prefixed with '.' it is considered qualified.
 
-## Type Parameters
+## Generic Type Parameters
 
 ### Syntax
 

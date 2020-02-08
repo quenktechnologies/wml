@@ -13,7 +13,7 @@ import {
     identifier2TS,
     expression2TS,
     parameter2TS,
-    typeParameters,
+    typeParameters2TS,
     unqualifiedIdentifier2TS,
     type2TS,
     tag2TS,
@@ -144,7 +144,7 @@ export class DOMGenerator implements Generator {
 
         let id = n.id ? constructor2TS(n.id) : 'Main';
 
-        let typeParams = typeParameters(n.typeParameters);
+        let typeParams = typeParameters2TS(n.typeParameters);
 
         let c = type2TS(n.context);
 
@@ -337,7 +337,7 @@ export class DOMGenerator implements Generator {
 
         let id = unqualifiedIdentifier2TS(n.id);
 
-        let typeParams = typeParameters(n.typeParameters);
+        let typeParams = typeParameters2TS(n.typeParameters);
 
         let params = (n.parameters.length === 0) ? '' :
             n.parameters.map(parameter2TS).join(',');
