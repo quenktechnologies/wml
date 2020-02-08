@@ -24,12 +24,12 @@
               "value": "value",
               "location": {
                 "first_line": 1,
-                "first_column": 16,
+                "first_column": 18,
                 "last_line": 1,
-                "last_column": 21,
+                "last_column": 23,
                 "range": [
-                  16,
-                  21
+                  18,
+                  23
                 ]
               },
               "type": "unqualified-identifier"
@@ -43,12 +43,12 @@
                     "value": "String",
                     "location": {
                       "first_line": 1,
-                      "first_column": 24,
+                      "first_column": 26,
                       "last_line": 1,
-                      "last_column": 30,
+                      "last_column": 32,
                       "range": [
-                        24,
-                        30
+                        26,
+                        32
                       ]
                     },
                     "type": "unqualified-constructor"
@@ -58,12 +58,12 @@
                 },
                 "location": {
                   "first_line": 1,
-                  "first_column": 24,
+                  "first_column": 26,
                   "last_line": 1,
-                  "last_column": 32,
+                  "last_column": 34,
                   "range": [
-                    24,
-                    32
+                    26,
+                    34
                   ]
                 },
                 "type": "list-type"
@@ -74,12 +74,12 @@
                     "value": "String",
                     "location": {
                       "first_line": 1,
-                      "first_column": 34,
+                      "first_column": 36,
                       "last_line": 1,
-                      "last_column": 40,
+                      "last_column": 42,
                       "range": [
-                        34,
-                        40
+                        36,
+                        42
                       ]
                     },
                     "type": "unqualified-constructor"
@@ -89,12 +89,12 @@
                 },
                 "location": {
                   "first_line": 1,
-                  "first_column": 34,
+                  "first_column": 36,
                   "last_line": 1,
-                  "last_column": 42,
+                  "last_column": 44,
                   "range": [
-                    34,
-                    42
+                    36,
+                    44
                   ]
                 },
                 "type": "list-type"
@@ -105,12 +105,12 @@
                     "value": "String",
                     "location": {
                       "first_line": 1,
-                      "first_column": 44,
+                      "first_column": 46,
                       "last_line": 1,
-                      "last_column": 50,
+                      "last_column": 52,
                       "range": [
-                        44,
-                        50
+                        46,
+                        52
                       ]
                     },
                     "type": "unqualified-constructor"
@@ -120,12 +120,12 @@
                 },
                 "location": {
                   "first_line": 1,
-                  "first_column": 44,
+                  "first_column": 46,
                   "last_line": 1,
-                  "last_column": 52,
+                  "last_column": 54,
                   "range": [
-                    44,
-                    52
+                    46,
+                    54
                   ]
                 },
                 "type": "list-type"
@@ -137,12 +137,12 @@
                   "value": "String",
                   "location": {
                     "first_line": 1,
-                    "first_column": 57,
+                    "first_column": 59,
                     "last_line": 1,
-                    "last_column": 63,
+                    "last_column": 65,
                     "range": [
-                      57,
-                      63
+                      59,
+                      65
                     ]
                   },
                   "type": "unqualified-constructor"
@@ -152,36 +152,36 @@
               },
               "location": {
                 "first_line": 1,
-                "first_column": 57,
+                "first_column": 59,
                 "last_line": 1,
-                "last_column": 65,
+                "last_column": 67,
                 "range": [
-                  57,
-                  65
+                  59,
+                  67
                 ]
               },
               "type": "list-type"
             },
             "location": {
               "first_line": 1,
-              "first_column": 23,
+              "first_column": 25,
               "last_line": 1,
-              "last_column": 65,
+              "last_column": 67,
               "range": [
-                23,
-                65
+                25,
+                67
               ]
             },
             "type": "function-type"
           },
           "location": {
             "first_line": 1,
-            "first_column": 16,
+            "first_column": 18,
             "last_line": 1,
-            "last_column": 65,
+            "last_column": 67,
             "range": [
-              16,
-              65
+              18,
+              67
             ]
           },
           "type": "member-declaration"
@@ -194,10 +194,10 @@
     "first_line": 1,
     "first_column": 0,
     "last_line": 1,
-    "last_column": 68,
+    "last_column": 70,
     "range": [
       0,
-      68
+      70
     ]
   },
   "type": "module"

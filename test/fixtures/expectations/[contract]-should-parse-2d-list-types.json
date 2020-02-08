@@ -1,0 +1,192 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "Test",
+        "location": {
+          "first_line": 1,
+          "first_column": 12,
+          "last_line": 1,
+          "last_column": 16,
+          "range": [
+            12,
+            16
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [
+        {
+          "id": {
+            "value": "A",
+            "location": {
+              "first_line": 1,
+              "first_column": 17,
+              "last_line": 1,
+              "last_column": 18,
+              "range": [
+                17,
+                18
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "location": {
+            "first_line": 1,
+            "first_column": 17,
+            "last_line": 1,
+            "last_column": 18,
+            "range": [
+              17,
+              18
+            ]
+          },
+          "type": "type-parameter"
+        },
+        {
+          "id": {
+            "value": "B",
+            "location": {
+              "first_line": 1,
+              "first_column": 19,
+              "last_line": 1,
+              "last_column": 20,
+              "range": [
+                19,
+                20
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "location": {
+            "first_line": 1,
+            "first_column": 19,
+            "last_line": 1,
+            "last_column": 20,
+            "range": [
+              19,
+              20
+            ]
+          },
+          "type": "type-parameter"
+        }
+      ],
+      "members": [
+        {
+          "path": [
+            {
+              "value": "table",
+              "location": {
+                "first_line": 1,
+                "first_column": 24,
+                "last_line": 1,
+                "last_column": 29,
+                "range": [
+                  24,
+                  29
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            {
+              "value": "data",
+              "location": {
+                "first_line": 1,
+                "first_column": 30,
+                "last_line": 1,
+                "last_column": 34,
+                "range": [
+                  30,
+                  34
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            {
+              "value": "list2",
+              "location": {
+                "first_line": 1,
+                "first_column": 35,
+                "last_line": 1,
+                "last_column": 40,
+                "range": [
+                  35,
+                  40
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "elementType": {
+              "elementType": {
+                "id": {
+                  "value": "A",
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 42,
+                    "last_line": 1,
+                    "last_column": 43,
+                    "range": [
+                      42,
+                      43
+                    ]
+                  },
+                  "type": "unqualified-constructor"
+                },
+                "typeParameters": [],
+                "type": "constructor-type"
+              },
+              "location": {
+                "first_line": 1,
+                "first_column": 42,
+                "last_line": 1,
+                "last_column": 45,
+                "range": [
+                  42,
+                  45
+                ]
+              },
+              "type": "list-type"
+            },
+            "location": {
+              "first_line": 1,
+              "first_column": 42,
+              "last_line": 1,
+              "last_column": 47,
+              "range": [
+                42,
+                47
+              ]
+            },
+            "type": "list-type"
+          },
+          "location": {
+            "first_line": 1,
+            "first_column": 24,
+            "last_line": 1,
+            "last_column": 47,
+            "range": [
+              24,
+              47
+            ]
+          },
+          "type": "member-declaration"
+        }
+      ],
+      "type": "context-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 50,
+    "range": [
+      0,
+      50
+    ]
+  },
+  "type": "module"
+}

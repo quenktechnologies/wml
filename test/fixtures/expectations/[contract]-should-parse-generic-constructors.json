@@ -1,0 +1,135 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "Test",
+        "location": {
+          "first_line": 1,
+          "first_column": 12,
+          "last_line": 1,
+          "last_column": 16,
+          "range": [
+            12,
+            16
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "members": [
+        {
+          "path": [
+            {
+              "value": "table",
+              "location": {
+                "first_line": 1,
+                "first_column": 19,
+                "last_line": 1,
+                "last_column": 24,
+                "range": [
+                  19,
+                  24
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            {
+              "value": "name",
+              "location": {
+                "first_line": 1,
+                "first_column": 25,
+                "last_line": 1,
+                "last_column": 29,
+                "range": [
+                  25,
+                  29
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "id": {
+              "value": "Text",
+              "location": {
+                "first_line": 1,
+                "first_column": 31,
+                "last_line": 1,
+                "last_column": 35,
+                "range": [
+                  31,
+                  35
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "typeParameters": [
+              {
+                "id": {
+                  "value": "A",
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 36,
+                    "last_line": 1,
+                    "last_column": 37,
+                    "range": [
+                      36,
+                      37
+                    ]
+                  },
+                  "type": "unqualified-constructor"
+                },
+                "location": {
+                  "first_line": 1,
+                  "first_column": 36,
+                  "last_line": 1,
+                  "last_column": 37,
+                  "range": [
+                    36,
+                    37
+                  ]
+                },
+                "type": "type-parameter"
+              }
+            ],
+            "location": {
+              "first_line": 1,
+              "first_column": 31,
+              "last_line": 1,
+              "last_column": 38,
+              "range": [
+                31,
+                38
+              ]
+            },
+            "type": "constructor-type"
+          },
+          "location": {
+            "first_line": 1,
+            "first_column": 19,
+            "last_line": 1,
+            "last_column": 38,
+            "range": [
+              19,
+              38
+            ]
+          },
+          "type": "member-declaration"
+        }
+      ],
+      "type": "context-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 41,
+    "range": [
+      0,
+      41
+    ]
+  },
+  "type": "module"
+}

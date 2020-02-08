@@ -1,0 +1,380 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "Test",
+        "location": {
+          "first_line": 1,
+          "first_column": 12,
+          "last_line": 1,
+          "last_column": 16,
+          "range": [
+            12,
+            16
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [
+        {
+          "id": {
+            "value": "A",
+            "location": {
+              "first_line": 1,
+              "first_column": 17,
+              "last_line": 1,
+              "last_column": 18,
+              "range": [
+                17,
+                18
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "location": {
+            "first_line": 1,
+            "first_column": 17,
+            "last_line": 1,
+            "last_column": 18,
+            "range": [
+              17,
+              18
+            ]
+          },
+          "type": "type-parameter"
+        }
+      ],
+      "members": [
+        {
+          "path": [
+            {
+              "value": "table",
+              "location": {
+                "first_line": 3,
+                "first_column": 8,
+                "last_line": 3,
+                "last_column": 13,
+                "range": [
+                  40,
+                  45
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            {
+              "value": "data",
+              "location": {
+                "first_line": 3,
+                "first_column": 14,
+                "last_line": 3,
+                "last_column": 18,
+                "range": [
+                  46,
+                  50
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            {
+              "value": "record",
+              "location": {
+                "first_line": 3,
+                "first_column": 19,
+                "last_line": 3,
+                "last_column": 25,
+                "range": [
+                  51,
+                  57
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "members": [
+              {
+                "path": [
+                  {
+                    "value": "name",
+                    "location": {
+                      "first_line": 5,
+                      "first_column": 10,
+                      "last_line": 5,
+                      "last_column": 14,
+                      "range": [
+                        73,
+                        77
+                      ]
+                    },
+                    "type": "unqualified-identifier"
+                  }
+                ],
+                "kind": {
+                  "id": {
+                    "value": "String",
+                    "location": {
+                      "first_line": 5,
+                      "first_column": 16,
+                      "last_line": 5,
+                      "last_column": 22,
+                      "range": [
+                        79,
+                        85
+                      ]
+                    },
+                    "type": "unqualified-constructor"
+                  },
+                  "typeParameters": [],
+                  "location": {
+                    "first_line": 5,
+                    "first_column": 16,
+                    "last_line": 5,
+                    "last_column": 22,
+                    "range": [
+                      79,
+                      85
+                    ]
+                  },
+                  "type": "constructor-type"
+                },
+                "location": {
+                  "first_line": 5,
+                  "first_column": 10,
+                  "last_line": 5,
+                  "last_column": 22,
+                  "range": [
+                    73,
+                    85
+                  ]
+                },
+                "type": "member-declaration"
+              },
+              {
+                "path": [
+                  {
+                    "value": "table",
+                    "location": {
+                      "first_line": 6,
+                      "first_column": 10,
+                      "last_line": 6,
+                      "last_column": 15,
+                      "range": [
+                        97,
+                        102
+                      ]
+                    },
+                    "type": "unqualified-identifier"
+                  },
+                  {
+                    "value": "name",
+                    "location": {
+                      "first_line": 6,
+                      "first_column": 16,
+                      "last_line": 6,
+                      "last_column": 20,
+                      "range": [
+                        103,
+                        107
+                      ]
+                    },
+                    "type": "unqualified-identifier"
+                  }
+                ],
+                "kind": {
+                  "id": {
+                    "value": "Text",
+                    "location": {
+                      "first_line": 6,
+                      "first_column": 22,
+                      "last_line": 6,
+                      "last_column": 26,
+                      "range": [
+                        109,
+                        113
+                      ]
+                    },
+                    "type": "unqualified-constructor"
+                  },
+                  "typeParameters": [
+                    {
+                      "id": {
+                        "value": "A",
+                        "location": {
+                          "first_line": 6,
+                          "first_column": 27,
+                          "last_line": 6,
+                          "last_column": 28,
+                          "range": [
+                            114,
+                            115
+                          ]
+                        },
+                        "type": "unqualified-constructor"
+                      },
+                      "location": {
+                        "first_line": 6,
+                        "first_column": 27,
+                        "last_line": 6,
+                        "last_column": 28,
+                        "range": [
+                          114,
+                          115
+                        ]
+                      },
+                      "type": "type-parameter"
+                    }
+                  ],
+                  "location": {
+                    "first_line": 6,
+                    "first_column": 22,
+                    "last_line": 6,
+                    "last_column": 29,
+                    "range": [
+                      109,
+                      116
+                    ]
+                  },
+                  "type": "constructor-type"
+                },
+                "location": {
+                  "first_line": 6,
+                  "first_column": 10,
+                  "last_line": 6,
+                  "last_column": 29,
+                  "range": [
+                    97,
+                    116
+                  ]
+                },
+                "type": "member-declaration"
+              },
+              {
+                "path": [
+                  {
+                    "value": "table",
+                    "location": {
+                      "first_line": 7,
+                      "first_column": 10,
+                      "last_line": 7,
+                      "last_column": 15,
+                      "range": [
+                        128,
+                        133
+                      ]
+                    },
+                    "type": "unqualified-identifier"
+                  },
+                  {
+                    "value": "data",
+                    "location": {
+                      "first_line": 7,
+                      "first_column": 16,
+                      "last_line": 7,
+                      "last_column": 20,
+                      "range": [
+                        134,
+                        138
+                      ]
+                    },
+                    "type": "unqualified-identifier"
+                  },
+                  {
+                    "value": "list",
+                    "location": {
+                      "first_line": 7,
+                      "first_column": 21,
+                      "last_line": 7,
+                      "last_column": 25,
+                      "range": [
+                        139,
+                        143
+                      ]
+                    },
+                    "type": "unqualified-identifier"
+                  }
+                ],
+                "kind": {
+                  "elementType": {
+                    "id": {
+                      "value": "A",
+                      "location": {
+                        "first_line": 7,
+                        "first_column": 27,
+                        "last_line": 7,
+                        "last_column": 28,
+                        "range": [
+                          145,
+                          146
+                        ]
+                      },
+                      "type": "unqualified-constructor"
+                    },
+                    "typeParameters": [],
+                    "type": "constructor-type"
+                  },
+                  "location": {
+                    "first_line": 7,
+                    "first_column": 27,
+                    "last_line": 7,
+                    "last_column": 30,
+                    "range": [
+                      145,
+                      148
+                    ]
+                  },
+                  "type": "list-type"
+                },
+                "location": {
+                  "first_line": 7,
+                  "first_column": 10,
+                  "last_line": 7,
+                  "last_column": 30,
+                  "range": [
+                    128,
+                    148
+                  ]
+                },
+                "type": "member-declaration"
+              }
+            ],
+            "location": {
+              "first_line": 3,
+              "first_column": 27,
+              "last_line": 8,
+              "last_column": 11,
+              "range": [
+                59,
+                161
+              ]
+            },
+            "type": "record-type"
+          },
+          "location": {
+            "first_line": 3,
+            "first_column": 8,
+            "last_line": 8,
+            "last_column": 11,
+            "range": [
+              40,
+              161
+            ]
+          },
+          "type": "member-declaration"
+        }
+      ],
+      "type": "context-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 9,
+    "last_column": 10,
+    "range": [
+      0,
+      173
+    ]
+  },
+  "type": "module"
+}

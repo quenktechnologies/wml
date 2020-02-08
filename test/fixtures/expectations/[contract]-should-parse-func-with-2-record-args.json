@@ -1,0 +1,180 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "Test",
+        "location": {
+          "first_line": 1,
+          "first_column": 12,
+          "last_line": 1,
+          "last_column": 16,
+          "range": [
+            12,
+            16
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "members": [
+        {
+          "path": [
+            {
+              "value": "value",
+              "location": {
+                "first_line": 1,
+                "first_column": 19,
+                "last_line": 1,
+                "last_column": 24,
+                "range": [
+                  19,
+                  24
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "parameters": [
+              {
+                "members": [],
+                "location": {
+                  "first_line": 1,
+                  "first_column": 27,
+                  "last_line": 1,
+                  "last_column": 30,
+                  "range": [
+                    27,
+                    30
+                  ]
+                },
+                "type": "record-type"
+              },
+              {
+                "members": [
+                  {
+                    "path": [
+                      {
+                        "value": "name",
+                        "location": {
+                          "first_line": 1,
+                          "first_column": 34,
+                          "last_line": 1,
+                          "last_column": 38,
+                          "range": [
+                            34,
+                            38
+                          ]
+                        },
+                        "type": "unqualified-identifier"
+                      }
+                    ],
+                    "kind": {
+                      "id": {
+                        "value": "String",
+                        "location": {
+                          "first_line": 1,
+                          "first_column": 40,
+                          "last_line": 1,
+                          "last_column": 46,
+                          "range": [
+                            40,
+                            46
+                          ]
+                        },
+                        "type": "unqualified-constructor"
+                      },
+                      "typeParameters": [],
+                      "location": {
+                        "first_line": 1,
+                        "first_column": 40,
+                        "last_line": 1,
+                        "last_column": 46,
+                        "range": [
+                          40,
+                          46
+                        ]
+                      },
+                      "type": "constructor-type"
+                    },
+                    "location": {
+                      "first_line": 1,
+                      "first_column": 34,
+                      "last_line": 1,
+                      "last_column": 46,
+                      "range": [
+                        34,
+                        46
+                      ]
+                    },
+                    "type": "member-declaration"
+                  }
+                ],
+                "location": {
+                  "first_line": 1,
+                  "first_column": 32,
+                  "last_line": 1,
+                  "last_column": 48,
+                  "range": [
+                    32,
+                    48
+                  ]
+                },
+                "type": "record-type"
+              }
+            ],
+            "returnType": {
+              "members": [],
+              "location": {
+                "first_line": 1,
+                "first_column": 53,
+                "last_line": 1,
+                "last_column": 56,
+                "range": [
+                  53,
+                  56
+                ]
+              },
+              "type": "record-type"
+            },
+            "location": {
+              "first_line": 1,
+              "first_column": 26,
+              "last_line": 1,
+              "last_column": 56,
+              "range": [
+                26,
+                56
+              ]
+            },
+            "type": "function-type"
+          },
+          "location": {
+            "first_line": 1,
+            "first_column": 19,
+            "last_line": 1,
+            "last_column": 56,
+            "range": [
+              19,
+              56
+            ]
+          },
+          "type": "member-declaration"
+        }
+      ],
+      "type": "context-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 59,
+    "range": [
+      0,
+      59
+    ]
+  },
+  "type": "module"
+}

@@ -1,0 +1,321 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "Test",
+        "location": {
+          "first_line": 1,
+          "first_column": 12,
+          "last_line": 1,
+          "last_column": 16,
+          "range": [
+            12,
+            16
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "members": [
+        {
+          "path": [
+            {
+              "value": "value",
+              "location": {
+                "first_line": 2,
+                "first_column": 10,
+                "last_line": 2,
+                "last_column": 15,
+                "range": [
+                  29,
+                  34
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "parameters": [
+              {
+                "parameters": [
+                  {
+                    "id": {
+                      "value": "String",
+                      "location": {
+                        "first_line": 2,
+                        "first_column": 19,
+                        "last_line": 2,
+                        "last_column": 25,
+                        "range": [
+                          38,
+                          44
+                        ]
+                      },
+                      "type": "unqualified-constructor"
+                    },
+                    "typeParameters": [],
+                    "location": {
+                      "first_line": 2,
+                      "first_column": 19,
+                      "last_line": 2,
+                      "last_column": 25,
+                      "range": [
+                        38,
+                        44
+                      ]
+                    },
+                    "type": "constructor-type"
+                  }
+                ],
+                "returnType": {
+                  "id": {
+                    "value": "String",
+                    "location": {
+                      "first_line": 2,
+                      "first_column": 29,
+                      "last_line": 2,
+                      "last_column": 35,
+                      "range": [
+                        48,
+                        54
+                      ]
+                    },
+                    "type": "unqualified-constructor"
+                  },
+                  "typeParameters": [],
+                  "location": {
+                    "first_line": 2,
+                    "first_column": 29,
+                    "last_line": 2,
+                    "last_column": 35,
+                    "range": [
+                      48,
+                      54
+                    ]
+                  },
+                  "type": "constructor-type"
+                },
+                "location": {
+                  "first_line": 2,
+                  "first_column": 19,
+                  "last_line": 2,
+                  "last_column": 35,
+                  "range": [
+                    38,
+                    54
+                  ]
+                },
+                "type": "function-type"
+              },
+              {
+                "parameters": [
+                  {
+                    "id": {
+                      "value": "String",
+                      "location": {
+                        "first_line": 2,
+                        "first_column": 39,
+                        "last_line": 2,
+                        "last_column": 45,
+                        "range": [
+                          58,
+                          64
+                        ]
+                      },
+                      "type": "unqualified-constructor"
+                    },
+                    "typeParameters": [],
+                    "location": {
+                      "first_line": 2,
+                      "first_column": 39,
+                      "last_line": 2,
+                      "last_column": 45,
+                      "range": [
+                        58,
+                        64
+                      ]
+                    },
+                    "type": "constructor-type"
+                  }
+                ],
+                "returnType": {
+                  "id": {
+                    "value": "String",
+                    "location": {
+                      "first_line": 2,
+                      "first_column": 49,
+                      "last_line": 2,
+                      "last_column": 55,
+                      "range": [
+                        68,
+                        74
+                      ]
+                    },
+                    "type": "unqualified-constructor"
+                  },
+                  "typeParameters": [],
+                  "location": {
+                    "first_line": 2,
+                    "first_column": 49,
+                    "last_line": 2,
+                    "last_column": 55,
+                    "range": [
+                      68,
+                      74
+                    ]
+                  },
+                  "type": "constructor-type"
+                },
+                "location": {
+                  "first_line": 2,
+                  "first_column": 39,
+                  "last_line": 2,
+                  "last_column": 55,
+                  "range": [
+                    58,
+                    74
+                  ]
+                },
+                "type": "function-type"
+              },
+              {
+                "parameters": [
+                  {
+                    "id": {
+                      "value": "String",
+                      "location": {
+                        "first_line": 2,
+                        "first_column": 59,
+                        "last_line": 2,
+                        "last_column": 65,
+                        "range": [
+                          78,
+                          84
+                        ]
+                      },
+                      "type": "unqualified-constructor"
+                    },
+                    "typeParameters": [],
+                    "location": {
+                      "first_line": 2,
+                      "first_column": 59,
+                      "last_line": 2,
+                      "last_column": 65,
+                      "range": [
+                        78,
+                        84
+                      ]
+                    },
+                    "type": "constructor-type"
+                  }
+                ],
+                "returnType": {
+                  "id": {
+                    "value": "String",
+                    "location": {
+                      "first_line": 2,
+                      "first_column": 69,
+                      "last_line": 2,
+                      "last_column": 75,
+                      "range": [
+                        88,
+                        94
+                      ]
+                    },
+                    "type": "unqualified-constructor"
+                  },
+                  "typeParameters": [],
+                  "location": {
+                    "first_line": 2,
+                    "first_column": 69,
+                    "last_line": 2,
+                    "last_column": 75,
+                    "range": [
+                      88,
+                      94
+                    ]
+                  },
+                  "type": "constructor-type"
+                },
+                "location": {
+                  "first_line": 2,
+                  "first_column": 59,
+                  "last_line": 2,
+                  "last_column": 75,
+                  "range": [
+                    78,
+                    94
+                  ]
+                },
+                "type": "function-type"
+              }
+            ],
+            "returnType": {
+              "id": {
+                "value": "String",
+                "location": {
+                  "first_line": 2,
+                  "first_column": 81,
+                  "last_line": 2,
+                  "last_column": 87,
+                  "range": [
+                    100,
+                    106
+                  ]
+                },
+                "type": "unqualified-constructor"
+              },
+              "typeParameters": [],
+              "location": {
+                "first_line": 2,
+                "first_column": 81,
+                "last_line": 2,
+                "last_column": 87,
+                "range": [
+                  100,
+                  106
+                ]
+              },
+              "type": "constructor-type"
+            },
+            "location": {
+              "first_line": 2,
+              "first_column": 17,
+              "last_line": 2,
+              "last_column": 87,
+              "range": [
+                36,
+                106
+              ]
+            },
+            "type": "function-type"
+          },
+          "location": {
+            "first_line": 2,
+            "first_column": 10,
+            "last_line": 2,
+            "last_column": 87,
+            "range": [
+              29,
+              106
+            ]
+          },
+          "type": "member-declaration"
+        }
+      ],
+      "type": "context-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 3,
+    "last_column": 11,
+    "range": [
+      0,
+      119
+    ]
+  },
+  "type": "module"
+}

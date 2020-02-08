@@ -24,12 +24,12 @@
               "value": "value",
               "location": {
                 "first_line": 1,
-                "first_column": 16,
+                "first_column": 18,
                 "last_line": 1,
-                "last_column": 21,
+                "last_column": 23,
                 "range": [
-                  16,
-                  21
+                  18,
+                  23
                 ]
               },
               "type": "unqualified-identifier"
@@ -41,12 +41,12 @@
                 "members": [],
                 "location": {
                   "first_line": 1,
-                  "first_column": 24,
+                  "first_column": 26,
                   "last_line": 1,
-                  "last_column": 27,
+                  "last_column": 29,
                   "range": [
-                    24,
-                    27
+                    26,
+                    29
                   ]
                 },
                 "type": "record-type"
@@ -56,36 +56,36 @@
               "members": [],
               "location": {
                 "first_line": 1,
-                "first_column": 32,
+                "first_column": 34,
                 "last_line": 1,
-                "last_column": 35,
+                "last_column": 37,
                 "range": [
-                  32,
-                  35
+                  34,
+                  37
                 ]
               },
               "type": "record-type"
             },
             "location": {
               "first_line": 1,
-              "first_column": 23,
+              "first_column": 25,
               "last_line": 1,
-              "last_column": 35,
+              "last_column": 37,
               "range": [
-                23,
-                35
+                25,
+                37
               ]
             },
             "type": "function-type"
           },
           "location": {
             "first_line": 1,
-            "first_column": 16,
+            "first_column": 18,
             "last_line": 1,
-            "last_column": 35,
+            "last_column": 37,
             "range": [
-              16,
-              35
+              18,
+              37
             ]
           },
           "type": "member-declaration"
@@ -98,10 +98,10 @@
     "first_line": 1,
     "first_column": 0,
     "last_line": 1,
-    "last_column": 38,
+    "last_column": 40,
     "range": [
       0,
-      38
+      40
     ]
   },
   "type": "module"

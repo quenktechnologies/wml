@@ -24,12 +24,12 @@
               "value": "name",
               "location": {
                 "first_line": 1,
-                "first_column": 16,
+                "first_column": 18,
                 "last_line": 1,
-                "last_column": 20,
+                "last_column": 22,
                 "range": [
-                  16,
-                  20
+                  18,
+                  22
                 ]
               },
               "type": "unqualified-identifier"
@@ -40,12 +40,12 @@
               "value": "String",
               "location": {
                 "first_line": 1,
-                "first_column": 22,
+                "first_column": 24,
                 "last_line": 1,
-                "last_column": 28,
+                "last_column": 30,
                 "range": [
-                  22,
-                  28
+                  24,
+                  30
                 ]
               },
               "type": "unqualified-constructor"
@@ -53,24 +53,24 @@
             "typeParameters": [],
             "location": {
               "first_line": 1,
-              "first_column": 22,
+              "first_column": 24,
               "last_line": 1,
-              "last_column": 28,
+              "last_column": 30,
               "range": [
-                22,
-                28
+                24,
+                30
               ]
             },
             "type": "constructor-type"
           },
           "location": {
             "first_line": 1,
-            "first_column": 16,
+            "first_column": 18,
             "last_line": 1,
-            "last_column": 28,
+            "last_column": 30,
             "range": [
-              16,
-              28
+              18,
+              30
             ]
           },
           "type": "member-declaration"
@@ -83,10 +83,10 @@
     "first_line": 1,
     "first_column": 0,
     "last_line": 1,
-    "last_column": 31,
+    "last_column": 33,
     "range": [
       0,
-      31
+      33
     ]
   },
   "type": "module"
