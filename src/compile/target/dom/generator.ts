@@ -231,7 +231,7 @@ export class DOMGenerator implements Generator {
             ``,
             `           } else if (typeof value === 'boolean') {`,
             ``,
-            `             e.setAttribute(key, \`\${value}\`);`,
+            `             e.setAttribute(key, '');`,
             ``,
             `           }`,
             ``,
