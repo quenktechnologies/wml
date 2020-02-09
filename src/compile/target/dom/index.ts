@@ -28,7 +28,9 @@ export interface Options {
 
     main?: string,
 
-    module?: string
+    module?: string,
+
+    dom?: string
 
 }
 
@@ -47,4 +49,3 @@ const newContext = (opts: Options): Context => {
     return { options, generator: new DOMGenerator() };
 
 };
-

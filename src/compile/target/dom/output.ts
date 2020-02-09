@@ -21,6 +21,7 @@ import { partition } from '@quenk/noni/lib/data/array';
 export const CONTEXT = '__context';
 export const VIEW = '__view';
 export const WML = '__wml';
+export const DOCUMENT = '__document';
 export const THIS = '__this';
 
 type Ifs = nodes.IfStatement | nodes.ElseIfClause;
@@ -82,6 +83,7 @@ export const eol = (ctx: Context) => `${ctx.options.EOL}`;
 export const module2TS = (ctx: Context, n: nodes.Module): Code =>
 
     `import * as ${WML} from '${ctx.options.module}';${eol(ctx)}` +
+    `import * as ${DOCUMENT} from '${ctx.options.dom}';${eol(ctx)}` +
     eol(ctx) +
     `${n.imports.map(importStatement2TS).join(';' + eol(ctx))}` +
     eol(ctx) +

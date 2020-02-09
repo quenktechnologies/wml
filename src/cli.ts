@@ -29,6 +29,8 @@ export interface Arguments {
 
     '--module': string,
 
+    '--dom': string,
+
     '<path>': string
 
 }
@@ -37,6 +39,7 @@ const defaultOptions: Options = {
     debug: false,
     main: 'Main',
     module: '@quenk/wml',
+    dom: '@quenk/wml/lib/dom',
     inputExtension: 'wml',
     extension: 'ts'
 }
@@ -59,6 +62,9 @@ const getOptions = (args: Arguments): Options => {
 
     if (args['--module'] != null)
         o.module = args['--module'];
+
+    if (args['--dom'] != null)
+        o.dom = args['--dom'];
 
     return o;
 

@@ -5,6 +5,7 @@ import { Context } from '../../code';
 import {
     CONTEXT,
     WML,
+    DOCUMENT,
     THIS,
     children2TS,
     groupAttrs,
@@ -172,7 +173,7 @@ export class DOMGenerator implements Generator {
             ``,
             `   widgets: ${WML}.Widget[] = [];`,
             ``,
-            `   tree: ${WML}.Content = document.createElement('div');`,
+            `   tree: ${WML}.Content = ${DOCUMENT}.createElement('div');`,
             ``,
             `   template: ${WML}.Template;`,
             ``,
@@ -213,7 +214,7 @@ export class DOMGenerator implements Generator {
             ``,
             `   node(${NODE_PARAMS}) {`,
             ``,
-            `       let e = document.createElement(tag);`,
+            `       let e = ${DOCUMENT}.createElement(tag);`,
             ``,
             `       Object.keys(attrs).forEach(key => {`,
             ``,
@@ -244,7 +245,7 @@ export class DOMGenerator implements Generator {
             `                   case 'string':`,
             `                   case 'number':`,
             `                   case 'boolean':`,
-            `                     let tn = document.createTextNode(''+c);`,
+            `                     let tn = ${DOCUMENT}.createTextNode(''+c);`,
             `                     e.appendChild(tn)`,
             `                   case 'object':`,
             `                       e.appendChild(<Node>c);`,
@@ -446,7 +447,7 @@ export class DOMGenerator implements Generator {
 
     text(_: Context, str: string) {
 
-        return `document.createTextNode(\`${str}\`)`;
+        return `${DOCUMENT}.createTextNode(\`${str}\`)`;
 
     }
 

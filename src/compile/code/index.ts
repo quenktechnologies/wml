@@ -14,6 +14,8 @@ export interface Options {
 
     module?: string,
 
+    dom?: string,
+
     EOL: '\n'
 
 }
