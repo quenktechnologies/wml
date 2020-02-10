@@ -2,7 +2,12 @@
 
 import * as docopt from 'docopt';
 
-import { execute } from './cli';
+import {  resolve  } from 'path';
+
+import { merge } from '@quenk/noni/lib/data/record';
+import { isDirectory } from '@quenk/noni/lib/io/file';
+
+import {  CLIOptions, Arguments, compileDir, compileFile } from './cli';
 
 const args = docopt.docopt(`
 
@@ -14,10 +19,55 @@ Options:
   --inputExtension ext The file extension used when reading files. [default: wml]
   --extension ext      The file extension to use when writing files. [default: ts]
   --module path        The module name or path to get wml symbols from.
+  --dom path           The module to resolve the DOM functions from.
   --version            Show version.
 `, {
         version: require('../package.json').version
     });
+
+const defaultOptions: CLIOptions = {
+    debug: false,
+    main: 'Main',
+    module: '@quenk/wml',
+    dom: '@quenk/wml/lib/dom',
+    inputExtension: 'wml',
+    outputExtension: 'ts'
+}
+
+
+ const main = (cwd: string, args: Arguments) => {
+
+    let path = resolve(cwd, <string>args['<path>']);
+    let opts = merge(defaultOptions, getOptions(args));
+
+    return isDirectory(path) ?
+        compileDir(path, opts) :
+        compileFile(path, opts);
+
+}
+
+const getOptions = (args: Arguments): Partial<CLIOptions> => {
+
+    let o: Partial<CLIOptions> = {};
+
+    if (args['--main'] != null)
+        o.main = args['--main'];
+
+    if (args['--outputExtension'] != null)
+        o.outputExtension = args['--outputExtension'];
+
+    if (args['--inputExtension'] != null)
+        o.inputExtension = args['--inputExtension'];
+
+    if (args['--module'] != null)
+        o.module = args['--module'];
+
+    if (args['--dom'] != null)
+        o.dom = args['--dom'];
+
+    return o;
+
+}
 
 const onErr = (e: Error) => {
 
@@ -28,4 +78,4 @@ const onErr = (e: Error) => {
 
 const onDone = () => process.exit(0);
 
-execute(process.cwd(), args).fork(onErr, onDone);
+main(process.cwd(), args).fork(onErr, onDone);
