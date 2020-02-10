@@ -1,6 +1,5 @@
-import * as __wml from '../../src';
-
-
+import * as __wml from '../../../src';
+import * as __document from '../../../src/dom';
 //@ts-ignore: 6192
 import {
 Maybe as __Maybe,
@@ -8,6 +7,9 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
+
+
+
 //@ts-ignore:6192
 type __IfArg = ()=>__wml.Content[]
 
@@ -54,6 +56,8 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
+
+
 export const template = 
 
 <A  > (d: Date<A  >  ,o: A ,_: string ,__: (A)[] )=>(__this:__wml.Registry) : __wml.Content[] => {
@@ -83,7 +87,7 @@ export class Results <A  >  implements __wml.View {
         __this.node('li', <__wml.Attrs>{}, [
 
         option,
-document.createTextNode(`and`),
+__document.createTextNode('and'),
 index
      ])
      ]), 
@@ -91,7 +95,7 @@ index
 
         __this.node('p', <__wml.Attrs>{}, [
 
-        document.createTextNode(`De nada!`)
+        __document.createTextNode('De nada!')
      ])
      ]))
      ]);
@@ -108,7 +112,7 @@ index
 
    widgets: __wml.Widget[] = [];
 
-   tree: __wml.Content = document.createElement('div');
+   tree: __wml.Content = __document.createElement('div');
 
    template: __wml.Template;
 
@@ -149,7 +153,7 @@ index
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
-       let e = document.createElement(tag);
+       let e = __document.createElement(tag);
 
        Object.keys(attrs).forEach(key => {
 
@@ -167,7 +171,7 @@ index
 
            } else if (typeof value === 'boolean') {
 
-             e.setAttribute(key, `${value}`);
+             e.setAttribute(key, '');
 
            }
 
@@ -180,7 +184,7 @@ index
                    case 'string':
                    case 'number':
                    case 'boolean':
-                     let tn = document.createTextNode(''+c);
+                     let tn = __document.createTextNode(''+c);
                      e.appendChild(tn)
                    case 'object':
                        e.appendChild(<Node>c);

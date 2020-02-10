@@ -1,5 +1,12 @@
-import * as __wml from '../../src';
-
+import * as __wml from '../../../src';
+import * as __document from '../../../src/dom';
+//@ts-ignore: 6192
+import {
+Maybe as __Maybe,
+fromNullable as __fromNullable,
+fromArray as __fromArray
+}
+from '@quenk/noni/lib/data/maybe';
 import {Table} from '@quenk/wml-widgets/lib/data/table'; ;
 import {TextField} from '@quenk/wml-widgets/lib/control/text-field'; ;
 import {Panel} from '@quenk/wml-widgets/lib/layout/panel'; ;
@@ -8,13 +15,8 @@ import {Tab} from '@quenk/wml-widgets/lib/control/tab-bar'; ;
 import {TabBar} from '@quenk/wml-widgets/lib/control/tab-bar'; ;
 import {TabSpec} from '..'; ;
 import {TabbedPanel} from '..'; 
-//@ts-ignore: 6192
-import {
-Maybe as __Maybe,
-fromNullable as __fromNullable,
-fromArray as __fromArray
-}
-from '@quenk/noni/lib/data/maybe';
+
+
 //@ts-ignore:6192
 type __IfArg = ()=>__wml.Content[]
 
@@ -61,6 +63,8 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
+
+
 export class Main  implements __wml.View {
 
    constructor(__context: TabbedPanel) {
@@ -116,7 +120,7 @@ __context.children
 
    widgets: __wml.Widget[] = [];
 
-   tree: __wml.Content = document.createElement('div');
+   tree: __wml.Content = __document.createElement('div');
 
    template: __wml.Template;
 
@@ -157,7 +161,7 @@ __context.children
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
-       let e = document.createElement(tag);
+       let e = __document.createElement(tag);
 
        Object.keys(attrs).forEach(key => {
 
@@ -175,7 +179,7 @@ __context.children
 
            } else if (typeof value === 'boolean') {
 
-             e.setAttribute(key, `${value}`);
+             e.setAttribute(key, '');
 
            }
 
@@ -188,7 +192,7 @@ __context.children
                    case 'string':
                    case 'number':
                    case 'boolean':
-                     let tn = document.createTextNode(''+c);
+                     let tn = __document.createTextNode(''+c);
                      e.appendChild(tn)
                    case 'object':
                        e.appendChild(<Node>c);

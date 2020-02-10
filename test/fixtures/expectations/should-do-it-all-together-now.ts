@@ -1,6 +1,5 @@
-import * as __wml from '../../src';
-
-
+import * as __wml from '../../../src';
+import * as __document from '../../../src/dom';
 //@ts-ignore: 6192
 import {
 Maybe as __Maybe,
@@ -8,6 +7,9 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
+
+
+
 //@ts-ignore:6192
 type __IfArg = ()=>__wml.Content[]
 
@@ -54,15 +56,17 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
+
+
 __this.node('modal', <__wml.Attrs>{'name': 'mymodal','x': '1','y': '2'}, [
 
         __this.node('modal-header', <__wml.Attrs>{}, [
 
-        document.createTextNode(`My Modal`)
+        __document.createTextNode('My Modal')
      ]),
 __this.node('modal-body', <__wml.Attrs>{}, [
 
-        document.createTextNode(`Creativxity is inhibxited by greed and corruption.`),
+        __document.createTextNode('Creativxity is inhibxited by greed and corruption.'),
 __this.node('vote-button', <__wml.Attrs>{}, [
 
         
@@ -71,10 +75,10 @@ __this.node('vote-count', <__wml.Attrs>{'source': __context}, [
 
         
      ]),
-document.createTextNode(` Votes`),
+__document.createTextNode(' Votes'),
 __this.node('textarea', <__wml.Attrs>{wml : { 'id' : 'ta'  },'disabled': true ,'size': 32,'onchange': __context.setText}, [
 
-        document.createTextNode(` Various text`)
+        __document.createTextNode(' Various text')
      ])
      ])
      ])

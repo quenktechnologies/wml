@@ -1,6 +1,5 @@
-import * as __wml from '../../src';
-
-
+import * as __wml from '../../../src';
+import * as __document from '../../../src/dom';
 //@ts-ignore: 6192
 import {
 Maybe as __Maybe,
@@ -8,6 +7,9 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
+
+
+
 //@ts-ignore:6192
 type __IfArg = ()=>__wml.Content[]
 
@@ -54,4 +56,6 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
+
+
 export type Type = string|number|boolean|(Type)[]|($0:Type) => Type;
