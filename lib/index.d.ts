@@ -1,4 +1,5 @@
 import { Maybe } from '@quenk/noni/lib/data/maybe';
+import { SSRNode } from './dom';
 export { Maybe };
 /**
  * WidgetConstructor
@@ -11,7 +12,7 @@ export declare type WMLElement = Content | Widget;
 /**
  * Content is what is actually intended to be rendered on a web page.
  */
-export declare type Content = Node | Element | HTMLElement;
+export declare type Content = Node | Element | HTMLElement | SSRNode;
 /**
  * HTMLAttributeValue
  */

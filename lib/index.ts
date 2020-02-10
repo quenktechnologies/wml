@@ -1,5 +1,7 @@
 import { Maybe } from '@quenk/noni/lib/data/maybe';
 
+import { SSRNode } from './dom';
+
 export { Maybe }
 
 /**
@@ -24,6 +26,7 @@ export type Content
     = Node
     | Element
     | HTMLElement
+    | SSRNode
     ;
 
 /**

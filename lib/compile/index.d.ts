@@ -1,22 +1,17 @@
 import { Except } from '@quenk/noni/lib/control/error';
-/**
- * OptionValue
- */
-export declare type OptionValue = boolean | string | undefined;
+import { CodeGeneratorOptions } from './codegen';
 /**
  * TypeScript output.
  */
 export declare type TypeScript = string;
 /**
- * Options the compiler understands.
+ * Options for changing the behaviour of compilation.
  */
-export interface Options {
-    [key: string]: OptionValue;
+export interface Options extends Partial<CodeGeneratorOptions> {
     debug?: boolean;
     main?: string;
-    module?: string;
 }
 /**
- * compile a string of WML into typescript code.
+ * compile a string of WML text directly into typescript.
  */
 export declare const compile: (src: string, opts?: Options) => Except<string>;

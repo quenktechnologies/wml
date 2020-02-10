@@ -1,6 +1,5 @@
 import { dirname, basename, resolve, extname } from 'path';
 
-import { merge } from '@quenk/noni/lib/data/record';
 import {
     Future,
     pure,
@@ -8,13 +7,30 @@ import {
     parallel
 } from '@quenk/noni/lib/control/monad/future';
 import {
-    isDirectory,
     listFilesRec,
     readTextFile,
     writeTextFile
 } from '@quenk/noni/lib/io/file';
 
-import { Options, compile } from './compile/target/dom';
+import { Options, compile } from './compile';
+
+/**
+ * CLIOptions
+ */
+export interface CLIOptions extends Partial<Options> {
+
+    /**
+     * inputExtension is the file extension used when searching for files to
+     * compile.
+     */
+    inputExtension: string,
+
+    /**
+     * outputExtension is the file extension used when outputing directly to file.
+     */
+    outputExtension: string
+
+}
 
 /**
  * Arguments passed on the command line.
@@ -23,65 +39,22 @@ export interface Arguments {
 
     '--main': string,
 
-    '--extension': string,
+    '--outputExtension': string,
 
     '--inputExtension': string,
 
     '--module': string,
 
+    '--dom': string,
+
     '<path>': string
-
-}
-
-const defaultOptions: Options = {
-    debug: false,
-    main: 'Main',
-    module: '@quenk/wml',
-    inputExtension: 'wml',
-    extension: 'ts'
-}
-
-const getFileName = (file: string) =>
-    `${dirname(file)}/${basename(file, extname(file))}`;
-
-const getOptions = (args: Arguments): Options => {
-
-    let o: Options = {};
-
-    if (args['--main'] != null)
-        o.main = args['--main'];
-
-    if (args['--extension'] != null)
-        o.extension = args['--extension'];
-
-    if (args['--inputExtension'] != null)
-        o.inputExtension = args['--inputExtension'];
-
-    if (args['--module'] != null)
-        o.module = args['--module'];
-
-    return o;
-
-}
-
-/**
- * execute the program.
- */
-export const execute = (cwd: string, args: Arguments) => {
-
-    let path = resolve(cwd, <string>args['<path>']);
-    let opts = getOptions(args);
-
-    return isDirectory(path) ?
-        compileDir(path, opts) :
-        compileFile(path, opts);
 
 }
 
 /**
  * compileDir will compile each wml file found in the specified path.
  */
-export const compileDir = (path: string, opts: Options) =>
+export const compileDir = (path: string, opts: CLIOptions) =>
     listFilesRec(path)
         .map(list =>
             list
@@ -90,25 +63,26 @@ export const compileDir = (path: string, opts: Options) =>
         .chain(parallel);
 
 /**
- * compileFile will compile a single file but only if its extension
- * is the target extension.
+ * compileFile will compile a single wml file.
+ *
+ * If that file does not have the specified inputExtension, it will be
+ * ignored.
  */
-export const compileFile = (path: string, opts: Options): Future<void> => {
+export const compileFile = (path: string, opts: CLIOptions)
+    : Future<void> => {
 
-    let o = merge(defaultOptions, opts);
-
-    if (extname(path) !== `.${o.inputExtension}`) {
+    if (extname(path) !== `.${opts.inputExtension}`) {
 
         return pure(<void>undefined);
 
     } else {
 
-        let p = `${getFileName(path)}.${o.extension}`;
+        let p = `${getFileName(path)}.${opts.outputExtension}`;
 
         return readTextFile(path)
             .chain(buf => {
 
-                let eitherTs = compile(buf, o);
+                let eitherTs = compile(buf, opts);
 
                 if (eitherTs.isLeft())
                     return raise<string>(eitherTs.takeLeft());
@@ -120,3 +94,6 @@ export const compileFile = (path: string, opts: Options): Future<void> => {
     }
 
 }
+
+const getFileName = (file: string) =>
+    `${dirname(file)}/${basename(file, extname(file))}`;
