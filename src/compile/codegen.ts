@@ -588,7 +588,7 @@ export const typeParameters2TS = (ns: ast.TypeParameter[]): string =>
  * typeParameter2TS converts a type parameter into a typescript type parameter.
  */
 export const typeParameter2TS = (n: ast.TypeParameter) =>
-    `${identifierOrConstructor2TS(n.id)} ` +
+    `${toPrim(identifierOrConstructor2TS(n.id))} ` +
     `${n.constraint ? 'extends ' + type2TS(n.constraint) : ''} `;
 
 /**
@@ -617,9 +617,7 @@ export const type2TS = (n: ast.Type): TypeScript => {
 export const constructorType2TS =
     (n: ast.ConstructorType) => {
 
-        let id = identifierOrConstructor2TS(n.id);
-
-        id = prims.indexOf(id) > - 1 ? id.toLowerCase() : id;
+        let id = toPrim(identifierOrConstructor2TS(n.id));
 
         return (n.typeParameters.length > 0) ?
             id + typeParameters2TS(n.typeParameters) : id;
@@ -1249,7 +1247,7 @@ export const constructor2TS = (n: ast.Constructor) => {
  * unqualifiedConstructor2TS 
  */
 export const unqualifiedConstructor2TS = (n: ast.UnqualifiedConstructor) =>
-    `${toPrim(n.value)}`;
+    `${n.value}`;
 
 /**
  * qualifiedConstructor
@@ -1281,6 +1279,6 @@ export const qualifiedIdentifier2TS = (n: ast.QualifiedIdentifier) =>
  * unqualifiedIdentifier2TS 
  */
 export const unqualifiedIdentifier2TS = (n: ast.UnqualifiedIdentifier) =>
-    `${toPrim(n.value)}`;
+    `${n.value}`;
 
 const toPrim = (id: string) => prims.indexOf(id) > - 1 ? id.toLowerCase() : id;
