@@ -97,7 +97,7 @@ export class Test  implements __wml.View {
 
    widgets: __wml.Widget[] = [];
 
-   tree: __wml.Content = __document.createElement('div');
+   tree: Node = <Node>__document.createElement('div');
 
    template: __wml.Template;
 
@@ -170,7 +170,7 @@ export class Test  implements __wml.View {
                    case 'number':
                    case 'boolean':
                      let tn = __document.createTextNode(''+c);
-                     e.appendChild(tn)
+                     e.appendChild(<Node>tn)
                    case 'object':
                        e.appendChild(<Node>c);
                    break;
@@ -228,7 +228,7 @@ export class Test  implements __wml.View {
        if (tree.parentNode == null)
                   throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
 
-       parent.replaceChild(this.render(), tree) 
+       parent.replaceChild(<Node>this.render(), tree) 
 
    }
 
@@ -238,7 +238,7 @@ export class Test  implements __wml.View {
        this.widgets.forEach(w => w.removed());
        this.widgets = [];
        this.views = [];
-       this.tree = this.template(this);
+       this.tree = <Node>this.template(this);
 
        this.ids['root'] = (this.ids['root']) ?
        this.ids['root'] : 

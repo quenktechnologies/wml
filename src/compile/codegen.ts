@@ -975,7 +975,9 @@ export const forOfStatement2TS = (ctx: CodeGenerator, n: ast.ForStatement) => {
  * characters2TS converts character text to a typescript string.
  */
 export const characters2TS = (n: ast.Characters) =>
-    `${DOCUMENT}.createTextNode('${n.value}')`;
+    `${DOCUMENT}.createTextNode('${breakLines(n.value)}')`;
+
+const breakLines = (str: string) => str.split('\n').join('\\u000a');
 
 /**
  * expression2TS 
@@ -1247,7 +1249,7 @@ export const constructor2TS = (n: ast.Constructor) => {
  * unqualifiedConstructor2TS 
  */
 export const unqualifiedConstructor2TS = (n: ast.UnqualifiedConstructor) =>
-    `${n.value}`;
+    `${toPrim(n.value)}`;
 
 /**
  * qualifiedConstructor
@@ -1279,4 +1281,6 @@ export const qualifiedIdentifier2TS = (n: ast.QualifiedIdentifier) =>
  * unqualifiedIdentifier2TS 
  */
 export const unqualifiedIdentifier2TS = (n: ast.UnqualifiedIdentifier) =>
-    `${n.value}`;
+    `${toPrim(n.value)}`;
+
+const toPrim = (id: string) => prims.indexOf(id) > - 1 ? id.toLowerCase() : id;

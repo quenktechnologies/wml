@@ -238,3 +238,11 @@ export interface Groups {
     [key: string]: WMLElement[]
 
 }
+
+/**
+ * renderAsNode content from a Renderable.
+ *
+ * This function unsafely assumes the Renderable always returns DOM content.
+ */
+export const renderAsNode = (r: Renderable): Node =>
+    <Node>r.render();

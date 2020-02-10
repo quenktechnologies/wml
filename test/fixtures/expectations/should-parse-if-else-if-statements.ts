@@ -78,8 +78,6 @@ __this.widget(new Tag({}, [
      ]),
    ()=> ([
 
-        __document.createTextNode('
-            no
-          ')
+        __document.createTextNode('\u000a            no\u000a          ')
      ]))) ]))) 
      ]),<__wml.Attrs>{})
