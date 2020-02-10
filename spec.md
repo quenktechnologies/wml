@@ -52,6 +52,10 @@ the appropriate content.
 Refers to code browsers can interpret to show content to users. These are 
 usually represented by implementers of the DOM's Node interface at runtime.
 
+# Encoding
+
+A WML file must be utf-8 encoded. 
+
 # Modules 
 
 A WML module is a single file that contains a combination of imports, fun
@@ -417,3 +421,100 @@ for_in
 
 1) The `for of` expression is similar to `for in` except it iterates over
    a record.
+
+## Alias
+
+The alias statement allows a type alias to be introduced to a WML module.
+Type aliases allow authors to rename types or give a name to complex type 
+combinations.
+
+Example:
+
+```wml
+
+ {% alias JSON = Object | Array | String | Number | Boolean | Null %}
+
+```
+In the above example, the identifier `JSON` becomes available throughout the 
+rest of the module.
+
+Aliases can reference a single type or a combination of types via the '|' symbol.
+If '|' is used, the alias considered an algebraic data type, specifically
+a sum type, where any of the types specified is a valid type for that
+alias.
+
+Aliases can carry generic type parameters.
+Aliases are exported from modules.
+
+### Syntax
+
+```bnf
+alias
+     = "{%" "alias" name (type-parameters+)? "=" type-list "%}"
+
+type-list:
+     = type
+     | type-list "," type
+
+```
+
+## Contract
+
+The contract statement allows authors to introduce a structured type into a
+WML module. Contracts describe the type of each property of record like 
+structures.
+
+Contract are primarily used to specify the "shape" a value must have in order to
+be used as a context in a view. When used as a view's context, a contract
+specifies all the properties and values available for use in the view via
+the "@" operator.
+
+Example:
+
+```bnf
+
+{% contract PanelContext = 
+   
+    heading.title: String, 
+
+    body.text: String, 
+
+    footer: String 
+%}
+
+{% view Panel (PanelContext) %}
+
+<div class="panel">
+
+  <div class="panel-heading">{{@heading.title}}</div>
+
+  <div class="body">{{@body.text}}</div>
+
+  <div class="footer">{{@footer|text}}</div>
+
+</div>
+
+```
+
+The property keys of a contract can be specified as a dotted path in which
+case the compiler will expand to nested record types.
+
+Contracts can carry generic type parameters.
+Contracts are exported from modules.
+
+### Syntax
+
+```bnf
+
+contract
+        = "{%" "contract" name type-parameters "=" member-declaration* "%}"
+
+member_declaration
+        = path ":" type
+
+path
+        = identifier
+        | path "." identifier
+
+```
+
