@@ -1,0 +1,298 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "open": {
+        "value": "Html",
+        "location": {
+          "first_line": 2,
+          "first_column": 5,
+          "last_line": 2,
+          "last_column": 9,
+          "range": [
+            6,
+            10
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "attributes": [],
+      "children": [
+        {
+          "open": {
+            "value": "meta",
+            "location": {
+              "first_line": 3,
+              "first_column": 7,
+              "last_line": 3,
+              "last_column": 11,
+              "range": [
+                19,
+                23
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "attributes": [
+            {
+              "namespace": {
+                "value": "",
+                "location": {
+                  "first_line": 3,
+                  "first_column": 12,
+                  "last_line": 3,
+                  "last_column": 27,
+                  "range": [
+                    24,
+                    39
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "name": {
+                "value": "name",
+                "location": {
+                  "first_line": 3,
+                  "first_column": 12,
+                  "last_line": 3,
+                  "last_column": 16,
+                  "range": [
+                    24,
+                    28
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "value": {
+                "value": "hostname",
+                "type": "string"
+              },
+              "location": {
+                "first_line": 3,
+                "first_column": 12,
+                "last_line": 3,
+                "last_column": 27,
+                "range": [
+                  24,
+                  39
+                ]
+              },
+              "type": "attribute"
+            },
+            {
+              "namespace": {
+                "value": "",
+                "location": {
+                  "first_line": 3,
+                  "first_column": 28,
+                  "last_line": 3,
+                  "last_column": 49,
+                  "range": [
+                    40,
+                    61
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "name": {
+                "value": "content",
+                "location": {
+                  "first_line": 3,
+                  "first_column": 28,
+                  "last_line": 3,
+                  "last_column": 35,
+                  "range": [
+                    40,
+                    47
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "value": {
+                "value": "example.com",
+                "type": "string"
+              },
+              "location": {
+                "first_line": 3,
+                "first_column": 28,
+                "last_line": 3,
+                "last_column": 49,
+                "range": [
+                  40,
+                  61
+                ]
+              },
+              "type": "attribute"
+            }
+          ],
+          "children": [],
+          "close": {
+            "value": "meta",
+            "location": {
+              "first_line": 3,
+              "first_column": 7,
+              "last_line": 3,
+              "last_column": 11,
+              "range": [
+                19,
+                23
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "type": "node"
+        },
+        {
+          "open": {
+            "value": "link",
+            "location": {
+              "first_line": 4,
+              "first_column": 7,
+              "last_line": 4,
+              "last_column": 11,
+              "range": [
+                72,
+                76
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "attributes": [
+            {
+              "namespace": {
+                "value": "",
+                "location": {
+                  "first_line": 4,
+                  "first_column": 12,
+                  "last_line": 4,
+                  "last_column": 30,
+                  "range": [
+                    77,
+                    95
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "name": {
+                "value": "href",
+                "location": {
+                  "first_line": 4,
+                  "first_column": 12,
+                  "last_line": 4,
+                  "last_column": 16,
+                  "range": [
+                    77,
+                    81
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "value": {
+                "value": "example.com",
+                "type": "string"
+              },
+              "location": {
+                "first_line": 4,
+                "first_column": 12,
+                "last_line": 4,
+                "last_column": 30,
+                "range": [
+                  77,
+                  95
+                ]
+              },
+              "type": "attribute"
+            },
+            {
+              "namespace": {
+                "value": "",
+                "location": {
+                  "first_line": 4,
+                  "first_column": 31,
+                  "last_line": 4,
+                  "last_column": 44,
+                  "range": [
+                    96,
+                    109
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "name": {
+                "value": "rel",
+                "location": {
+                  "first_line": 4,
+                  "first_column": 31,
+                  "last_line": 4,
+                  "last_column": 34,
+                  "range": [
+                    96,
+                    99
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "value": {
+                "value": "example",
+                "type": "string"
+              },
+              "location": {
+                "first_line": 4,
+                "first_column": 31,
+                "last_line": 4,
+                "last_column": 44,
+                "range": [
+                  96,
+                  109
+                ]
+              },
+              "type": "attribute"
+            }
+          ],
+          "children": [],
+          "close": {
+            "value": "link",
+            "location": {
+              "first_line": 4,
+              "first_column": 7,
+              "last_line": 4,
+              "last_column": 11,
+              "range": [
+                72,
+                76
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "type": "node"
+        }
+      ],
+      "close": {
+        "value": "Html",
+        "location": {
+          "first_line": 5,
+          "first_column": 6,
+          "last_line": 5,
+          "last_column": 10,
+          "range": [
+            119,
+            123
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "type": "widget"
+    }
+  ],
+  "location": {
+    "first_line": 2,
+    "first_column": 4,
+    "last_line": 5,
+    "last_column": 11,
+    "range": [
+      5,
+      124
+    ]
+  },
+  "type": "module"
+}
