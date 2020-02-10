@@ -42,6 +42,9 @@ const HTML_ENT_MAP: { [key: string]: string } = {
 
 }
 
+const voidElements = ['area', 'base', 'br', 'col', 'command', 'embed', 'hr',
+    'img', 'input', 'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr'];
+
 /**
  * SSRNode is the interface all server side rendered (ssr) nodes implement.
  *
@@ -103,8 +106,10 @@ export class SSRElement {
         let { name } = this;
         let childs = this.children.map(c => c.renderToString()).join('');
         let attrs = this.attrs.join(' ');
+        let open = `<${name} ${attrs}>`;
 
-        return `<${name} ${attrs}>${childs}</${name}>`;
+        return (voidElements.indexOf(name) > -1) ?
+            open : `<${open}>${childs}</${name}>`;
 
     }
 
