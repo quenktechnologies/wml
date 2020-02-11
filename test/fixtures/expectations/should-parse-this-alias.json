@@ -1,0 +1,64 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "SortDir",
+        "location": {
+          "first_line": 1,
+          "first_column": 9,
+          "last_line": 1,
+          "last_column": 16,
+          "range": [
+            9,
+            16
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "members": [
+        {
+          "value": "1",
+          "location": {
+            "first_line": 1,
+            "first_column": 19,
+            "last_line": 1,
+            "last_column": 20,
+            "range": [
+              19,
+              20
+            ]
+          },
+          "type": "number-literal"
+        },
+        {
+          "value": "-1",
+          "location": {
+            "first_line": 1,
+            "first_column": 23,
+            "last_line": 1,
+            "last_column": 25,
+            "range": [
+              23,
+              25
+            ]
+          },
+          "type": "number-literal"
+        }
+      ],
+      "type": "alias-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 28,
+    "range": [
+      0,
+      28
+    ]
+  },
+  "type": "module"
+}

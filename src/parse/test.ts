@@ -510,9 +510,9 @@ export const tests: { [key: string]: any } = {
     'should parse tupe types': `{% alias Tuple = [Number, String, Number] %}`,
 
     'should parse primitives used as type':
-        '{% alias Prims = 1|2|"three"|true|false|"1,2,three,true,false" %}'
+        '{% alias Prims = 1|2|"three"|true|false|"1,2,three,true,false" %}',
 
-
-
+    'should parse this alias':
+        '{% alias SortDir = 1 | -1 %}'
 
 }

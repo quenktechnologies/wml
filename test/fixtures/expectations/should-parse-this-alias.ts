@@ -58,4 +58,4 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 
 
-export type Prims = 1|2|'three'|true |false |'1,2,three,true,false';
+export type SortDir = 1|-1;

@@ -604,10 +604,16 @@ export const type2TS = (n: ast.Type): TypeScript => {
         return listType2TS(n);
     else if (n instanceof ast.TupleType)
         return tupleType2TS(n);
+    else if (n instanceof ast.StringLiteral)
+        return string2TS(n);
+    else if (n instanceof ast.NumberLiteral)
+        return number2TS(n);
+    else if (n instanceof ast.BooleanLiteral)
+        return boolean2TS(n);
     else if (n instanceof ast.FunctionType)
         return functionType2TS(n);
 
-    return '';
+    return '<error>';
 
 }
 
@@ -648,7 +654,7 @@ export const listType2TS = (n: ast.ListType) =>
  * tupleType2TS
  */
 export const tupleType2TS = (n: ast.TupleType) =>
-    `[${n.members.map(type2TS).join(',')}]`
+    `[${n.members.map(type2TS).join(',')}]`;
 
 /**
  * recordType2TS converts the RecordType node to the body of a TypeScript
