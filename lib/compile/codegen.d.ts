@@ -148,6 +148,10 @@ export declare const functionType2TS: (n: ast.FunctionType) => string;
  */
 export declare const listType2TS: (n: ast.ListType) => string;
 /**
+ * tupleType2TS
+ */
+export declare const tupleType2TS: (n: ast.TupleType) => string;
+/**
  * recordType2TS converts the RecordType node to the body of a TypeScript
  * record interface.
  */

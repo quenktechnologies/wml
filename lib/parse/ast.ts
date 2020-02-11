@@ -268,6 +268,20 @@ export class ListType {
 }
 
 /**
+ * TupleType
+ */
+export class TupleType {
+
+    type = 'tuple-type';
+
+    constructor(
+        public members: Type[],
+        public location: Location) { }
+
+}
+
+
+/**
  * Parameter
  */
 export type Parameter

@@ -181,6 +181,15 @@ export declare class ListType {
     constructor(elementType: Type, location: Location);
 }
 /**
+ * TupleType
+ */
+export declare class TupleType {
+    members: Type[];
+    location: Location;
+    type: string;
+    constructor(members: Type[], location: Location);
+}
+/**
  * Parameter
  */
 export declare type Parameter = TypedParameter | UntypedParameter;

@@ -505,6 +505,14 @@ export const tests: { [key: string]: any } = {
     },
 
     'should parse alias statements':
-        `{% alias Type = String | Number | Boolean | Type[] | Type -> Type %}`
+        `{% alias Type = String | Number | Boolean | Type[] | Type -> Type %}`,
+
+    'should parse tupe types': `{% alias Tuple = [Number, String, Number] %}`,
+
+    'should parse primitives used as type':
+        '{% alias Prims = 1|2|"three"|true|false|"1,2,three,true,false" %}'
+
+
+
 
 }
