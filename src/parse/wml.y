@@ -94,21 +94,17 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <CONTROL>'as'                                            return 'AS';
 <CONTROL>'contract'                                      return 'CONTRACT';
 <CONTROL>'alias'                                         return 'ALIAS';
+<CONTROL>'true'                                          return 'TRUE';
+<CONTROL>'false'                                         return 'FALSE';
+<CONTROL>{Constructor}                             return 'CONSTRUCTOR';
+<CONTROL>{Identifier}                              return 'IDENTIFIER';
 <CONTROL>'@'                                             return '@';
-<CONTROL>'=' this.popState();this.begin('CONTROL_CHILD');return '=';
-<CONTROL>{Constructor}                                   return 'CONSTRUCTOR';
-<CONTROL>{Identifier}                                    return 'IDENTIFIER';
-<CONTROL>'%}'                this.popState();            return '%}';
-<CONTROL>'{'                                             return '{';
-<CONTROL>'}'                                             return '}';
-
-<CONTROL_CHILD>'<'           this.begin('ELEMENT');      return '<';
-<CONTROL_CHILD>'{{'          this.begin('INTERPOLATION');return '{{';
-<CONTROL_CHILD>'%}'          this.popState();            return '%}';
-<CONTROL_CHILD>{Constructor}                             return 'CONSTRUCTOR';
-<CONTROL_CHILD>{Identifier}                              return 'IDENTIFIER';
-<CONTROL_CHILD>'{'                                       return '{';
-<CONTROL_CHILD>'}'                                       return '}';
+<CONTROL>'='                                             return '=';
+<CONTROL>'<'           this.begin('ELEMENT');      return '<';
+<CONTROL>'{{'          this.begin('INTERPOLATION');return '{{';
+<CONTROL>'%}'          this.popState();            return '%}';
+<CONTROL>'{'                                       return '{';
+<CONTROL>'}'                                       return '}';
 
 <INTERPOLATION>'|'                                       return '|';
 <INTERPOLATION>'->'                                      return '->';
@@ -364,10 +360,22 @@ non_function_type
           : constructor_type
             { $$ = $1;                                                  }
 
+          | string_literal
+            { $$ = $1;                                                  }
+
+          | number_literal
+            { $$ = $1;                                                  }
+
+          | boolean_literal
+            { $$ = $1;                                                  }
+
           | record_type
             { $$ = $1;                                                  }
          
           | list_type
+            { $$ = $1;                                                  }
+
+          | tuple_type
             { $$ = $1;                                                  }
           ;
 
@@ -397,6 +405,15 @@ list_type
             { $$ = new yy.ast.ListType(
                      new yy.ast.ConstructorType($1, $2), @$);           }
 
+          | string_literal '[' ']'
+            { $$ = new yy.ast.ListType($1, @$);                         }
+
+          | number_literal '[' ']'
+            { $$ = new yy.ast.ListType($1, @$);                         }
+
+          | boolean_literal '[' ']'
+            { $$ = new yy.ast.ListType($1, @$);                         }
+
           | record_type '[' ']'
             { $$ = new yy.ast.ListType($1, @$);                         }
          
@@ -404,9 +421,29 @@ list_type
           | grouped_type '[' ']'
             { $$ = new yy.ast.ListType($1, @$);                         }
 
+          | tuple_type '[' ']'
+            { $$ = new yy.ast.ListType($1, @$);                         }
+
           | list_type '[' ']'
             { $$ = new yy.ast.ListType($1, @$);                         }
           ; 
+
+tuple_type
+
+          : '[' ']'
+            { $$ = new yy.ast.TupleType([], @$);                        }
+
+          | '[' tuple_type_members ']'
+            { $$ = new yy.ast.TupleType($2, @$);                        }
+          ;
+
+tuple_type_members
+          : type
+            { $$ = [$1];                                                }
+
+          | tuple_type_members ',' type
+            { $$ = $1.concat($3);                                       }
+          ;
 
 function_type
           : '->' type

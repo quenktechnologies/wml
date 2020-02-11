@@ -602,6 +602,8 @@ export const type2TS = (n: ast.Type): TypeScript => {
         return recordType2Ts(n);
     else if (n instanceof ast.ListType)
         return listType2TS(n);
+    else if (n instanceof ast.TupleType)
+        return tupleType2TS(n);
     else if (n instanceof ast.FunctionType)
         return functionType2TS(n);
 
@@ -641,6 +643,12 @@ export const functionType2TS = (n: ast.FunctionType) => {
  */
 export const listType2TS = (n: ast.ListType) =>
     `(${type2TS(n.elementType)})[]`;
+
+/**
+ * tupleType2TS
+ */
+export const tupleType2TS = (n: ast.TupleType) =>
+    `[${n.members.map(type2TS).join(',')}]`
 
 /**
  * recordType2TS converts the RecordType node to the body of a TypeScript

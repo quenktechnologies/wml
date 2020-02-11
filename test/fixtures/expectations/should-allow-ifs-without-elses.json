@@ -80,7 +80,7 @@
               },
               "operator": "==",
               "right": {
-                "value": "true",
+                "value": true,
                 "location": {
                   "first_line": 1,
                   "first_column": 46,
@@ -91,7 +91,7 @@
                     50
                   ]
                 },
-                "type": "unqualified-identifier"
+                "type": "boolean-literal"
               },
               "location": {
                 "first_line": 1,
