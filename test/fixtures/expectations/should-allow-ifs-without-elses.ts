@@ -66,7 +66,7 @@ export class Test  implements __wml.View {
 
            return __this.node('div', <__wml.Attrs>{}, [
 
-        ...(__if((value === true),
+        ...(__if((value === true ),
    ()=> ([
 
         __this.node('span', <__wml.Attrs>{}, [

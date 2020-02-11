@@ -64,7 +64,7 @@ export const template =
 
    return [
 
-        new string(o)
+        String(o)
      ];
 
 };;
