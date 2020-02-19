@@ -291,7 +291,7 @@ export declare class Characters {
     type: string;
     constructor(value: string, location: Location);
 }
-export declare type Expression = IfThenExpression | BinaryExpression | UnaryExpression | ViewConstruction | FunApplication | ConstructExpression | CallExpression | MemberExpression | ReadExpression | FunctionExpression | Literal | ContextProperty | Constructor | Identifier | ContextVariable;
+export declare type Expression = IfThenExpression | BinaryExpression | UnaryExpression | TypeAssertion | ViewConstruction | FunApplication | ConstructExpression | CallExpression | MemberExpression | ReadExpression | FunctionExpression | Literal | ContextProperty | Constructor | Identifier | ContextVariable;
 export declare class IfThenExpression {
     condition: Expression;
     iftrue: Expression;
@@ -313,6 +313,12 @@ export declare class UnaryExpression {
     expression: Expression;
     type: string;
     constructor(operator: string, expression: Expression);
+}
+export declare class TypeAssertion {
+    target: Type;
+    expression: Expression;
+    type: string;
+    constructor(target: Type, expression: Expression);
 }
 export declare class ViewConstruction {
     cons: Constructor;

@@ -513,6 +513,9 @@ export const tests: { [key: string]: any } = {
         '{% alias Prims = 1|2|"three"|true|false|"1,2,three,true,false" %}',
 
     'should parse this alias':
-        '{% alias SortDir = 1 | -1 %}'
+        '{% alias SortDir = 1 | -1 %}',
+
+    'should parse type assertion':
+        '<Panel onClick={{ \e -> [*User]foo(e) }} />'
 
 }

@@ -1002,6 +1002,8 @@ export const expression2TS = (ctx: CodeGenerator, n: ast.Expression): string => 
         return binaryExpression2TS(ctx, n)
     else if (n instanceof ast.UnaryExpression)
         return unaryExpression2TS(ctx, n);
+    else if (n instanceof ast.TypeAssertion)
+        return typeAssertion2TS(ctx, n);
     else if (n instanceof ast.ViewConstruction)
         return viewConstruction2TS(ctx, n);
     else if (n instanceof ast.FunApplication)
@@ -1075,6 +1077,12 @@ export const binaryExpression2TS = (ctx: CodeGenerator, n: ast.BinaryExpression)
  */
 export const unaryExpression2TS = (ctx: CodeGenerator, n: ast.UnaryExpression) =>
     `${n.operator} (${expression2TS(ctx, n.expression)})`;
+
+/**
+ * typeAssertion2TS
+ */
+export const typeAssertion2TS = (ctx: CodeGenerator, n: ast.TypeAssertion) =>
+    `<${type2TS(n.target)}>(${expression2TS(ctx, n.expression)})`;
 
 /**
  * viewConstruction2TS 

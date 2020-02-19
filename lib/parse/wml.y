@@ -693,6 +693,9 @@ expression
 
           | unary_expression
             { $$ = $1; }
+
+          | type_assertion
+            { $$ = $1; }
          
           | simple_expression 
             { $$ = $1; }
@@ -729,6 +732,12 @@ unary_expression
 
           | '...' expression
             {$$ = new yy.ast.UnaryExpression($1, $2, @$); }
+          ;
+
+type_assertion
+
+          : '[' '*' type ']' expression
+            {$$ = new yy.ast.TypeAssertion($3, $5, @$);  }
           ;
 
 simple_expression

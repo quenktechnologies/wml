@@ -462,6 +462,7 @@ export type Expression
     = IfThenExpression
     | BinaryExpression
     | UnaryExpression
+    | TypeAssertion
     | ViewConstruction
     | FunApplication
     | ConstructExpression
@@ -509,6 +510,17 @@ export class UnaryExpression {
         public expression: Expression) { }
 
 }
+
+export class TypeAssertion {
+
+    type = 'type-assertion';
+
+    constructor(
+        public target: Type,
+        public expression: Expression) { }
+
+}
+
 
 export class ViewConstruction {
 
