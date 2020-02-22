@@ -1,0 +1,148 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "open": {
+        "value": "button",
+        "location": {
+          "first_line": 1,
+          "first_column": 1,
+          "last_line": 1,
+          "last_column": 7,
+          "range": [
+            1,
+            7
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "attributes": [
+        {
+          "namespace": {
+            "value": "",
+            "location": {
+              "first_line": 1,
+              "first_column": 8,
+              "last_line": 1,
+              "last_column": 30,
+              "range": [
+                8,
+                30
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "name": {
+            "value": "onclick",
+            "location": {
+              "first_line": 1,
+              "first_column": 8,
+              "last_line": 1,
+              "last_column": 15,
+              "range": [
+                8,
+                15
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "value": {
+            "expression": {
+              "parameters": [],
+              "body": {
+                "target": {
+                  "value": "call",
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 22,
+                    "last_line": 1,
+                    "last_column": 26,
+                    "range": [
+                      22,
+                      26
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "typeArgs": [],
+                "args": [],
+                "location": {
+                  "first_line": 1,
+                  "first_column": 22,
+                  "last_line": 1,
+                  "last_column": 28,
+                  "range": [
+                    22,
+                    28
+                  ]
+                },
+                "type": "call-expression"
+              },
+              "location": {
+                "first_line": 1,
+                "first_column": 19,
+                "last_line": 1,
+                "last_column": 28,
+                "range": [
+                  19,
+                  28
+                ]
+              },
+              "type": "function-expression"
+            },
+            "filters": [],
+            "location": {
+              "first_line": 1,
+              "first_column": 16,
+              "last_line": 1,
+              "last_column": 30,
+              "range": [
+                16,
+                30
+              ]
+            },
+            "type": "interpolation"
+          },
+          "location": {
+            "first_line": 1,
+            "first_column": 8,
+            "last_line": 1,
+            "last_column": 30,
+            "range": [
+              8,
+              30
+            ]
+          },
+          "type": "attribute"
+        }
+      ],
+      "children": [],
+      "close": {
+        "value": "button",
+        "location": {
+          "first_line": 1,
+          "first_column": 1,
+          "last_line": 1,
+          "last_column": 7,
+          "range": [
+            1,
+            7
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "type": "node"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 32,
+    "range": [
+      0,
+      32
+    ]
+  },
+  "type": "module"
+}

@@ -76,9 +76,16 @@ export const tests: { [key: string]: any } = {
         input: '<Html id={{@id}}>{{ if @check() then a else b }}</Html>'
 
     },
+
     'should parse function expressions': {
 
         input: '<button onclick={{e -> call(e)}}/>'
+
+    },
+
+    'should parse function expressions (no args)': {
+
+        input: '<button onclick={{ -> call()}}/>'
 
     },
 
