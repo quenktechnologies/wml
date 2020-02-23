@@ -523,6 +523,9 @@ export const tests: { [key: string]: any } = {
         '{% alias SortDir = 1 | -1 %}',
 
     'should parse type assertion':
-        '<Panel onClick={{ \e -> [*User]foo(e) }} />'
+        '<Panel onClick={{ \e -> [*User]foo(e) }} />',
+
+    'should parse partial application in expression':
+        '<Link ww:text={{truncate(50)(@text)}} />'
 
 }

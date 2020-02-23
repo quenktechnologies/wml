@@ -1,0 +1,192 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "open": {
+        "value": "Link",
+        "location": {
+          "first_line": 1,
+          "first_column": 1,
+          "last_line": 1,
+          "last_column": 5,
+          "range": [
+            1,
+            5
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "attributes": [
+        {
+          "namespace": {
+            "value": "ww",
+            "location": {
+              "first_line": 1,
+              "first_column": 6,
+              "last_line": 1,
+              "last_column": 8,
+              "range": [
+                6,
+                8
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "name": {
+            "value": "text",
+            "location": {
+              "first_line": 1,
+              "first_column": 9,
+              "last_line": 1,
+              "last_column": 13,
+              "range": [
+                9,
+                13
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "value": {
+            "expression": {
+              "target": {
+                "target": {
+                  "value": "truncate",
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 16,
+                    "last_line": 1,
+                    "last_column": 24,
+                    "range": [
+                      16,
+                      24
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "typeArgs": [],
+                "args": [
+                  {
+                    "value": "50",
+                    "location": {
+                      "first_line": 1,
+                      "first_column": 25,
+                      "last_line": 1,
+                      "last_column": 27,
+                      "range": [
+                        25,
+                        27
+                      ]
+                    },
+                    "type": "number-literal"
+                  }
+                ],
+                "location": {
+                  "first_line": 1,
+                  "first_column": 16,
+                  "last_line": 1,
+                  "last_column": 28,
+                  "range": [
+                    16,
+                    28
+                  ]
+                },
+                "type": "call-expression"
+              },
+              "typeArgs": [],
+              "args": [
+                {
+                  "member": {
+                    "value": "text",
+                    "location": {
+                      "first_line": 1,
+                      "first_column": 30,
+                      "last_line": 1,
+                      "last_column": 34,
+                      "range": [
+                        30,
+                        34
+                      ]
+                    },
+                    "type": "unqualified-identifier"
+                  },
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 29,
+                    "last_line": 1,
+                    "last_column": 34,
+                    "range": [
+                      29,
+                      34
+                    ]
+                  },
+                  "type": "context-property"
+                }
+              ],
+              "location": {
+                "first_line": 1,
+                "first_column": 16,
+                "last_line": 1,
+                "last_column": 35,
+                "range": [
+                  16,
+                  35
+                ]
+              },
+              "type": "call-expression"
+            },
+            "filters": [],
+            "location": {
+              "first_line": 1,
+              "first_column": 14,
+              "last_line": 1,
+              "last_column": 37,
+              "range": [
+                14,
+                37
+              ]
+            },
+            "type": "interpolation"
+          },
+          "location": {
+            "first_line": 1,
+            "first_column": 6,
+            "last_line": 1,
+            "last_column": 37,
+            "range": [
+              6,
+              37
+            ]
+          },
+          "type": "attribute"
+        }
+      ],
+      "children": [],
+      "close": {
+        "value": "Link",
+        "location": {
+          "first_line": 1,
+          "first_column": 1,
+          "last_line": 1,
+          "last_column": 5,
+          "range": [
+            1,
+            5
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "type": "widget"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 40,
+    "range": [
+      0,
+      40
+    ]
+  },
+  "type": "module"
+}

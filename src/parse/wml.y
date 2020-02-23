@@ -825,6 +825,9 @@ call_expression
 
           | '(' expression ')' arguments
             {$$ = new yy.ast.CallExpression($2, [], $4, @$);    }
+
+          | call_expression arguments
+            {$$ = new yy.ast.CallExpression($1, [], $2, @$);    }
           ;
 
 member_expression
