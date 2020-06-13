@@ -24,7 +24,7 @@
     "typescript": "^3.7.5"
   },
   "dependencies": {
-    "@quenk/noni": "^1.38.0",
+    "@quenk/noni": "^1.39.1",
     "docopt": "^0.6.2"
   }
 }
