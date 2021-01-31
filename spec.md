@@ -4,23 +4,25 @@ Widget Markup Language Specification
 
 # Introduction
 
-The Widget Markup Language (WML) is an XML like syntax for listing the 
+The Widget Markup Language (WML) is an XML like syntax for describing the 
 components of a user interface.
 
-WML is meant to be a simple alternative to using the DOM's  
-`document.createElement()` API. It provides support for features such as:
+WML is meant to be a simple alternative to using the DOM's constructor functions
+directly.
+
+It provides support for features such as:
 1. Node construction.
-2. Component construction.
+2. Widget (Component) construction.
 3. Attribute assignment (including simple expressions).
 4. Fragments.
 5. Static typing.
 
 The first iteration of the  WML compiler compiled to ECMAScript directly. Since
 then, the need for stronger typing became more apparent in order to escape the
-dreaded "x is not a function" class of errors.
+dreaded "x is not a function" type of errors.
 
-As a result, the WML syntax was redesigned to be compatible with the 
-TypeScript extension.
+As a result, WML syntax was redesigned to be more compatible with TypeScript 
+extensions.
 
 ## Definitions
 
@@ -30,44 +32,59 @@ Refers to the output language of a WML compiler. Typically Typescript.
 
 ### View
 
-A view is hierarchy of elements that is used to a single tree of content in a 
-web browser.
+A view is tree-like hierarchy of 1 or more WML elements that can be used to
+produced DOM content.
 
 ### Fun
 
 Fun (short for function) given zero or more arguments, provides one or more
-trees of elements and can be used to avoid repeating syntax.
+trees of elements. This is used to avoid repetitive blocks of WML code.
 
-### Element
+### Element (WML)
 
-An element is either a Widget or an item of Content. 
+A WML element refers to valid syntax occurring between angle brackets "<,>" that
+is either a widget (when the first letter is uppercase) or a DOM node.
 
 ### Widget
 
-A widget is a user defined element that the compiler knows how to turn into
-the appropriate content.
+A widget is a custom user defined element backed by an appropriate JavaScript
+implementation. They are used to create dynamic and flexible DOM content.
+
+### DOM Node
+
+A DOM Node has the same meaning as the DOM specification.
 
 ### Content
 
-Refers to code browsers can interpret to show content to users. These are 
-usually represented by implementers of the DOM's Node interface at runtime.
+Content is the output a widget produces for inclusion into the browser's 
+document. It is more or less a DOM node.
 
-# Encoding
+### Context
+
+A context is a record like data structure from which a view can source values
+from. These values are accessed by prefixing them with an `@` in expressions.
+
+A context can be described in the target language and imported to a WML module 
+or can be described via a contract statement.
+
+### Modules 
+
+A WML module is a single file that contains a combination of imports, fun and/or
+view statements.
+
+# Writing WML
+
+## Encoding
 
 A WML file must be utf-8 encoded. 
-
-# Modules 
-
-A WML module is a single file that contains a combination of imports, fun
-definitions or view definitions.
 
 ## Imports
 
 Imports allow one or more identifiers to be made available within the context
-of a WML module.
+of a WML module. Imported identifiers represent compiled objects from target 
+code and WML objects. 
 
-Imported identifiers represent target code that is compatible with its usage
-within a WML module.
+A WML file cannot be imported into another WML file without first being compiled.
 
 ### Syntax
 
@@ -106,25 +123,12 @@ within a WML module.
 
 3) Imports do NOT support identifier aliasing.
 
-## Contexts
+## Context Statement
 
-A context is a record like data structure that provides the values 
-used in a view's template, prefixed with `@`.
+The context statement allows a context to be described in wml. Context statements
+are compiled to interfaces in the target language.
 
-In the wml language, a context usually comes from the target runtime, however
-its structure can be described in wml via the `{% context %}` statement. This 
-allows views to indicate their context type independant of the target language.
-
-The alternative, is to import a context from a target language module or from
-another wml module.
-
-### Context Statement
-
-The context statement allows a context to be described in wml. For most
-purposes, a context statement can be seen as the equivalent of an interface
-in object oriented languages.
-
-The context statement has the following syntax:
+###  Syntax
 
 ```ebnf
 

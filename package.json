@@ -1,7 +1,7 @@
 {
   "name": "@quenk/wml",
   "version": "2.6.2",
-  "description": "Widget Markup Language",
+  "description": "(WML) is a DSL for describing user interfaces in web applications.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [

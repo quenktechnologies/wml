@@ -3,47 +3,52 @@ Widget Markup Language
 
 # Introduction
 
-The Widget Markup Language (WML) is an XML like syntax for listing the 
-components of a user interface.
+The Widget Markup Language (WML) is a DSL for describing user interfaces in 
+web applications.
 
-WML is meant to be a simple alternative to using the DOM's  
-`document.createElement()` API manually. It provides support for features such
-as:
-1. Node construction.
-2. Component construction.
-3. Attribute assignment (including simple expressions).
-4. Fragments.
-5. Static typing.
+It is the main templating language used by [Quenk Technologies](https://quenk.com).
+WML is meant to be a straightforward alternative to using the DOM constructor 
+functions directly. It also adds syntax for loops, conditionals and user defined 
+elements (not custom elements) referred to as "widgets".
 
-WML has a concept of elements. An element is either an instance of the DOM's
-[Node](https://developer.mozilla.org/en-US/docs/Web/API/Node) interface or an
-instance of user defined component.
+Widgets are created from JavaScript objects referred to as components. The
+language provides syntax for their construction in views. A view is the main
+output of a WML file and is a grouping of one or more DOM nodes or widgets
+in a tree like fashion, that serves as a template for creating content.
+
+A WML file is intended to be compiled to a [TypeScript](https://www.typescriptlang.org).
 
 ## Installation
 
+Installing the wml module gives the library files as well as an executable for
+converting wml files into typescript.
+
 ```sh
-npm install --save @quenk/wml
+npm install --save-dev @quenk/wml
 ```
 
-This will install the `wmlc` executable at `./node_modules/.bin/wmlc`.
+This will make the `wmlc` executable available.
 
 ## Usage
 
-The `wmlc` executable, given a path will convert all `*.wml` files into
-their typescript equivalent.
+The `wmlc` executable, given a path, will convert all `*.wml` files underneath
+it into typescript.
 
 ### Writing WML
 
-```wml
+The example below demonstrates a view called "Main" which when converted to
+typescript will produce a class called "Main" that takes a "MainContext" as its
+sole constructor argument.
 
+```wml
 {% import (Panel) from "@quenk/wml-widgets/lib/layout/panel" %}
 {% import (PanelHeader) from "@quenk/wml-widgets/lib/layout/panel" %}
 {% import (PanelBody) from "@quenk/wml-widgets/lib/layout/panel" %}
 
-{% view Main (Object) %}
+{% view Main (MainContext) %}
 <Panel>
 
-    <PanelHeader>{{@title}}</PanelHeader>
+    <PanelHeader><span>{{@title}}</span></PanelHeader>
 
     <PanelBody>
 
@@ -55,10 +60,12 @@ their typescript equivalent.
 
 ```
 
-Documentation is a work in progress. Consult the `spec.md` file or take
-a look at [WML Widgets](https://developer.mozilla.org/en-US/docs/Web/API/Node)
-for examples.
+In this view, the root wml element is a widget called `Panel` which forms the 
+root of our tree. In wml, capitalization is to indicate a widget constructor
+and lowercase is used to indicate a DOM node constructor.
+
+For more details on syntax, consult the [spec.md](spec.md) file.
 
 ## License
 
-Quenk Technologies (c) Apache-2.0
+Apache-2.0 (c) Quenk Technologies Limited 2021
