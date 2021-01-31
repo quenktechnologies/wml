@@ -13,18 +13,18 @@
   "author": "Quenk Technologies Limited <info@quenk.com> (https://quenk.com)",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@quenk/test": "^2.2.4",
+    "@quenk/test": "^2.4.0",
     "@types/docopt": "^0.6.31",
     "@types/mocha": "^7.0.2",
-    "@types/node": "^14.0.13",
+    "@types/node": "^14.14.22",
     "jison-gho": "^0.6.1-216",
-    "mocha": "^8.0.1",
+    "mocha": "^8.2.1",
     "ts-node": "^8.10.2",
-    "typedoc": "^0.17.7",
-    "typescript": "^3.9.5"
+    "typedoc": "^0.17.8",
+    "typescript": "^3.9.7"
   },
   "dependencies": {
-    "@quenk/noni": "^1.39.1",
+    "@quenk/noni": "^1.40.14",
     "docopt": "^0.6.2"
   }
 }
