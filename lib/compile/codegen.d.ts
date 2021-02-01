@@ -70,11 +70,11 @@ export declare class CodeGenerator {
 /**
  * importStatements2TS converts a list of ImportStatements into typescript.
  */
-export declare const importStatements2TS: (ctx: CodeGenerator, list: ast.ImportStatement[]) => string;
+export declare const importStatements2TS: (ctx: CodeGenerator, list: ast.ImportStatement[]) => TypeScript;
 /**
  * importStatement2TS
  */
-export declare const importStatement2TS: (n: ast.ImportStatement) => string;
+export declare const importStatement2TS: (n: ast.ImportStatement) => TypeScript;
 /**
  * importMember2TS
  */
@@ -132,7 +132,7 @@ export declare const typeParameter2TS: (n: ast.TypeParameter) => string;
 /**
  * type2TS
  */
-export declare const type2TS: (n: ast.Type) => string;
+export declare const type2TS: (n: ast.Type) => TypeScript;
 /**
  * constructorType2TS converts a ConstructorType into its id.
  *
@@ -183,7 +183,7 @@ export declare const expandTypeMap: (m: TypeMap) => ExpandedTypeMap;
 /**
  * typeMap2TS converts a map of type values to TypeScript.
  */
-export declare const typeMap2TS: (m: ExpandedTypeMap) => string;
+export declare const typeMap2TS: (m: ExpandedTypeMap) => TypeScript;
 /**
  * parameters2TS converts a list Parameter nodes into an parameter list
  * (without parens).
@@ -256,7 +256,7 @@ export declare const interpolation2TS: (ctx: CodeGenerator, n: ast.Interpolation
 /**
  * ifStatementTS converts an IfStatement to its typescript representation.
  */
-export declare const ifStatement2TS: (ctx: CodeGenerator, n: ast.IfStatement) => string;
+export declare const ifStatement2TS: (ctx: CodeGenerator, n: ast.IfStatement) => TypeScript;
 /**
  * forInStatement2TS converts a ForInStatement to its typescript representation.
  */
@@ -364,7 +364,7 @@ export declare const contextVariable2TS: (_: ast.ContextVariable) => string;
 /**
  * identifierOrConstructor2TS
  */
-export declare const identifierOrConstructor2TS: (n: ast.UnqualifiedIdentifier | ast.UnqualifiedConstructor | ast.QualifiedIdentifier | ast.QualifiedConstructor) => string;
+export declare const identifierOrConstructor2TS: (n: ast.Identifier | ast.Constructor) => string;
 /**
  * constructor2TS
  */
