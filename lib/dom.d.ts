@@ -55,7 +55,7 @@ export declare class WMLDOMNode implements Node {
     parentElement: null;
     parentNode: null;
     previousSibling: null;
-    textContent: null;
+    get textContent(): string;
     addEventListener(): void;
     dispatchEvent(): boolean;
     removeEventListener(): void;
@@ -86,7 +86,7 @@ export declare class WMLDOMNode implements Node {
 export declare class WMLDOMText extends WMLDOMNode {
     value: string;
     constructor(value: string);
-    renderToString(): string;
+    get textContent(): string;
 }
 /**
  * WMLDOMElement is used to represent Element nodes on the server side.

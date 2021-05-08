@@ -1,5 +1,5 @@
 import { Record, map, mapTo, forEach } from '@quenk/noni/lib/data/record';
-import { Type,isString } from '@quenk/noni/lib/data/type';
+import { Type, isString } from '@quenk/noni/lib/data/type';
 
 /**
  * This module provides functions used in templates to generate supported DOM
@@ -9,10 +9,6 @@ import { Type,isString } from '@quenk/noni/lib/data/type';
  * we can detect whether we are in a browser or elsewhere and adjust to
  * suite.
  */
-
-const ATTRS_ESC_REGEX = /[><&\u2028\u2029]/g;
-
-const HTML_ESC_REGEX = /["'&<>]/;
 
 const ATTR_ESC_MAP: { [key: string]: string } = {
 
@@ -24,11 +20,17 @@ const ATTR_ESC_MAP: { [key: string]: string } = {
 
     '"': '\\u0022',
 
+    '=': '\\u003d',
+
+    '\u005c': '\\u005c',
+
     '\u2028': '\\u2028',
 
     '\u2029': '\\u2029'
 
 }
+
+const ATTRS_ESC_REGEX = `/[${mapTo(ATTR_ESC_MAP, (_, k) => k)}]/g`;
 
 const HTML_ENT_MAP: { [key: string]: string } = {
 
@@ -36,13 +38,15 @@ const HTML_ENT_MAP: { [key: string]: string } = {
 
     '&': '&amp;',
 
-    '\'': '&#x27;',
+    '\'': '&apos;',
 
     '<': '&lt;',
 
     '>': '&gt;'
 
 }
+
+const HTML_ESC_REGEX = `/[${mapTo(HTML_ENT_MAP, (_, k) => k)}]/g`;
 
 const voidElements = [
     'area',
@@ -162,7 +166,11 @@ export class WMLDOMNode implements Node {
 
     previousSibling = null;
 
-    textContent = null;
+    get textContent() {
+
+      return  '';
+
+    }
 
     addEventListener() { }
 
@@ -282,7 +290,7 @@ export class WMLDOMText extends WMLDOMNode {
 
     }
 
-    renderToString(): string {
+    get textContent() {
 
         return escapeHTML(this.value);
 
@@ -327,8 +335,8 @@ export class WMLDOMElement extends WMLDOMNode {
         let { tag } = this;
         let content = this.innerHTML;
 
-        let attrs = mapTo(this.attrs, (value, name) => !value ?
-            name : `${name}="${escapeAttrValue('' + value)}"`).join(' ');
+        let attrs = mapTo(escapeAttrs(this.attrs), (value, name) => !value ?
+            name : `${name}="${value}"`).join(' ');
 
         let open = `<${tag} ${attrs}>`;
 
@@ -363,7 +371,7 @@ export const escapeHTML = (value: string) =>
  * createTextNode wrapper.
  */
 export const createTextNode = (txt: string): Node => isBrowser ?
-    document.createTextNode(txt) : new WMLDOMText(escapeHTML(txt));
+    document.createTextNode(txt) : new WMLDOMText(txt);
 
 /**
  * createElement wrapper.
@@ -375,7 +383,7 @@ export const createElement = (
 
     if (!isBrowser) {
 
-        return new WMLDOMElement(name, escapeAttrs(attrs), children);
+        return new WMLDOMElement(tag, attrs, children);
 
     } else {
 
@@ -389,7 +397,7 @@ export const createElement = (
 
             } else if (typeof value === 'string') {
 
-                //prevent setting things like disabled=''
+                // prevent setting things like disabled=""
                 if (value !== '')
                     e.setAttribute(key, value);
 
