@@ -63,7 +63,7 @@ export interface Registry {
     /**
      * register an element.
      */
-    register<A extends Attrs>(e: WMLElement, attrs: A): WMLElement;
+    register<A extends Attrs>(e: WMLElement, attrs: A): WMLElement
 
     /**
      * node registers a Node.
@@ -79,18 +79,15 @@ export interface Registry {
 }
 
 /**
- * Renderable is an interface for providing Content.
+ * Renderable is an interface implemented by objects in a WML tree that can 
+ * produce [[Content]] objects.
  *
- * When AppView#render is called, it calls the render
- * method of this interface for each widget it encounters.
- *
- * This interface can be used in places where we want to 
- * accept something that can be rendered but don't want
- * all the additional baggage of a view.
+ * This interface exists separate from the View interface for use in places 
+ * where only the render() method is desired.
  */
 export interface Renderable {
 
-    render(): Content;
+    render(): Content
 
 }
 
@@ -150,8 +147,7 @@ export interface Widget extends Renderable {
      */
     removed(): void;
 
-};
-
+}
 
 /**
  * ContentProvider is the type of the function fun statements return.
