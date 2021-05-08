@@ -1,6 +1,6 @@
 {
   "name": "@quenk/wml",
-  "version": "2.6.2",
+  "version": "2.7.0",
   "description": "(WML) is a DSL for describing user interfaces in web applications.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
