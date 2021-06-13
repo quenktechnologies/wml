@@ -343,7 +343,12 @@ export const contractStatement2TS = (n: ast.ContractStatement) => {
     let typeArgs = (n.typeParameters.length > 0) ?
         typeParameters2TS(n.typeParameters) : '';
 
-    return `${preamble}${typeArgs}{${memberDeclarations2TS(n.members)} }`;
+    let parents = n.parents.map(constructorType2TS).join(',');
+
+    parents = (parents !== '') ? ` extends ${parents}` : '';
+
+    return [preamble, typeArgs, parents, '{', memberDeclarations2TS(n.members),
+      '}'    ].join('');
 
 }
 
@@ -689,9 +694,9 @@ export const typeMapFromMemberDecs =
 
             } else {
 
-              let path = paths2String(paths);
+                let path = paths2String(paths);
 
-              path = m.optional ? `${path}?`: path;
+                path = m.optional ? `${path}?` : path;
 
                 p[path] = m.kind;
 

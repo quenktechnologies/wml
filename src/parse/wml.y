@@ -259,10 +259,38 @@ alias_members
           ;
 
 contract_statement
+
+          : '{%' CONTRACT unqualified_constructor '%}'
+            { $$ = new yy.ast.ContractStatement($3, [], [], [], @$);           }
+
+          | '{%' CONTRACT unqualified_constructor ':' parent_list '%}'
+            { $$ = new yy.ast.ContractStatement($3, [], $5, [], @$);           }
+
+          | '{%' CONTRACT unqualified_constructor type_parameters '%}'
+            { $$ = new yy.ast.ContractStatement($3, [], [], [], @$);           }
+
+          | '{%' CONTRACT unqualified_constructor type_parameters ':'
+             parent_list '%}'
+            { $$ = new yy.ast.ContractStatement($3, $4, $6, [], @$);           }
           
-          : '{%' CONTRACT unqualified_constructor type_parameters? '='
-             member_declarations? '%}'
-            { $$ = new yy.ast.ContractStatement($3, $4||[], $6||[]);    }
+          | '{%' CONTRACT unqualified_constructor '=' member_declarations '%}'
+            { $$ = new yy.ast.ContractStatement($3, [], [], $5, @$);           }
+
+          | '{%' CONTRACT unqualified_constructor type_parameters '=' 
+             member_declarations '%}'
+            { $$ = new yy.ast.ContractStatement($3, $4, [], $6, @$);           }
+
+          | '{%' CONTRACT unqualified_constructor type_parameters ':' 
+            parent_list '=' member_declarations '%}'
+            { $$ = new yy.ast.ContractStatement($3, $4, $6, $8, @$);           }
+          ;
+
+parent_list
+          : constructor_type 
+            { $$ = [$1]; }
+
+          | parent_list ',' constructor_type
+            { $$ = $1.concat($3); }
           ;
 
 member_declarations
@@ -287,7 +315,6 @@ member_path
 
           | member_path '.' unqualified_identifier 
             { $$ = $1.concat($3);                   }
-
           ;
 
 view_statement

@@ -513,7 +513,7 @@ export const tests: { [key: string]: any } = {
 
     '[contract] should allow optional properties': {
 
-      input: `{% contract AContract = 
+        input: `{% contract AContract = 
           
                   id?: Number,
 
@@ -525,6 +525,21 @@ export const tests: { [key: string]: any } = {
 
         %}`
 
+    },
+
+    '[contract] should allow extending': {
+
+        input: `{% contract AContract: BContract %}
+              {% contract CContract : AContract, BContract %}
+              {% contract DContract[Type] : CContract = 
+                 member: Type 
+              %}
+              {% contract EContract[A,B,C,D] : BContract, CContract, 
+                 DContract[D] =
+                 member0: A,
+                 member1: B,
+                 member2: C
+             %}`
     },
 
     'should parse alias statements':

@@ -141,6 +141,7 @@ export class ContractStatement {
     constructor(
         public id: UnqualifiedConstructor,
         public typeParameters: TypeParameter[],
+        public parents: ConstructorType[],
         public members: MemberDeclaration[],
         public location: Location) { }
 
