@@ -168,7 +168,7 @@ export class WMLDOMNode implements Node {
 
     get textContent() {
 
-      return  '';
+        return '';
 
     }
 
@@ -339,6 +339,9 @@ export class WMLDOMElement extends WMLDOMNode {
             name : `${name}="${value}"`).join(' ');
 
         let open = `<${tag} ${attrs}>`;
+
+        if (tag === "html")
+            open = `<!DOCTYPE html5>${open}`
 
         return (voidElements.indexOf(tag) > -1) ?
             open : `<${open}>${content}</${tag}>`;
