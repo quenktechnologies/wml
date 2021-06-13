@@ -156,6 +156,7 @@ export class MemberDeclaration {
     constructor(
         public path: UnqualifiedIdentifier[],
         public kind: Type,
+        public optional: boolean,
         public location: Location) { }
 
 }

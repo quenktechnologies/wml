@@ -511,6 +511,22 @@ export const tests: { [key: string]: any } = {
 
     },
 
+    '[contract] should allow optional properties': {
+
+      input: `{% contract AContract = 
+          
+                  id?: Number,
+
+                  name.first: String,
+
+                  name.middle?: String,
+
+                  name.last?: String
+
+        %}`
+
+    },
+
     'should parse alias statements':
         `{% alias Type = String | Number | Boolean | Type[] | Type -> Type %}`,
 

@@ -681,15 +681,19 @@ export const typeMapFromMemberDecs =
     (list: ast.MemberDeclaration[]) =>
         list.reduce((p, m) => {
 
-            let path = m.path.map(p => p.value);
+            let paths = m.path.map(p => p.value);
 
             if (m.kind instanceof ast.RecordType) {
 
-                return typeMapFromRecordType(m.kind, p, path);
+                return typeMapFromRecordType(m.kind, p, paths);
 
             } else {
 
-                p[paths2String(path)] = m.kind;
+              let path = paths2String(paths);
+
+              path = m.optional ? `${path}?`: path;
+
+                p[path] = m.kind;
 
                 return p;
 

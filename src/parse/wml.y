@@ -100,6 +100,7 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <CONTROL>{Identifier}                              return 'IDENTIFIER';
 <CONTROL>'@'                                             return '@';
 <CONTROL>'='                                             return '=';
+<CONTROL>'?'                                             return '?';
 <CONTROL>'<'           this.begin('ELEMENT');      return '<';
 <CONTROL>'{{'          this.begin('INTERPOLATION');return '{{';
 <CONTROL>'%}'          this.popState();            return '%}';
@@ -275,8 +276,8 @@ member_declarations
 
 member_declaration
           
-          : member_path ':' type
-            { $$ = new yy.ast.MemberDeclaration($1, $3, @$); }
+          : member_path '?'? ':' type
+            { $$ = new yy.ast.MemberDeclaration($1, $4, $2?true:false, @$); }
           ;
 
 member_path
