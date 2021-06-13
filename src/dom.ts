@@ -382,11 +382,13 @@ export const createTextNode = (txt: string): Node => isBrowser ?
 export const createElement = (
     tag: string,
     attrs: WMLDOMAttrs = {},
-    children: Node[] = []): Node => {
+    children: Node[] = []): Element => {
 
     if (!isBrowser) {
 
-        return new WMLDOMElement(tag, attrs, children);
+        // XXX: The whole Element interface is not implemented but on server
+        // side we are only interested in setAttribute.
+        return <Element><Type>new WMLDOMElement(tag, attrs, children);
 
     } else {
 

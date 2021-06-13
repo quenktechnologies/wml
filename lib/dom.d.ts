@@ -119,4 +119,4 @@ export declare const createTextNode: (txt: string) => Node;
 /**
  * createElement wrapper.
  */
-export declare const createElement: (tag: string, attrs?: WMLDOMAttrs, children?: Node[]) => Node;
+export declare const createElement: (tag: string, attrs?: WMLDOMAttrs, children?: Node[]) => Element;

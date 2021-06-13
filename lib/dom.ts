@@ -382,11 +382,11 @@ export const createTextNode = (txt: string): Node => isBrowser ?
 export const createElement = (
     tag: string,
     attrs: WMLDOMAttrs = {},
-    children: Node[] = []): Node => {
+    children: Node[] = []): Element => {
 
     if (!isBrowser) {
 
-        return new WMLDOMElement(tag, attrs, children);
+        return <Element><Type>new WMLDOMElement(tag, attrs, children);
 
     } else {
 
