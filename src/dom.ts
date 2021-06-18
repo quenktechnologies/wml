@@ -1,6 +1,9 @@
 import { Record, map, mapTo, forEach } from '@quenk/noni/lib/data/record';
 import { Type, isString } from '@quenk/noni/lib/data/type';
 
+// Declared so isBrowser works on node.js.
+var window:Type, document:Type;
+
 /**
  * This module provides functions used in templates to generate supported DOM
  * nodes.
