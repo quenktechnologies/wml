@@ -1,4 +1,5 @@
 import { Record } from '@quenk/noni/lib/data/record';
+import { Type } from '@quenk/noni/lib/data/type';
 /**
  * WMLDOMAttrs is a record of attributes bound for a WMLDOMElement.
  */
@@ -115,7 +116,7 @@ export declare const escapeHTML: (value: string) => string;
 /**
  * createTextNode wrapper.
  */
-export declare const createTextNode: (txt: string) => Node;
+export declare const createTextNode: (txt: Type) => Node;
 /**
  * createElement wrapper.
  */

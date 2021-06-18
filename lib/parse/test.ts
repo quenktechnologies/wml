@@ -511,6 +511,37 @@ export const tests: { [key: string]: any } = {
 
     },
 
+    '[contract] should allow optional properties': {
+
+        input: `{% contract AContract = 
+          
+                  id?: Number,
+
+                  name.first: String,
+
+                  name.middle?: String,
+
+                  name.last?: String
+
+        %}`
+
+    },
+
+    '[contract] should allow extending': {
+
+        input: `{% contract AContract: BContract %}
+              {% contract CContract : AContract, BContract %}
+              {% contract DContract[Type] : CContract = 
+                 member: Type 
+              %}
+              {% contract EContract[A,B,C,D] : BContract, CContract, 
+                 DContract[D] =
+                 member0: A,
+                 member1: B,
+                 member2: C
+             %}`
+    },
+
     'should parse alias statements':
         `{% alias Type = String | Number | Boolean | Type[] | Type -> Type %}`,
 
@@ -526,6 +557,22 @@ export const tests: { [key: string]: any } = {
         '<Panel onClick={{ \e -> [*User]foo(e) }} />',
 
     'should parse partial application in expression':
-        '<Link ww:text={{truncate(50)(@text)}} />'
+        '<Link ww:text={{truncate(50)(@text)}} />',
+
+    'should transform special primitives':
+        `<div>
+            {% for type in [
+                            String,
+                            Boolean,
+                            Number,
+                            Object,
+                            Undefined,
+                            Null,
+                            Void,
+                            Never,
+                            Any] %}
+              {{ type | text }}
+            {% endfor %}
+        </div>`
 
 }

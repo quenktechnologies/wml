@@ -45,6 +45,7 @@
           "type": "type-parameter"
         }
       ],
+      "parents": [],
       "members": [
         {
           "path": [
@@ -246,6 +247,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 1,
             "first_column": 22,
@@ -259,6 +261,16 @@
           "type": "member-declaration"
         }
       ],
+      "location": {
+        "first_line": 1,
+        "first_column": 0,
+        "last_line": 1,
+        "last_column": 61,
+        "range": [
+          0,
+          61
+        ]
+      },
       "type": "context-statement"
     }
   ],

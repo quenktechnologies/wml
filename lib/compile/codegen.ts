@@ -166,6 +166,8 @@ export class CodeGenerator {
             eol(this),
             typeDefinitions(this),
             eol(this),
+            `// @ts-ignore 6192`,
+            `const text = ${DOCUMENT}.createTextNode;`,
             exports2TS(this, m.exports)
 
         ].join(eol(this));
@@ -343,7 +345,12 @@ export const contractStatement2TS = (n: ast.ContractStatement) => {
     let typeArgs = (n.typeParameters.length > 0) ?
         typeParameters2TS(n.typeParameters) : '';
 
-    return `${preamble}${typeArgs}{${memberDeclarations2TS(n.members)} }`;
+    let parents = n.parents.map(constructorType2TS).join(',');
+
+    parents = (parents !== '') ? ` extends ${parents}` : '';
+
+    return [preamble, typeArgs, parents, '{', memberDeclarations2TS(n.members),
+        '}'].join('');
 
 }
 
@@ -681,15 +688,19 @@ export const typeMapFromMemberDecs =
     (list: ast.MemberDeclaration[]) =>
         list.reduce((p, m) => {
 
-            let path = m.path.map(p => p.value);
+            let paths = m.path.map(p => p.value);
 
             if (m.kind instanceof ast.RecordType) {
 
-                return typeMapFromRecordType(m.kind, p, path);
+                return typeMapFromRecordType(m.kind, p, paths);
 
             } else {
 
-                p[paths2String(path)] = m.kind;
+                let path = paths2String(paths);
+
+                path = m.optional ? `${path}?` : path;
+
+                p[path] = m.kind;
 
                 return p;
 
@@ -1269,7 +1280,7 @@ export const constructor2TS = (n: ast.Constructor) => {
  * unqualifiedConstructor2TS 
  */
 export const unqualifiedConstructor2TS = (n: ast.UnqualifiedConstructor) =>
-    `${n.value}`;
+    toPrim(n.value);
 
 /**
  * qualifiedConstructor
@@ -1301,6 +1312,6 @@ export const qualifiedIdentifier2TS = (n: ast.QualifiedIdentifier) =>
  * unqualifiedIdentifier2TS 
  */
 export const unqualifiedIdentifier2TS = (n: ast.UnqualifiedIdentifier) =>
-    `${n.value}`;
+    `${toPrim(n.value)}`;
 
-const toPrim = (id: string) => prims.indexOf(id) > - 1 ? id.toLowerCase() : id;
+const toPrim = (id: string) => prims.indexOf(id) > -1 ? id.toLowerCase() : id;

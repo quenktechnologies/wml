@@ -1,0 +1,321 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "AContract",
+        "location": {
+          "first_line": 1,
+          "first_column": 12,
+          "last_line": 1,
+          "last_column": 21,
+          "range": [
+            12,
+            21
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "parents": [],
+      "members": [
+        {
+          "path": [
+            {
+              "value": "id",
+              "location": {
+                "first_line": 3,
+                "first_column": 18,
+                "last_line": 3,
+                "last_column": 20,
+                "range": [
+                  54,
+                  56
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "id": {
+              "value": "Number",
+              "location": {
+                "first_line": 3,
+                "first_column": 23,
+                "last_line": 3,
+                "last_column": 29,
+                "range": [
+                  59,
+                  65
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "typeParameters": [],
+            "location": {
+              "first_line": 3,
+              "first_column": 23,
+              "last_line": 3,
+              "last_column": 29,
+              "range": [
+                59,
+                65
+              ]
+            },
+            "type": "constructor-type"
+          },
+          "optional": true,
+          "location": {
+            "first_line": 3,
+            "first_column": 18,
+            "last_line": 3,
+            "last_column": 29,
+            "range": [
+              54,
+              65
+            ]
+          },
+          "type": "member-declaration"
+        },
+        {
+          "path": [
+            {
+              "value": "name",
+              "location": {
+                "first_line": 5,
+                "first_column": 18,
+                "last_line": 5,
+                "last_column": 22,
+                "range": [
+                  86,
+                  90
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            {
+              "value": "first",
+              "location": {
+                "first_line": 5,
+                "first_column": 23,
+                "last_line": 5,
+                "last_column": 28,
+                "range": [
+                  91,
+                  96
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "id": {
+              "value": "String",
+              "location": {
+                "first_line": 5,
+                "first_column": 30,
+                "last_line": 5,
+                "last_column": 36,
+                "range": [
+                  98,
+                  104
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "typeParameters": [],
+            "location": {
+              "first_line": 5,
+              "first_column": 30,
+              "last_line": 5,
+              "last_column": 36,
+              "range": [
+                98,
+                104
+              ]
+            },
+            "type": "constructor-type"
+          },
+          "optional": false,
+          "location": {
+            "first_line": 5,
+            "first_column": 18,
+            "last_line": 5,
+            "last_column": 36,
+            "range": [
+              86,
+              104
+            ]
+          },
+          "type": "member-declaration"
+        },
+        {
+          "path": [
+            {
+              "value": "name",
+              "location": {
+                "first_line": 7,
+                "first_column": 18,
+                "last_line": 7,
+                "last_column": 22,
+                "range": [
+                  125,
+                  129
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            {
+              "value": "middle",
+              "location": {
+                "first_line": 7,
+                "first_column": 23,
+                "last_line": 7,
+                "last_column": 29,
+                "range": [
+                  130,
+                  136
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "id": {
+              "value": "String",
+              "location": {
+                "first_line": 7,
+                "first_column": 32,
+                "last_line": 7,
+                "last_column": 38,
+                "range": [
+                  139,
+                  145
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "typeParameters": [],
+            "location": {
+              "first_line": 7,
+              "first_column": 32,
+              "last_line": 7,
+              "last_column": 38,
+              "range": [
+                139,
+                145
+              ]
+            },
+            "type": "constructor-type"
+          },
+          "optional": true,
+          "location": {
+            "first_line": 7,
+            "first_column": 18,
+            "last_line": 7,
+            "last_column": 38,
+            "range": [
+              125,
+              145
+            ]
+          },
+          "type": "member-declaration"
+        },
+        {
+          "path": [
+            {
+              "value": "name",
+              "location": {
+                "first_line": 9,
+                "first_column": 18,
+                "last_line": 9,
+                "last_column": 22,
+                "range": [
+                  166,
+                  170
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            {
+              "value": "last",
+              "location": {
+                "first_line": 9,
+                "first_column": 23,
+                "last_line": 9,
+                "last_column": 27,
+                "range": [
+                  171,
+                  175
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "id": {
+              "value": "String",
+              "location": {
+                "first_line": 9,
+                "first_column": 30,
+                "last_line": 9,
+                "last_column": 36,
+                "range": [
+                  178,
+                  184
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "typeParameters": [],
+            "location": {
+              "first_line": 9,
+              "first_column": 30,
+              "last_line": 9,
+              "last_column": 36,
+              "range": [
+                178,
+                184
+              ]
+            },
+            "type": "constructor-type"
+          },
+          "optional": true,
+          "location": {
+            "first_line": 9,
+            "first_column": 18,
+            "last_line": 9,
+            "last_column": 36,
+            "range": [
+              166,
+              184
+            ]
+          },
+          "type": "member-declaration"
+        }
+      ],
+      "location": {
+        "first_line": 1,
+        "first_column": 0,
+        "last_line": 11,
+        "last_column": 10,
+        "range": [
+          0,
+          196
+        ]
+      },
+      "type": "context-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 11,
+    "last_column": 10,
+    "range": [
+      0,
+      196
+    ]
+  },
+  "type": "module"
+}

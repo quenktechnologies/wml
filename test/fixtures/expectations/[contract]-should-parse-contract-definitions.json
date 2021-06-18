@@ -45,6 +45,7 @@
           "type": "type-parameter"
         }
       ],
+      "parents": [],
       "members": [
         {
           "path": [
@@ -91,6 +92,7 @@
             },
             "type": "constructor-type"
           },
+          "optional": false,
           "location": {
             "first_line": 3,
             "first_column": 4,
@@ -190,6 +192,7 @@
             },
             "type": "constructor-type"
           },
+          "optional": false,
           "location": {
             "first_line": 5,
             "first_column": 4,
@@ -294,6 +297,7 @@
                   },
                   "type": "constructor-type"
                 },
+                "optional": false,
                 "location": {
                   "first_line": 7,
                   "first_column": 25,
@@ -393,6 +397,7 @@
                   },
                   "type": "constructor-type"
                 },
+                "optional": false,
                 "location": {
                   "first_line": 7,
                   "first_column": 39,
@@ -481,6 +486,7 @@
                   },
                   "type": "list-type"
                 },
+                "optional": false,
                 "location": {
                   "first_line": 7,
                   "first_column": 60,
@@ -506,6 +512,7 @@
             },
             "type": "record-type"
           },
+          "optional": false,
           "location": {
             "first_line": 7,
             "first_column": 4,
@@ -594,6 +601,7 @@
             },
             "type": "list-type"
           },
+          "optional": false,
           "location": {
             "first_line": 9,
             "first_column": 4,
@@ -695,6 +703,7 @@
             },
             "type": "list-type"
           },
+          "optional": false,
           "location": {
             "first_line": 11,
             "first_column": 4,
@@ -809,6 +818,7 @@
             },
             "type": "list-type"
           },
+          "optional": false,
           "location": {
             "first_line": 13,
             "first_column": 4,
@@ -880,6 +890,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 15,
             "first_column": 4,
@@ -951,6 +962,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 17,
             "first_column": 4,
@@ -1051,6 +1063,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 19,
             "first_column": 4,
@@ -1207,6 +1220,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 21,
             "first_column": 4,
@@ -1279,6 +1293,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 23,
             "first_column": 4,
@@ -1385,6 +1400,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 25,
             "first_column": 4,
@@ -1485,6 +1501,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 27,
             "first_column": 4,
@@ -1613,6 +1630,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 29,
             "first_column": 4,
@@ -1769,6 +1787,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 31,
             "first_column": 4,
@@ -1925,6 +1944,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 33,
             "first_column": 4,
@@ -2137,6 +2157,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 35,
             "first_column": 4,
@@ -2405,6 +2426,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 37,
             "first_column": 4,
@@ -2477,6 +2499,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 39,
             "first_column": 4,
@@ -2569,6 +2592,7 @@
                       },
                       "type": "constructor-type"
                     },
+                    "optional": false,
                     "location": {
                       "first_line": 41,
                       "first_column": 34,
@@ -2621,6 +2645,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 41,
             "first_column": 4,
@@ -2713,6 +2738,7 @@
                       },
                       "type": "constructor-type"
                     },
+                    "optional": false,
                     "location": {
                       "first_line": 43,
                       "first_column": 33,
@@ -2788,6 +2814,7 @@
                       },
                       "type": "list-type"
                     },
+                    "optional": false,
                     "location": {
                       "first_line": 43,
                       "first_column": 51,
@@ -2840,6 +2867,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 43,
             "first_column": 4,
@@ -2946,6 +2974,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 45,
             "first_column": 4,
@@ -3083,6 +3112,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 47,
             "first_column": 4,
@@ -3251,6 +3281,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 49,
             "first_column": 4,
@@ -3394,6 +3425,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 51,
             "first_column": 4,
@@ -3580,6 +3612,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 53,
             "first_column": 4,
@@ -3794,6 +3827,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 55,
             "first_column": 4,
@@ -4079,6 +4113,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 57,
             "first_column": 4,
@@ -4210,6 +4245,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 59,
             "first_column": 4,
@@ -4326,6 +4362,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 61,
             "first_column": 4,
@@ -4339,6 +4376,16 @@
           "type": "member-declaration"
         }
       ],
+      "location": {
+        "first_line": 1,
+        "first_column": 0,
+        "last_line": 64,
+        "last_column": 10,
+        "range": [
+          0,
+          1554
+        ]
+      },
       "type": "context-statement"
     }
   ],

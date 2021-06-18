@@ -58,6 +58,8 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 
 
+// @ts-ignore 6192
+const text = __document.createTextNode;
 export interface Manager<A  > {name : string,
 table : {
 name : Text<A  > ,
@@ -98,4 +100,4 @@ funcArgFunc2 : ($0:($0:string) => ($0:string) => string) => string,
 funcArg2Func : ($0:($0:string) => string,$1:($0:string) => string) => string,
 funcArg3Func : ($0:($0:string) => string,$1:($0:string) => string,$2:($0:string) => string) => string,
 funcRetGenArray : ($0:number) => (Text<A  > )[],
-funcRetMultiArray : ($0:string) => ((number)[])[] }
+funcRetMultiArray : ($0:string) => ((number)[])[]}

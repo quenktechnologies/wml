@@ -17,6 +17,7 @@
         "type": "unqualified-constructor"
       },
       "typeParameters": [],
+      "parents": [],
       "members": [
         {
           "path": [
@@ -98,6 +99,7 @@
                       },
                       "type": "constructor-type"
                     },
+                    "optional": false,
                     "location": {
                       "first_line": 1,
                       "first_column": 34,
@@ -173,6 +175,7 @@
                       },
                       "type": "list-type"
                     },
+                    "optional": false,
                     "location": {
                       "first_line": 1,
                       "first_column": 52,
@@ -225,6 +228,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 1,
             "first_column": 19,
@@ -238,6 +242,16 @@
           "type": "member-declaration"
         }
       ],
+      "location": {
+        "first_line": 1,
+        "first_column": 0,
+        "last_line": 1,
+        "last_column": 74,
+        "range": [
+          0,
+          74
+        ]
+      },
       "type": "context-statement"
     }
   ],

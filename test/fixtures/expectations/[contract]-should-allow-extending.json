@@ -1,0 +1,735 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "AContract",
+        "location": {
+          "first_line": 1,
+          "first_column": 12,
+          "last_line": 1,
+          "last_column": 21,
+          "range": [
+            12,
+            21
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "parents": [
+        {
+          "id": {
+            "value": "BContract",
+            "location": {
+              "first_line": 1,
+              "first_column": 23,
+              "last_line": 1,
+              "last_column": 32,
+              "range": [
+                23,
+                32
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "typeParameters": [],
+          "location": {
+            "first_line": 1,
+            "first_column": 23,
+            "last_line": 1,
+            "last_column": 32,
+            "range": [
+              23,
+              32
+            ]
+          },
+          "type": "constructor-type"
+        }
+      ],
+      "members": [],
+      "location": {
+        "first_line": 1,
+        "first_column": 0,
+        "last_line": 1,
+        "last_column": 35,
+        "range": [
+          0,
+          35
+        ]
+      },
+      "type": "context-statement"
+    },
+    {
+      "id": {
+        "value": "CContract",
+        "location": {
+          "first_line": 2,
+          "first_column": 26,
+          "last_line": 2,
+          "last_column": 35,
+          "range": [
+            62,
+            71
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "parents": [
+        {
+          "id": {
+            "value": "AContract",
+            "location": {
+              "first_line": 2,
+              "first_column": 38,
+              "last_line": 2,
+              "last_column": 47,
+              "range": [
+                74,
+                83
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "typeParameters": [],
+          "location": {
+            "first_line": 2,
+            "first_column": 38,
+            "last_line": 2,
+            "last_column": 47,
+            "range": [
+              74,
+              83
+            ]
+          },
+          "type": "constructor-type"
+        },
+        {
+          "id": {
+            "value": "BContract",
+            "location": {
+              "first_line": 2,
+              "first_column": 49,
+              "last_line": 2,
+              "last_column": 58,
+              "range": [
+                85,
+                94
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "typeParameters": [],
+          "location": {
+            "first_line": 2,
+            "first_column": 49,
+            "last_line": 2,
+            "last_column": 58,
+            "range": [
+              85,
+              94
+            ]
+          },
+          "type": "constructor-type"
+        }
+      ],
+      "members": [],
+      "location": {
+        "first_line": 2,
+        "first_column": 14,
+        "last_line": 2,
+        "last_column": 61,
+        "range": [
+          50,
+          97
+        ]
+      },
+      "type": "context-statement"
+    },
+    {
+      "id": {
+        "value": "DContract",
+        "location": {
+          "first_line": 3,
+          "first_column": 26,
+          "last_line": 3,
+          "last_column": 35,
+          "range": [
+            124,
+            133
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [
+        {
+          "id": {
+            "value": "Type",
+            "location": {
+              "first_line": 3,
+              "first_column": 36,
+              "last_line": 3,
+              "last_column": 40,
+              "range": [
+                134,
+                138
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "location": {
+            "first_line": 3,
+            "first_column": 36,
+            "last_line": 3,
+            "last_column": 40,
+            "range": [
+              134,
+              138
+            ]
+          },
+          "type": "type-parameter"
+        }
+      ],
+      "parents": [
+        {
+          "id": {
+            "value": "CContract",
+            "location": {
+              "first_line": 3,
+              "first_column": 44,
+              "last_line": 3,
+              "last_column": 53,
+              "range": [
+                142,
+                151
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "typeParameters": [],
+          "location": {
+            "first_line": 3,
+            "first_column": 44,
+            "last_line": 3,
+            "last_column": 53,
+            "range": [
+              142,
+              151
+            ]
+          },
+          "type": "constructor-type"
+        }
+      ],
+      "members": [
+        {
+          "path": [
+            {
+              "value": "member",
+              "location": {
+                "first_line": 4,
+                "first_column": 17,
+                "last_line": 4,
+                "last_column": 23,
+                "range": [
+                  172,
+                  178
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "id": {
+              "value": "Type",
+              "location": {
+                "first_line": 4,
+                "first_column": 25,
+                "last_line": 4,
+                "last_column": 29,
+                "range": [
+                  180,
+                  184
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "typeParameters": [],
+            "location": {
+              "first_line": 4,
+              "first_column": 25,
+              "last_line": 4,
+              "last_column": 29,
+              "range": [
+                180,
+                184
+              ]
+            },
+            "type": "constructor-type"
+          },
+          "optional": false,
+          "location": {
+            "first_line": 4,
+            "first_column": 17,
+            "last_line": 4,
+            "last_column": 29,
+            "range": [
+              172,
+              184
+            ]
+          },
+          "type": "member-declaration"
+        }
+      ],
+      "location": {
+        "first_line": 3,
+        "first_column": 14,
+        "last_line": 5,
+        "last_column": 16,
+        "range": [
+          112,
+          202
+        ]
+      },
+      "type": "context-statement"
+    },
+    {
+      "id": {
+        "value": "EContract",
+        "location": {
+          "first_line": 6,
+          "first_column": 26,
+          "last_line": 6,
+          "last_column": 35,
+          "range": [
+            229,
+            238
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [
+        {
+          "id": {
+            "value": "A",
+            "location": {
+              "first_line": 6,
+              "first_column": 36,
+              "last_line": 6,
+              "last_column": 37,
+              "range": [
+                239,
+                240
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "location": {
+            "first_line": 6,
+            "first_column": 36,
+            "last_line": 6,
+            "last_column": 37,
+            "range": [
+              239,
+              240
+            ]
+          },
+          "type": "type-parameter"
+        },
+        {
+          "id": {
+            "value": "B",
+            "location": {
+              "first_line": 6,
+              "first_column": 38,
+              "last_line": 6,
+              "last_column": 39,
+              "range": [
+                241,
+                242
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "location": {
+            "first_line": 6,
+            "first_column": 38,
+            "last_line": 6,
+            "last_column": 39,
+            "range": [
+              241,
+              242
+            ]
+          },
+          "type": "type-parameter"
+        },
+        {
+          "id": {
+            "value": "C",
+            "location": {
+              "first_line": 6,
+              "first_column": 40,
+              "last_line": 6,
+              "last_column": 41,
+              "range": [
+                243,
+                244
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "location": {
+            "first_line": 6,
+            "first_column": 40,
+            "last_line": 6,
+            "last_column": 41,
+            "range": [
+              243,
+              244
+            ]
+          },
+          "type": "type-parameter"
+        },
+        {
+          "id": {
+            "value": "D",
+            "location": {
+              "first_line": 6,
+              "first_column": 42,
+              "last_line": 6,
+              "last_column": 43,
+              "range": [
+                245,
+                246
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "location": {
+            "first_line": 6,
+            "first_column": 42,
+            "last_line": 6,
+            "last_column": 43,
+            "range": [
+              245,
+              246
+            ]
+          },
+          "type": "type-parameter"
+        }
+      ],
+      "parents": [
+        {
+          "id": {
+            "value": "BContract",
+            "location": {
+              "first_line": 6,
+              "first_column": 47,
+              "last_line": 6,
+              "last_column": 56,
+              "range": [
+                250,
+                259
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "typeParameters": [],
+          "location": {
+            "first_line": 6,
+            "first_column": 47,
+            "last_line": 6,
+            "last_column": 56,
+            "range": [
+              250,
+              259
+            ]
+          },
+          "type": "constructor-type"
+        },
+        {
+          "id": {
+            "value": "CContract",
+            "location": {
+              "first_line": 6,
+              "first_column": 58,
+              "last_line": 6,
+              "last_column": 67,
+              "range": [
+                261,
+                270
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "typeParameters": [],
+          "location": {
+            "first_line": 6,
+            "first_column": 58,
+            "last_line": 6,
+            "last_column": 67,
+            "range": [
+              261,
+              270
+            ]
+          },
+          "type": "constructor-type"
+        },
+        {
+          "id": {
+            "value": "DContract",
+            "location": {
+              "first_line": 7,
+              "first_column": 17,
+              "last_line": 7,
+              "last_column": 26,
+              "range": [
+                290,
+                299
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "typeParameters": [
+            {
+              "id": {
+                "value": "D",
+                "location": {
+                  "first_line": 7,
+                  "first_column": 27,
+                  "last_line": 7,
+                  "last_column": 28,
+                  "range": [
+                    300,
+                    301
+                  ]
+                },
+                "type": "unqualified-constructor"
+              },
+              "location": {
+                "first_line": 7,
+                "first_column": 27,
+                "last_line": 7,
+                "last_column": 28,
+                "range": [
+                  300,
+                  301
+                ]
+              },
+              "type": "type-parameter"
+            }
+          ],
+          "location": {
+            "first_line": 7,
+            "first_column": 17,
+            "last_line": 7,
+            "last_column": 29,
+            "range": [
+              290,
+              302
+            ]
+          },
+          "type": "constructor-type"
+        }
+      ],
+      "members": [
+        {
+          "path": [
+            {
+              "value": "member0",
+              "location": {
+                "first_line": 8,
+                "first_column": 17,
+                "last_line": 8,
+                "last_column": 24,
+                "range": [
+                  322,
+                  329
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "id": {
+              "value": "A",
+              "location": {
+                "first_line": 8,
+                "first_column": 26,
+                "last_line": 8,
+                "last_column": 27,
+                "range": [
+                  331,
+                  332
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "typeParameters": [],
+            "location": {
+              "first_line": 8,
+              "first_column": 26,
+              "last_line": 8,
+              "last_column": 27,
+              "range": [
+                331,
+                332
+              ]
+            },
+            "type": "constructor-type"
+          },
+          "optional": false,
+          "location": {
+            "first_line": 8,
+            "first_column": 17,
+            "last_line": 8,
+            "last_column": 27,
+            "range": [
+              322,
+              332
+            ]
+          },
+          "type": "member-declaration"
+        },
+        {
+          "path": [
+            {
+              "value": "member1",
+              "location": {
+                "first_line": 9,
+                "first_column": 17,
+                "last_line": 9,
+                "last_column": 24,
+                "range": [
+                  351,
+                  358
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "id": {
+              "value": "B",
+              "location": {
+                "first_line": 9,
+                "first_column": 26,
+                "last_line": 9,
+                "last_column": 27,
+                "range": [
+                  360,
+                  361
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "typeParameters": [],
+            "location": {
+              "first_line": 9,
+              "first_column": 26,
+              "last_line": 9,
+              "last_column": 27,
+              "range": [
+                360,
+                361
+              ]
+            },
+            "type": "constructor-type"
+          },
+          "optional": false,
+          "location": {
+            "first_line": 9,
+            "first_column": 17,
+            "last_line": 9,
+            "last_column": 27,
+            "range": [
+              351,
+              361
+            ]
+          },
+          "type": "member-declaration"
+        },
+        {
+          "path": [
+            {
+              "value": "member2",
+              "location": {
+                "first_line": 10,
+                "first_column": 17,
+                "last_line": 10,
+                "last_column": 24,
+                "range": [
+                  380,
+                  387
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "id": {
+              "value": "C",
+              "location": {
+                "first_line": 10,
+                "first_column": 26,
+                "last_line": 10,
+                "last_column": 27,
+                "range": [
+                  389,
+                  390
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "typeParameters": [],
+            "location": {
+              "first_line": 10,
+              "first_column": 26,
+              "last_line": 10,
+              "last_column": 27,
+              "range": [
+                389,
+                390
+              ]
+            },
+            "type": "constructor-type"
+          },
+          "optional": false,
+          "location": {
+            "first_line": 10,
+            "first_column": 17,
+            "last_line": 10,
+            "last_column": 27,
+            "range": [
+              380,
+              390
+            ]
+          },
+          "type": "member-declaration"
+        }
+      ],
+      "location": {
+        "first_line": 6,
+        "first_column": 14,
+        "last_line": 11,
+        "last_column": 15,
+        "range": [
+          217,
+          406
+        ]
+      },
+      "type": "context-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 11,
+    "last_column": 15,
+    "range": [
+      0,
+      406
+    ]
+  },
+  "type": "module"
+}

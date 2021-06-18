@@ -92,10 +92,11 @@ export declare class AliasStatement {
 export declare class ContractStatement {
     id: UnqualifiedConstructor;
     typeParameters: TypeParameter[];
+    parents: ConstructorType[];
     members: MemberDeclaration[];
     location: Location;
     type: string;
-    constructor(id: UnqualifiedConstructor, typeParameters: TypeParameter[], members: MemberDeclaration[], location: Location);
+    constructor(id: UnqualifiedConstructor, typeParameters: TypeParameter[], parents: ConstructorType[], members: MemberDeclaration[], location: Location);
 }
 /**
  * MemberDeclaration
@@ -103,9 +104,10 @@ export declare class ContractStatement {
 export declare class MemberDeclaration {
     path: UnqualifiedIdentifier[];
     kind: Type;
+    optional: boolean;
     location: Location;
     type: string;
-    constructor(path: UnqualifiedIdentifier[], kind: Type, location: Location);
+    constructor(path: UnqualifiedIdentifier[], kind: Type, optional: boolean, location: Location);
 }
 /**
  * ViewStatement

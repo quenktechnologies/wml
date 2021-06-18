@@ -58,6 +58,8 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 
 
+// @ts-ignore 6192
+const text = __document.createTextNode;
 __this.node('div', <__wml.Attrs>{}, [
 
         __context.action ()(__this)

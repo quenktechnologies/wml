@@ -17,6 +17,7 @@
         "type": "unqualified-constructor"
       },
       "typeParameters": [],
+      "parents": [],
       "members": [
         {
           "path": [
@@ -291,6 +292,7 @@
             },
             "type": "function-type"
           },
+          "optional": false,
           "location": {
             "first_line": 2,
             "first_column": 10,
@@ -304,6 +306,16 @@
           "type": "member-declaration"
         }
       ],
+      "location": {
+        "first_line": 1,
+        "first_column": 0,
+        "last_line": 3,
+        "last_column": 11,
+        "range": [
+          0,
+          119
+        ]
+      },
       "type": "context-statement"
     }
   ],

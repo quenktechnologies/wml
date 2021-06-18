@@ -60,4 +60,9 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 
 // @ts-ignore 6192
 const text = __document.createTextNode;
-export interface Test{value : ($0:Test) => number}
+export interface AContract{id? : number,
+name : {
+first : string,
+middle? : string,
+last? : string
+}}

@@ -58,4 +58,6 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 
 
-export interface Test{name : string }
+// @ts-ignore 6192
+const text = __document.createTextNode;
+export interface Test{name : string}
