@@ -166,6 +166,8 @@ export class CodeGenerator {
             eol(this),
             typeDefinitions(this),
             eol(this),
+            `// @ts-ignore 6192`,
+            `const text = ${DOCUMENT}.createTextNode;`,
             exports2TS(this, m.exports)
 
         ].join(eol(this));
@@ -348,7 +350,7 @@ export const contractStatement2TS = (n: ast.ContractStatement) => {
     parents = (parents !== '') ? ` extends ${parents}` : '';
 
     return [preamble, typeArgs, parents, '{', memberDeclarations2TS(n.members),
-      '}'    ].join('');
+        '}'].join('');
 
 }
 
@@ -1278,7 +1280,7 @@ export const constructor2TS = (n: ast.Constructor) => {
  * unqualifiedConstructor2TS 
  */
 export const unqualifiedConstructor2TS = (n: ast.UnqualifiedConstructor) =>
-    `${n.value}`;
+    toPrim(n.value);
 
 /**
  * qualifiedConstructor
@@ -1310,6 +1312,6 @@ export const qualifiedIdentifier2TS = (n: ast.QualifiedIdentifier) =>
  * unqualifiedIdentifier2TS 
  */
 export const unqualifiedIdentifier2TS = (n: ast.UnqualifiedIdentifier) =>
-    `${n.value}`;
+    `${toPrim(n.value)}`;
 
-const toPrim = (id: string) => prims.indexOf(id) > - 1 ? id.toLowerCase() : id;
+const toPrim = (id: string) => prims.indexOf(id) > -1 ? id.toLowerCase() : id;

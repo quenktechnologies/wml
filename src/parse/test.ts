@@ -557,6 +557,22 @@ export const tests: { [key: string]: any } = {
         '<Panel onClick={{ \e -> [*User]foo(e) }} />',
 
     'should parse partial application in expression':
-        '<Link ww:text={{truncate(50)(@text)}} />'
+        '<Link ww:text={{truncate(50)(@text)}} />',
+
+    'should transform special primitives':
+        `<div>
+            {% for type in [
+                            String,
+                            Boolean,
+                            Number,
+                            Object,
+                            Undefined,
+                            Null,
+                            Void,
+                            Never,
+                            Any] %}
+              {{ type | text }}
+            {% endfor %}
+        </div>`
 
 }

@@ -373,8 +373,8 @@ export const escapeHTML = (value: string) =>
 /**
  * createTextNode wrapper.
  */
-export const createTextNode = (txt: string): Node => isBrowser ?
-    document.createTextNode(txt) : new WMLDOMText(txt);
+export const createTextNode = (txt: Type): Node => isBrowser ?
+    document.createTextNode(String(txt)) : new WMLDOMText(String(txt));
 
 /**
  * createElement wrapper.
