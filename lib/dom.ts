@@ -2,7 +2,7 @@ import { Record, map, mapTo, forEach } from '@quenk/noni/lib/data/record';
 import { Type, isString } from '@quenk/noni/lib/data/type';
 
 // Declared so isBrowser works on node.js.
-var window:Type, document:Type;
+var window: Type, document: Type;
 
 /**
  * This module provides functions used in templates to generate supported DOM
@@ -106,44 +106,41 @@ export class WMLDOMNode implements Node {
 
     constructor(public nodeName: string, public nodeType: number) { }
 
-    readonly ATTRIBUTE_NODE = Node.ATTRIBUTE_NODE;
+    readonly ATTRIBUTE_NODE = -1;
 
-    readonly CDATA_SECTION_NODE = Node.CDATA_SECTION_NODE;
+    readonly CDATA_SECTION_NODE = -1;
 
-    readonly COMMENT_NODE = Node.COMMENT_NODE;
+    readonly COMMENT_NODE = -1;
 
-    readonly DOCUMENT_FRAGMENT_NODE = Node.DOCUMENT_FRAGMENT_NODE;
+    readonly DOCUMENT_FRAGMENT_NODE = -1;
 
-    readonly DOCUMENT_NODE = Node.DOCUMENT_NODE;
+    readonly DOCUMENT_NODE = -1;
 
-    readonly DOCUMENT_POSITION_CONTAINED_BY =
-        Node.DOCUMENT_POSITION_CONTAINED_BY;
+    readonly DOCUMENT_POSITION_CONTAINED_BY = -1;
 
-    readonly DOCUMENT_POSITION_CONTAINS = Node.DOCUMENT_POSITION_CONTAINS;
+    readonly DOCUMENT_POSITION_CONTAINS = -1;
 
-    readonly DOCUMENT_POSITION_DISCONNECTED =
-        Node.DOCUMENT_POSITION_DISCONNECTED;
+    readonly DOCUMENT_POSITION_DISCONNECTED = -1;
 
-    readonly DOCUMENT_POSITION_FOLLOWING = Node.DOCUMENT_POSITION_FOLLOWING;
+    readonly DOCUMENT_POSITION_FOLLOWING = -1;
 
-    readonly DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC =
-        Node.DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC;
+    readonly DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC = -1;
 
-    readonly DOCUMENT_POSITION_PRECEDING = Node.DOCUMENT_POSITION_PRECEDING;
+    readonly DOCUMENT_POSITION_PRECEDING = -1;
 
-    readonly DOCUMENT_TYPE_NODE = Node.DOCUMENT_TYPE_NODE;
+    readonly DOCUMENT_TYPE_NODE = -1;
 
-    readonly ELEMENT_NODE = Node.ELEMENT_NODE;
+    readonly ELEMENT_NODE = -1;
 
-    readonly ENTITY_NODE = Node.ENTITY_NODE;
+    readonly ENTITY_NODE = -1;
 
-    readonly ENTITY_REFERENCE_NODE = Node.ENTITY_REFERENCE_NODE;
+    readonly ENTITY_REFERENCE_NODE = -1;
 
-    readonly NOTATION_NODE = Node.NOTATION_NODE;
+    readonly NOTATION_NODE = -1;
 
-    readonly PROCESSING_INSTRUCTION_NODE = Node.PROCESSING_INSTRUCTION_NODE;
+    readonly PROCESSING_INSTRUCTION_NODE = -1;
 
-    readonly TEXT_NODE = Node.TEXT_NODE;
+    readonly TEXT_NODE = -1;
 
     baseURI = '';
 
@@ -289,7 +286,7 @@ export class WMLDOMText extends WMLDOMNode {
 
     constructor(public value: string) {
 
-        super('#text', Node.TEXT_NODE);
+        super('#text', -1);
 
     }
 
@@ -310,26 +307,15 @@ export class WMLDOMElement extends WMLDOMNode {
     constructor(
         public tag: string,
         public attrs: WMLDOMAttrs,
-        public children: Node[] = []) { super(tag, Node.ELEMENT_NODE); }
+        public children: Node[] = []) { super(tag, -1); }
 
-    get innerHTML() {
+    get innerHTML() : string {
 
-        return this.children.map(c => {
+        return this.children.map(c => (this instanceof WMLDOMText) ?
+            (<Text>c).textContent :
+            (<HTMLElement>c).outerHTML
 
-            switch (c.nodeType) {
-
-                case Node.TEXT_NODE:
-                    return (<Text>c).textContent;
-
-                case Node.ELEMENT_NODE:
-                    return (<HTMLElement>c).outerHTML;
-
-                default:
-                    return '';
-
-            }
-
-        }).join('');
+        ).join('');
 
     }
 
