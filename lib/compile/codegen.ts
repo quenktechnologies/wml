@@ -168,6 +168,8 @@ export class CodeGenerator {
             eol(this),
             `// @ts-ignore 6192`,
             `const text = ${DOCUMENT}.createTextNode;`,
+            `// @ts-ignore 6192`,
+            `const isSet = (value:any) => value != null`,
             exports2TS(this, m.exports)
 
         ].join(eol(this));
