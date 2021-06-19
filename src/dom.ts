@@ -309,7 +309,7 @@ export class WMLDOMElement extends WMLDOMNode {
         public attrs: WMLDOMAttrs,
         public children: Node[] = []) { super(tag, -1); }
 
-    get innerHTML() : string {
+    get innerHTML(): string {
 
         return this.children.map(c => (this instanceof WMLDOMText) ?
             (<Text>c).textContent :
@@ -334,6 +334,12 @@ export class WMLDOMElement extends WMLDOMNode {
 
         return (voidElements.indexOf(tag) > -1) ?
             open : `<${open}>${content}</${tag}>`;
+
+    }
+
+    setAttribute(key:string, value: Type) {
+
+        this.attrs[key] = value;
 
     }
 

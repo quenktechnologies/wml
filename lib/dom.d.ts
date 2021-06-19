@@ -100,6 +100,7 @@ export declare class WMLDOMElement extends WMLDOMNode {
     constructor(tag: string, attrs: WMLDOMAttrs, children?: Node[]);
     get innerHTML(): string;
     get outerHTML(): string;
+    setAttribute(key: string, value: Type): void;
 }
 /**
  * escapeAttrs escapes each key value pair of a WMLDOMAttrs.
