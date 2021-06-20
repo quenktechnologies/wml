@@ -753,12 +753,12 @@ export const typeMap2TS = (m: ExpandedTypeMap): TypeScript =>
 
         if (isRecord(t)) {
 
-            let key = isOptional(t) ? `${k}?` : k;
-            return `'${key}': {${typeMap2TS(t)}}`;
+            let key = isOptional(t) ? `${k}?` : `${k}`;
+            return `${key}: {${typeMap2TS(t)}}`;
 
         } else {
 
-            return `'${k}' : ${t}`;
+            return `${k} : ${t}`;
 
         }
     }).join(',\n');

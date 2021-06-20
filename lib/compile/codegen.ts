@@ -749,8 +749,22 @@ export const expandTypeMap = (m: TypeMap): ExpandedTypeMap =>
  * typeMap2TS converts a map of type values to TypeScript.
  */
 export const typeMap2TS = (m: ExpandedTypeMap): TypeScript =>
-    mapTo(m, (t, k) =>
-        `${k} : ${isRecord(t) ? '{\n' + typeMap2TS(t) + '\n}' : t}`).join(',\n');
+    mapTo(m, (t, k) => {
+
+        if (isRecord(t)) {
+
+            let key = isOptional(t) ? `${k}?` : `${k}`;
+            return `${key}: {${typeMap2TS(t)}}`;
+
+        } else {
+
+            return `${k} : ${t}`;
+
+        }
+    }).join(',\n');
+
+const isOptional = (m: ExpandedTypeMap) =>
+    reduce(m, false, (p, _, k) => p ? p : k.indexOf('?') > - 1);
 
 /**
  * parameters2TS converts a list Parameter nodes into an parameter list
