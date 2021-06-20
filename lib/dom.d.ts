@@ -1,3 +1,11 @@
+/**
+ * This module provides functions used in templates to generate supported DOM
+ * nodes.
+ *
+ * The idea here is to provide an abstraction over DOM construction so
+ * we can detect whether we are in a browser or elsewhere and adjust to
+ * suite.
+ */
 import { Record } from '@quenk/noni/lib/data/record';
 import { Type } from '@quenk/noni/lib/data/type';
 /**

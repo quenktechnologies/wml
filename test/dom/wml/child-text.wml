@@ -1,0 +1,3 @@
+
+{% view ChildText(Object) %}
+  <h4>Test Text</h4>

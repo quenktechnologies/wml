@@ -1,9 +1,3 @@
-import { Record, map, mapTo, forEach } from '@quenk/noni/lib/data/record';
-import { Type, isString } from '@quenk/noni/lib/data/type';
-
-// Declared so isBrowser works on node.js.
-var window: Type, document: Type;
-
 /**
  * This module provides functions used in templates to generate supported DOM
  * nodes.
@@ -12,6 +6,14 @@ var window: Type, document: Type;
  * we can detect whether we are in a browser or elsewhere and adjust to
  * suite.
  */
+
+import { Record, map, mapTo, forEach } from '@quenk/noni/lib/data/record';
+import { Type, isString } from '@quenk/noni/lib/data/type';
+
+// Declared so isBrowser works on node.js.
+var window: Type, document: Type;
+
+const DOCTYPE = '<!DOCTYPE html>';
 
 const ATTR_ESC_MAP: { [key: string]: string } = {
 
@@ -311,10 +313,9 @@ export class WMLDOMElement extends WMLDOMNode {
 
     get innerHTML(): string {
 
-        return this.children.map(c => (this instanceof WMLDOMText) ?
+        return this.children.map(c => (c.nodeName === '#text') ?
             (<Text>c).textContent :
             (<HTMLElement>c).outerHTML
-
         ).join('');
 
     }
@@ -327,10 +328,12 @@ export class WMLDOMElement extends WMLDOMNode {
         let attrs = mapTo(escapeAttrs(this.attrs), (value, name) => !value ?
             name : `${name}="${value}"`).join(' ');
 
-        let open = `<${tag} ${attrs}>`;
+      attrs = (attrs.trim() != '') ? ` ${attrs}`: '';
+
+        let open = `<${tag}${attrs}>`;
 
         if (tag === "html")
-            open = `<!DOCTYPE html5>${open}`
+            open = `${DOCTYPE}${open}`
 
         return (voidElements.indexOf(tag) > -1) ?
             open : `${open}${content}</${tag}>`;
