@@ -333,13 +333,20 @@ export class WMLDOMElement extends WMLDOMNode {
             open = `<!DOCTYPE html5>${open}`
 
         return (voidElements.indexOf(tag) > -1) ?
-            open : `<${open}>${content}</${tag}>`;
+            open : `${open}${content}</${tag}>`;
 
     }
 
     setAttribute(key: string, value: Type) {
 
         this.attrs[key] = value;
+
+    }
+
+    appendChild<T extends Node>(newChild: T): T {
+
+        this.children.push(newChild);
+        return newChild;
 
     }
 

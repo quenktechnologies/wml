@@ -101,6 +101,7 @@ export declare class WMLDOMElement extends WMLDOMNode {
     get innerHTML(): string;
     get outerHTML(): string;
     setAttribute(key: string, value: Type): void;
+    appendChild<T extends Node>(newChild: T): T;
 }
 /**
  * escapeAttrs escapes each key value pair of a WMLDOMAttrs.
