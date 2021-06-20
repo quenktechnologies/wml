@@ -573,6 +573,14 @@ export const tests: { [key: string]: any } = {
                             Any] %}
               {{ type | text }}
             {% endfor %}
-        </div>`
+        </div>`,
+
+    'should allow casting': `
+        {% view Test (Object) %}
+          <Widget
+            val1={{String(@value)}}
+            val2={{Number(@value)}}
+            val3={{Boolean(@value)}} />
+      `
 
 }

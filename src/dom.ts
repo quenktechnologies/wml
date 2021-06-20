@@ -337,7 +337,7 @@ export class WMLDOMElement extends WMLDOMNode {
 
     }
 
-    setAttribute(key:string, value: Type) {
+    setAttribute(key: string, value: Type) {
 
         this.attrs[key] = value;
 
@@ -370,6 +370,8 @@ export const escapeHTML = (value: string) =>
  */
 export const createTextNode = (txt: Type): Node => isBrowser ?
     document.createTextNode(String(txt)) : new WMLDOMText(String(txt));
+
+export { createTextNode as text }
 
 /**
  * createElement wrapper.
