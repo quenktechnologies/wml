@@ -62,9 +62,7 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 const text = __document.text;
 // @ts-ignore 6192
 const isSet = (value:any) => value != null
-export interface AContract{id? : number,
-name : {
-first : string,
-middle? : string,
-last? : string
-}}
+export interface AContract{'id?' : number,
+'name?': {'first' : string,
+'middle?' : string,
+'last?' : string}}

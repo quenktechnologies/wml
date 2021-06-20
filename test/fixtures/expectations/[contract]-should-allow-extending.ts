@@ -64,7 +64,7 @@ const text = __document.text;
 const isSet = (value:any) => value != null
 export interface AContract extends BContract{};
 export interface CContract extends AContract,BContract{};
-export interface DContract<Type  >  extends CContract{member : Type};
-export interface EContract<A  ,B  ,C  ,D  >  extends BContract,CContract,DContract<D  > {member0 : A,
-member1 : B,
-member2 : C}
+export interface DContract<Type  >  extends CContract{'member' : Type};
+export interface EContract<A  ,B  ,C  ,D  >  extends BContract,CContract,DContract<D  > {'member0' : A,
+'member1' : B,
+'member2' : C}
