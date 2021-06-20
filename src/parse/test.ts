@@ -542,6 +542,9 @@ export const tests: { [key: string]: any } = {
              %}`
     },
 
+    '[contract] should mark nested properties as optional if all are':
+        `{% contract Paper = object.type?: String %}`,
+
     'should parse alias statements':
         `{% alias Type = String | Number | Boolean | Type[] | Type -> Type %}`,
 
@@ -581,6 +584,7 @@ export const tests: { [key: string]: any } = {
             val1={{String(@value)}}
             val2={{Number(@value)}}
             val3={{Boolean(@value)}} />
-      `
+      `,
+
 
 }
