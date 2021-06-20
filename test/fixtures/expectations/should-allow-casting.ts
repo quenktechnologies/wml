@@ -68,26 +68,10 @@ export class Test  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.node('div', <__wml.Attrs>{}, [
-
-        ...(__if((show === 'span'),
-   ()=> ([
-
-        __this.node('span', <__wml.Attrs>{}, [
+           return __this.widget(new Widget({'val1': String(__context.value),'val2': Number(__context.value),'val3': Boolean(__context.value)}, [
 
         
-     ])
-     ]),
-   ()=> ([...(__if((show === 'div'),
-   ()=> ([
-
-        __this.node('div', <__wml.Attrs>{}, [
-
-        
-     ])
-     ]),
-   ()=> ([]))) ]))) 
-     ]);
+     ]),<__wml.Attrs>{'val1': String(__context.value),'val2': Number(__context.value),'val3': Boolean(__context.value)});
 
        }
 

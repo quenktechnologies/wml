@@ -59,14 +59,16 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 
 
 // @ts-ignore 6192
-const text = __document.createTextNode;
+const text = __document.text;
+// @ts-ignore 6192
+const isSet = (value:any) => value != null
 export const template = 
 
 <A  > (d: Date<A  >  ,o: A ,_: string ,__: (A)[] )=>(__this:__wml.Registry) : __wml.Content[] => {
 
    return [
 
-        new string(o)
+        String(o)
      ];
 
 };;

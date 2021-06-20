@@ -59,7 +59,9 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 
 
 // @ts-ignore 6192
-const text = __document.createTextNode;
+const text = __document.text;
+// @ts-ignore 6192
+const isSet = (value:any) => value != null
 export const vue = 
 
 <A  ,B extends C ,C  > (a: A ,b: B )=>(__this:__wml.Registry) : __wml.Content[] => {

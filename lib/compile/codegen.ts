@@ -15,7 +15,7 @@ import {
     isRecord
 } from '@quenk/noni/lib/data/record';
 
-import { partition } from '@quenk/noni/lib/data/array';
+import { contains, partition } from '@quenk/noni/lib/data/array';
 
 export const CONTEXT = '__context';
 export const VIEW = '__view';
@@ -167,7 +167,7 @@ export class CodeGenerator {
             typeDefinitions(this),
             eol(this),
             `// @ts-ignore 6192`,
-            `const text = ${DOCUMENT}.createTextNode;`,
+            `const text = ${DOCUMENT}.text;`,
             `// @ts-ignore 6192`,
             `const isSet = (value:any) => value != null`,
             exports2TS(this, m.exports)
@@ -1119,8 +1119,19 @@ export const constructExpression2TS =
 
         let cons = constructor2TS(n.cons);
 
-        return ((casters.indexOf(cons) === -1) ?
-            'new ' : '') + `${cons}(${args2TS(ctx, n.args)})`;
+        let consOriginal = `${cons[0].toUpperCase()}${cons.slice(1)}`;
+
+        let args = args2TS(ctx, n.args);
+
+        if (contains(casters, consOriginal)) {
+
+            return `${consOriginal}(${args})`;
+
+        } else {
+
+            return `new ${cons}(${args})`;
+
+        }
 
     }
 

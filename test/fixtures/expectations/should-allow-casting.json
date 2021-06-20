@@ -1,0 +1,439 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "Test",
+        "location": {
+          "first_line": 2,
+          "first_column": 16,
+          "last_line": 2,
+          "last_column": 20,
+          "range": [
+            17,
+            21
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "context": {
+        "id": {
+          "value": "Object",
+          "location": {
+            "first_line": 2,
+            "first_column": 22,
+            "last_line": 2,
+            "last_column": 28,
+            "range": [
+              23,
+              29
+            ]
+          },
+          "type": "unqualified-constructor"
+        },
+        "typeParameters": [],
+        "location": {
+          "first_line": 2,
+          "first_column": 22,
+          "last_line": 2,
+          "last_column": 28,
+          "range": [
+            23,
+            29
+          ]
+        },
+        "type": "constructor-type"
+      },
+      "root": {
+        "open": {
+          "value": "Widget",
+          "location": {
+            "first_line": 3,
+            "first_column": 11,
+            "last_line": 3,
+            "last_column": 17,
+            "range": [
+              45,
+              51
+            ]
+          },
+          "type": "unqualified-constructor"
+        },
+        "attributes": [
+          {
+            "namespace": {
+              "value": "",
+              "location": {
+                "first_line": 4,
+                "first_column": 12,
+                "last_line": 4,
+                "last_column": 35,
+                "range": [
+                  64,
+                  87
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            "name": {
+              "value": "val1",
+              "location": {
+                "first_line": 4,
+                "first_column": 12,
+                "last_line": 4,
+                "last_column": 16,
+                "range": [
+                  64,
+                  68
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            "value": {
+              "expression": {
+                "cons": {
+                  "value": "String",
+                  "location": {
+                    "first_line": 4,
+                    "first_column": 19,
+                    "last_line": 4,
+                    "last_column": 25,
+                    "range": [
+                      71,
+                      77
+                    ]
+                  },
+                  "type": "unqualified-constructor"
+                },
+                "args": [
+                  {
+                    "member": {
+                      "value": "value",
+                      "location": {
+                        "first_line": 4,
+                        "first_column": 27,
+                        "last_line": 4,
+                        "last_column": 32,
+                        "range": [
+                          79,
+                          84
+                        ]
+                      },
+                      "type": "unqualified-identifier"
+                    },
+                    "location": {
+                      "first_line": 4,
+                      "first_column": 26,
+                      "last_line": 4,
+                      "last_column": 32,
+                      "range": [
+                        78,
+                        84
+                      ]
+                    },
+                    "type": "context-property"
+                  }
+                ],
+                "location": {
+                  "first_line": 4,
+                  "first_column": 19,
+                  "last_line": 4,
+                  "last_column": 33,
+                  "range": [
+                    71,
+                    85
+                  ]
+                },
+                "type": "construct-expression"
+              },
+              "filters": [],
+              "location": {
+                "first_line": 4,
+                "first_column": 17,
+                "last_line": 4,
+                "last_column": 35,
+                "range": [
+                  69,
+                  87
+                ]
+              },
+              "type": "interpolation"
+            },
+            "location": {
+              "first_line": 4,
+              "first_column": 12,
+              "last_line": 4,
+              "last_column": 35,
+              "range": [
+                64,
+                87
+              ]
+            },
+            "type": "attribute"
+          },
+          {
+            "namespace": {
+              "value": "",
+              "location": {
+                "first_line": 5,
+                "first_column": 12,
+                "last_line": 5,
+                "last_column": 35,
+                "range": [
+                  100,
+                  123
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            "name": {
+              "value": "val2",
+              "location": {
+                "first_line": 5,
+                "first_column": 12,
+                "last_line": 5,
+                "last_column": 16,
+                "range": [
+                  100,
+                  104
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            "value": {
+              "expression": {
+                "cons": {
+                  "value": "Number",
+                  "location": {
+                    "first_line": 5,
+                    "first_column": 19,
+                    "last_line": 5,
+                    "last_column": 25,
+                    "range": [
+                      107,
+                      113
+                    ]
+                  },
+                  "type": "unqualified-constructor"
+                },
+                "args": [
+                  {
+                    "member": {
+                      "value": "value",
+                      "location": {
+                        "first_line": 5,
+                        "first_column": 27,
+                        "last_line": 5,
+                        "last_column": 32,
+                        "range": [
+                          115,
+                          120
+                        ]
+                      },
+                      "type": "unqualified-identifier"
+                    },
+                    "location": {
+                      "first_line": 5,
+                      "first_column": 26,
+                      "last_line": 5,
+                      "last_column": 32,
+                      "range": [
+                        114,
+                        120
+                      ]
+                    },
+                    "type": "context-property"
+                  }
+                ],
+                "location": {
+                  "first_line": 5,
+                  "first_column": 19,
+                  "last_line": 5,
+                  "last_column": 33,
+                  "range": [
+                    107,
+                    121
+                  ]
+                },
+                "type": "construct-expression"
+              },
+              "filters": [],
+              "location": {
+                "first_line": 5,
+                "first_column": 17,
+                "last_line": 5,
+                "last_column": 35,
+                "range": [
+                  105,
+                  123
+                ]
+              },
+              "type": "interpolation"
+            },
+            "location": {
+              "first_line": 5,
+              "first_column": 12,
+              "last_line": 5,
+              "last_column": 35,
+              "range": [
+                100,
+                123
+              ]
+            },
+            "type": "attribute"
+          },
+          {
+            "namespace": {
+              "value": "",
+              "location": {
+                "first_line": 6,
+                "first_column": 12,
+                "last_line": 6,
+                "last_column": 36,
+                "range": [
+                  136,
+                  160
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            "name": {
+              "value": "val3",
+              "location": {
+                "first_line": 6,
+                "first_column": 12,
+                "last_line": 6,
+                "last_column": 16,
+                "range": [
+                  136,
+                  140
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            "value": {
+              "expression": {
+                "cons": {
+                  "value": "Boolean",
+                  "location": {
+                    "first_line": 6,
+                    "first_column": 19,
+                    "last_line": 6,
+                    "last_column": 26,
+                    "range": [
+                      143,
+                      150
+                    ]
+                  },
+                  "type": "unqualified-constructor"
+                },
+                "args": [
+                  {
+                    "member": {
+                      "value": "value",
+                      "location": {
+                        "first_line": 6,
+                        "first_column": 28,
+                        "last_line": 6,
+                        "last_column": 33,
+                        "range": [
+                          152,
+                          157
+                        ]
+                      },
+                      "type": "unqualified-identifier"
+                    },
+                    "location": {
+                      "first_line": 6,
+                      "first_column": 27,
+                      "last_line": 6,
+                      "last_column": 33,
+                      "range": [
+                        151,
+                        157
+                      ]
+                    },
+                    "type": "context-property"
+                  }
+                ],
+                "location": {
+                  "first_line": 6,
+                  "first_column": 19,
+                  "last_line": 6,
+                  "last_column": 34,
+                  "range": [
+                    143,
+                    158
+                  ]
+                },
+                "type": "construct-expression"
+              },
+              "filters": [],
+              "location": {
+                "first_line": 6,
+                "first_column": 17,
+                "last_line": 6,
+                "last_column": 36,
+                "range": [
+                  141,
+                  160
+                ]
+              },
+              "type": "interpolation"
+            },
+            "location": {
+              "first_line": 6,
+              "first_column": 12,
+              "last_line": 6,
+              "last_column": 36,
+              "range": [
+                136,
+                160
+              ]
+            },
+            "type": "attribute"
+          }
+        ],
+        "children": [],
+        "close": {
+          "value": "Widget",
+          "location": {
+            "first_line": 3,
+            "first_column": 11,
+            "last_line": 3,
+            "last_column": 17,
+            "range": [
+              45,
+              51
+            ]
+          },
+          "type": "unqualified-constructor"
+        },
+        "type": "widget"
+      },
+      "location": {
+        "first_line": 2,
+        "first_column": 8,
+        "last_line": 6,
+        "last_column": 39,
+        "range": [
+          9,
+          163
+        ]
+      },
+      "type": "view-statement"
+    }
+  ],
+  "location": {
+    "first_line": 2,
+    "first_column": 8,
+    "last_line": 7,
+    "last_column": 6,
+    "range": [
+      9,
+      170
+    ]
+  },
+  "type": "module"
+}

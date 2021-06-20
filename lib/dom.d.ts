@@ -118,6 +118,7 @@ export declare const escapeHTML: (value: string) => string;
  * createTextNode wrapper.
  */
 export declare const createTextNode: (txt: Type) => Node;
+export { createTextNode as text };
 /**
  * createElement wrapper.
  */
