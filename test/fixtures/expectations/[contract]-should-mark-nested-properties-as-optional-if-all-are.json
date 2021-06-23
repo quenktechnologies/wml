@@ -1,0 +1,119 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "Paper",
+        "location": {
+          "first_line": 1,
+          "first_column": 12,
+          "last_line": 1,
+          "last_column": 17,
+          "range": [
+            12,
+            17
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "parents": [],
+      "members": [
+        {
+          "path": [
+            {
+              "value": "object",
+              "location": {
+                "first_line": 1,
+                "first_column": 20,
+                "last_line": 1,
+                "last_column": 26,
+                "range": [
+                  20,
+                  26
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            {
+              "value": "type",
+              "location": {
+                "first_line": 1,
+                "first_column": 27,
+                "last_line": 1,
+                "last_column": 31,
+                "range": [
+                  27,
+                  31
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "id": {
+              "value": "String",
+              "location": {
+                "first_line": 1,
+                "first_column": 34,
+                "last_line": 1,
+                "last_column": 40,
+                "range": [
+                  34,
+                  40
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "typeParameters": [],
+            "location": {
+              "first_line": 1,
+              "first_column": 34,
+              "last_line": 1,
+              "last_column": 40,
+              "range": [
+                34,
+                40
+              ]
+            },
+            "type": "constructor-type"
+          },
+          "optional": true,
+          "location": {
+            "first_line": 1,
+            "first_column": 20,
+            "last_line": 1,
+            "last_column": 40,
+            "range": [
+              20,
+              40
+            ]
+          },
+          "type": "member-declaration"
+        }
+      ],
+      "location": {
+        "first_line": 1,
+        "first_column": 0,
+        "last_line": 1,
+        "last_column": 43,
+        "range": [
+          0,
+          43
+        ]
+      },
+      "type": "context-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 43,
+    "range": [
+      0,
+      43
+    ]
+  },
+  "type": "module"
+}

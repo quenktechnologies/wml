@@ -142,6 +142,7 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <*>'<='                                                  return '<=';
 <*>'=>'                                                  return '=>';
 <*>'->'                                                  return '->';
+<*>'??'                                                  return '??';
 <*>'+'                                                   return '+';
 <*>'-'                                                   return '-';
 <*>'*'                                                   return '*';
@@ -760,6 +761,13 @@ unary_expression
 
           | '...' expression
             {$$ = new yy.ast.UnaryExpression($1, $2, @$); }
+
+          | simple_expression '??'
+            {$$ = new yy.ast.UnaryExpression($2, $1, @$); }
+
+          | '(' expression ')' '??'
+            {$$ = new yy.ast.UnaryExpression($4, $2, @$); }
+          
           ;
 
 type_assertion

@@ -586,5 +586,14 @@ export const tests: { [key: string]: any } = {
             val3={{Boolean(@value)}} />
       `,
 
+    'should parse null query operator':
+        `<div>{% if value ?? %}<b>True</b>{% else %}<b>False</b>{% endif %}</div>`,
+
+    'should allow binary expressions with null queries':
+        `<div>
+            {% if @errors ?? && @errors.message %}
+              {{ @errors.message }}
+             {% endif %}
+          </div>`
 
 }

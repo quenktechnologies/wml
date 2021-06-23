@@ -64,19 +64,19 @@ const text = __document.text;
 const isSet = (value:any) => value != null
 __this.widget(new Tag({}, [
 
-        ...(__if(value,
-   ()=> ([
+        ...((value) ?
+(()=>([
 
         __this.node('text', <__wml.Attrs>{}, [
 
         __document.createTextNode('Text')
      ])
-     ]),
-   ()=> ([
+     ]))() :
+(()=>([
 
         __this.node('text', <__wml.Attrs>{}, [
 
         __document.createTextNode('else')
      ])
-     ]))) 
+     ]))())
      ]),<__wml.Attrs>{})

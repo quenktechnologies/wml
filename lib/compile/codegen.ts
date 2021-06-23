@@ -953,9 +953,9 @@ export const ifStatement2TS =
                 '[]';
 
         return [
-            `...(${IF}(${condition},`,
-            `   ()=> (${conseq}),`,
-            `   ()=> (${alt}))) `,
+            `...((${condition}) ?`,
+            `(()=>(${conseq}))() :`,
+            `(()=>(${alt}))())`
         ].join(ctx.options.EOL);
 
     }
@@ -1102,8 +1102,16 @@ export const binaryExpression2TS = (ctx: CodeGenerator, n: ast.BinaryExpression)
 /**
  * unaryExpression2TS 
  */
-export const unaryExpression2TS = (ctx: CodeGenerator, n: ast.UnaryExpression) =>
-    `${n.operator} (${expression2TS(ctx, n.expression)})`;
+export const unaryExpression2TS =
+    (ctx: CodeGenerator, n: ast.UnaryExpression) => {
+
+        let expr = expression2TS(ctx, n.expression);
+
+        return (n.operator === '??') ?
+            `(${expr}) != null` :
+            `${n.operator}(${expr})`;
+
+    }
 
 /**
  * typeAssertion2TS

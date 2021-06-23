@@ -77,8 +77,8 @@ export class Main  implements __wml.View {
 
            return __this.widget(new Panel({ww : { 'class' : __context.values.root .class   }}, [
 
-        ...(__if(((__context.values.header .tabs .length  > 0) || __context.values.header .additionalTabs ),
-   ()=> ([
+        ...((((__context.values.header .tabs .length  > 0) || __context.values.header .additionalTabs )) ?
+(()=>([
 
         __this.widget(new PanelHeader({}, [
 
@@ -93,22 +93,22 @@ export class Main  implements __wml.View {
      ]),<__wml.Attrs>{ww : { 'name' : tab.name ,'onClick' : tab.onClick  }})
      ]), 
 ()=> ([])),
-...(__if(__context.values.header .additionalTabs ,
-   ()=> ([
+...((__context.values.header .additionalTabs ) ?
+(()=>([
 
         __context.values.header .additionalTabs  (__context)(__this)
-     ]),
-   ()=> ([
+     ]))() :
+(()=>([
 
         ''
-     ]))) 
+     ]))())
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{})
-     ]),
-   ()=> ([
+     ]))() :
+(()=>([
 
         ''
-     ]))) ,
+     ]))()),
 __context.children
      ]),<__wml.Attrs>{ww : { 'class' : __context.values.root .class   }});
 

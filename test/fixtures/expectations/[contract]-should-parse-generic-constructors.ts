@@ -62,4 +62,4 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 const text = __document.text;
 // @ts-ignore 6192
 const isSet = (value:any) => value != null
-export interface Test{'table': {'name' : Text<A  > }}
+export interface Test{table: {name : Text<A  > }}

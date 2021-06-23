@@ -62,4 +62,21 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 const text = __document.text;
 // @ts-ignore 6192
 const isSet = (value:any) => value != null
-export interface Test{value : ($0:($0:string) => string,$1:($0:string) => string,$2:($0:string) => string) => string}
+__this.node('div', <__wml.Attrs>{}, [
+
+        ...(((value) != null) ?
+(()=>([
+
+        __this.node('b', <__wml.Attrs>{}, [
+
+        __document.createTextNode('True')
+     ])
+     ]))() :
+(()=>([
+
+        __this.node('b', <__wml.Attrs>{}, [
+
+        __document.createTextNode('False')
+     ])
+     ]))())
+     ])
