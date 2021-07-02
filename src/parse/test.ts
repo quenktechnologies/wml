@@ -539,7 +539,8 @@ export const tests: { [key: string]: any } = {
                  member0: A,
                  member1: B,
                  member2: C
-             %}`
+             %}
+             {% contract DContract : AContract = member: DType %}`
     },
 
     '[contract] should mark nested properties as optional if all are':

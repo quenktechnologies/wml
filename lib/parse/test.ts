@@ -539,7 +539,8 @@ export const tests: { [key: string]: any } = {
                  member0: A,
                  member1: B,
                  member2: C
-             %}`
+             %}
+             {% contract DContract : AContract = member: DType %}`
     },
 
     '[contract] should mark nested properties as optional if all are':
@@ -587,13 +588,6 @@ export const tests: { [key: string]: any } = {
       `,
 
     'should parse null query operator':
-        `<div>{% if value ?? %}<b>True</b>{% else %}<b>False</b>{% endif %}</div>`,
-
-    'should allow binary expressions with null queries':
-        `<div>
-            {% if @errors ?? && @errors.message %}
-              {{ @errors.message }}
-             {% endif %}
-          </div>`
+        `<div>{% if value ?? %}<b>True</b>{% else %}<b>False</b>{% endif %}</div>`
 
 }

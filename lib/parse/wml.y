@@ -264,12 +264,12 @@ contract_statement
           : '{%' CONTRACT unqualified_constructor '%}'
             { $$ = new yy.ast.ContractStatement($3, [], [], [], @$);           }
 
-          | '{%' CONTRACT unqualified_constructor ':' parent_list '%}'
-            { $$ = new yy.ast.ContractStatement($3, [], $5, [], @$);           }
-
           | '{%' CONTRACT unqualified_constructor type_parameters '%}'
             { $$ = new yy.ast.ContractStatement($3, [], [], [], @$);           }
 
+          | '{%' CONTRACT unqualified_constructor ':' parent_list '%}'
+            { $$ = new yy.ast.ContractStatement($3, [], $5, [], @$);           }
+          
           | '{%' CONTRACT unqualified_constructor type_parameters ':'
              parent_list '%}'
             { $$ = new yy.ast.ContractStatement($3, $4, $6, [], @$);           }
@@ -280,6 +280,10 @@ contract_statement
           | '{%' CONTRACT unqualified_constructor type_parameters '=' 
              member_declarations '%}'
             { $$ = new yy.ast.ContractStatement($3, $4, [], $6, @$);           }
+
+          | '{%' CONTRACT unqualified_constructor ':' parent_list '=' 
+            member_declarations '%}'
+            { $$ = new yy.ast.ContractStatement($3, [], $5, $7, @$);           }
 
           | '{%' CONTRACT unqualified_constructor type_parameters ':' 
             parent_list '=' member_declarations '%}'
