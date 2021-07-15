@@ -108,6 +108,10 @@ export declare const aliasStatement2TS: (n: ast.AliasStatement) => string;
  */
 export declare const contractStatement2TS: (n: ast.ContractStatement) => string;
 /**
+ * instanceStatement2TS
+ */
+export declare const instanceStatement2TS: (ctx: CodeGenerator, n: ast.InstanceStatement) => string;
+/**
  * funStatement2TS generates Typescript output for fun statements.
  *
  * This is a curried function that first accepts zero or more arguments then

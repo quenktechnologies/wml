@@ -74,7 +74,7 @@ export declare class CompositeMember {
     constructor(members: (Member | AliasedMember)[], location: Location);
 }
 export declare type Member = UnqualifiedIdentifier | UnqualifiedConstructor;
-export declare type Export = AliasStatement | ContractStatement | FunStatement | ViewStatement | Tag;
+export declare type Export = AliasStatement | ContractStatement | InstanceStatement | FunStatement | ViewStatement | Tag;
 /**
  * AliasStatement
  */
@@ -110,16 +110,28 @@ export declare class MemberDeclaration {
     constructor(path: UnqualifiedIdentifier[], kind: Type, optional: boolean, location: Location);
 }
 /**
+ * InstanceStatement
+ */
+export declare class InstanceStatement {
+    id: UnqualifiedIdentifier;
+    cons: ConstructorType;
+    properties: Property[];
+    location: Location;
+    type: string;
+    constructor(id: UnqualifiedIdentifier, cons: ConstructorType, properties: Property[], location: Location);
+}
+/**
  * ViewStatement
  */
 export declare class ViewStatement {
     id: UnqualifiedConstructor;
     typeParameters: TypeParameter[];
     context: Type;
+    instances: InstanceStatement[];
     root: Tag;
     location: Location;
     type: string;
-    constructor(id: UnqualifiedConstructor, typeParameters: TypeParameter[], context: Type, root: Tag, location: Location);
+    constructor(id: UnqualifiedConstructor, typeParameters: TypeParameter[], context: Type, instances: InstanceStatement[], root: Tag, location: Location);
 }
 export declare class FunStatement {
     id: UnqualifiedIdentifier;

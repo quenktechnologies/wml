@@ -111,6 +111,7 @@ export type Member
 export type Export
     = AliasStatement
     | ContractStatement
+    | InstanceStatement
     | FunStatement
     | ViewStatement
     | Tag
@@ -163,6 +164,21 @@ export class MemberDeclaration {
 }
 
 /**
+ * InstanceStatement
+ */
+export class InstanceStatement {
+
+    type = 'instance-statement';
+
+    constructor(
+        public id: UnqualifiedIdentifier,
+        public cons: ConstructorType,
+        public properties: Property[],
+        public location: Location) { }
+
+}
+
+/**
  * ViewStatement
  */
 export class ViewStatement {
@@ -173,6 +189,7 @@ export class ViewStatement {
         public id: UnqualifiedConstructor,
         public typeParameters: TypeParameter[],
         public context: Type,
+        public instances: InstanceStatement[],
         public root: Tag,
         public location: Location) { }
 
