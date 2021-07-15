@@ -45,6 +45,7 @@
         },
         "type": "constructor-type"
       },
+      "instances": [],
       "root": {
         "open": {
           "value": "Widget",

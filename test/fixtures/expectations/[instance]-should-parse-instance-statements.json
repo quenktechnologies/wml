@@ -1,0 +1,128 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "head",
+        "location": {
+          "first_line": 1,
+          "first_column": 12,
+          "last_line": 1,
+          "last_column": 16,
+          "range": [
+            12,
+            16
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "cons": {
+        "id": {
+          "value": "HeadCtx",
+          "location": {
+            "first_line": 1,
+            "first_column": 20,
+            "last_line": 1,
+            "last_column": 27,
+            "range": [
+              20,
+              27
+            ]
+          },
+          "type": "unqualified-constructor"
+        },
+        "typeParameters": [],
+        "location": {
+          "first_line": 1,
+          "first_column": 20,
+          "last_line": 1,
+          "last_column": 27,
+          "range": [
+            20,
+            27
+          ]
+        },
+        "type": "constructor-type"
+      },
+      "properties": [],
+      "location": {
+        "first_line": 1,
+        "first_column": 0,
+        "last_line": 1,
+        "last_column": 30,
+        "range": [
+          0,
+          30
+        ]
+      },
+      "type": "instance-statement"
+    },
+    {
+      "id": {
+        "value": "head2",
+        "location": {
+          "first_line": 2,
+          "first_column": 17,
+          "last_line": 2,
+          "last_column": 22,
+          "range": [
+            48,
+            53
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "cons": {
+        "id": {
+          "value": "HeadCtx",
+          "location": {
+            "first_line": 2,
+            "first_column": 26,
+            "last_line": 2,
+            "last_column": 33,
+            "range": [
+              57,
+              64
+            ]
+          },
+          "type": "unqualified-constructor"
+        },
+        "typeParameters": [],
+        "location": {
+          "first_line": 2,
+          "first_column": 26,
+          "last_line": 2,
+          "last_column": 33,
+          "range": [
+            57,
+            64
+          ]
+        },
+        "type": "constructor-type"
+      },
+      "properties": "%}",
+      "location": {
+        "first_line": 2,
+        "first_column": 5,
+        "last_line": 2,
+        "last_column": 55,
+        "range": [
+          36,
+          86
+        ]
+      },
+      "type": "instance-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 3,
+    "last_column": 4,
+    "range": [
+      0,
+      91
+    ]
+  },
+  "type": "module"
+}

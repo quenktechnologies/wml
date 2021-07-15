@@ -88,6 +88,7 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <CONTROL>'from'                                          return 'FROM';
 <CONTROL>'view'                                          return 'VIEW';
 <CONTROL>'instanceof'                                    return 'INSTANCEOF';
+<CONTROL>'instance'                                      return 'INSTANCE';
 <CONTROL>'this'                                          return 'THIS';
 <CONTROL>'fun'                                           return 'FUN';
 <CONTROL>'endfun'                                        return 'ENDFUN';
@@ -237,6 +238,8 @@ export
 
           | contract_statement
 
+          | instance_statement
+
           | view_statement           
 
           | fun_statement 
@@ -290,6 +293,15 @@ contract_statement
             { $$ = new yy.ast.ContractStatement($3, $4, $6, $8, @$);           }
           ;
 
+instance_statement
+          : '{%' INSTANCE unqualified_identifier OF constructor_type '%}'
+            { $$ = new yy.ast.InstanceStatement($3, $5, [], @$); }
+
+          | '{%' INSTANCE unqualified_identifier OF constructor_type 
+            properties '%}'
+            { $$ = new yy.ast.InstanceStatement($3, $5, $7, @$); }
+          ;
+
 parent_list
           : constructor_type 
             { $$ = [$1]; }
@@ -325,8 +337,8 @@ member_path
 view_statement
 
           : '{%' VIEW unqualified_constructor type_parameters? '(' type ')' '%}'
-             element
-            {$$ = new yy.ast.ViewStatement($3, $4||[], $6, $9, @$);}
+             instance_statement* element
+            {$$ = new yy.ast.ViewStatement($3, $4||[], $6, $9||[], $10, @$);}
           ;
 
 fun_statement
@@ -936,7 +948,7 @@ properties
           ;
 
 property
-          : (unqualified_identifier|string_literal) ':' expression
+          : (unqualified_identifier|string_literal) '=' expression
             { $$ = new yy.ast.Property($1, $3, @$); }
           ;
 

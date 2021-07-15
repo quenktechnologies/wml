@@ -310,6 +310,8 @@ export const export2TS = (ctx: CodeGenerator, n: ast.Export) => {
         return aliasStatement2TS(n);
     else if (n instanceof ast.ContractStatement)
         return contractStatement2TS(n);
+    else if (n instanceof ast.InstanceStatement)
+        return instanceStatement2TS(ctx, n);
     else if (n instanceof ast.FunStatement)
         return funStatement2TS(ctx, n);
     else if (n instanceof ast.ViewStatement)
@@ -357,6 +359,29 @@ export const contractStatement2TS = (n: ast.ContractStatement) => {
 }
 
 /**
+ * instanceStatement2TS
+ */
+export const instanceStatement2TS =
+    (ctx: CodeGenerator, n: ast.InstanceStatement) => 
+     _instanceStatement2TS(ctx, n, 'export const');
+
+ const _instanceStatement2TS =
+    (ctx: CodeGenerator, n: ast.InstanceStatement, preamble:string) => {
+
+      let id = identifier2TS(n.id);
+
+        let cons = constructorType2TS(n.cons);
+
+        preamble = `${preamble} ${id}:${cons}`;
+
+        let props = n.properties.map(prop => property2TS(ctx, prop)).join(',');
+
+        return `${preamble} = ${props}`;
+
+    }
+
+
+/**
  * funStatement2TS generates Typescript output for fun statements.
  *
  * This is a curried function that first accepts zero or more arguments then
@@ -395,6 +420,9 @@ export const funStatement2TS = (ctx: CodeGenerator, n: ast.FunStatement) => {
  */
 export const viewStatement2TS = (ctx: CodeGenerator, n: ast.ViewStatement) => {
 
+    let instances = n.instances.map(i => 
+      _instanceStatement2TS(ctx,i,'let')).join(`;${ctx.options.EOL}`);
+
     let id = n.id ? constructor2TS(n.id) : 'Main';
 
     let typeParams = typeParameters2TS(n.typeParameters);
@@ -403,6 +431,7 @@ export const viewStatement2TS = (ctx: CodeGenerator, n: ast.ViewStatement) => {
 
     let template = tag2TS(ctx, n.root);
 
+
     return [
 
         `export class ${id} ${typeParams} implements ${WML}.View {`,
@@ -410,6 +439,8 @@ export const viewStatement2TS = (ctx: CodeGenerator, n: ast.ViewStatement) => {
         `   constructor(${CONTEXT}: ${c}) {`,
         ``,
         `       this.template = (${THIS}:${WML}.Registry) => {`,
+        ``,
+        `       ${instances}`,
         ``,
         `           return ${template};`,
         ``,

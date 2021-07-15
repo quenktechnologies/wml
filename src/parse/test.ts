@@ -220,7 +220,7 @@ export const tests: { [key: string]: any } = {
     },
     'should allow construct expression': {
 
-        input: '<TextView android:thing={value:1}>{{Person(@value)}}</TextView>'
+        input: '<TextView android:thing={value=1}>{{Person(@value)}}</TextView>'
 
     },
     'should allow view construction': {
@@ -588,6 +588,17 @@ export const tests: { [key: string]: any } = {
       `,
 
     'should parse null query operator':
-        `<div>{% if value ?? %}<b>True</b>{% else %}<b>False</b>{% endif %}</div>`
+        `<div>{% if value ?? %}<b>True</b>{% else %}<b>False</b>{% endif %}</div>`,
+
+    '[instance] should parse instance statements':
+        `{% instance head of HeadCtx %}
+     {% instance head2 of HeadCtx title = "My Title" %}
+    `,
+
+    '[instance] should be usable in a view':
+        `{% view MyView(Object) %}
+      {% instance head of HeadViewContext title = "My Title" %}
+      <h1>{{<HeadView(head)>}}</h1>
+    `
 
 }
