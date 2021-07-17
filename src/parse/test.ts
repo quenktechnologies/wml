@@ -529,22 +529,22 @@ export const tests: { [key: string]: any } = {
 
     '[context] should allow extending': {
 
-        input: `{% context AContract: BContract %}
-              {% context CContract : AContract, BContract %}
-              {% context DContract[Type] : CContract where 
-                 member: Type 
-              %}
-              {% context EContract[A,B,C,D] : BContract, CContract, 
-                 DContract[D] where
+        input: `{% context AContract where :BContract %}
+              {% context CContract where :AContract, :BContract %}
+              {% context DContract[Type] where :CContract, member: Type %}
+              {% context EContract[A,B,C,D] where 
+                 :BContract, 
+                 :CContract, 
+                 :DContract[D],
                  member0: A,
                  member1: B,
                  member2: C
              %}
-             {% context DContract : AContract where member: DType %}`
+             {% context DContract where :AContract, member: DType %}`
     },
 
     '[context] should mark nested properties as optional if all are':
-        `{% context Paper where object.type?: String %}`,
+        `{% context Paper where object."type"?: String %}`,
 
     'should parse type statements':
         `{% type Type = String | Number | Boolean | Type[] | Type -> Type %}`,
@@ -565,7 +565,7 @@ export const tests: { [key: string]: any } = {
 
     'should transform special primitives':
         `<div>
-            {% for type in [
+            {% for kind in [
                             String,
                             Boolean,
                             Number,
@@ -575,7 +575,7 @@ export const tests: { [key: string]: any } = {
                             Void,
                             Never,
                             Any] %}
-              {{ type | text }}
+              {{ kind | text }}
             {% endfor %}
         </div>`,
 

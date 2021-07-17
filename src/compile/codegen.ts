@@ -308,8 +308,8 @@ export const export2TS = (ctx: CodeGenerator, n: ast.Export) => {
 
     if (n instanceof ast.AliasStatement)
         return aliasStatement2TS(n);
-    else if (n instanceof ast.ContractStatement)
-        return contractStatement2TS(n);
+    else if (n instanceof ast.ContextStatement)
+        return contextStatement2TS(n);
     else if (n instanceof ast.InstanceStatement)
         return instanceStatement2TS(ctx, n);
     else if (n instanceof ast.FunStatement)
@@ -340,21 +340,31 @@ export const aliasStatement2TS = (n: ast.AliasStatement) => {
 }
 
 /**
- * contractStatement2TS
+ * contextStatement2TS
  */
-export const contractStatement2TS = (n: ast.ContractStatement) => {
+export const contextStatement2TS = (n: ast.ContextStatement) => {
 
     let preamble = `export interface ${n.id.value}`;
 
     let typeArgs = (n.typeParameters.length > 0) ?
         typeParameters2TS(n.typeParameters) : '';
 
-    let parents = n.parents.map(constructorType2TS).join(',');
+    let [parents, members] = partition(n.members, member =>
+        member instanceof ast.ConstructorType);
 
-    parents = (parents !== '') ? ` extends ${parents}` : '';
+    let parentList = (<ast.ConstructorType[]>parents)
+        .map(constructorType2TS).join(',');
 
-    return [preamble, typeArgs, parents, '{', memberDeclarations2TS(n.members),
-        '}'].join('');
+    parentList = (parentList !== '') ? ` extends ${parentList}` : '';
+
+    return [
+        preamble,
+        typeArgs,
+        parentList,
+        '{',
+        memberDeclarations2TS(<ast.MemberDeclaration[]>members),
+        '}'
+    ].join('');
 
 }
 
@@ -362,13 +372,13 @@ export const contractStatement2TS = (n: ast.ContractStatement) => {
  * instanceStatement2TS
  */
 export const instanceStatement2TS =
-    (ctx: CodeGenerator, n: ast.InstanceStatement) => 
-     _instanceStatement2TS(ctx, n, 'export const');
+    (ctx: CodeGenerator, n: ast.InstanceStatement) =>
+        _instanceStatement2TS(ctx, n, 'export const');
 
- const _instanceStatement2TS =
-    (ctx: CodeGenerator, n: ast.InstanceStatement, preamble:string) => {
+const _instanceStatement2TS =
+    (ctx: CodeGenerator, n: ast.InstanceStatement, preamble: string) => {
 
-      let id = identifier2TS(n.id);
+        let id = identifier2TS(n.id);
 
         let cons = constructorType2TS(n.cons);
 
@@ -420,8 +430,8 @@ export const funStatement2TS = (ctx: CodeGenerator, n: ast.FunStatement) => {
  */
 export const viewStatement2TS = (ctx: CodeGenerator, n: ast.ViewStatement) => {
 
-    let instances = n.instances.map(i => 
-      _instanceStatement2TS(ctx,i,'let')).join(`;${ctx.options.EOL}`);
+    let instances = n.instances.map(i =>
+        _instanceStatement2TS(ctx, i, 'let')).join(`;${ctx.options.EOL}`);
 
     let id = n.id ? constructor2TS(n.id) : 'Main';
 
