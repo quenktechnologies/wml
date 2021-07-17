@@ -25,12 +25,12 @@
               "value": "value",
               "location": {
                 "first_line": 1,
-                "first_column": 19,
+                "first_column": 23,
                 "last_line": 1,
-                "last_column": 24,
+                "last_column": 28,
                 "range": [
-                  19,
-                  24
+                  23,
+                  28
                 ]
               },
               "type": "unqualified-identifier"
@@ -44,12 +44,12 @@
                     "value": "String",
                     "location": {
                       "first_line": 1,
-                      "first_column": 27,
+                      "first_column": 31,
                       "last_line": 1,
-                      "last_column": 33,
+                      "last_column": 37,
                       "range": [
-                        27,
-                        33
+                        31,
+                        37
                       ]
                     },
                     "type": "unqualified-constructor"
@@ -59,12 +59,12 @@
                 },
                 "location": {
                   "first_line": 1,
-                  "first_column": 27,
+                  "first_column": 31,
                   "last_line": 1,
-                  "last_column": 35,
+                  "last_column": 39,
                   "range": [
-                    27,
-                    35
+                    31,
+                    39
                   ]
                 },
                 "type": "list-type"
@@ -76,12 +76,12 @@
                   "value": "String",
                   "location": {
                     "first_line": 1,
-                    "first_column": 40,
+                    "first_column": 44,
                     "last_line": 1,
-                    "last_column": 46,
+                    "last_column": 50,
                     "range": [
-                      40,
-                      46
+                      44,
+                      50
                     ]
                   },
                   "type": "unqualified-constructor"
@@ -91,24 +91,24 @@
               },
               "location": {
                 "first_line": 1,
-                "first_column": 40,
+                "first_column": 44,
                 "last_line": 1,
-                "last_column": 48,
+                "last_column": 52,
                 "range": [
-                  40,
-                  48
+                  44,
+                  52
                 ]
               },
               "type": "list-type"
             },
             "location": {
               "first_line": 1,
-              "first_column": 26,
+              "first_column": 30,
               "last_line": 1,
-              "last_column": 48,
+              "last_column": 52,
               "range": [
-                26,
-                48
+                30,
+                52
               ]
             },
             "type": "function-type"
@@ -116,12 +116,12 @@
           "optional": false,
           "location": {
             "first_line": 1,
-            "first_column": 19,
+            "first_column": 23,
             "last_line": 1,
-            "last_column": 48,
+            "last_column": 52,
             "range": [
-              19,
-              48
+              23,
+              52
             ]
           },
           "type": "member-declaration"
@@ -131,10 +131,10 @@
         "first_line": 1,
         "first_column": 0,
         "last_line": 1,
-        "last_column": 51,
+        "last_column": 55,
         "range": [
           0,
-          51
+          55
         ]
       },
       "type": "context-statement"
@@ -144,10 +144,10 @@
     "first_line": 1,
     "first_column": 0,
     "last_line": 1,
-    "last_column": 51,
+    "last_column": 55,
     "range": [
       0,
-      51
+      55
     ]
   },
   "type": "module"

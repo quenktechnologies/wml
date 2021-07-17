@@ -53,12 +53,12 @@
               "value": "value",
               "location": {
                 "first_line": 1,
-                "first_column": 22,
+                "first_column": 26,
                 "last_line": 1,
-                "last_column": 27,
+                "last_column": 31,
                 "range": [
-                  22,
-                  27
+                  26,
+                  31
                 ]
               },
               "type": "unqualified-identifier"
@@ -71,12 +71,12 @@
                   "value": "Text",
                   "location": {
                     "first_line": 1,
-                    "first_column": 30,
+                    "first_column": 34,
                     "last_line": 1,
-                    "last_column": 34,
+                    "last_column": 38,
                     "range": [
-                      30,
-                      34
+                      34,
+                      38
                     ]
                   },
                   "type": "unqualified-constructor"
@@ -87,24 +87,24 @@
                       "value": "A",
                       "location": {
                         "first_line": 1,
-                        "first_column": 35,
+                        "first_column": 39,
                         "last_line": 1,
-                        "last_column": 36,
+                        "last_column": 40,
                         "range": [
-                          35,
-                          36
+                          39,
+                          40
                         ]
                       },
                       "type": "unqualified-constructor"
                     },
                     "location": {
                       "first_line": 1,
-                      "first_column": 35,
+                      "first_column": 39,
                       "last_line": 1,
-                      "last_column": 36,
+                      "last_column": 40,
                       "range": [
-                        35,
-                        36
+                        39,
+                        40
                       ]
                     },
                     "type": "type-parameter"
@@ -112,12 +112,12 @@
                 ],
                 "location": {
                   "first_line": 1,
-                  "first_column": 30,
+                  "first_column": 34,
                   "last_line": 1,
-                  "last_column": 37,
+                  "last_column": 41,
                   "range": [
-                    30,
-                    37
+                    34,
+                    41
                   ]
                 },
                 "type": "constructor-type"
@@ -127,12 +127,12 @@
                   "value": "Text",
                   "location": {
                     "first_line": 1,
-                    "first_column": 39,
+                    "first_column": 43,
                     "last_line": 1,
-                    "last_column": 43,
+                    "last_column": 47,
                     "range": [
-                      39,
-                      43
+                      43,
+                      47
                     ]
                   },
                   "type": "unqualified-constructor"
@@ -143,24 +143,24 @@
                       "value": "A",
                       "location": {
                         "first_line": 1,
-                        "first_column": 44,
+                        "first_column": 48,
                         "last_line": 1,
-                        "last_column": 45,
+                        "last_column": 49,
                         "range": [
-                          44,
-                          45
+                          48,
+                          49
                         ]
                       },
                       "type": "unqualified-constructor"
                     },
                     "location": {
                       "first_line": 1,
-                      "first_column": 44,
+                      "first_column": 48,
                       "last_line": 1,
-                      "last_column": 45,
+                      "last_column": 49,
                       "range": [
-                        44,
-                        45
+                        48,
+                        49
                       ]
                     },
                     "type": "type-parameter"
@@ -168,12 +168,12 @@
                 ],
                 "location": {
                   "first_line": 1,
-                  "first_column": 39,
+                  "first_column": 43,
                   "last_line": 1,
-                  "last_column": 46,
+                  "last_column": 50,
                   "range": [
-                    39,
-                    46
+                    43,
+                    50
                   ]
                 },
                 "type": "constructor-type"
@@ -184,12 +184,12 @@
                 "value": "Text",
                 "location": {
                   "first_line": 1,
-                  "first_column": 51,
+                  "first_column": 55,
                   "last_line": 1,
-                  "last_column": 55,
+                  "last_column": 59,
                   "range": [
-                    51,
-                    55
+                    55,
+                    59
                   ]
                 },
                 "type": "unqualified-constructor"
@@ -200,24 +200,24 @@
                     "value": "A",
                     "location": {
                       "first_line": 1,
-                      "first_column": 56,
+                      "first_column": 60,
                       "last_line": 1,
-                      "last_column": 57,
+                      "last_column": 61,
                       "range": [
-                        56,
-                        57
+                        60,
+                        61
                       ]
                     },
                     "type": "unqualified-constructor"
                   },
                   "location": {
                     "first_line": 1,
-                    "first_column": 56,
+                    "first_column": 60,
                     "last_line": 1,
-                    "last_column": 57,
+                    "last_column": 61,
                     "range": [
-                      56,
-                      57
+                      60,
+                      61
                     ]
                   },
                   "type": "type-parameter"
@@ -225,24 +225,24 @@
               ],
               "location": {
                 "first_line": 1,
-                "first_column": 51,
+                "first_column": 55,
                 "last_line": 1,
-                "last_column": 58,
+                "last_column": 62,
                 "range": [
-                  51,
-                  58
+                  55,
+                  62
                 ]
               },
               "type": "constructor-type"
             },
             "location": {
               "first_line": 1,
-              "first_column": 29,
+              "first_column": 33,
               "last_line": 1,
-              "last_column": 58,
+              "last_column": 62,
               "range": [
-                29,
-                58
+                33,
+                62
               ]
             },
             "type": "function-type"
@@ -250,12 +250,12 @@
           "optional": false,
           "location": {
             "first_line": 1,
-            "first_column": 22,
+            "first_column": 26,
             "last_line": 1,
-            "last_column": 58,
+            "last_column": 62,
             "range": [
-              22,
-              58
+              26,
+              62
             ]
           },
           "type": "member-declaration"
@@ -265,10 +265,10 @@
         "first_line": 1,
         "first_column": 0,
         "last_line": 1,
-        "last_column": 61,
+        "last_column": 65,
         "range": [
           0,
-          61
+          65
         ]
       },
       "type": "context-statement"
@@ -278,10 +278,10 @@
     "first_line": 1,
     "first_column": 0,
     "last_line": 1,
-    "last_column": 61,
+    "last_column": 65,
     "range": [
       0,
-      61
+      65
     ]
   },
   "type": "module"

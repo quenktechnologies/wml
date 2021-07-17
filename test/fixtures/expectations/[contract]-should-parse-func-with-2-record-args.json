@@ -25,12 +25,12 @@
               "value": "value",
               "location": {
                 "first_line": 1,
-                "first_column": 19,
+                "first_column": 23,
                 "last_line": 1,
-                "last_column": 24,
+                "last_column": 28,
                 "range": [
-                  19,
-                  24
+                  23,
+                  28
                 ]
               },
               "type": "unqualified-identifier"
@@ -42,12 +42,12 @@
                 "members": [],
                 "location": {
                   "first_line": 1,
-                  "first_column": 27,
+                  "first_column": 31,
                   "last_line": 1,
-                  "last_column": 30,
+                  "last_column": 34,
                   "range": [
-                    27,
-                    30
+                    31,
+                    34
                   ]
                 },
                 "type": "record-type"
@@ -60,12 +60,12 @@
                         "value": "name",
                         "location": {
                           "first_line": 1,
-                          "first_column": 34,
+                          "first_column": 38,
                           "last_line": 1,
-                          "last_column": 38,
+                          "last_column": 42,
                           "range": [
-                            34,
-                            38
+                            38,
+                            42
                           ]
                         },
                         "type": "unqualified-identifier"
@@ -76,12 +76,12 @@
                         "value": "String",
                         "location": {
                           "first_line": 1,
-                          "first_column": 40,
+                          "first_column": 44,
                           "last_line": 1,
-                          "last_column": 46,
+                          "last_column": 50,
                           "range": [
-                            40,
-                            46
+                            44,
+                            50
                           ]
                         },
                         "type": "unqualified-constructor"
@@ -89,12 +89,12 @@
                       "typeParameters": [],
                       "location": {
                         "first_line": 1,
-                        "first_column": 40,
+                        "first_column": 44,
                         "last_line": 1,
-                        "last_column": 46,
+                        "last_column": 50,
                         "range": [
-                          40,
-                          46
+                          44,
+                          50
                         ]
                       },
                       "type": "constructor-type"
@@ -102,12 +102,12 @@
                     "optional": false,
                     "location": {
                       "first_line": 1,
-                      "first_column": 34,
+                      "first_column": 38,
                       "last_line": 1,
-                      "last_column": 46,
+                      "last_column": 50,
                       "range": [
-                        34,
-                        46
+                        38,
+                        50
                       ]
                     },
                     "type": "member-declaration"
@@ -115,12 +115,12 @@
                 ],
                 "location": {
                   "first_line": 1,
-                  "first_column": 32,
+                  "first_column": 36,
                   "last_line": 1,
-                  "last_column": 48,
+                  "last_column": 52,
                   "range": [
-                    32,
-                    48
+                    36,
+                    52
                   ]
                 },
                 "type": "record-type"
@@ -130,24 +130,24 @@
               "members": [],
               "location": {
                 "first_line": 1,
-                "first_column": 53,
+                "first_column": 57,
                 "last_line": 1,
-                "last_column": 56,
+                "last_column": 60,
                 "range": [
-                  53,
-                  56
+                  57,
+                  60
                 ]
               },
               "type": "record-type"
             },
             "location": {
               "first_line": 1,
-              "first_column": 26,
+              "first_column": 30,
               "last_line": 1,
-              "last_column": 56,
+              "last_column": 60,
               "range": [
-                26,
-                56
+                30,
+                60
               ]
             },
             "type": "function-type"
@@ -155,12 +155,12 @@
           "optional": false,
           "location": {
             "first_line": 1,
-            "first_column": 19,
+            "first_column": 23,
             "last_line": 1,
-            "last_column": 56,
+            "last_column": 60,
             "range": [
-              19,
-              56
+              23,
+              60
             ]
           },
           "type": "member-declaration"
@@ -170,10 +170,10 @@
         "first_line": 1,
         "first_column": 0,
         "last_line": 1,
-        "last_column": 59,
+        "last_column": 63,
         "range": [
           0,
-          59
+          63
         ]
       },
       "type": "context-statement"
@@ -183,10 +183,10 @@
     "first_line": 1,
     "first_column": 0,
     "last_line": 1,
-    "last_column": 59,
+    "last_column": 63,
     "range": [
       0,
-      59
+      63
     ]
   },
   "type": "module"

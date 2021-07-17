@@ -25,12 +25,12 @@
               "value": "name",
               "location": {
                 "first_line": 1,
-                "first_column": 19,
+                "first_column": 23,
                 "last_line": 1,
-                "last_column": 23,
+                "last_column": 27,
                 "range": [
-                  19,
-                  23
+                  23,
+                  27
                 ]
               },
               "type": "unqualified-identifier"
@@ -41,12 +41,12 @@
               "value": "String",
               "location": {
                 "first_line": 1,
-                "first_column": 25,
+                "first_column": 29,
                 "last_line": 1,
-                "last_column": 31,
+                "last_column": 35,
                 "range": [
-                  25,
-                  31
+                  29,
+                  35
                 ]
               },
               "type": "unqualified-constructor"
@@ -54,12 +54,12 @@
             "typeParameters": [],
             "location": {
               "first_line": 1,
-              "first_column": 25,
+              "first_column": 29,
               "last_line": 1,
-              "last_column": 31,
+              "last_column": 35,
               "range": [
-                25,
-                31
+                29,
+                35
               ]
             },
             "type": "constructor-type"
@@ -67,12 +67,12 @@
           "optional": false,
           "location": {
             "first_line": 1,
-            "first_column": 19,
+            "first_column": 23,
             "last_line": 1,
-            "last_column": 31,
+            "last_column": 35,
             "range": [
-              19,
-              31
+              23,
+              35
             ]
           },
           "type": "member-declaration"
@@ -82,10 +82,10 @@
         "first_line": 1,
         "first_column": 0,
         "last_line": 1,
-        "last_column": 34,
+        "last_column": 38,
         "range": [
           0,
-          34
+          38
         ]
       },
       "type": "context-statement"
@@ -95,10 +95,10 @@
     "first_line": 1,
     "first_column": 0,
     "last_line": 1,
-    "last_column": 34,
+    "last_column": 38,
     "range": [
       0,
-      34
+      38
     ]
   },
   "type": "module"

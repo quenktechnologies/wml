@@ -75,6 +75,8 @@ export class Main  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.widget(new Panel({ww : { 'class' : __context.values.root .class   }}, [
 
         ...((((__context.values.header .tabs .length  > 0) || __context.values.header .additionalTabs )) ?

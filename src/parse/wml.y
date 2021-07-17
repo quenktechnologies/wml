@@ -97,6 +97,7 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <CONTROL>'alias'                                         return 'ALIAS';
 <CONTROL>'true'                                          return 'TRUE';
 <CONTROL>'false'                                         return 'FALSE';
+<CONTROL>'where'                                         return 'WHERE';
 <CONTROL>{Constructor}                             return 'CONSTRUCTOR';
 <CONTROL>{Identifier}                              return 'IDENTIFIER';
 <CONTROL>'@'                                             return '@';
@@ -277,19 +278,19 @@ contract_statement
              parent_list '%}'
             { $$ = new yy.ast.ContractStatement($3, $4, $6, [], @$);           }
           
-          | '{%' CONTRACT unqualified_constructor '=' member_declarations '%}'
+          | '{%' CONTRACT unqualified_constructor WHERE member_declarations '%}'
             { $$ = new yy.ast.ContractStatement($3, [], [], $5, @$);           }
 
-          | '{%' CONTRACT unqualified_constructor type_parameters '=' 
+          | '{%' CONTRACT unqualified_constructor type_parameters WHERE
              member_declarations '%}'
             { $$ = new yy.ast.ContractStatement($3, $4, [], $6, @$);           }
 
-          | '{%' CONTRACT unqualified_constructor ':' parent_list '=' 
+          | '{%' CONTRACT unqualified_constructor ':' parent_list WHERE
             member_declarations '%}'
             { $$ = new yy.ast.ContractStatement($3, [], $5, $7, @$);           }
 
           | '{%' CONTRACT unqualified_constructor type_parameters ':' 
-            parent_list '=' member_declarations '%}'
+             parent_list WHERE member_declarations '%}'
             { $$ = new yy.ast.ContractStatement($3, $4, $6, $8, @$);           }
           ;
 
@@ -297,7 +298,7 @@ instance_statement
           : '{%' INSTANCE unqualified_identifier OF constructor_type '%}'
             { $$ = new yy.ast.InstanceStatement($3, $5, [], @$); }
 
-          | '{%' INSTANCE unqualified_identifier OF constructor_type 
+          | '{%' INSTANCE unqualified_identifier OF constructor_type WHERE
             properties '%}'
             { $$ = new yy.ast.InstanceStatement($3, $5, $7, @$); }
           ;

@@ -62,18 +62,18 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 const text = __document.text;
 // @ts-ignore 6192
 const isSet = (value:any) => value != null
-export class Test  implements __wml.View {
+export class MyView  implements __wml.View {
 
    constructor(__context: object) {
 
        this.template = (__this:__wml.Registry) => {
 
-       
+       let head:HeadViewContext = 'title' : 'My Title'
 
-           return __this.widget(new Widget({'val1': String(__context.value),'val2': Number(__context.value),'val3': Boolean(__context.value)}, [
+           return __this.node('h1', <__wml.Attrs>{}, [
 
-        
-     ]),<__wml.Attrs>{'val1': String(__context.value),'val2': Number(__context.value),'val3': Boolean(__context.value)});
+        __this.registerView((new HeadView(head))).render()
+     ]);
 
        }
 

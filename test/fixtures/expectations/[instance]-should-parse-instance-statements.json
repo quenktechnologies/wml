@@ -100,15 +100,47 @@
         },
         "type": "constructor-type"
       },
-      "properties": "%}",
+      "properties": [
+        {
+          "key": {
+            "value": "title",
+            "location": {
+              "first_line": 2,
+              "first_column": 40,
+              "last_line": 2,
+              "last_column": 45,
+              "range": [
+                71,
+                76
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "value": {
+            "value": "My Title",
+            "type": "string"
+          },
+          "location": {
+            "first_line": 2,
+            "first_column": 40,
+            "last_line": 2,
+            "last_column": 58,
+            "range": [
+              71,
+              89
+            ]
+          },
+          "type": "property"
+        }
+      ],
       "location": {
         "first_line": 2,
         "first_column": 5,
         "last_line": 2,
-        "last_column": 55,
+        "last_column": 61,
         "range": [
           36,
-          86
+          92
         ]
       },
       "type": "instance-statement"
@@ -121,7 +153,7 @@
     "last_column": 4,
     "range": [
       0,
-      91
+      97
     ]
   },
   "type": "module"

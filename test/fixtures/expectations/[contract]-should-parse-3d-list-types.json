@@ -107,12 +107,12 @@
               "value": "table",
               "location": {
                 "first_line": 1,
-                "first_column": 28,
+                "first_column": 32,
                 "last_line": 1,
-                "last_column": 33,
+                "last_column": 37,
                 "range": [
-                  28,
-                  33
+                  32,
+                  37
                 ]
               },
               "type": "unqualified-identifier"
@@ -121,12 +121,12 @@
               "value": "data",
               "location": {
                 "first_line": 1,
-                "first_column": 34,
+                "first_column": 38,
                 "last_line": 1,
-                "last_column": 38,
+                "last_column": 42,
                 "range": [
-                  34,
-                  38
+                  38,
+                  42
                 ]
               },
               "type": "unqualified-identifier"
@@ -135,12 +135,12 @@
               "value": "list3",
               "location": {
                 "first_line": 1,
-                "first_column": 39,
+                "first_column": 43,
                 "last_line": 1,
-                "last_column": 44,
+                "last_column": 48,
                 "range": [
-                  39,
-                  44
+                  43,
+                  48
                 ]
               },
               "type": "unqualified-identifier"
@@ -154,12 +154,12 @@
                     "value": "A",
                     "location": {
                       "first_line": 1,
-                      "first_column": 46,
+                      "first_column": 50,
                       "last_line": 1,
-                      "last_column": 47,
+                      "last_column": 51,
                       "range": [
-                        46,
-                        47
+                        50,
+                        51
                       ]
                     },
                     "type": "unqualified-constructor"
@@ -169,36 +169,36 @@
                 },
                 "location": {
                   "first_line": 1,
-                  "first_column": 46,
+                  "first_column": 50,
                   "last_line": 1,
-                  "last_column": 49,
+                  "last_column": 53,
                   "range": [
-                    46,
-                    49
+                    50,
+                    53
                   ]
                 },
                 "type": "list-type"
               },
               "location": {
                 "first_line": 1,
-                "first_column": 46,
+                "first_column": 50,
                 "last_line": 1,
-                "last_column": 51,
+                "last_column": 55,
                 "range": [
-                  46,
-                  51
+                  50,
+                  55
                 ]
               },
               "type": "list-type"
             },
             "location": {
               "first_line": 1,
-              "first_column": 46,
+              "first_column": 50,
               "last_line": 1,
-              "last_column": 53,
+              "last_column": 57,
               "range": [
-                46,
-                53
+                50,
+                57
               ]
             },
             "type": "list-type"
@@ -206,12 +206,12 @@
           "optional": false,
           "location": {
             "first_line": 1,
-            "first_column": 28,
+            "first_column": 32,
             "last_line": 1,
-            "last_column": 53,
+            "last_column": 57,
             "range": [
-              28,
-              53
+              32,
+              57
             ]
           },
           "type": "member-declaration"
@@ -221,10 +221,10 @@
         "first_line": 1,
         "first_column": 0,
         "last_line": 1,
-        "last_column": 56,
+        "last_column": 60,
         "range": [
           0,
-          56
+          60
         ]
       },
       "type": "context-statement"
@@ -234,10 +234,10 @@
     "first_line": 1,
     "first_column": 0,
     "last_line": 1,
-    "last_column": 56,
+    "last_column": 60,
     "range": [
       0,
-      56
+      60
     ]
   },
   "type": "module"

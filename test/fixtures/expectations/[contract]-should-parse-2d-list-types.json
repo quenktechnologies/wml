@@ -80,12 +80,12 @@
               "value": "table",
               "location": {
                 "first_line": 1,
-                "first_column": 24,
+                "first_column": 28,
                 "last_line": 1,
-                "last_column": 29,
+                "last_column": 33,
                 "range": [
-                  24,
-                  29
+                  28,
+                  33
                 ]
               },
               "type": "unqualified-identifier"
@@ -94,12 +94,12 @@
               "value": "data",
               "location": {
                 "first_line": 1,
-                "first_column": 30,
+                "first_column": 34,
                 "last_line": 1,
-                "last_column": 34,
+                "last_column": 38,
                 "range": [
-                  30,
-                  34
+                  34,
+                  38
                 ]
               },
               "type": "unqualified-identifier"
@@ -108,12 +108,12 @@
               "value": "list2",
               "location": {
                 "first_line": 1,
-                "first_column": 35,
+                "first_column": 39,
                 "last_line": 1,
-                "last_column": 40,
+                "last_column": 44,
                 "range": [
-                  35,
-                  40
+                  39,
+                  44
                 ]
               },
               "type": "unqualified-identifier"
@@ -126,12 +126,12 @@
                   "value": "A",
                   "location": {
                     "first_line": 1,
-                    "first_column": 42,
+                    "first_column": 46,
                     "last_line": 1,
-                    "last_column": 43,
+                    "last_column": 47,
                     "range": [
-                      42,
-                      43
+                      46,
+                      47
                     ]
                   },
                   "type": "unqualified-constructor"
@@ -141,24 +141,24 @@
               },
               "location": {
                 "first_line": 1,
-                "first_column": 42,
+                "first_column": 46,
                 "last_line": 1,
-                "last_column": 45,
+                "last_column": 49,
                 "range": [
-                  42,
-                  45
+                  46,
+                  49
                 ]
               },
               "type": "list-type"
             },
             "location": {
               "first_line": 1,
-              "first_column": 42,
+              "first_column": 46,
               "last_line": 1,
-              "last_column": 47,
+              "last_column": 51,
               "range": [
-                42,
-                47
+                46,
+                51
               ]
             },
             "type": "list-type"
@@ -166,12 +166,12 @@
           "optional": false,
           "location": {
             "first_line": 1,
-            "first_column": 24,
+            "first_column": 28,
             "last_line": 1,
-            "last_column": 47,
+            "last_column": 51,
             "range": [
-              24,
-              47
+              28,
+              51
             ]
           },
           "type": "member-declaration"
@@ -181,10 +181,10 @@
         "first_line": 1,
         "first_column": 0,
         "last_line": 1,
-        "last_column": 50,
+        "last_column": 54,
         "range": [
           0,
-          50
+          54
         ]
       },
       "type": "context-statement"
@@ -194,10 +194,10 @@
     "first_line": 1,
     "first_column": 0,
     "last_line": 1,
-    "last_column": 50,
+    "last_column": 54,
     "range": [
       0,
-      50
+      54
     ]
   },
   "type": "module"

@@ -25,12 +25,12 @@
               "value": "value",
               "location": {
                 "first_line": 1,
-                "first_column": 19,
+                "first_column": 23,
                 "last_line": 1,
-                "last_column": 24,
+                "last_column": 28,
                 "range": [
-                  19,
-                  24
+                  23,
+                  28
                 ]
               },
               "type": "unqualified-identifier"
@@ -44,12 +44,12 @@
                     "value": "String",
                     "location": {
                       "first_line": 1,
-                      "first_column": 27,
+                      "first_column": 31,
                       "last_line": 1,
-                      "last_column": 33,
+                      "last_column": 37,
                       "range": [
-                        27,
-                        33
+                        31,
+                        37
                       ]
                     },
                     "type": "unqualified-constructor"
@@ -59,12 +59,12 @@
                 },
                 "location": {
                   "first_line": 1,
-                  "first_column": 27,
+                  "first_column": 31,
                   "last_line": 1,
-                  "last_column": 35,
+                  "last_column": 39,
                   "range": [
-                    27,
-                    35
+                    31,
+                    39
                   ]
                 },
                 "type": "list-type"
@@ -75,12 +75,12 @@
                     "value": "String",
                     "location": {
                       "first_line": 1,
-                      "first_column": 37,
+                      "first_column": 41,
                       "last_line": 1,
-                      "last_column": 43,
+                      "last_column": 47,
                       "range": [
-                        37,
-                        43
+                        41,
+                        47
                       ]
                     },
                     "type": "unqualified-constructor"
@@ -90,12 +90,12 @@
                 },
                 "location": {
                   "first_line": 1,
-                  "first_column": 37,
+                  "first_column": 41,
                   "last_line": 1,
-                  "last_column": 45,
+                  "last_column": 49,
                   "range": [
-                    37,
-                    45
+                    41,
+                    49
                   ]
                 },
                 "type": "list-type"
@@ -106,12 +106,12 @@
                     "value": "String",
                     "location": {
                       "first_line": 1,
-                      "first_column": 47,
+                      "first_column": 51,
                       "last_line": 1,
-                      "last_column": 53,
+                      "last_column": 57,
                       "range": [
-                        47,
-                        53
+                        51,
+                        57
                       ]
                     },
                     "type": "unqualified-constructor"
@@ -121,12 +121,12 @@
                 },
                 "location": {
                   "first_line": 1,
-                  "first_column": 47,
+                  "first_column": 51,
                   "last_line": 1,
-                  "last_column": 55,
+                  "last_column": 59,
                   "range": [
-                    47,
-                    55
+                    51,
+                    59
                   ]
                 },
                 "type": "list-type"
@@ -138,12 +138,12 @@
                   "value": "String",
                   "location": {
                     "first_line": 1,
-                    "first_column": 60,
+                    "first_column": 64,
                     "last_line": 1,
-                    "last_column": 66,
+                    "last_column": 70,
                     "range": [
-                      60,
-                      66
+                      64,
+                      70
                     ]
                   },
                   "type": "unqualified-constructor"
@@ -153,24 +153,24 @@
               },
               "location": {
                 "first_line": 1,
-                "first_column": 60,
+                "first_column": 64,
                 "last_line": 1,
-                "last_column": 68,
+                "last_column": 72,
                 "range": [
-                  60,
-                  68
+                  64,
+                  72
                 ]
               },
               "type": "list-type"
             },
             "location": {
               "first_line": 1,
-              "first_column": 26,
+              "first_column": 30,
               "last_line": 1,
-              "last_column": 68,
+              "last_column": 72,
               "range": [
-                26,
-                68
+                30,
+                72
               ]
             },
             "type": "function-type"
@@ -178,12 +178,12 @@
           "optional": false,
           "location": {
             "first_line": 1,
-            "first_column": 19,
+            "first_column": 23,
             "last_line": 1,
-            "last_column": 68,
+            "last_column": 72,
             "range": [
-              19,
-              68
+              23,
+              72
             ]
           },
           "type": "member-declaration"
@@ -193,10 +193,10 @@
         "first_line": 1,
         "first_column": 0,
         "last_line": 1,
-        "last_column": 71,
+        "last_column": 75,
         "range": [
           0,
-          71
+          75
         ]
       },
       "type": "context-statement"
@@ -206,10 +206,10 @@
     "first_line": 1,
     "first_column": 0,
     "last_line": 1,
-    "last_column": 71,
+    "last_column": 75,
     "range": [
       0,
-      71
+      75
     ]
   },
   "type": "module"

@@ -25,12 +25,12 @@
               "value": "value",
               "location": {
                 "first_line": 1,
-                "first_column": 19,
+                "first_column": 23,
                 "last_line": 1,
-                "last_column": 24,
+                "last_column": 28,
                 "range": [
-                  19,
-                  24
+                  23,
+                  28
                 ]
               },
               "type": "unqualified-identifier"
@@ -43,12 +43,12 @@
                   "value": "String",
                   "location": {
                     "first_line": 1,
-                    "first_column": 27,
+                    "first_column": 31,
                     "last_line": 1,
-                    "last_column": 33,
+                    "last_column": 37,
                     "range": [
-                      27,
-                      33
+                      31,
+                      37
                     ]
                   },
                   "type": "unqualified-constructor"
@@ -56,12 +56,12 @@
                 "typeParameters": [],
                 "location": {
                   "first_line": 1,
-                  "first_column": 27,
+                  "first_column": 31,
                   "last_line": 1,
-                  "last_column": 33,
+                  "last_column": 37,
                   "range": [
-                    27,
-                    33
+                    31,
+                    37
                   ]
                 },
                 "type": "constructor-type"
@@ -71,12 +71,12 @@
                   "value": "String",
                   "location": {
                     "first_line": 1,
-                    "first_column": 35,
+                    "first_column": 39,
                     "last_line": 1,
-                    "last_column": 41,
+                    "last_column": 45,
                     "range": [
-                      35,
-                      41
+                      39,
+                      45
                     ]
                   },
                   "type": "unqualified-constructor"
@@ -84,12 +84,12 @@
                 "typeParameters": [],
                 "location": {
                   "first_line": 1,
-                  "first_column": 35,
+                  "first_column": 39,
                   "last_line": 1,
-                  "last_column": 41,
+                  "last_column": 45,
                   "range": [
-                    35,
-                    41
+                    39,
+                    45
                   ]
                 },
                 "type": "constructor-type"
@@ -99,12 +99,12 @@
                   "value": "String",
                   "location": {
                     "first_line": 1,
-                    "first_column": 43,
+                    "first_column": 47,
                     "last_line": 1,
-                    "last_column": 49,
+                    "last_column": 53,
                     "range": [
-                      43,
-                      49
+                      47,
+                      53
                     ]
                   },
                   "type": "unqualified-constructor"
@@ -112,12 +112,12 @@
                 "typeParameters": [],
                 "location": {
                   "first_line": 1,
-                  "first_column": 43,
+                  "first_column": 47,
                   "last_line": 1,
-                  "last_column": 49,
+                  "last_column": 53,
                   "range": [
-                    43,
-                    49
+                    47,
+                    53
                   ]
                 },
                 "type": "constructor-type"
@@ -128,12 +128,12 @@
                 "value": "String",
                 "location": {
                   "first_line": 1,
-                  "first_column": 54,
+                  "first_column": 58,
                   "last_line": 1,
-                  "last_column": 60,
+                  "last_column": 64,
                   "range": [
-                    54,
-                    60
+                    58,
+                    64
                   ]
                 },
                 "type": "unqualified-constructor"
@@ -141,24 +141,24 @@
               "typeParameters": [],
               "location": {
                 "first_line": 1,
-                "first_column": 54,
+                "first_column": 58,
                 "last_line": 1,
-                "last_column": 60,
+                "last_column": 64,
                 "range": [
-                  54,
-                  60
+                  58,
+                  64
                 ]
               },
               "type": "constructor-type"
             },
             "location": {
               "first_line": 1,
-              "first_column": 26,
+              "first_column": 30,
               "last_line": 1,
-              "last_column": 60,
+              "last_column": 64,
               "range": [
-                26,
-                60
+                30,
+                64
               ]
             },
             "type": "function-type"
@@ -166,12 +166,12 @@
           "optional": false,
           "location": {
             "first_line": 1,
-            "first_column": 19,
+            "first_column": 23,
             "last_line": 1,
-            "last_column": 60,
+            "last_column": 64,
             "range": [
-              19,
-              60
+              23,
+              64
             ]
           },
           "type": "member-declaration"
@@ -181,10 +181,10 @@
         "first_line": 1,
         "first_column": 0,
         "last_line": 1,
-        "last_column": 63,
+        "last_column": 67,
         "range": [
           0,
-          63
+          67
         ]
       },
       "type": "context-statement"
@@ -194,10 +194,10 @@
     "first_line": 1,
     "first_column": 0,
     "last_line": 1,
-    "last_column": 63,
+    "last_column": 67,
     "range": [
       0,
-      63
+      67
     ]
   },
   "type": "module"

@@ -62,10 +62,5 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 const text = __document.text;
 // @ts-ignore 6192
 const isSet = (value:any) => value != null
-export interface AContract extends BContract{};
-export interface CContract extends AContract,BContract{};
-export interface DContract<Type  >  extends CContract{member : Type};
-export interface EContract<A  ,B  ,C  ,D  >  extends BContract,CContract,DContract<D  > {member0 : A,
-member1 : B,
-member2 : C};
-export interface DContract extends AContract{member : DType}
+export const head:HeadCtx = ;
+export const head2:HeadCtx = 'title' : 'My Title'

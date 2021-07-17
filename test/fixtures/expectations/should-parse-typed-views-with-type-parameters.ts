@@ -68,6 +68,8 @@ export class Main <A  ,B  >  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('p', <__wml.Attrs>{}, [
 
         __context.values

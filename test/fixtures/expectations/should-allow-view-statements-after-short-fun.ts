@@ -78,6 +78,8 @@ export class Results <A  >  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('ul', <__wml.Attrs>{}, [
 
         ...__forIn ([

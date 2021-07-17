@@ -68,6 +68,8 @@ export class Test  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('div', <__wml.Attrs>{}, [
 
         ...(((value === true )) ?

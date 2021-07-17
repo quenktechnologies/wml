@@ -232,8 +232,8 @@
                 "last_line": 4,
                 "last_column": 23,
                 "range": [
-                  172,
-                  178
+                  176,
+                  182
                 ]
               },
               "type": "unqualified-identifier"
@@ -248,8 +248,8 @@
                 "last_line": 4,
                 "last_column": 29,
                 "range": [
-                  180,
-                  184
+                  184,
+                  188
                 ]
               },
               "type": "unqualified-constructor"
@@ -261,8 +261,8 @@
               "last_line": 4,
               "last_column": 29,
               "range": [
-                180,
-                184
+                184,
+                188
               ]
             },
             "type": "constructor-type"
@@ -274,8 +274,8 @@
             "last_line": 4,
             "last_column": 29,
             "range": [
-              172,
-              184
+              176,
+              188
             ]
           },
           "type": "member-declaration"
@@ -288,7 +288,7 @@
         "last_column": 16,
         "range": [
           112,
-          202
+          206
         ]
       },
       "type": "context-statement"
@@ -302,8 +302,8 @@
           "last_line": 6,
           "last_column": 35,
           "range": [
-            229,
-            238
+            233,
+            242
           ]
         },
         "type": "unqualified-constructor"
@@ -318,8 +318,8 @@
               "last_line": 6,
               "last_column": 37,
               "range": [
-                239,
-                240
+                243,
+                244
               ]
             },
             "type": "unqualified-constructor"
@@ -330,8 +330,8 @@
             "last_line": 6,
             "last_column": 37,
             "range": [
-              239,
-              240
+              243,
+              244
             ]
           },
           "type": "type-parameter"
@@ -345,8 +345,8 @@
               "last_line": 6,
               "last_column": 39,
               "range": [
-                241,
-                242
+                245,
+                246
               ]
             },
             "type": "unqualified-constructor"
@@ -357,8 +357,8 @@
             "last_line": 6,
             "last_column": 39,
             "range": [
-              241,
-              242
+              245,
+              246
             ]
           },
           "type": "type-parameter"
@@ -372,8 +372,8 @@
               "last_line": 6,
               "last_column": 41,
               "range": [
-                243,
-                244
+                247,
+                248
               ]
             },
             "type": "unqualified-constructor"
@@ -384,8 +384,8 @@
             "last_line": 6,
             "last_column": 41,
             "range": [
-              243,
-              244
+              247,
+              248
             ]
           },
           "type": "type-parameter"
@@ -399,8 +399,8 @@
               "last_line": 6,
               "last_column": 43,
               "range": [
-                245,
-                246
+                249,
+                250
               ]
             },
             "type": "unqualified-constructor"
@@ -411,8 +411,8 @@
             "last_line": 6,
             "last_column": 43,
             "range": [
-              245,
-              246
+              249,
+              250
             ]
           },
           "type": "type-parameter"
@@ -428,8 +428,8 @@
               "last_line": 6,
               "last_column": 56,
               "range": [
-                250,
-                259
+                254,
+                263
               ]
             },
             "type": "unqualified-constructor"
@@ -441,8 +441,8 @@
             "last_line": 6,
             "last_column": 56,
             "range": [
-              250,
-              259
+              254,
+              263
             ]
           },
           "type": "constructor-type"
@@ -456,8 +456,8 @@
               "last_line": 6,
               "last_column": 67,
               "range": [
-                261,
-                270
+                265,
+                274
               ]
             },
             "type": "unqualified-constructor"
@@ -469,8 +469,8 @@
             "last_line": 6,
             "last_column": 67,
             "range": [
-              261,
-              270
+              265,
+              274
             ]
           },
           "type": "constructor-type"
@@ -484,8 +484,8 @@
               "last_line": 7,
               "last_column": 26,
               "range": [
-                290,
-                299
+                294,
+                303
               ]
             },
             "type": "unqualified-constructor"
@@ -500,8 +500,8 @@
                   "last_line": 7,
                   "last_column": 28,
                   "range": [
-                    300,
-                    301
+                    304,
+                    305
                   ]
                 },
                 "type": "unqualified-constructor"
@@ -512,8 +512,8 @@
                 "last_line": 7,
                 "last_column": 28,
                 "range": [
-                  300,
-                  301
+                  304,
+                  305
                 ]
               },
               "type": "type-parameter"
@@ -525,8 +525,8 @@
             "last_line": 7,
             "last_column": 29,
             "range": [
-              290,
-              302
+              294,
+              306
             ]
           },
           "type": "constructor-type"
@@ -543,8 +543,8 @@
                 "last_line": 8,
                 "last_column": 24,
                 "range": [
-                  322,
-                  329
+                  330,
+                  337
                 ]
               },
               "type": "unqualified-identifier"
@@ -559,8 +559,8 @@
                 "last_line": 8,
                 "last_column": 27,
                 "range": [
-                  331,
-                  332
+                  339,
+                  340
                 ]
               },
               "type": "unqualified-constructor"
@@ -572,8 +572,8 @@
               "last_line": 8,
               "last_column": 27,
               "range": [
-                331,
-                332
+                339,
+                340
               ]
             },
             "type": "constructor-type"
@@ -585,8 +585,8 @@
             "last_line": 8,
             "last_column": 27,
             "range": [
-              322,
-              332
+              330,
+              340
             ]
           },
           "type": "member-declaration"
@@ -601,8 +601,8 @@
                 "last_line": 9,
                 "last_column": 24,
                 "range": [
-                  351,
-                  358
+                  359,
+                  366
                 ]
               },
               "type": "unqualified-identifier"
@@ -617,8 +617,8 @@
                 "last_line": 9,
                 "last_column": 27,
                 "range": [
-                  360,
-                  361
+                  368,
+                  369
                 ]
               },
               "type": "unqualified-constructor"
@@ -630,8 +630,8 @@
               "last_line": 9,
               "last_column": 27,
               "range": [
-                360,
-                361
+                368,
+                369
               ]
             },
             "type": "constructor-type"
@@ -643,8 +643,8 @@
             "last_line": 9,
             "last_column": 27,
             "range": [
-              351,
-              361
+              359,
+              369
             ]
           },
           "type": "member-declaration"
@@ -659,8 +659,8 @@
                 "last_line": 10,
                 "last_column": 24,
                 "range": [
-                  380,
-                  387
+                  388,
+                  395
                 ]
               },
               "type": "unqualified-identifier"
@@ -675,8 +675,8 @@
                 "last_line": 10,
                 "last_column": 27,
                 "range": [
-                  389,
-                  390
+                  397,
+                  398
                 ]
               },
               "type": "unqualified-constructor"
@@ -688,8 +688,8 @@
               "last_line": 10,
               "last_column": 27,
               "range": [
-                389,
-                390
+                397,
+                398
               ]
             },
             "type": "constructor-type"
@@ -701,8 +701,8 @@
             "last_line": 10,
             "last_column": 27,
             "range": [
-              380,
-              390
+              388,
+              398
             ]
           },
           "type": "member-declaration"
@@ -714,8 +714,8 @@
         "last_line": 11,
         "last_column": 15,
         "range": [
-          217,
-          406
+          221,
+          414
         ]
       },
       "type": "context-statement"
@@ -729,8 +729,8 @@
           "last_line": 12,
           "last_column": 34,
           "range": [
-            432,
-            441
+            440,
+            449
           ]
         },
         "type": "unqualified-constructor"
@@ -746,8 +746,8 @@
               "last_line": 12,
               "last_column": 46,
               "range": [
-                444,
-                453
+                452,
+                461
               ]
             },
             "type": "unqualified-constructor"
@@ -759,8 +759,8 @@
             "last_line": 12,
             "last_column": 46,
             "range": [
-              444,
-              453
+              452,
+              461
             ]
           },
           "type": "constructor-type"
@@ -773,12 +773,12 @@
               "value": "member",
               "location": {
                 "first_line": 12,
-                "first_column": 49,
+                "first_column": 53,
                 "last_line": 12,
-                "last_column": 55,
+                "last_column": 59,
                 "range": [
-                  456,
-                  462
+                  468,
+                  474
                 ]
               },
               "type": "unqualified-identifier"
@@ -789,12 +789,12 @@
               "value": "DType",
               "location": {
                 "first_line": 12,
-                "first_column": 57,
+                "first_column": 61,
                 "last_line": 12,
-                "last_column": 62,
+                "last_column": 66,
                 "range": [
-                  464,
-                  469
+                  476,
+                  481
                 ]
               },
               "type": "unqualified-constructor"
@@ -802,12 +802,12 @@
             "typeParameters": [],
             "location": {
               "first_line": 12,
-              "first_column": 57,
+              "first_column": 61,
               "last_line": 12,
-              "last_column": 62,
+              "last_column": 66,
               "range": [
-                464,
-                469
+                476,
+                481
               ]
             },
             "type": "constructor-type"
@@ -815,12 +815,12 @@
           "optional": false,
           "location": {
             "first_line": 12,
-            "first_column": 49,
+            "first_column": 53,
             "last_line": 12,
-            "last_column": 62,
+            "last_column": 66,
             "range": [
-              456,
-              469
+              468,
+              481
             ]
           },
           "type": "member-declaration"
@@ -830,10 +830,10 @@
         "first_line": 12,
         "first_column": 13,
         "last_line": 12,
-        "last_column": 65,
+        "last_column": 69,
         "range": [
-          420,
-          472
+          428,
+          484
         ]
       },
       "type": "context-statement"
@@ -843,10 +843,10 @@
     "first_line": 1,
     "first_column": 0,
     "last_line": 12,
-    "last_column": 65,
+    "last_column": 69,
     "range": [
       0,
-      472
+      484
     ]
   },
   "type": "module"

@@ -25,12 +25,12 @@
               "value": "value",
               "location": {
                 "first_line": 1,
-                "first_column": 19,
+                "first_column": 23,
                 "last_line": 1,
-                "last_column": 24,
+                "last_column": 28,
                 "range": [
-                  19,
-                  24
+                  23,
+                  28
                 ]
               },
               "type": "unqualified-identifier"
@@ -43,12 +43,12 @@
                   "value": "String",
                   "location": {
                     "first_line": 1,
-                    "first_column": 27,
+                    "first_column": 31,
                     "last_line": 1,
-                    "last_column": 33,
+                    "last_column": 37,
                     "range": [
-                      27,
-                      33
+                      31,
+                      37
                     ]
                   },
                   "type": "unqualified-constructor"
@@ -56,12 +56,12 @@
                 "typeParameters": [],
                 "location": {
                   "first_line": 1,
-                  "first_column": 27,
+                  "first_column": 31,
                   "last_line": 1,
-                  "last_column": 33,
+                  "last_column": 37,
                   "range": [
-                    27,
-                    33
+                    31,
+                    37
                   ]
                 },
                 "type": "constructor-type"
@@ -71,12 +71,12 @@
                   "value": "String",
                   "location": {
                     "first_line": 1,
-                    "first_column": 35,
+                    "first_column": 39,
                     "last_line": 1,
-                    "last_column": 41,
+                    "last_column": 45,
                     "range": [
-                      35,
-                      41
+                      39,
+                      45
                     ]
                   },
                   "type": "unqualified-constructor"
@@ -84,12 +84,12 @@
                 "typeParameters": [],
                 "location": {
                   "first_line": 1,
-                  "first_column": 35,
+                  "first_column": 39,
                   "last_line": 1,
-                  "last_column": 41,
+                  "last_column": 45,
                   "range": [
-                    35,
-                    41
+                    39,
+                    45
                   ]
                 },
                 "type": "constructor-type"
@@ -100,12 +100,12 @@
                 "value": "String",
                 "location": {
                   "first_line": 1,
-                  "first_column": 46,
+                  "first_column": 50,
                   "last_line": 1,
-                  "last_column": 52,
+                  "last_column": 56,
                   "range": [
-                    46,
-                    52
+                    50,
+                    56
                   ]
                 },
                 "type": "unqualified-constructor"
@@ -113,24 +113,24 @@
               "typeParameters": [],
               "location": {
                 "first_line": 1,
-                "first_column": 46,
+                "first_column": 50,
                 "last_line": 1,
-                "last_column": 52,
+                "last_column": 56,
                 "range": [
-                  46,
-                  52
+                  50,
+                  56
                 ]
               },
               "type": "constructor-type"
             },
             "location": {
               "first_line": 1,
-              "first_column": 26,
+              "first_column": 30,
               "last_line": 1,
-              "last_column": 52,
+              "last_column": 56,
               "range": [
-                26,
-                52
+                30,
+                56
               ]
             },
             "type": "function-type"
@@ -138,12 +138,12 @@
           "optional": false,
           "location": {
             "first_line": 1,
-            "first_column": 19,
+            "first_column": 23,
             "last_line": 1,
-            "last_column": 52,
+            "last_column": 56,
             "range": [
-              19,
-              52
+              23,
+              56
             ]
           },
           "type": "member-declaration"
@@ -153,10 +153,10 @@
         "first_line": 1,
         "first_column": 0,
         "last_line": 1,
-        "last_column": 55,
+        "last_column": 59,
         "range": [
           0,
-          55
+          59
         ]
       },
       "type": "context-statement"
@@ -166,10 +166,10 @@
     "first_line": 1,
     "first_column": 0,
     "last_line": 1,
-    "last_column": 55,
+    "last_column": 59,
     "range": [
       0,
-      55
+      59
     ]
   },
   "type": "module"

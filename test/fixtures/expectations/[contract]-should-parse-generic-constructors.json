@@ -25,12 +25,12 @@
               "value": "table",
               "location": {
                 "first_line": 1,
-                "first_column": 19,
+                "first_column": 23,
                 "last_line": 1,
-                "last_column": 24,
+                "last_column": 28,
                 "range": [
-                  19,
-                  24
+                  23,
+                  28
                 ]
               },
               "type": "unqualified-identifier"
@@ -39,12 +39,12 @@
               "value": "name",
               "location": {
                 "first_line": 1,
-                "first_column": 25,
+                "first_column": 29,
                 "last_line": 1,
-                "last_column": 29,
+                "last_column": 33,
                 "range": [
-                  25,
-                  29
+                  29,
+                  33
                 ]
               },
               "type": "unqualified-identifier"
@@ -55,12 +55,12 @@
               "value": "Text",
               "location": {
                 "first_line": 1,
-                "first_column": 31,
+                "first_column": 35,
                 "last_line": 1,
-                "last_column": 35,
+                "last_column": 39,
                 "range": [
-                  31,
-                  35
+                  35,
+                  39
                 ]
               },
               "type": "unqualified-constructor"
@@ -71,24 +71,24 @@
                   "value": "A",
                   "location": {
                     "first_line": 1,
-                    "first_column": 36,
+                    "first_column": 40,
                     "last_line": 1,
-                    "last_column": 37,
+                    "last_column": 41,
                     "range": [
-                      36,
-                      37
+                      40,
+                      41
                     ]
                   },
                   "type": "unqualified-constructor"
                 },
                 "location": {
                   "first_line": 1,
-                  "first_column": 36,
+                  "first_column": 40,
                   "last_line": 1,
-                  "last_column": 37,
+                  "last_column": 41,
                   "range": [
-                    36,
-                    37
+                    40,
+                    41
                   ]
                 },
                 "type": "type-parameter"
@@ -96,12 +96,12 @@
             ],
             "location": {
               "first_line": 1,
-              "first_column": 31,
+              "first_column": 35,
               "last_line": 1,
-              "last_column": 38,
+              "last_column": 42,
               "range": [
-                31,
-                38
+                35,
+                42
               ]
             },
             "type": "constructor-type"
@@ -109,12 +109,12 @@
           "optional": false,
           "location": {
             "first_line": 1,
-            "first_column": 19,
+            "first_column": 23,
             "last_line": 1,
-            "last_column": 38,
+            "last_column": 42,
             "range": [
-              19,
-              38
+              23,
+              42
             ]
           },
           "type": "member-declaration"
@@ -124,10 +124,10 @@
         "first_line": 1,
         "first_column": 0,
         "last_line": 1,
-        "last_column": 41,
+        "last_column": 45,
         "range": [
           0,
-          41
+          45
         ]
       },
       "type": "context-statement"
@@ -137,10 +137,10 @@
     "first_line": 1,
     "first_column": 0,
     "last_line": 1,
-    "last_column": 41,
+    "last_column": 45,
     "range": [
       0,
-      41
+      45
     ]
   },
   "type": "module"
