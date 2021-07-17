@@ -546,16 +546,16 @@ export const tests: { [key: string]: any } = {
     '[context] should mark nested properties as optional if all are':
         `{% context Paper where object.type?: String %}`,
 
-    'should parse alias statements':
-        `{% alias Type = String | Number | Boolean | Type[] | Type -> Type %}`,
+    'should parse type statements':
+        `{% type Type = String | Number | Boolean | Type[] | Type -> Type %}`,
 
-    'should parse tupe types': `{% alias Tuple = [Number, String, Number] %}`,
+    'should parse tupe types': `{% type Tuple = [Number, String, Number] %}`,
 
     'should parse primitives used as type':
-        '{% alias Prims = 1|2|"three"|true|false|"1,2,three,true,false" %}',
+        '{% type Prims = 1|2|"three"|true|false|"1,2,three,true,false" %}',
 
-    'should parse this alias':
-        '{% alias SortDir = 1 | -1 %}',
+    'should parse this type':
+        '{% type SortDir = 1 | -1 %}',
 
     'should parse type assertion':
         '<Panel onClick={{ \e -> [*User]foo(e) }} />',

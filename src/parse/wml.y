@@ -94,7 +94,7 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <CONTROL>'endfun'                                        return 'ENDFUN';
 <CONTROL>'as'                                            return 'AS';
 <CONTROL>'context'                                       return 'CONTEXT';
-<CONTROL>'alias'                                         return 'ALIAS';
+<CONTROL>'type'                                          return 'TYPE';
 <CONTROL>'true'                                          return 'TRUE';
 <CONTROL>'false'                                         return 'FALSE';
 <CONTROL>'where'                                         return 'WHERE';
@@ -235,7 +235,7 @@ exports
           ;
 
 export
-          : alias_statement
+          : type_statement
 
           | context_statement
 
@@ -249,8 +249,8 @@ export
             {$$ = $1; }
           ;
 
-alias_statement
-          : '{%' ALIAS unqualified_constructor type_parameters? '='
+type_statement
+          : '{%' TYPE unqualified_constructor type_parameters? '='
             alias_members '%}'
             { $$ = new yy.ast.AliasStatement($3, $4||[], $6);   }
           ;
