@@ -347,12 +347,12 @@ export const tests: { [key: string]: any } = {
 
     },
 
-    '[contract] should parse constructors': '{% contract Test where name: String %}',
+    '[context] should parse constructors': '{% context Test where name: String %}',
 
-    '[contract] should parse generic constructors':
-        '{% contract Test where table.name: Text[A] %}',
+    '[context] should parse generic constructors':
+        '{% context Test where table.name: Text[A] %}',
 
-    '[contract] should parse record types': `{% contract Test[A] where
+    '[context] should parse record types': `{% context Test[A] where
          
         table.data.record: { 
 
@@ -362,89 +362,89 @@ export const tests: { [key: string]: any } = {
           } 
         %}`,
 
-    '[contract] should parse list types':
-        `{% contract Test[A] where table.data.list: A[] %}`,
+    '[context] should parse list types':
+        `{% context Test[A] where table.data.list: A[] %}`,
 
-    '[contract] should parse 2d list types':
-        `{% contract Test[A,B] where table.data.list2: A[][] %}`,
+    '[context] should parse 2d list types':
+        `{% context Test[A,B] where table.data.list2: A[][] %}`,
 
-    '[contract] should parse 3d list types':
-        `{% contract Test[A, B, C] where table.data.list3: A[][][] %}`,
+    '[context] should parse 3d list types':
+        `{% context Test[A, B, C] where table.data.list3: A[][][] %}`,
 
-    '[contract] should parse func with no args or parens':
-        `{% contract Test where value: Test -> Number %}`,
+    '[context] should parse func with no args or parens':
+        `{% context Test where value: Test -> Number %}`,
 
-    '[contract] should parse func with no args':
-        `{% contract Test where value: () -> Number %}`,
+    '[context] should parse func with no args':
+        `{% context Test where value: () -> Number %}`,
 
-    '[contract] should parse no-parens func with constructor':
-        `{% contract Test where value: String -> String %}`,
+    '[context] should parse no-parens func with constructor':
+        `{% context Test where value: String -> String %}`,
 
-    '[contract] should parse no-parens func with generic constructor':
-        `{% contract Test where value: Text[A] -> Text[A] %}`,
+    '[context] should parse no-parens func with generic constructor':
+        `{% context Test where value: Text[A] -> Text[A] %}`,
 
-    '[contract] should parse no-parens func with record arg':
-        `{% contract Test where value: {} -> { } %}`,
+    '[context] should parse no-parens func with record arg':
+        `{% context Test where value: {} -> { } %}`,
 
-    '[contract] should parse no-parens func with list arg':
-        `{% contract Test where value: String[] -> String[] %}`,
+    '[context] should parse no-parens func with list arg':
+        `{% context Test where value: String[] -> String[] %}`,
 
-    '[contract] should parse func with cons arg':
-        `{% contract Test where value: (String) -> String %}`,
+    '[context] should parse func with cons arg':
+        `{% context Test where value: (String) -> String %}`,
 
-    '[contract] should parse func with 2 cons args':
-        `{% contract Test where value: (String, String) -> String %}`,
+    '[context] should parse func with 2 cons args':
+        `{% context Test where value: (String, String) -> String %}`,
 
-    '[contract] should parse func with 3 cons args':
-        `{% contract Test where value: (String, String, String) -> String %}`,
+    '[context] should parse func with 3 cons args':
+        `{% context Test where value: (String, String, String) -> String %}`,
 
-    '[contract] should parse func with generic cons arg':
-        `{% contract Test[A] where value: (Text[A]) -> Text[A] %}`,
+    '[context] should parse func with generic cons arg':
+        `{% context Test[A] where value: (Text[A]) -> Text[A] %}`,
 
-    '[contract] should parse func with 2 generic cons args':
-        `{% contract Test[A] where value: (Text[A], Text[A]) -> Text[A] %}`,
+    '[context] should parse func with 2 generic cons args':
+        `{% context Test[A] where value: (Text[A], Text[A]) -> Text[A] %}`,
 
-    '[contract] should parse func with 3 generic cons args':
-        `{% contract Test[A] where value: (Text[A], Text[A], Text[A]) -> Text[A] %}`,
+    '[context] should parse func with 3 generic cons args':
+        `{% context Test[A] where value: (Text[A], Text[A], Text[A]) -> Text[A] %}`,
 
-    '[contract] should parse func with record arg':
-        `{% contract Test where value: ({ }) -> { } %}`,
+    '[context] should parse func with record arg':
+        `{% context Test where value: ({ }) -> { } %}`,
 
-    '[contract] should parse func with 2 record args':
-        `{% contract Test where value: ({ }, { name: String }) -> { } %}`,
+    '[context] should parse func with 2 record args':
+        `{% context Test where value: ({ }, { name: String }) -> { } %}`,
 
-    '[contract] should parse func with 3 record args':
-        `{% contract Test where value: ({ }, { name: String }, { value: A[]}) -> { } %}`,
+    '[context] should parse func with 3 record args':
+        `{% context Test where value: ({ }, { name: String }, { value: A[]}) -> { } %}`,
 
-    '[contract] should parse func with list arg':
-        `{% contract Test where value: (String[]) -> String[] %}`,
+    '[context] should parse func with list arg':
+        `{% context Test where value: (String[]) -> String[] %}`,
 
-    '[contract] should parse func with 2 list args':
-        `{% contract Test where value: (String[], String[]) -> String[] %}`,
+    '[context] should parse func with 2 list args':
+        `{% context Test where value: (String[], String[]) -> String[] %}`,
 
-    '[contract] should parse func with 3 list args':
-        `{% contract Test where value: (String[], String[], String[]) -> String[] %}`,
+    '[context] should parse func with 3 list args':
+        `{% context Test where value: (String[], String[], String[]) -> String[] %}`,
 
-    '[contract] should parse func with func arg':
-        `{% contract Test where value: (String -> String) -> String %}`,
+    '[context] should parse func with func arg':
+        `{% context Test where value: (String -> String) -> String %}`,
 
-    '[contract] should parse func with 2 func args':
-        `{% contract Test where value: ((String -> String), (String -> String)) -> String %}`,
+    '[context] should parse func with 2 func args':
+        `{% context Test where value: ((String -> String), (String -> String)) -> String %}`,
 
-    '[contract] should parse func with 3 func args':
-        `{% contract Test where
+    '[context] should parse func with 3 func args':
+        `{% context Test where
           value: ((String -> String), (String -> String), (String -> String)) -> String 
          %}`,
 
-    '[contract] should parse func that return array of generic type':
-        `{% contract Test[A] where value: Number -> Text[A][] %}`,
+    '[context] should parse func that return array of generic type':
+        `{% context Test[A] where value: Number -> Text[A][] %}`,
 
-    '[contract] should parse funct that return array of array':
-        `{% contract Test where value: String -> Number[][] %}`,
+    '[context] should parse funct that return array of array':
+        `{% context Test where value: String -> Number[][] %}`,
 
-    '[contract] should parse contract definitions': {
+    '[context] should parse context definitions': {
 
-        input: `{% contract Manager[A] where
+        input: `{% context Manager[A] where
 
     name: String,
 
@@ -511,9 +511,9 @@ export const tests: { [key: string]: any } = {
 
     },
 
-    '[contract] should allow optional properties': {
+    '[context] should allow optional properties': {
 
-        input: `{% contract AContract where 
+        input: `{% context AContract where 
           
                   id?: Number,
 
@@ -527,24 +527,24 @@ export const tests: { [key: string]: any } = {
 
     },
 
-    '[contract] should allow extending': {
+    '[context] should allow extending': {
 
-        input: `{% contract AContract: BContract %}
-              {% contract CContract : AContract, BContract %}
-              {% contract DContract[Type] : CContract where 
+        input: `{% context AContract: BContract %}
+              {% context CContract : AContract, BContract %}
+              {% context DContract[Type] : CContract where 
                  member: Type 
               %}
-              {% contract EContract[A,B,C,D] : BContract, CContract, 
+              {% context EContract[A,B,C,D] : BContract, CContract, 
                  DContract[D] where
                  member0: A,
                  member1: B,
                  member2: C
              %}
-             {% contract DContract : AContract where member: DType %}`
+             {% context DContract : AContract where member: DType %}`
     },
 
-    '[contract] should mark nested properties as optional if all are':
-        `{% contract Paper where object.type?: String %}`,
+    '[context] should mark nested properties as optional if all are':
+        `{% context Paper where object.type?: String %}`,
 
     'should parse alias statements':
         `{% alias Type = String | Number | Boolean | Type[] | Type -> Type %}`,

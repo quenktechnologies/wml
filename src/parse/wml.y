@@ -93,7 +93,7 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <CONTROL>'fun'                                           return 'FUN';
 <CONTROL>'endfun'                                        return 'ENDFUN';
 <CONTROL>'as'                                            return 'AS';
-<CONTROL>'contract'                                      return 'CONTRACT';
+<CONTROL>'context'                                       return 'CONTEXT';
 <CONTROL>'alias'                                         return 'ALIAS';
 <CONTROL>'true'                                          return 'TRUE';
 <CONTROL>'false'                                         return 'FALSE';
@@ -237,7 +237,7 @@ exports
 export
           : alias_statement
 
-          | contract_statement
+          | context_statement
 
           | instance_statement
 
@@ -263,33 +263,33 @@ alias_members
             { $$ = $1.concat($3);                               }
           ;
 
-contract_statement
+context_statement
 
-          : '{%' CONTRACT unqualified_constructor '%}'
+          : '{%' CONTEXT unqualified_constructor '%}'
             { $$ = new yy.ast.ContractStatement($3, [], [], [], @$);           }
 
-          | '{%' CONTRACT unqualified_constructor type_parameters '%}'
+          | '{%' CONTEXT unqualified_constructor type_parameters '%}'
             { $$ = new yy.ast.ContractStatement($3, [], [], [], @$);           }
 
-          | '{%' CONTRACT unqualified_constructor ':' parent_list '%}'
+          | '{%' CONTEXT unqualified_constructor ':' parent_list '%}'
             { $$ = new yy.ast.ContractStatement($3, [], $5, [], @$);           }
           
-          | '{%' CONTRACT unqualified_constructor type_parameters ':'
+          | '{%' CONTEXT unqualified_constructor type_parameters ':'
              parent_list '%}'
             { $$ = new yy.ast.ContractStatement($3, $4, $6, [], @$);           }
           
-          | '{%' CONTRACT unqualified_constructor WHERE member_declarations '%}'
+          | '{%' CONTEXT unqualified_constructor WHERE member_declarations '%}'
             { $$ = new yy.ast.ContractStatement($3, [], [], $5, @$);           }
 
-          | '{%' CONTRACT unqualified_constructor type_parameters WHERE
+          | '{%' CONTEXT unqualified_constructor type_parameters WHERE
              member_declarations '%}'
             { $$ = new yy.ast.ContractStatement($3, $4, [], $6, @$);           }
 
-          | '{%' CONTRACT unqualified_constructor ':' parent_list WHERE
+          | '{%' CONTEXT unqualified_constructor ':' parent_list WHERE
             member_declarations '%}'
             { $$ = new yy.ast.ContractStatement($3, [], $5, $7, @$);           }
 
-          | '{%' CONTRACT unqualified_constructor type_parameters ':' 
+          | '{%' CONTEXT unqualified_constructor type_parameters ':' 
              parent_list WHERE member_declarations '%}'
             { $$ = new yy.ast.ContractStatement($3, $4, $6, $8, @$);           }
           ;
