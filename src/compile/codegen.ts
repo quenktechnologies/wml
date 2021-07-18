@@ -314,8 +314,8 @@ export const export2TS = (ctx: CodeGenerator, n: ast.Export) => {
         return aliasStatement2TS(n);
     else if (n instanceof ast.ContextStatement)
         return contextStatement2TS(n);
-    else if (n instanceof ast.InstanceStatement)
-        return instanceStatement2TS(ctx, n);
+    else if (n instanceof ast.LetStatement)
+        return letStatement2TS(ctx, n);
     else if (n instanceof ast.FunStatement)
         return funStatement2TS(ctx, n);
     else if (n instanceof ast.ViewStatement)
@@ -373,14 +373,14 @@ export const contextStatement2TS = (n: ast.ContextStatement) => {
 }
 
 /**
- * instanceStatement2TS
+ * letStatement2TS
  */
-export const instanceStatement2TS =
-    (ctx: CodeGenerator, n: ast.InstanceStatement) =>
-        _instanceStatement2TS(ctx, n, 'export const');
+export const letStatement2TS =
+    (ctx: CodeGenerator, n: ast.LetStatement) =>
+        _setStatement2TS(ctx, n, 'export const');
 
-const _instanceStatement2TS =
-    (ctx: CodeGenerator, n: ast.InstanceStatement, preamble: string) => {
+const _setStatement2TS =
+    (ctx: CodeGenerator, n: ast.LetStatement, preamble: string) => {
 
         let id = identifier2TS(n.id);
 
@@ -388,12 +388,11 @@ const _instanceStatement2TS =
 
         preamble = `${preamble} ${id}:${cons}`;
 
-        let props = n.properties.map(prop => property2TS(ctx, prop)).join(',');
+        let value = expression2TS(ctx, n.expression);
 
-        return `${preamble} = ${props}`;
+        return `${preamble} = ${value}`;
 
     }
-
 
 /**
  * funStatement2TS generates Typescript output for fun statements.
@@ -435,13 +434,13 @@ export const funStatement2TS = (ctx: CodeGenerator, n: ast.FunStatement) => {
 export const viewStatement2TS = (ctx: CodeGenerator, n: ast.ViewStatement) => {
 
     let instances = n.directives.map(i =>
-        _instanceStatement2TS(ctx, i, 'let')).join(`;${ctx.options.EOL}`);
+        _setStatement2TS(ctx, i, 'let')).join(`;${ctx.options.EOL}`);
 
     let id = n.id ? constructor2TS(n.id) : 'Main';
 
     let typeParams = typeParameters2TS(n.typeParameters);
 
-  // This should be transformed to what we expect.
+    // This should be transformed to what we expect.
     let c = type2TS(<ast.ConstructorType>n.context);
 
     let template = tag2TS(ctx, n.root);

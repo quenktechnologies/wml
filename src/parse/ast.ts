@@ -112,7 +112,7 @@ export type Member
 export type Export
     = AliasStatement
     | ContextStatement
-    | InstanceStatement
+    | LetStatement
     | FunStatement
     | ViewStatement
     | Tag
@@ -166,16 +166,16 @@ export class MemberDeclaration {
 }
 
 /**
- * InstanceStatement
+ * LetStatement
  */
-export class InstanceStatement {
+export class LetStatement {
 
-    type = 'instance-statement';
+    type = 'let-statement';
 
     constructor(
         public id: UnqualifiedIdentifier,
         public cons: ConstructorType,
-        public properties: Property[],
+        public expression: Expression,
         public location: Location) { }
 
 }
@@ -193,7 +193,7 @@ export class ViewStatement {
         public id: UnqualifiedConstructor,
         public typeParameters: TypeParameter[],
         public context: ContextTypeIndicator,
-        public directives: InstanceStatement[],
+        public directives: LetStatement[],
         public root: Tag,
         public location: Location) { }
 

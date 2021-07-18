@@ -88,7 +88,6 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <CONTROL>'from'                                          return 'FROM';
 <CONTROL>'view'                                          return 'VIEW';
 <CONTROL>'instanceof'                                    return 'INSTANCEOF';
-<CONTROL>'instance'                                      return 'INSTANCE';
 <CONTROL>'this'                                          return 'THIS';
 <CONTROL>'fun'                                           return 'FUN';
 <CONTROL>'endfun'                                        return 'ENDFUN';
@@ -98,6 +97,7 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <CONTROL>'true'                                          return 'TRUE';
 <CONTROL>'false'                                         return 'FALSE';
 <CONTROL>'where'                                         return 'WHERE';
+<CONTROL>'let'                                           return 'LET';
 <CONTROL>{Constructor}                             return 'CONSTRUCTOR';
 <CONTROL>{Identifier}                              return 'IDENTIFIER';
 <CONTROL>'@'                                             return '@';
@@ -239,7 +239,7 @@ export
 
           | context_statement
 
-          | instance_statement
+          | let_statement
 
           | view_statement           
 
@@ -295,13 +295,9 @@ parent_context
             {$$ = $2; }
           ;
 
-instance_statement
-          : '{%' INSTANCE unqualified_identifier OF constructor_type '%}'
-            { $$ = new yy.ast.InstanceStatement($3, $5, [], @$); }
-
-          | '{%' INSTANCE unqualified_identifier OF constructor_type WHERE
-            properties '%}'
-            { $$ = new yy.ast.InstanceStatement($3, $5, $7, @$); }
+let_statement
+          : '{%' LET unqualified_identifier ':' type '=' expression '%}'
+            { $$ = new yy.ast.LetStatement($3, $5, $7, @$); }
           ;
 
 member_declarations
@@ -341,7 +337,7 @@ view_statement
 
            | '{%' VIEW unqualified_constructor '(' type ')' '%}'
              view_directives element
-            { $$ = new yy.ast.ViewStatement($3, [], $6, $8, $9, @$);           }
+            { $$ = new yy.ast.ViewStatement($3, [], $5, $8, $9, @$);           }
 
            | '{%' VIEW unqualified_constructor type_parameters '(' type ')' '%}' 
               element
@@ -368,10 +364,10 @@ view_statement
           ;
 
 view_directives
-          : instance_statement
+          : let_statement
             { $$ = [$1]; }
 
-          | view_directives instance_statement
+          | view_directives let_statement
             { $$ = $1.concat($2); }
           ;
 

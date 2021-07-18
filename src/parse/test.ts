@@ -595,14 +595,14 @@ export const tests: { [key: string]: any } = {
     'should parse null query operator':
         `<div>{% if value ?? %}<b>True</b>{% else %}<b>False</b>{% endif %}</div>`,
 
-    '[instance] should parse instance statements':
-        `{% instance head of HeadCtx %}
-     {% instance head2 of HeadCtx where title = "My Title" %}
+    '[let] should parse let statements':
+        `{% let head:HeadCtx = {title = "Foo"} %}
+     {% let head2:HeadCtx = {title = "My Title"} %}
     `,
 
-    '[instance] should be usable in a view':
+    '[let] should be usable in a view':
         `{% view MyView(Object) %}
-      {% instance head of HeadViewContext where title = "My Title" %}
+      {% let head:HeadViewContext = {title = "My Title"} %}
       <h1>{{<HeadView(head)>}}</h1>
     `
 
