@@ -65,7 +65,7 @@ export declare class CodeGenerator {
     /**
      * generate a Typescript module from an WML AST.
      */
-    generate(m: ast.Module): TypeScript;
+    generate(tree: ast.Module): TypeScript;
 }
 /**
  * importStatements2TS converts a list of ImportStatements into typescript.
@@ -104,13 +104,13 @@ export declare const export2TS: (ctx: CodeGenerator, n: ast.Export) => string;
  */
 export declare const aliasStatement2TS: (n: ast.AliasStatement) => string;
 /**
- * contractStatement2TS
+ * contextStatement2TS
  */
-export declare const contractStatement2TS: (n: ast.ContractStatement) => string;
+export declare const contextStatement2TS: (n: ast.ContextStatement) => string;
 /**
- * instanceStatement2TS
+ * letStatement2TS
  */
-export declare const instanceStatement2TS: (ctx: CodeGenerator, n: ast.InstanceStatement) => string;
+export declare const letStatement2TS: (ctx: CodeGenerator, n: ast.LetStatement) => string;
 /**
  * funStatement2TS generates Typescript output for fun statements.
  *

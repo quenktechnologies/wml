@@ -16,8 +16,9 @@ export interface Location {
  */
 export interface AST {
 
-    type: string;
-    location: Location;
+    type: string
+
+    location: Location
 
 }
 
@@ -110,8 +111,8 @@ export type Member
 
 export type Export
     = AliasStatement
-    | ContractStatement
-    | InstanceStatement
+    | ContextStatement
+    | LetStatement
     | FunStatement
     | ViewStatement
     | Tag
@@ -132,18 +133,19 @@ export class AliasStatement {
 
 }
 
+export type ContextStatementMember = ConstructorType | MemberDeclaration;
+
 /**
- * ContractStatement
+ * ContextStatement
  */
-export class ContractStatement {
+export class ContextStatement {
 
     type = 'context-statement';
 
     constructor(
         public id: UnqualifiedConstructor,
         public typeParameters: TypeParameter[],
-        public parents: ConstructorType[],
-        public members: MemberDeclaration[],
+        public members: ContextStatementMember[],
         public location: Location) { }
 
 }
@@ -164,19 +166,21 @@ export class MemberDeclaration {
 }
 
 /**
- * InstanceStatement
+ * LetStatement
  */
-export class InstanceStatement {
+export class LetStatement {
 
-    type = 'instance-statement';
+    type = 'let-statement';
 
     constructor(
         public id: UnqualifiedIdentifier,
         public cons: ConstructorType,
-        public properties: Property[],
+        public expression: Expression,
         public location: Location) { }
 
 }
+
+export type ContextTypeIndicator = Type | ContextStatementMember[];
 
 /**
  * ViewStatement
@@ -188,8 +192,8 @@ export class ViewStatement {
     constructor(
         public id: UnqualifiedConstructor,
         public typeParameters: TypeParameter[],
-        public context: Type,
-        public instances: InstanceStatement[],
+        public context: ContextTypeIndicator,
+        public directives: LetStatement[],
         public root: Tag,
         public location: Location) { }
 

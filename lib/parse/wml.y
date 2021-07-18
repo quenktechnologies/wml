@@ -88,15 +88,16 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <CONTROL>'from'                                          return 'FROM';
 <CONTROL>'view'                                          return 'VIEW';
 <CONTROL>'instanceof'                                    return 'INSTANCEOF';
-<CONTROL>'instance'                                      return 'INSTANCE';
 <CONTROL>'this'                                          return 'THIS';
 <CONTROL>'fun'                                           return 'FUN';
 <CONTROL>'endfun'                                        return 'ENDFUN';
 <CONTROL>'as'                                            return 'AS';
-<CONTROL>'contract'                                      return 'CONTRACT';
-<CONTROL>'alias'                                         return 'ALIAS';
+<CONTROL>'context'                                       return 'CONTEXT';
+<CONTROL>'type'                                          return 'TYPE';
 <CONTROL>'true'                                          return 'TRUE';
 <CONTROL>'false'                                         return 'FALSE';
+<CONTROL>'where'                                         return 'WHERE';
+<CONTROL>'let'                                           return 'LET';
 <CONTROL>{Constructor}                             return 'CONSTRUCTOR';
 <CONTROL>{Identifier}                              return 'IDENTIFIER';
 <CONTROL>'@'                                             return '@';
@@ -234,11 +235,11 @@ exports
           ;
 
 export
-          : alias_statement
+          : type_statement
 
-          | contract_statement
+          | context_statement
 
-          | instance_statement
+          | let_statement
 
           | view_statement           
 
@@ -248,66 +249,55 @@ export
             {$$ = $1; }
           ;
 
-alias_statement
-          : '{%' ALIAS unqualified_constructor type_parameters? '='
-            alias_members '%}'
+type_statement
+          : '{%' TYPE unqualified_constructor type_parameters? '='
+            type_members '%}'
             { $$ = new yy.ast.AliasStatement($3, $4||[], $6);   }
           ;
 
-alias_members
+type_members
           : type
             { $$ = [$1];                                        }
 
-          | alias_members '|' type
+          | type_members '|' type
             { $$ = $1.concat($3);                               }
           ;
 
-contract_statement
+context_statement
 
-          : '{%' CONTRACT unqualified_constructor '%}'
-            { $$ = new yy.ast.ContractStatement($3, [], [], [], @$);           }
+          : '{%' CONTEXT unqualified_constructor '%}'
+            { $$ = new yy.ast.ContextStatement($3, [], [], @$);            }
 
-          | '{%' CONTRACT unqualified_constructor type_parameters '%}'
-            { $$ = new yy.ast.ContractStatement($3, [], [], [], @$);           }
+          | '{%' CONTEXT unqualified_constructor WHERE context_members '%}'
+            { $$ = new yy.ast.ContextStatement($3, [], $5, @$);            }
 
-          | '{%' CONTRACT unqualified_constructor ':' parent_list '%}'
-            { $$ = new yy.ast.ContractStatement($3, [], $5, [], @$);           }
-          
-          | '{%' CONTRACT unqualified_constructor type_parameters ':'
-             parent_list '%}'
-            { $$ = new yy.ast.ContractStatement($3, $4, $6, [], @$);           }
-          
-          | '{%' CONTRACT unqualified_constructor '=' member_declarations '%}'
-            { $$ = new yy.ast.ContractStatement($3, [], [], $5, @$);           }
-
-          | '{%' CONTRACT unqualified_constructor type_parameters '=' 
-             member_declarations '%}'
-            { $$ = new yy.ast.ContractStatement($3, $4, [], $6, @$);           }
-
-          | '{%' CONTRACT unqualified_constructor ':' parent_list '=' 
-            member_declarations '%}'
-            { $$ = new yy.ast.ContractStatement($3, [], $5, $7, @$);           }
-
-          | '{%' CONTRACT unqualified_constructor type_parameters ':' 
-            parent_list '=' member_declarations '%}'
-            { $$ = new yy.ast.ContractStatement($3, $4, $6, $8, @$);           }
+          | '{%' CONTEXT unqualified_constructor type_parameters WHERE
+             context_members '%}'
+            { $$ = new yy.ast.ContextStatement($3, $4, $6, @$);            }
           ;
 
-instance_statement
-          : '{%' INSTANCE unqualified_identifier OF constructor_type '%}'
-            { $$ = new yy.ast.InstanceStatement($3, $5, [], @$); }
-
-          | '{%' INSTANCE unqualified_identifier OF constructor_type 
-            properties '%}'
-            { $$ = new yy.ast.InstanceStatement($3, $5, $7, @$); }
-          ;
-
-parent_list
-          : constructor_type 
+context_members
+          : parent_context
             { $$ = [$1]; }
 
-          | parent_list ',' constructor_type
+          | member_declaration
+            { $$ = [$1]; }
+
+          | context_members ',' parent_context
             { $$ = $1.concat($3); }
+
+          | context_members ',' member_declaration
+            { $$ = $1.concat($3); }
+          ;
+
+parent_context
+          : ':' constructor_type
+            {$$ = $2; }
+          ;
+
+let_statement
+          : '{%' LET unqualified_identifier ':' type '=' expression '%}'
+            { $$ = new yy.ast.LetStatement($3, $5, $7, @$); }
           ;
 
 member_declarations
@@ -330,15 +320,55 @@ member_path
           : unqualified_identifier
            { $$ = [$1];                             }
 
+          | string_literal
+           { $$ = [$1];                             }
+
           | member_path '.' unqualified_identifier 
+            { $$ = $1.concat($3);                   }
+
+          | member_path '.' string_literal 
             { $$ = $1.concat($3);                   }
           ;
 
 view_statement
 
-          : '{%' VIEW unqualified_constructor type_parameters? '(' type ')' '%}'
-             instance_statement* element
-            {$$ = new yy.ast.ViewStatement($3, $4||[], $6, $9||[], $10, @$);}
+           : '{%' VIEW unqualified_constructor '(' type ')' '%}' element
+             { $$ = new yy.ast.ViewStatement($3, [], $5, [], $8, @$);          }
+
+           | '{%' VIEW unqualified_constructor '(' type ')' '%}'
+             view_directives element
+            { $$ = new yy.ast.ViewStatement($3, [], $5, $8, $9, @$);           }
+
+           | '{%' VIEW unqualified_constructor type_parameters '(' type ')' '%}' 
+              element
+             { $$ = new yy.ast.ViewStatement($3, $4, $6, [], $9, @$);          }
+
+           | '{%' VIEW unqualified_constructor type_parameters '(' type ')' '%}'
+             view_directives element
+             { $$ = new yy.ast.ViewStatement($3, $4, $6, $9, $10, @$);         }
+
+           | '{%' VIEW unqualified_constructor WHERE context_members '%}' element
+             { $$ = new yy.ast.ViewStatement($3, [], $5, [], $7, @$);          }
+
+           | '{%' VIEW unqualified_constructor WHERE context_members '%}' 
+             view_directives element
+             { $$ = new yy.ast.ViewStatement($3, [], $5, $7, $8, @$);          }
+
+          | '{%' VIEW unqualified_constructor type_parameters WHERE 
+             context_members '%}' element
+             { $$ = new yy.ast.ViewStatement($3, $4, $6, [], $8, @$);          }
+
+          | '{%' VIEW unqualified_constructor type_parameters WHERE 
+            context_members '%}' view_directives element
+             { $$ = new yy.ast.ViewStatement($3, $4, $6, $8, $9, @$);          }
+          ;
+
+view_directives
+          : let_statement
+            { $$ = [$1]; }
+
+          | view_directives let_statement
+            { $$ = $1.concat($2); }
           ;
 
 fun_statement

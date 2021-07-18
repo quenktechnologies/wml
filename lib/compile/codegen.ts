@@ -17,6 +17,8 @@ import {
 
 import { contains, partition } from '@quenk/noni/lib/data/array';
 
+import { transformTree } from './transform';
+
 export const CONTEXT = '__context';
 export const VIEW = '__view';
 export const WML = '__wml';
@@ -155,14 +157,16 @@ export class CodeGenerator {
     /**
      * generate a Typescript module from an WML AST.
      */
-    generate(m: ast.Module): TypeScript {
+    generate(tree: ast.Module): TypeScript {
+
+        let newTree = transformTree(tree);
 
         return [
 
             `import * as ${WML} from '${this.options.module}';`,
             `import * as ${DOCUMENT} from '${this.options.dom}';`,
             imports(this),
-            importStatements2TS(this, m.imports),
+            importStatements2TS(this, newTree.imports),
             eol(this),
             typeDefinitions(this),
             eol(this),
@@ -170,7 +174,7 @@ export class CodeGenerator {
             `const text = ${DOCUMENT}.text;`,
             `// @ts-ignore 6192`,
             `const isSet = (value:any) => value != null`,
-            exports2TS(this, m.exports)
+            exports2TS(this, newTree.exports)
 
         ].join(eol(this));
 
@@ -308,10 +312,10 @@ export const export2TS = (ctx: CodeGenerator, n: ast.Export) => {
 
     if (n instanceof ast.AliasStatement)
         return aliasStatement2TS(n);
-    else if (n instanceof ast.ContractStatement)
-        return contractStatement2TS(n);
-    else if (n instanceof ast.InstanceStatement)
-        return instanceStatement2TS(ctx, n);
+    else if (n instanceof ast.ContextStatement)
+        return contextStatement2TS(n);
+    else if (n instanceof ast.LetStatement)
+        return letStatement2TS(ctx, n);
     else if (n instanceof ast.FunStatement)
         return funStatement2TS(ctx, n);
     else if (n instanceof ast.ViewStatement)
@@ -340,46 +344,55 @@ export const aliasStatement2TS = (n: ast.AliasStatement) => {
 }
 
 /**
- * contractStatement2TS
+ * contextStatement2TS
  */
-export const contractStatement2TS = (n: ast.ContractStatement) => {
+export const contextStatement2TS = (n: ast.ContextStatement) => {
 
     let preamble = `export interface ${n.id.value}`;
 
     let typeArgs = (n.typeParameters.length > 0) ?
         typeParameters2TS(n.typeParameters) : '';
 
-    let parents = n.parents.map(constructorType2TS).join(',');
+    let [parents, members] = partition(n.members, member =>
+        member instanceof ast.ConstructorType);
 
-    parents = (parents !== '') ? ` extends ${parents}` : '';
+    let parentList = (<ast.ConstructorType[]>parents)
+        .map(constructorType2TS).join(',');
 
-    return [preamble, typeArgs, parents, '{', memberDeclarations2TS(n.members),
-        '}'].join('');
+    parentList = (parentList !== '') ? ` extends ${parentList}` : '';
+
+    return [
+        preamble,
+        typeArgs,
+        parentList,
+        '{',
+        memberDeclarations2TS(<ast.MemberDeclaration[]>members),
+        '}'
+    ].join('');
 
 }
 
 /**
- * instanceStatement2TS
+ * letStatement2TS
  */
-export const instanceStatement2TS =
-    (ctx: CodeGenerator, n: ast.InstanceStatement) => 
-     _instanceStatement2TS(ctx, n, 'export const');
+export const letStatement2TS =
+    (ctx: CodeGenerator, n: ast.LetStatement) =>
+        _setStatement2TS(ctx, n, 'export const');
 
- const _instanceStatement2TS =
-    (ctx: CodeGenerator, n: ast.InstanceStatement, preamble:string) => {
+const _setStatement2TS =
+    (ctx: CodeGenerator, n: ast.LetStatement, preamble: string) => {
 
-      let id = identifier2TS(n.id);
+        let id = identifier2TS(n.id);
 
         let cons = constructorType2TS(n.cons);
 
         preamble = `${preamble} ${id}:${cons}`;
 
-        let props = n.properties.map(prop => property2TS(ctx, prop)).join(',');
+        let value = expression2TS(ctx, n.expression);
 
-        return `${preamble} = ${props}`;
+        return `${preamble} = ${value}`;
 
     }
-
 
 /**
  * funStatement2TS generates Typescript output for fun statements.
@@ -420,17 +433,17 @@ export const funStatement2TS = (ctx: CodeGenerator, n: ast.FunStatement) => {
  */
 export const viewStatement2TS = (ctx: CodeGenerator, n: ast.ViewStatement) => {
 
-    let instances = n.instances.map(i => 
-      _instanceStatement2TS(ctx,i,'let')).join(`;${ctx.options.EOL}`);
+    let instances = n.directives.map(i =>
+        _setStatement2TS(ctx, i, 'let')).join(`;${ctx.options.EOL}`);
 
     let id = n.id ? constructor2TS(n.id) : 'Main';
 
     let typeParams = typeParameters2TS(n.typeParameters);
 
-    let c = type2TS(n.context);
+    // This should be transformed to what we expect.
+    let c = type2TS(<ast.ConstructorType>n.context);
 
     let template = tag2TS(ctx, n.root);
-
 
     return [
 

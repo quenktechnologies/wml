@@ -74,7 +74,7 @@ export declare class CompositeMember {
     constructor(members: (Member | AliasedMember)[], location: Location);
 }
 export declare type Member = UnqualifiedIdentifier | UnqualifiedConstructor;
-export declare type Export = AliasStatement | ContractStatement | InstanceStatement | FunStatement | ViewStatement | Tag;
+export declare type Export = AliasStatement | ContextStatement | LetStatement | FunStatement | ViewStatement | Tag;
 /**
  * AliasStatement
  */
@@ -86,17 +86,17 @@ export declare class AliasStatement {
     type: string;
     constructor(id: UnqualifiedConstructor, typeParameters: TypeParameter[], members: Type[], location: Location);
 }
+export declare type ContextStatementMember = ConstructorType | MemberDeclaration;
 /**
- * ContractStatement
+ * ContextStatement
  */
-export declare class ContractStatement {
+export declare class ContextStatement {
     id: UnqualifiedConstructor;
     typeParameters: TypeParameter[];
-    parents: ConstructorType[];
-    members: MemberDeclaration[];
+    members: ContextStatementMember[];
     location: Location;
     type: string;
-    constructor(id: UnqualifiedConstructor, typeParameters: TypeParameter[], parents: ConstructorType[], members: MemberDeclaration[], location: Location);
+    constructor(id: UnqualifiedConstructor, typeParameters: TypeParameter[], members: ContextStatementMember[], location: Location);
 }
 /**
  * MemberDeclaration
@@ -110,28 +110,29 @@ export declare class MemberDeclaration {
     constructor(path: UnqualifiedIdentifier[], kind: Type, optional: boolean, location: Location);
 }
 /**
- * InstanceStatement
+ * LetStatement
  */
-export declare class InstanceStatement {
+export declare class LetStatement {
     id: UnqualifiedIdentifier;
     cons: ConstructorType;
-    properties: Property[];
+    expression: Expression;
     location: Location;
     type: string;
-    constructor(id: UnqualifiedIdentifier, cons: ConstructorType, properties: Property[], location: Location);
+    constructor(id: UnqualifiedIdentifier, cons: ConstructorType, expression: Expression, location: Location);
 }
+export declare type ContextTypeIndicator = Type | ContextStatementMember[];
 /**
  * ViewStatement
  */
 export declare class ViewStatement {
     id: UnqualifiedConstructor;
     typeParameters: TypeParameter[];
-    context: Type;
-    instances: InstanceStatement[];
+    context: ContextTypeIndicator;
+    directives: LetStatement[];
     root: Tag;
     location: Location;
     type: string;
-    constructor(id: UnqualifiedConstructor, typeParameters: TypeParameter[], context: Type, instances: InstanceStatement[], root: Tag, location: Location);
+    constructor(id: UnqualifiedConstructor, typeParameters: TypeParameter[], context: ContextTypeIndicator, directives: LetStatement[], root: Tag, location: Location);
 }
 export declare class FunStatement {
     id: UnqualifiedIdentifier;
