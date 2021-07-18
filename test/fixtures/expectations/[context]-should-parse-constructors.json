@@ -1,0 +1,104 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "Test",
+        "location": {
+          "first_line": 1,
+          "first_column": 11,
+          "last_line": 1,
+          "last_column": 15,
+          "range": [
+            11,
+            15
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "members": [
+        {
+          "path": [
+            {
+              "value": "name",
+              "location": {
+                "first_line": 1,
+                "first_column": 22,
+                "last_line": 1,
+                "last_column": 26,
+                "range": [
+                  22,
+                  26
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "id": {
+              "value": "String",
+              "location": {
+                "first_line": 1,
+                "first_column": 28,
+                "last_line": 1,
+                "last_column": 34,
+                "range": [
+                  28,
+                  34
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "typeParameters": [],
+            "location": {
+              "first_line": 1,
+              "first_column": 28,
+              "last_line": 1,
+              "last_column": 34,
+              "range": [
+                28,
+                34
+              ]
+            },
+            "type": "constructor-type"
+          },
+          "optional": false,
+          "location": {
+            "first_line": 1,
+            "first_column": 22,
+            "last_line": 1,
+            "last_column": 34,
+            "range": [
+              22,
+              34
+            ]
+          },
+          "type": "member-declaration"
+        }
+      ],
+      "location": {
+        "first_line": 1,
+        "first_column": 0,
+        "last_line": 1,
+        "last_column": 37,
+        "range": [
+          0,
+          37
+        ]
+      },
+      "type": "context-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 37,
+    "range": [
+      0,
+      37
+    ]
+  },
+  "type": "module"
+}

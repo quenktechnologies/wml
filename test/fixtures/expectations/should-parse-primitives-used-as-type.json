@@ -6,12 +6,12 @@
         "value": "Prims",
         "location": {
           "first_line": 1,
-          "first_column": 9,
+          "first_column": 8,
           "last_line": 1,
-          "last_column": 14,
+          "last_column": 13,
           "range": [
-            9,
-            14
+            8,
+            13
           ]
         },
         "type": "unqualified-constructor"
@@ -22,12 +22,12 @@
           "value": "1",
           "location": {
             "first_line": 1,
-            "first_column": 17,
+            "first_column": 16,
             "last_line": 1,
-            "last_column": 18,
+            "last_column": 17,
             "range": [
-              17,
-              18
+              16,
+              17
             ]
           },
           "type": "number-literal"
@@ -36,12 +36,12 @@
           "value": "2",
           "location": {
             "first_line": 1,
-            "first_column": 19,
+            "first_column": 18,
             "last_line": 1,
-            "last_column": 20,
+            "last_column": 19,
             "range": [
-              19,
-              20
+              18,
+              19
             ]
           },
           "type": "number-literal"
@@ -54,12 +54,12 @@
           "value": true,
           "location": {
             "first_line": 1,
-            "first_column": 29,
+            "first_column": 28,
             "last_line": 1,
-            "last_column": 33,
+            "last_column": 32,
             "range": [
-              29,
-              33
+              28,
+              32
             ]
           },
           "type": "boolean-literal"
@@ -68,12 +68,12 @@
           "value": false,
           "location": {
             "first_line": 1,
-            "first_column": 34,
+            "first_column": 33,
             "last_line": 1,
-            "last_column": 39,
+            "last_column": 38,
             "range": [
-              34,
-              39
+              33,
+              38
             ]
           },
           "type": "boolean-literal"
@@ -90,10 +90,10 @@
     "first_line": 1,
     "first_column": 0,
     "last_line": 1,
-    "last_column": 65,
+    "last_column": 64,
     "range": [
       0,
-      65
+      64
     ]
   },
   "type": "module"

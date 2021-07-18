@@ -1,0 +1,203 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "Test",
+        "location": {
+          "first_line": 1,
+          "first_column": 11,
+          "last_line": 1,
+          "last_column": 15,
+          "range": [
+            11,
+            15
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "members": [
+        {
+          "path": [
+            {
+              "value": "value",
+              "location": {
+                "first_line": 1,
+                "first_column": 22,
+                "last_line": 1,
+                "last_column": 27,
+                "range": [
+                  22,
+                  27
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "parameters": [
+              {
+                "id": {
+                  "value": "Text",
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 29,
+                    "last_line": 1,
+                    "last_column": 33,
+                    "range": [
+                      29,
+                      33
+                    ]
+                  },
+                  "type": "unqualified-constructor"
+                },
+                "typeParameters": [
+                  {
+                    "id": {
+                      "value": "A",
+                      "location": {
+                        "first_line": 1,
+                        "first_column": 34,
+                        "last_line": 1,
+                        "last_column": 35,
+                        "range": [
+                          34,
+                          35
+                        ]
+                      },
+                      "type": "unqualified-constructor"
+                    },
+                    "location": {
+                      "first_line": 1,
+                      "first_column": 34,
+                      "last_line": 1,
+                      "last_column": 35,
+                      "range": [
+                        34,
+                        35
+                      ]
+                    },
+                    "type": "type-parameter"
+                  }
+                ],
+                "location": {
+                  "first_line": 1,
+                  "first_column": 29,
+                  "last_line": 1,
+                  "last_column": 36,
+                  "range": [
+                    29,
+                    36
+                  ]
+                },
+                "type": "constructor-type"
+              }
+            ],
+            "returnType": {
+              "id": {
+                "value": "Text",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 40,
+                  "last_line": 1,
+                  "last_column": 44,
+                  "range": [
+                    40,
+                    44
+                  ]
+                },
+                "type": "unqualified-constructor"
+              },
+              "typeParameters": [
+                {
+                  "id": {
+                    "value": "A",
+                    "location": {
+                      "first_line": 1,
+                      "first_column": 45,
+                      "last_line": 1,
+                      "last_column": 46,
+                      "range": [
+                        45,
+                        46
+                      ]
+                    },
+                    "type": "unqualified-constructor"
+                  },
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 45,
+                    "last_line": 1,
+                    "last_column": 46,
+                    "range": [
+                      45,
+                      46
+                    ]
+                  },
+                  "type": "type-parameter"
+                }
+              ],
+              "location": {
+                "first_line": 1,
+                "first_column": 40,
+                "last_line": 1,
+                "last_column": 47,
+                "range": [
+                  40,
+                  47
+                ]
+              },
+              "type": "constructor-type"
+            },
+            "location": {
+              "first_line": 1,
+              "first_column": 29,
+              "last_line": 1,
+              "last_column": 47,
+              "range": [
+                29,
+                47
+              ]
+            },
+            "type": "function-type"
+          },
+          "optional": false,
+          "location": {
+            "first_line": 1,
+            "first_column": 22,
+            "last_line": 1,
+            "last_column": 47,
+            "range": [
+              22,
+              47
+            ]
+          },
+          "type": "member-declaration"
+        }
+      ],
+      "location": {
+        "first_line": 1,
+        "first_column": 0,
+        "last_line": 1,
+        "last_column": 50,
+        "range": [
+          0,
+          50
+        ]
+      },
+      "type": "context-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 50,
+    "range": [
+      0,
+      50
+    ]
+  },
+  "type": "module"
+}

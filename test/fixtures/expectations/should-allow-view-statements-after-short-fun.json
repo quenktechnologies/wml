@@ -469,7 +469,7 @@
         },
         "type": "constructor-type"
       },
-      "instances": [],
+      "directives": [],
       "root": {
         "open": {
           "value": "ul",

@@ -1,0 +1,264 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "MyView",
+        "location": {
+          "first_line": 1,
+          "first_column": 8,
+          "last_line": 1,
+          "last_column": 14,
+          "range": [
+            8,
+            14
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "context": {
+        "id": {
+          "value": "Object",
+          "location": {
+            "first_line": 1,
+            "first_column": 15,
+            "last_line": 1,
+            "last_column": 21,
+            "range": [
+              15,
+              21
+            ]
+          },
+          "type": "unqualified-constructor"
+        },
+        "typeParameters": [],
+        "location": {
+          "first_line": 1,
+          "first_column": 15,
+          "last_line": 1,
+          "last_column": 21,
+          "range": [
+            15,
+            21
+          ]
+        },
+        "type": "constructor-type"
+      },
+      "directives": [
+        {
+          "id": {
+            "value": "head",
+            "location": {
+              "first_line": 2,
+              "first_column": 13,
+              "last_line": 2,
+              "last_column": 17,
+              "range": [
+                39,
+                43
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "cons": {
+            "id": {
+              "value": "HeadViewContext",
+              "location": {
+                "first_line": 2,
+                "first_column": 18,
+                "last_line": 2,
+                "last_column": 33,
+                "range": [
+                  44,
+                  59
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "typeParameters": [],
+            "location": {
+              "first_line": 2,
+              "first_column": 18,
+              "last_line": 2,
+              "last_column": 33,
+              "range": [
+                44,
+                59
+              ]
+            },
+            "type": "constructor-type"
+          },
+          "expression": {
+            "properties": [
+              {
+                "key": {
+                  "value": "title",
+                  "location": {
+                    "first_line": 2,
+                    "first_column": 37,
+                    "last_line": 2,
+                    "last_column": 42,
+                    "range": [
+                      63,
+                      68
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "value": {
+                  "value": "My Title",
+                  "type": "string"
+                },
+                "location": {
+                  "first_line": 2,
+                  "first_column": 37,
+                  "last_line": 2,
+                  "last_column": 55,
+                  "range": [
+                    63,
+                    81
+                  ]
+                },
+                "type": "property"
+              }
+            ],
+            "location": {
+              "first_line": 2,
+              "first_column": 36,
+              "last_line": 2,
+              "last_column": 56,
+              "range": [
+                62,
+                82
+              ]
+            },
+            "type": "record"
+          },
+          "location": {
+            "first_line": 2,
+            "first_column": 6,
+            "last_line": 2,
+            "last_column": 59,
+            "range": [
+              32,
+              85
+            ]
+          },
+          "type": "let-statement"
+        }
+      ],
+      "root": {
+        "open": {
+          "value": "h1",
+          "location": {
+            "first_line": 3,
+            "first_column": 7,
+            "last_line": 3,
+            "last_column": 9,
+            "range": [
+              93,
+              95
+            ]
+          },
+          "type": "unqualified-identifier"
+        },
+        "attributes": [],
+        "children": [
+          {
+            "expression": {
+              "cons": {
+                "value": "HeadView",
+                "location": {
+                  "first_line": 3,
+                  "first_column": 13,
+                  "last_line": 3,
+                  "last_column": 21,
+                  "range": [
+                    99,
+                    107
+                  ]
+                },
+                "type": "unqualified-constructor"
+              },
+              "context": {
+                "value": "head",
+                "location": {
+                  "first_line": 3,
+                  "first_column": 22,
+                  "last_line": 3,
+                  "last_column": 26,
+                  "range": [
+                    108,
+                    112
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "location": {
+                "first_line": 3,
+                "first_column": 12,
+                "last_line": 3,
+                "last_column": 28,
+                "range": [
+                  98,
+                  114
+                ]
+              },
+              "type": "view-construction"
+            },
+            "filters": [],
+            "location": {
+              "first_line": 3,
+              "first_column": 10,
+              "last_line": 3,
+              "last_column": 30,
+              "range": [
+                96,
+                116
+              ]
+            },
+            "type": "interpolation"
+          }
+        ],
+        "close": {
+          "value": "h1",
+          "location": {
+            "first_line": 3,
+            "first_column": 32,
+            "last_line": 3,
+            "last_column": 34,
+            "range": [
+              118,
+              120
+            ]
+          },
+          "type": "unqualified-identifier"
+        },
+        "type": "node"
+      },
+      "location": {
+        "first_line": 1,
+        "first_column": 0,
+        "last_line": 3,
+        "last_column": 35,
+        "range": [
+          0,
+          121
+        ]
+      },
+      "type": "view-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 4,
+    "last_column": 4,
+    "range": [
+      0,
+      126
+    ]
+  },
+  "type": "module"
+}

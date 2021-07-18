@@ -62,23 +62,11 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 const text = __document.text;
 // @ts-ignore 6192
 const isSet = (value:any) => value != null
-__this.node('div', <__wml.Attrs>{}, [
-
-        ...__forIn ([
-
-            string,
-boolean,
-number,
-object,
-undefined,
-null,
-void,
-never,
-any
-            ], (kind , _$$i, _$$all)=> 
-([
-
-        text (kind)
-     ]), 
-()=> ([]))
-     ])
+export const head:HeadCtx = {
+ 
+      'title' : 'Foo'
+     };
+export const head2:HeadCtx = {
+ 
+      'title' : 'My Title'
+     }

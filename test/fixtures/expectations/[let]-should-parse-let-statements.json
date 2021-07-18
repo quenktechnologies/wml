@@ -1,0 +1,218 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "head",
+        "location": {
+          "first_line": 1,
+          "first_column": 7,
+          "last_line": 1,
+          "last_column": 11,
+          "range": [
+            7,
+            11
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "cons": {
+        "id": {
+          "value": "HeadCtx",
+          "location": {
+            "first_line": 1,
+            "first_column": 12,
+            "last_line": 1,
+            "last_column": 19,
+            "range": [
+              12,
+              19
+            ]
+          },
+          "type": "unqualified-constructor"
+        },
+        "typeParameters": [],
+        "location": {
+          "first_line": 1,
+          "first_column": 12,
+          "last_line": 1,
+          "last_column": 19,
+          "range": [
+            12,
+            19
+          ]
+        },
+        "type": "constructor-type"
+      },
+      "expression": {
+        "properties": [
+          {
+            "key": {
+              "value": "title",
+              "location": {
+                "first_line": 1,
+                "first_column": 23,
+                "last_line": 1,
+                "last_column": 28,
+                "range": [
+                  23,
+                  28
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            "value": {
+              "value": "Foo",
+              "type": "string"
+            },
+            "location": {
+              "first_line": 1,
+              "first_column": 23,
+              "last_line": 1,
+              "last_column": 36,
+              "range": [
+                23,
+                36
+              ]
+            },
+            "type": "property"
+          }
+        ],
+        "location": {
+          "first_line": 1,
+          "first_column": 22,
+          "last_line": 1,
+          "last_column": 37,
+          "range": [
+            22,
+            37
+          ]
+        },
+        "type": "record"
+      },
+      "location": {
+        "first_line": 1,
+        "first_column": 0,
+        "last_line": 1,
+        "last_column": 40,
+        "range": [
+          0,
+          40
+        ]
+      },
+      "type": "let-statement"
+    },
+    {
+      "id": {
+        "value": "head2",
+        "location": {
+          "first_line": 2,
+          "first_column": 12,
+          "last_line": 2,
+          "last_column": 17,
+          "range": [
+            53,
+            58
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "cons": {
+        "id": {
+          "value": "HeadCtx",
+          "location": {
+            "first_line": 2,
+            "first_column": 18,
+            "last_line": 2,
+            "last_column": 25,
+            "range": [
+              59,
+              66
+            ]
+          },
+          "type": "unqualified-constructor"
+        },
+        "typeParameters": [],
+        "location": {
+          "first_line": 2,
+          "first_column": 18,
+          "last_line": 2,
+          "last_column": 25,
+          "range": [
+            59,
+            66
+          ]
+        },
+        "type": "constructor-type"
+      },
+      "expression": {
+        "properties": [
+          {
+            "key": {
+              "value": "title",
+              "location": {
+                "first_line": 2,
+                "first_column": 29,
+                "last_line": 2,
+                "last_column": 34,
+                "range": [
+                  70,
+                  75
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            "value": {
+              "value": "My Title",
+              "type": "string"
+            },
+            "location": {
+              "first_line": 2,
+              "first_column": 29,
+              "last_line": 2,
+              "last_column": 47,
+              "range": [
+                70,
+                88
+              ]
+            },
+            "type": "property"
+          }
+        ],
+        "location": {
+          "first_line": 2,
+          "first_column": 28,
+          "last_line": 2,
+          "last_column": 48,
+          "range": [
+            69,
+            89
+          ]
+        },
+        "type": "record"
+      },
+      "location": {
+        "first_line": 2,
+        "first_column": 5,
+        "last_line": 2,
+        "last_column": 51,
+        "range": [
+          46,
+          92
+        ]
+      },
+      "type": "let-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 3,
+    "last_column": 4,
+    "range": [
+      0,
+      97
+    ]
+  },
+  "type": "module"
+}

@@ -1,0 +1,119 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "Test",
+        "location": {
+          "first_line": 1,
+          "first_column": 11,
+          "last_line": 1,
+          "last_column": 15,
+          "range": [
+            11,
+            15
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "members": [
+        {
+          "path": [
+            {
+              "value": "value",
+              "location": {
+                "first_line": 1,
+                "first_column": 22,
+                "last_line": 1,
+                "last_column": 27,
+                "range": [
+                  22,
+                  27
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "parameters": [
+              {
+                "members": [],
+                "location": {
+                  "first_line": 1,
+                  "first_column": 29,
+                  "last_line": 1,
+                  "last_column": 31,
+                  "range": [
+                    29,
+                    31
+                  ]
+                },
+                "type": "record-type"
+              }
+            ],
+            "returnType": {
+              "members": [],
+              "location": {
+                "first_line": 1,
+                "first_column": 35,
+                "last_line": 1,
+                "last_column": 38,
+                "range": [
+                  35,
+                  38
+                ]
+              },
+              "type": "record-type"
+            },
+            "location": {
+              "first_line": 1,
+              "first_column": 29,
+              "last_line": 1,
+              "last_column": 38,
+              "range": [
+                29,
+                38
+              ]
+            },
+            "type": "function-type"
+          },
+          "optional": false,
+          "location": {
+            "first_line": 1,
+            "first_column": 22,
+            "last_line": 1,
+            "last_column": 38,
+            "range": [
+              22,
+              38
+            ]
+          },
+          "type": "member-declaration"
+        }
+      ],
+      "location": {
+        "first_line": 1,
+        "first_column": 0,
+        "last_line": 1,
+        "last_column": 41,
+        "range": [
+          0,
+          41
+        ]
+      },
+      "type": "context-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 41,
+    "range": [
+      0,
+      41
+    ]
+  },
+  "type": "module"
+}

@@ -6,12 +6,12 @@
         "value": "Tuple",
         "location": {
           "first_line": 1,
-          "first_column": 9,
+          "first_column": 8,
           "last_line": 1,
-          "last_column": 14,
+          "last_column": 13,
           "range": [
-            9,
-            14
+            8,
+            13
           ]
         },
         "type": "unqualified-constructor"
@@ -25,12 +25,12 @@
                 "value": "Number",
                 "location": {
                   "first_line": 1,
-                  "first_column": 18,
+                  "first_column": 17,
                   "last_line": 1,
-                  "last_column": 24,
+                  "last_column": 23,
                   "range": [
-                    18,
-                    24
+                    17,
+                    23
                   ]
                 },
                 "type": "unqualified-constructor"
@@ -38,12 +38,12 @@
               "typeParameters": [],
               "location": {
                 "first_line": 1,
-                "first_column": 18,
+                "first_column": 17,
                 "last_line": 1,
-                "last_column": 24,
+                "last_column": 23,
                 "range": [
-                  18,
-                  24
+                  17,
+                  23
                 ]
               },
               "type": "constructor-type"
@@ -53,12 +53,12 @@
                 "value": "String",
                 "location": {
                   "first_line": 1,
-                  "first_column": 26,
+                  "first_column": 25,
                   "last_line": 1,
-                  "last_column": 32,
+                  "last_column": 31,
                   "range": [
-                    26,
-                    32
+                    25,
+                    31
                   ]
                 },
                 "type": "unqualified-constructor"
@@ -66,12 +66,12 @@
               "typeParameters": [],
               "location": {
                 "first_line": 1,
-                "first_column": 26,
+                "first_column": 25,
                 "last_line": 1,
-                "last_column": 32,
+                "last_column": 31,
                 "range": [
-                  26,
-                  32
+                  25,
+                  31
                 ]
               },
               "type": "constructor-type"
@@ -81,12 +81,12 @@
                 "value": "Number",
                 "location": {
                   "first_line": 1,
-                  "first_column": 34,
+                  "first_column": 33,
                   "last_line": 1,
-                  "last_column": 40,
+                  "last_column": 39,
                   "range": [
-                    34,
-                    40
+                    33,
+                    39
                   ]
                 },
                 "type": "unqualified-constructor"
@@ -94,12 +94,12 @@
               "typeParameters": [],
               "location": {
                 "first_line": 1,
-                "first_column": 34,
+                "first_column": 33,
                 "last_line": 1,
-                "last_column": 40,
+                "last_column": 39,
                 "range": [
-                  34,
-                  40
+                  33,
+                  39
                 ]
               },
               "type": "constructor-type"
@@ -107,12 +107,12 @@
           ],
           "location": {
             "first_line": 1,
-            "first_column": 17,
+            "first_column": 16,
             "last_line": 1,
-            "last_column": 41,
+            "last_column": 40,
             "range": [
-              17,
-              41
+              16,
+              40
             ]
           },
           "type": "tuple-type"
@@ -125,10 +125,10 @@
     "first_line": 1,
     "first_column": 0,
     "last_line": 1,
-    "last_column": 44,
+    "last_column": 43,
     "range": [
       0,
-      44
+      43
     ]
   },
   "type": "module"

@@ -1,0 +1,203 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "Test",
+        "location": {
+          "first_line": 1,
+          "first_column": 11,
+          "last_line": 1,
+          "last_column": 15,
+          "range": [
+            11,
+            15
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [
+        {
+          "id": {
+            "value": "A",
+            "location": {
+              "first_line": 1,
+              "first_column": 16,
+              "last_line": 1,
+              "last_column": 17,
+              "range": [
+                16,
+                17
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "location": {
+            "first_line": 1,
+            "first_column": 16,
+            "last_line": 1,
+            "last_column": 17,
+            "range": [
+              16,
+              17
+            ]
+          },
+          "type": "type-parameter"
+        },
+        {
+          "id": {
+            "value": "B",
+            "location": {
+              "first_line": 1,
+              "first_column": 18,
+              "last_line": 1,
+              "last_column": 19,
+              "range": [
+                18,
+                19
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "location": {
+            "first_line": 1,
+            "first_column": 18,
+            "last_line": 1,
+            "last_column": 19,
+            "range": [
+              18,
+              19
+            ]
+          },
+          "type": "type-parameter"
+        }
+      ],
+      "members": [
+        {
+          "path": [
+            {
+              "value": "table",
+              "location": {
+                "first_line": 1,
+                "first_column": 27,
+                "last_line": 1,
+                "last_column": 32,
+                "range": [
+                  27,
+                  32
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            {
+              "value": "data",
+              "location": {
+                "first_line": 1,
+                "first_column": 33,
+                "last_line": 1,
+                "last_column": 37,
+                "range": [
+                  33,
+                  37
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            {
+              "value": "list2",
+              "location": {
+                "first_line": 1,
+                "first_column": 38,
+                "last_line": 1,
+                "last_column": 43,
+                "range": [
+                  38,
+                  43
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "elementType": {
+              "elementType": {
+                "id": {
+                  "value": "A",
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 45,
+                    "last_line": 1,
+                    "last_column": 46,
+                    "range": [
+                      45,
+                      46
+                    ]
+                  },
+                  "type": "unqualified-constructor"
+                },
+                "typeParameters": [],
+                "type": "constructor-type"
+              },
+              "location": {
+                "first_line": 1,
+                "first_column": 45,
+                "last_line": 1,
+                "last_column": 48,
+                "range": [
+                  45,
+                  48
+                ]
+              },
+              "type": "list-type"
+            },
+            "location": {
+              "first_line": 1,
+              "first_column": 45,
+              "last_line": 1,
+              "last_column": 50,
+              "range": [
+                45,
+                50
+              ]
+            },
+            "type": "list-type"
+          },
+          "optional": false,
+          "location": {
+            "first_line": 1,
+            "first_column": 27,
+            "last_line": 1,
+            "last_column": 50,
+            "range": [
+              27,
+              50
+            ]
+          },
+          "type": "member-declaration"
+        }
+      ],
+      "location": {
+        "first_line": 1,
+        "first_column": 0,
+        "last_line": 1,
+        "last_column": 53,
+        "range": [
+          0,
+          53
+        ]
+      },
+      "type": "context-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 53,
+    "range": [
+      0,
+      53
+    ]
+  },
+  "type": "module"
+}

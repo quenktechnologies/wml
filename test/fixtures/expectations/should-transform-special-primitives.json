@@ -22,7 +22,7 @@
           "variables": [
             {
               "id": {
-                "value": "type",
+                "value": "kind",
                 "location": {
                   "first_line": 2,
                   "first_column": 19,
@@ -192,7 +192,7 @@
           "body": [
             {
               "expression": {
-                "value": "type",
+                "value": "kind",
                 "location": {
                   "first_line": 12,
                   "first_column": 17,
