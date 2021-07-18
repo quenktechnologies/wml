@@ -336,9 +336,43 @@ member_path
 
 view_statement
 
-          : '{%' VIEW unqualified_constructor type_parameters? '(' type ')' '%}'
-             instance_statement* element
-            {$$ = new yy.ast.ViewStatement($3, $4||[], $6, $9||[], $10, @$);}
+           : '{%' VIEW unqualified_constructor '(' type ')' '%}' element
+             { $$ = new yy.ast.ViewStatement($3, [], $5, [], $8, @$);          }
+
+           | '{%' VIEW unqualified_constructor '(' type ')' '%}'
+             view_directives element
+            { $$ = new yy.ast.ViewStatement($3, [], $6, $8, $9, @$);           }
+
+           | '{%' VIEW unqualified_constructor type_parameters '(' type ')' '%}' 
+              element
+             { $$ = new yy.ast.ViewStatement($3, $4, $6, [], $9, @$);          }
+
+           | '{%' VIEW unqualified_constructor type_parameters '(' type ')' '%}'
+             view_directives element
+             { $$ = new yy.ast.ViewStatement($3, $4, $6, $9, $10, @$);         }
+
+           | '{%' VIEW unqualified_constructor WHERE context_members '%}' element
+             { $$ = new yy.ast.ViewStatement($3, [], $5, [], $7, @$);          }
+
+           | '{%' VIEW unqualified_constructor WHERE context_members '%}' 
+             view_directives element
+             { $$ = new yy.ast.ViewStatement($3, [], $5, $7, $8, @$);          }
+
+          | '{%' VIEW unqualified_constructor type_parameters WHERE 
+             context_members '%}' element
+             { $$ = new yy.ast.ViewStatement($3, $4, $6, [], $8, @$);          }
+
+          | '{%' VIEW unqualified_constructor type_parameters WHERE 
+            context_members '%}' view_directives element
+             { $$ = new yy.ast.ViewStatement($3, $4, $6, $8, $9, @$);          }
+          ;
+
+view_directives
+          : instance_statement
+            { $$ = [$1]; }
+
+          | view_directives instance_statement
+            { $$ = $1.concat($2); }
           ;
 
 fun_statement

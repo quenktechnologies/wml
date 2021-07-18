@@ -16,8 +16,9 @@ export interface Location {
  */
 export interface AST {
 
-    type: string;
-    location: Location;
+    type: string
+
+    location: Location
 
 }
 
@@ -179,6 +180,8 @@ export class InstanceStatement {
 
 }
 
+export type ContextTypeIndicator = Type | ContextStatementMember[];
+
 /**
  * ViewStatement
  */
@@ -189,8 +192,8 @@ export class ViewStatement {
     constructor(
         public id: UnqualifiedConstructor,
         public typeParameters: TypeParameter[],
-        public context: Type,
-        public instances: InstanceStatement[],
+        public context: ContextTypeIndicator,
+        public directives: InstanceStatement[],
         public root: Tag,
         public location: Location) { }
 

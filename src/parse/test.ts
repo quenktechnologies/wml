@@ -203,16 +203,21 @@ export const tests: { [key: string]: any } = {
         input: '<tag on=true off=false/>'
 
     },
-    'should parse typed views': {
+    '[view] should parse typed views': {
 
         input: '{% view Main (Context[String]) %} <p>{{@value}}</p>'
 
     },
-    'should parse typed views with type parameters': {
+    '[view] should parse typed views with type parameters': {
 
         input: '{% view Main [A,B] (Context[A,B]) %} <p>{{@values}}</p>'
 
     },
+    '[view] should allow the where syntax': `
+
+      {% view HeadView where title: String %}
+        <title>{{@title}}</title>
+    `,
     'should parse context variables': {
 
         input: '<Input name={{@level.name}}/>'

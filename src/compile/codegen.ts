@@ -17,6 +17,8 @@ import {
 
 import { contains, partition } from '@quenk/noni/lib/data/array';
 
+import { transformTree } from './transform';
+
 export const CONTEXT = '__context';
 export const VIEW = '__view';
 export const WML = '__wml';
@@ -155,14 +157,16 @@ export class CodeGenerator {
     /**
      * generate a Typescript module from an WML AST.
      */
-    generate(m: ast.Module): TypeScript {
+    generate(tree: ast.Module): TypeScript {
+
+        let newTree = transformTree(tree);
 
         return [
 
             `import * as ${WML} from '${this.options.module}';`,
             `import * as ${DOCUMENT} from '${this.options.dom}';`,
             imports(this),
-            importStatements2TS(this, m.imports),
+            importStatements2TS(this, newTree.imports),
             eol(this),
             typeDefinitions(this),
             eol(this),
@@ -170,7 +174,7 @@ export class CodeGenerator {
             `const text = ${DOCUMENT}.text;`,
             `// @ts-ignore 6192`,
             `const isSet = (value:any) => value != null`,
-            exports2TS(this, m.exports)
+            exports2TS(this, newTree.exports)
 
         ].join(eol(this));
 
@@ -430,17 +434,17 @@ export const funStatement2TS = (ctx: CodeGenerator, n: ast.FunStatement) => {
  */
 export const viewStatement2TS = (ctx: CodeGenerator, n: ast.ViewStatement) => {
 
-    let instances = n.instances.map(i =>
+    let instances = n.directives.map(i =>
         _instanceStatement2TS(ctx, i, 'let')).join(`;${ctx.options.EOL}`);
 
     let id = n.id ? constructor2TS(n.id) : 'Main';
 
     let typeParams = typeParameters2TS(n.typeParameters);
 
-    let c = type2TS(n.context);
+  // This should be transformed to what we expect.
+    let c = type2TS(<ast.ConstructorType>n.context);
 
     let template = tag2TS(ctx, n.root);
-
 
     return [
 
