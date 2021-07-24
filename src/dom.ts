@@ -8,7 +8,7 @@
  */
 
 import { Record, map, mapTo, forEach } from '@quenk/noni/lib/data/record';
-import { Type, isString } from '@quenk/noni/lib/data/type';
+import { Type, isFunction } from '@quenk/noni/lib/data/type';
 
 // Declared so isBrowser works on node.js.
 var window: Type, document: Type;
@@ -286,7 +286,7 @@ export class WMLDOMNode implements Node {
  */
 export class WMLDOMText extends WMLDOMNode {
 
-    constructor(public value: string, public escape=true) {
+    constructor(public value: string, public escape = true) {
 
         super('#text', -1);
 
@@ -294,7 +294,7 @@ export class WMLDOMText extends WMLDOMNode {
 
     get textContent() {
 
-        return this.escape ?  escapeHTML(this.value) : this.value;
+        return this.escape ? escapeHTML(this.value) : this.value;
 
     }
 
@@ -355,13 +355,18 @@ export class WMLDOMElement extends WMLDOMNode {
 
 }
 
-const isBrowser = ((window != null) && (document != null));
+/**
+ * isBrowser is set to true if we detect a window and document global variable.
+ */
+export const isBrowser = ((window != null) && (document != null));
 
 /**
  * escapeAttrs escapes each key value pair of a WMLDOMAttrs.
  */
-export const escapeAttrs = (attrs: WMLDOMAttrs) =>
-    map(attrs, value => isString(value) ? escapeAttrValue(value) : value);
+export const escapeAttrs = (attrs: WMLDOMAttrs) => map(attrs, value =>
+    isFunction(value) ? value :
+        (value instanceof WMLDOMText) ? value.textContent :
+            escapeAttrValue(String(value)));
 
 /**
  * escapeAttrValue for safe browser display.
@@ -387,7 +392,7 @@ export const createTextNode = (txt: Type): Node => isBrowser ?
  * This only works on the server side.
  */
 export const createUnsafeTextNode = (txt: Type): Node => isBrowser ?
-    document.createTextNode(String(txt)) : new WMLDOMText(String(txt),false);
+    document.createTextNode(String(txt)) : new WMLDOMText(String(txt), false);
 
 export { createTextNode as text, createUnsafeTextNode as unsafe }
 
