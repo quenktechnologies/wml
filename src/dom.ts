@@ -35,7 +35,7 @@ const ATTR_ESC_MAP: { [key: string]: string } = {
 
 }
 
-const ATTRS_ESC_REGEX = `/[${mapTo(ATTR_ESC_MAP, (_, k) => k)}]/g`;
+const attrsEscRegex = new RegExp(`[${mapTo(ATTR_ESC_MAP, (_, k) => k)}]`, 'g');
 
 const HTML_ENT_MAP: { [key: string]: string } = {
 
@@ -51,7 +51,7 @@ const HTML_ENT_MAP: { [key: string]: string } = {
 
 }
 
-const HTML_ESC_REGEX = `/[${mapTo(HTML_ENT_MAP, (_, k) => k)}]/g`;
+const htmlEscRegex = new RegExp(`[${mapTo(HTML_ENT_MAP, (_, k) => k)}]`, 'g');
 
 const voidElements = [
     'area',
@@ -328,7 +328,7 @@ export class WMLDOMElement extends WMLDOMNode {
         let attrs = mapTo(escapeAttrs(this.attrs), (value, name) => !value ?
             name : `${name}="${value}"`).join(' ');
 
-      attrs = (attrs.trim() != '') ? ` ${attrs}`: '';
+        attrs = (attrs.trim() != '') ? ` ${attrs}` : '';
 
         let open = `<${tag}${attrs}>`;
 
@@ -367,13 +367,13 @@ export const escapeAttrs = (attrs: WMLDOMAttrs) =>
  * escapeAttrValue for safe browser display.
  */
 export const escapeAttrValue = (value: string) =>
-    value.replace(ATTRS_ESC_REGEX, hit => ATTR_ESC_MAP[hit]);
+    value.replace(attrsEscRegex, hit => ATTR_ESC_MAP[hit]);
 
 /**
  * escapeHTML for safe browser display.
  */
 export const escapeHTML = (value: string) =>
-    value.replace(HTML_ESC_REGEX, hit => HTML_ENT_MAP[hit]);
+    value.replace(htmlEscRegex, hit => HTML_ENT_MAP[hit]);
 
 /**
  * createTextNode wrapper.
