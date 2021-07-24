@@ -173,6 +173,8 @@ export class CodeGenerator {
             `// @ts-ignore 6192`,
             `const text = ${DOCUMENT}.text;`,
             `// @ts-ignore 6192`,
+            `const unsafe = ${DOCUMENT}.unsafe`,
+            `// @ts-ignore 6192`,
             `const isSet = (value:any) => value != null`,
             exports2TS(this, newTree.exports)
 
@@ -1317,9 +1319,9 @@ export const key2TS = (n: ast.StringLiteral | ast.UnqualifiedIdentifier) =>
  * contextProperty2TS 
  */
 export const contextProperty2TS = (n: ast.ContextProperty) => {
-let member = (n.member instanceof ast.StringLiteral) ? 
-    n.member.value : 
-identifier2TS(n.member);
+    let member = (n.member instanceof ast.StringLiteral) ?
+        n.member.value :
+        identifier2TS(n.member);
 
     return `${CONTEXT}.${member}`;
 

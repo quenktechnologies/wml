@@ -286,7 +286,7 @@ export class WMLDOMNode implements Node {
  */
 export class WMLDOMText extends WMLDOMNode {
 
-    constructor(public value: string) {
+    constructor(public value: string, public escape=true) {
 
         super('#text', -1);
 
@@ -294,7 +294,7 @@ export class WMLDOMText extends WMLDOMNode {
 
     get textContent() {
 
-        return escapeHTML(this.value);
+        return this.escape ?  escapeHTML(this.value) : this.value;
 
     }
 
@@ -381,7 +381,15 @@ export const escapeHTML = (value: string) =>
 export const createTextNode = (txt: Type): Node => isBrowser ?
     document.createTextNode(String(txt)) : new WMLDOMText(String(txt));
 
-export { createTextNode as text }
+/**
+ * createUnsafeTextNode allows raw strings to be output without escaping.
+ *
+ * This only works on the server side.
+ */
+export const createUnsafeTextNode = (txt: Type): Node => isBrowser ?
+    document.createTextNode(String(txt)) : new WMLDOMText(String(txt),false);
+
+export { createTextNode as text, createUnsafeTextNode as unsafe }
 
 /**
  * createElement wrapper.
