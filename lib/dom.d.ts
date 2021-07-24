@@ -94,7 +94,8 @@ export declare class WMLDOMNode implements Node {
  */
 export declare class WMLDOMText extends WMLDOMNode {
     value: string;
-    constructor(value: string);
+    escape: boolean;
+    constructor(value: string, escape?: boolean);
     get textContent(): string;
 }
 /**
@@ -112,9 +113,13 @@ export declare class WMLDOMElement extends WMLDOMNode {
     appendChild<T extends Node>(newChild: T): T;
 }
 /**
+ * isBrowser is set to true if we detect a window and document global variable.
+ */
+export declare const isBrowser: boolean;
+/**
  * escapeAttrs escapes each key value pair of a WMLDOMAttrs.
  */
-export declare const escapeAttrs: (attrs: WMLDOMAttrs) => Record<string | number | Function>;
+export declare const escapeAttrs: (attrs: WMLDOMAttrs) => Record<string | (<A, B>(a: A) => B)>;
 /**
  * escapeAttrValue for safe browser display.
  */
@@ -127,7 +132,13 @@ export declare const escapeHTML: (value: string) => string;
  * createTextNode wrapper.
  */
 export declare const createTextNode: (txt: Type) => Node;
-export { createTextNode as text };
+/**
+ * createUnsafeTextNode allows raw strings to be output without escaping.
+ *
+ * This only works on the server side.
+ */
+export declare const createUnsafeTextNode: (txt: Type) => Node;
+export { createTextNode as text, createUnsafeTextNode as unsafe };
 /**
  * createElement wrapper.
  */

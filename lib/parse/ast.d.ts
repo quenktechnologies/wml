@@ -429,10 +429,10 @@ export declare class BooleanLiteral {
     constructor(value: boolean, location: Location);
 }
 export declare class ContextProperty {
-    member: UnqualifiedIdentifier;
+    member: UnqualifiedIdentifier | StringLiteral;
     location: Location;
     type: string;
-    constructor(member: UnqualifiedIdentifier, location: Location);
+    constructor(member: UnqualifiedIdentifier | StringLiteral, location: Location);
 }
 export declare class ContextVariable {
     location: Location;

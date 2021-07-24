@@ -1,0 +1,152 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "test",
+        "location": {
+          "first_line": 2,
+          "first_column": 11,
+          "last_line": 2,
+          "last_column": 15,
+          "range": [
+            12,
+            16
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "typeParameters": [],
+      "parameters": [
+        {
+          "id": {
+            "value": "value",
+            "location": {
+              "first_line": 2,
+              "first_column": 17,
+              "last_line": 2,
+              "last_column": 22,
+              "range": [
+                18,
+                23
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "hint": {
+            "elementType": {
+              "elementType": {
+                "id": {
+                  "value": "List",
+                  "location": {
+                    "first_line": 2,
+                    "first_column": 23,
+                    "last_line": 2,
+                    "last_column": 27,
+                    "range": [
+                      24,
+                      28
+                    ]
+                  },
+                  "type": "unqualified-constructor"
+                },
+                "typeParameters": [],
+                "type": "constructor-type"
+              },
+              "location": {
+                "first_line": 2,
+                "first_column": 23,
+                "last_line": 2,
+                "last_column": 29,
+                "range": [
+                  24,
+                  30
+                ]
+              },
+              "type": "list-type"
+            },
+            "location": {
+              "first_line": 2,
+              "first_column": 23,
+              "last_line": 2,
+              "last_column": 31,
+              "range": [
+                24,
+                32
+              ]
+            },
+            "type": "list-type"
+          },
+          "location": {
+            "first_line": 2,
+            "first_column": 17,
+            "last_line": 2,
+            "last_column": 31,
+            "range": [
+              18,
+              32
+            ]
+          },
+          "type": "typed-parameter"
+        }
+      ],
+      "body": [
+        {
+          "open": {
+            "value": "p",
+            "location": {
+              "first_line": 2,
+              "first_column": 36,
+              "last_line": 2,
+              "last_column": 37,
+              "range": [
+                37,
+                38
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "attributes": [],
+          "children": [],
+          "close": {
+            "value": "p",
+            "location": {
+              "first_line": 2,
+              "first_column": 36,
+              "last_line": 2,
+              "last_column": 37,
+              "range": [
+                37,
+                38
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "type": "node"
+        }
+      ],
+      "location": {
+        "first_line": 2,
+        "first_column": 4,
+        "last_line": 2,
+        "last_column": 51,
+        "range": [
+          5,
+          52
+        ]
+      },
+      "type": "fun-statement"
+    }
+  ],
+  "location": {
+    "first_line": 2,
+    "first_column": 4,
+    "last_line": 2,
+    "last_column": 51,
+    "range": [
+      5,
+      52
+    ]
+  },
+  "type": "module"
+}

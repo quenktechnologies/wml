@@ -5,13 +5,13 @@
       "id": {
         "value": "MyView",
         "location": {
-          "first_line": 1,
-          "first_column": 8,
-          "last_line": 1,
-          "last_column": 14,
+          "first_line": 2,
+          "first_column": 16,
+          "last_line": 2,
+          "last_column": 22,
           "range": [
-            8,
-            14
+            17,
+            23
           ]
         },
         "type": "unqualified-constructor"
@@ -21,26 +21,26 @@
         "id": {
           "value": "Object",
           "location": {
-            "first_line": 1,
-            "first_column": 15,
-            "last_line": 1,
-            "last_column": 21,
+            "first_line": 2,
+            "first_column": 23,
+            "last_line": 2,
+            "last_column": 29,
             "range": [
-              15,
-              21
+              24,
+              30
             ]
           },
           "type": "unqualified-constructor"
         },
         "typeParameters": [],
         "location": {
-          "first_line": 1,
-          "first_column": 15,
-          "last_line": 1,
-          "last_column": 21,
+          "first_line": 2,
+          "first_column": 23,
+          "last_line": 2,
+          "last_column": 29,
           "range": [
-            15,
-            21
+            24,
+            30
           ]
         },
         "type": "constructor-type"
@@ -50,13 +50,13 @@
           "id": {
             "value": "head",
             "location": {
-              "first_line": 2,
+              "first_line": 3,
               "first_column": 13,
-              "last_line": 2,
+              "last_line": 3,
               "last_column": 17,
               "range": [
-                39,
-                43
+                48,
+                52
               ]
             },
             "type": "unqualified-identifier"
@@ -65,26 +65,26 @@
             "id": {
               "value": "HeadViewContext",
               "location": {
-                "first_line": 2,
+                "first_line": 3,
                 "first_column": 18,
-                "last_line": 2,
+                "last_line": 3,
                 "last_column": 33,
                 "range": [
-                  44,
-                  59
+                  53,
+                  68
                 ]
               },
               "type": "unqualified-constructor"
             },
             "typeParameters": [],
             "location": {
-              "first_line": 2,
+              "first_line": 3,
               "first_column": 18,
-              "last_line": 2,
+              "last_line": 3,
               "last_column": 33,
               "range": [
-                44,
-                59
+                53,
+                68
               ]
             },
             "type": "constructor-type"
@@ -95,13 +95,13 @@
                 "key": {
                   "value": "title",
                   "location": {
-                    "first_line": 2,
+                    "first_line": 3,
                     "first_column": 37,
-                    "last_line": 2,
+                    "last_line": 3,
                     "last_column": 42,
                     "range": [
-                      63,
-                      68
+                      72,
+                      77
                     ]
                   },
                   "type": "unqualified-identifier"
@@ -111,38 +111,38 @@
                   "type": "string"
                 },
                 "location": {
-                  "first_line": 2,
+                  "first_line": 3,
                   "first_column": 37,
-                  "last_line": 2,
+                  "last_line": 3,
                   "last_column": 55,
                   "range": [
-                    63,
-                    81
+                    72,
+                    90
                   ]
                 },
                 "type": "property"
               }
             ],
             "location": {
-              "first_line": 2,
+              "first_line": 3,
               "first_column": 36,
-              "last_line": 2,
+              "last_line": 3,
               "last_column": 56,
               "range": [
-                62,
-                82
+                71,
+                91
               ]
             },
             "type": "record"
           },
           "location": {
-            "first_line": 2,
+            "first_line": 3,
             "first_column": 6,
-            "last_line": 2,
+            "last_line": 3,
             "last_column": 59,
             "range": [
-              32,
-              85
+              41,
+              94
             ]
           },
           "type": "let-statement"
@@ -152,13 +152,13 @@
         "open": {
           "value": "h1",
           "location": {
-            "first_line": 3,
+            "first_line": 4,
             "first_column": 7,
-            "last_line": 3,
+            "last_line": 4,
             "last_column": 9,
             "range": [
-              93,
-              95
+              102,
+              104
             ]
           },
           "type": "unqualified-identifier"
@@ -170,13 +170,13 @@
               "cons": {
                 "value": "HeadView",
                 "location": {
-                  "first_line": 3,
+                  "first_line": 4,
                   "first_column": 13,
-                  "last_line": 3,
+                  "last_line": 4,
                   "last_column": 21,
                   "range": [
-                    99,
-                    107
+                    108,
+                    116
                   ]
                 },
                 "type": "unqualified-constructor"
@@ -184,38 +184,38 @@
               "context": {
                 "value": "head",
                 "location": {
-                  "first_line": 3,
+                  "first_line": 4,
                   "first_column": 22,
-                  "last_line": 3,
+                  "last_line": 4,
                   "last_column": 26,
                   "range": [
-                    108,
-                    112
+                    117,
+                    121
                   ]
                 },
                 "type": "unqualified-identifier"
               },
               "location": {
-                "first_line": 3,
+                "first_line": 4,
                 "first_column": 12,
-                "last_line": 3,
+                "last_line": 4,
                 "last_column": 28,
                 "range": [
-                  98,
-                  114
+                  107,
+                  123
                 ]
               },
               "type": "view-construction"
             },
             "filters": [],
             "location": {
-              "first_line": 3,
+              "first_line": 4,
               "first_column": 10,
-              "last_line": 3,
+              "last_line": 4,
               "last_column": 30,
               "range": [
-                96,
-                116
+                105,
+                125
               ]
             },
             "type": "interpolation"
@@ -224,13 +224,13 @@
         "close": {
           "value": "h1",
           "location": {
-            "first_line": 3,
+            "first_line": 4,
             "first_column": 32,
-            "last_line": 3,
+            "last_line": 4,
             "last_column": 34,
             "range": [
-              118,
-              120
+              127,
+              129
             ]
           },
           "type": "unqualified-identifier"
@@ -238,26 +238,26 @@
         "type": "node"
       },
       "location": {
-        "first_line": 1,
-        "first_column": 0,
-        "last_line": 3,
+        "first_line": 2,
+        "first_column": 8,
+        "last_line": 4,
         "last_column": 35,
         "range": [
-          0,
-          121
+          9,
+          130
         ]
       },
       "type": "view-statement"
     }
   ],
   "location": {
-    "first_line": 1,
-    "first_column": 0,
-    "last_line": 4,
+    "first_line": 2,
+    "first_column": 8,
+    "last_line": 5,
     "last_column": 4,
     "range": [
-      0,
-      126
+      9,
+      135
     ]
   },
   "type": "module"

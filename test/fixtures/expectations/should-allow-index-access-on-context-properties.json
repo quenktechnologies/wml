@@ -1,0 +1,176 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "Test",
+        "location": {
+          "first_line": 1,
+          "first_column": 8,
+          "last_line": 1,
+          "last_column": 12,
+          "range": [
+            8,
+            12
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "context": {
+        "id": {
+          "value": "Object",
+          "location": {
+            "first_line": 1,
+            "first_column": 14,
+            "last_line": 1,
+            "last_column": 20,
+            "range": [
+              14,
+              20
+            ]
+          },
+          "type": "unqualified-constructor"
+        },
+        "typeParameters": [],
+        "location": {
+          "first_line": 1,
+          "first_column": 14,
+          "last_line": 1,
+          "last_column": 20,
+          "range": [
+            14,
+            20
+          ]
+        },
+        "type": "constructor-type"
+      },
+      "directives": [],
+      "root": {
+        "open": {
+          "value": "div",
+          "location": {
+            "first_line": 2,
+            "first_column": 8,
+            "last_line": 2,
+            "last_column": 11,
+            "range": [
+              33,
+              36
+            ]
+          },
+          "type": "unqualified-identifier"
+        },
+        "attributes": [],
+        "children": [
+          {
+            "condition": {
+              "operator": "??",
+              "expression": {
+                "member": {
+                  "value": "type",
+                  "type": "string"
+                },
+                "location": {
+                  "first_line": 3,
+                  "first_column": 14,
+                  "last_line": 3,
+                  "last_column": 23,
+                  "range": [
+                    52,
+                    61
+                  ]
+                },
+                "type": "context-property"
+              },
+              "type": "unary-expression"
+            },
+            "then": [
+              {
+                "open": {
+                  "value": "div",
+                  "location": {
+                    "first_line": 4,
+                    "first_column": 13,
+                    "last_line": 4,
+                    "last_column": 16,
+                    "range": [
+                      80,
+                      83
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "attributes": [],
+                "children": [],
+                "close": {
+                  "value": "div",
+                  "location": {
+                    "first_line": 4,
+                    "first_column": 13,
+                    "last_line": 4,
+                    "last_column": 16,
+                    "range": [
+                      80,
+                      83
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "type": "node"
+              }
+            ],
+            "location": {
+              "first_line": 3,
+              "first_column": 8,
+              "last_line": 5,
+              "last_column": 19,
+              "range": [
+                46,
+                105
+              ]
+            },
+            "type": "if-statement"
+          }
+        ],
+        "close": {
+          "value": "div",
+          "location": {
+            "first_line": 6,
+            "first_column": 8,
+            "last_line": 6,
+            "last_column": 11,
+            "range": [
+              114,
+              117
+            ]
+          },
+          "type": "unqualified-identifier"
+        },
+        "type": "node"
+      },
+      "location": {
+        "first_line": 1,
+        "first_column": 0,
+        "last_line": 6,
+        "last_column": 12,
+        "range": [
+          0,
+          118
+        ]
+      },
+      "type": "view-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 6,
+    "last_column": 12,
+    "range": [
+      0,
+      118
+    ]
+  },
+  "type": "module"
+}

@@ -8,7 +8,7 @@
  */
 
 import { Record, map, mapTo, forEach } from '@quenk/noni/lib/data/record';
-import { Type, isString } from '@quenk/noni/lib/data/type';
+import { Type, isFunction } from '@quenk/noni/lib/data/type';
 
 // Declared so isBrowser works on node.js.
 var window: Type, document: Type;
@@ -35,7 +35,7 @@ const ATTR_ESC_MAP: { [key: string]: string } = {
 
 }
 
-const ATTRS_ESC_REGEX = `/[${mapTo(ATTR_ESC_MAP, (_, k) => k)}]/g`;
+const attrsEscRegex = new RegExp(`[${mapTo(ATTR_ESC_MAP, (_, k) => k)}]`, 'g');
 
 const HTML_ENT_MAP: { [key: string]: string } = {
 
@@ -51,7 +51,7 @@ const HTML_ENT_MAP: { [key: string]: string } = {
 
 }
 
-const HTML_ESC_REGEX = `/[${mapTo(HTML_ENT_MAP, (_, k) => k)}]/g`;
+const htmlEscRegex = new RegExp(`[${mapTo(HTML_ENT_MAP, (_, k) => k)}]`, 'g');
 
 const voidElements = [
     'area',
@@ -286,7 +286,7 @@ export class WMLDOMNode implements Node {
  */
 export class WMLDOMText extends WMLDOMNode {
 
-    constructor(public value: string) {
+    constructor(public value: string, public escape = true) {
 
         super('#text', -1);
 
@@ -294,7 +294,7 @@ export class WMLDOMText extends WMLDOMNode {
 
     get textContent() {
 
-        return escapeHTML(this.value);
+        return this.escape ? escapeHTML(this.value) : this.value;
 
     }
 
@@ -328,7 +328,7 @@ export class WMLDOMElement extends WMLDOMNode {
         let attrs = mapTo(escapeAttrs(this.attrs), (value, name) => !value ?
             name : `${name}="${value}"`).join(' ');
 
-      attrs = (attrs.trim() != '') ? ` ${attrs}`: '';
+        attrs = (attrs.trim() != '') ? ` ${attrs}` : '';
 
         let open = `<${tag}${attrs}>`;
 
@@ -355,25 +355,30 @@ export class WMLDOMElement extends WMLDOMNode {
 
 }
 
-const isBrowser = ((window != null) && (document != null));
+/**
+ * isBrowser is set to true if we detect a window and document global variable.
+ */
+export const isBrowser = ((window != null) && (document != null));
 
 /**
  * escapeAttrs escapes each key value pair of a WMLDOMAttrs.
  */
-export const escapeAttrs = (attrs: WMLDOMAttrs) =>
-    map(attrs, value => isString(value) ? escapeAttrValue(value) : value);
+export const escapeAttrs = (attrs: WMLDOMAttrs) => map(attrs, value =>
+    isFunction(value) ? value :
+        (value instanceof WMLDOMText) ? value.textContent :
+            escapeAttrValue(String(value)));
 
 /**
  * escapeAttrValue for safe browser display.
  */
 export const escapeAttrValue = (value: string) =>
-    value.replace(ATTRS_ESC_REGEX, hit => ATTR_ESC_MAP[hit]);
+    value.replace(attrsEscRegex, hit => ATTR_ESC_MAP[hit]);
 
 /**
  * escapeHTML for safe browser display.
  */
 export const escapeHTML = (value: string) =>
-    value.replace(HTML_ESC_REGEX, hit => HTML_ENT_MAP[hit]);
+    value.replace(htmlEscRegex, hit => HTML_ENT_MAP[hit]);
 
 /**
  * createTextNode wrapper.
@@ -381,7 +386,15 @@ export const escapeHTML = (value: string) =>
 export const createTextNode = (txt: Type): Node => isBrowser ?
     document.createTextNode(String(txt)) : new WMLDOMText(String(txt));
 
-export { createTextNode as text }
+/**
+ * createUnsafeTextNode allows raw strings to be output without escaping.
+ *
+ * This only works on the server side.
+ */
+export const createUnsafeTextNode = (txt: Type): Node => isBrowser ?
+    document.createTextNode(String(txt)) : new WMLDOMText(String(txt), false);
+
+export { createTextNode as text, createUnsafeTextNode as unsafe }
 
 /**
  * createElement wrapper.

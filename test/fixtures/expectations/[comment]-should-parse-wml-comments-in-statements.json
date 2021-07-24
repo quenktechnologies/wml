@@ -1,0 +1,106 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "Name",
+        "location": {
+          "first_line": 1,
+          "first_column": 8,
+          "last_line": 1,
+          "last_column": 12,
+          "range": [
+            8,
+            12
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "context": {
+        "id": {
+          "value": "Object",
+          "location": {
+            "first_line": 1,
+            "first_column": 39,
+            "last_line": 1,
+            "last_column": 45,
+            "range": [
+              39,
+              45
+            ]
+          },
+          "type": "unqualified-constructor"
+        },
+        "typeParameters": [],
+        "location": {
+          "first_line": 1,
+          "first_column": 39,
+          "last_line": 1,
+          "last_column": 45,
+          "range": [
+            39,
+            45
+          ]
+        },
+        "type": "constructor-type"
+      },
+      "directives": [],
+      "root": {
+        "open": {
+          "value": "div",
+          "location": {
+            "first_line": 1,
+            "first_column": 51,
+            "last_line": 1,
+            "last_column": 54,
+            "range": [
+              51,
+              54
+            ]
+          },
+          "type": "unqualified-identifier"
+        },
+        "attributes": [],
+        "children": [],
+        "close": {
+          "value": "div",
+          "location": {
+            "first_line": 1,
+            "first_column": 51,
+            "last_line": 1,
+            "last_column": 54,
+            "range": [
+              51,
+              54
+            ]
+          },
+          "type": "unqualified-identifier"
+        },
+        "type": "node"
+      },
+      "location": {
+        "first_line": 1,
+        "first_column": 0,
+        "last_line": 1,
+        "last_column": 56,
+        "range": [
+          0,
+          56
+        ]
+      },
+      "type": "view-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 59,
+    "range": [
+      0,
+      59
+    ]
+  },
+  "type": "module"
+}

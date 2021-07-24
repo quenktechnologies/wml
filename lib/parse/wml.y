@@ -36,7 +36,8 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 /* Lexer flags */
 %options flex
 %x CHILDREN
-%x COMMENT
+%x HTMLCOMMENT
+%x WMLCOMMENT
 %x CONTROL
 %x INTERPOLATION
 %x CONTROL_CHILD
@@ -48,7 +49,8 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <*>\s+                                                   return;               
 
 <INITIAL>'{%'                this.begin('CONTROL');      return '{%';
-<INITIAL>'<!--'              this.begin('COMMENT');      return;
+<INITIAL>'<!--'              this.begin('HTMLCOMMENT');  return;
+<INITIAL>'{#'                this.begin('WMLCOMMENT');   return;
 <INITIAL>'<'                 this.begin('ELEMENT');      return '<';
 <INITIAL>'{{'                this.begin('INTERPOLATION');   return '{{';
 
@@ -65,7 +67,7 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 
 <CHILDREN>'{{'               this.begin('INTERPOLATION');    return '{{';
 <CHILDREN>'{%'               this.begin('CONTROL');      return '{%';
-<CHILDREN>'<!--'             this.begin('COMMENT');      return;
+<CHILDREN>'<!--'             this.begin('HTMLCOMMENT');      return;
 <CHILDREN>'</'               this.begin('ELEMENT');      return '</';
 <CHILDREN>'<'                this.begin('ELEMENT');      return '<';
 <CHILDREN>'{'                                            return '{';
@@ -104,6 +106,7 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <CONTROL>'='                                             return '=';
 <CONTROL>'?'                                             return '?';
 <CONTROL>'<'           this.begin('ELEMENT');      return '<';
+<CONTROL>'{#'          this.begin('WMLCOMMENT');   return;
 <CONTROL>'{{'          this.begin('INTERPOLATION');return '{{';
 <CONTROL>'%}'          this.popState();            return '%}';
 <CONTROL>'{'                                       return '{';
@@ -125,7 +128,8 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <INTERPOLATION>'}'                                       return '}';
 <INTERPOLATION>'}}'             this.popState();         return '}}';
 
-<COMMENT>(.|\r|\n)*?'-->'    this.popState();            return;
+<HTMLCOMMENT>(.|\r|\n)*?'-->'  this.popState();          return;
+<WMLCOMMENT>(.|\r|\n)*?'#}'    this.popState();          return;
 
 <*>{NumberLiteral}                                       return 'NUMBER_LITERAL';
 <*>{StringLiteral}                                       return 'STRING_LITERAL';
@@ -1011,6 +1015,9 @@ boolean_literal
 context_property
           : '@' unqualified_identifier
             { $$ = new yy.ast.ContextProperty($2, @$) }
+
+          | '@' '[' string_literal ']'
+            { $$ = new yy.ast.ContextProperty($3, @$) }
           ;
 
 context_variable
