@@ -600,10 +600,20 @@ export const tests: { [key: string]: any } = {
      {% let head2:HeadCtx = {title = "My Title"} %}
     `,
 
-    '[let] should be usable in a view':
-        `{% view MyView(Object) %}
+    '[let] should be usable in a view': `
+        {% view MyView(Object) %}
       {% let head:HeadViewContext = {title = "My Title"} %}
       <h1>{{<HeadView(head)>}}</h1>
-    `
+    `,
+
+    '[comment] should parse html comments': `<!-- This is an html comment. -->`,
+
+    '[comment] should parse wml comments': `{# This is a wml comment #}`,
+
+    '[comment] should parse wml comments in statements':
+        `{% view Name {# This is a comment! #} (Object) %} <div/> %}`,
+
+    '[fun] should parse multi dimensional array parameters': `
+    {% fun test (value:List[][]) %}<p/>{% endfun %}`
 
 }
