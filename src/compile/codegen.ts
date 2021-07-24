@@ -1316,8 +1316,14 @@ export const key2TS = (n: ast.StringLiteral | ast.UnqualifiedIdentifier) =>
 /**
  * contextProperty2TS 
  */
-export const contextProperty2TS = (n: ast.ContextProperty) =>
-    `${CONTEXT}.${identifier2TS(n.member)}`;
+export const contextProperty2TS = (n: ast.ContextProperty) => {
+let member = (n.member instanceof ast.StringLiteral) ? 
+    n.member.value : 
+identifier2TS(n.member);
+
+    return `${CONTEXT}.${member}`;
+
+}
 
 /**
  * contextVariable2TS 

@@ -1015,6 +1015,9 @@ boolean_literal
 context_property
           : '@' unqualified_identifier
             { $$ = new yy.ast.ContextProperty($2, @$) }
+
+          | '@' '[' string_literal ']'
+            { $$ = new yy.ast.ContextProperty($3, @$) }
           ;
 
 context_variable

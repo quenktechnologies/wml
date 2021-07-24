@@ -695,7 +695,7 @@ export class ContextProperty {
     type = 'context-property';
 
     constructor(
-        public member: UnqualifiedIdentifier,
+        public member: UnqualifiedIdentifier|StringLiteral,
         public location: Location) { }
 
 }

@@ -614,6 +614,14 @@ export const tests: { [key: string]: any } = {
         `{% view Name {# This is a comment! #} (Object) %} <div/> %}`,
 
     '[fun] should parse multi dimensional array parameters': `
-    {% fun test (value:List[][]) %}<p/>{% endfun %}`
+    {% fun test (value:List[][]) %}<p/>{% endfun %}`,
+
+    'should allow index access on context properties':
+        `{% view Test (Object) %}
+       <div>
+        {% if @["type"]?? %}
+            <div/>
+        {% endif %}
+      </div>`
 
 }
