@@ -11,7 +11,8 @@ import { Record, map, mapTo, forEach } from '@quenk/noni/lib/data/record';
 import { Type, isFunction } from '@quenk/noni/lib/data/type';
 
 // Declared so isBrowser works on node.js.
-var window: Type, document: Type;
+let window: Type = global;
+let document: Type = global.document;
 
 const DOCTYPE = '<!DOCTYPE html>';
 
