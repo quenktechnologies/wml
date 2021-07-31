@@ -384,16 +384,20 @@ export const escapeHTML = (value: string) =>
 /**
  * createTextNode wrapper.
  */
-export const createTextNode = (txt: Type): Node => isBrowser ?
-    document.createTextNode(String(txt)) : new WMLDOMText(String(txt));
+export const createTextNode = (txt: Type): Node => {
+  let str = String((txt == null) ? '' : txt);
+  return isBrowser ? document.createTextNode(str) : new WMLDOMText(str);
+}
 
 /**
  * createUnsafeTextNode allows raw strings to be output without escaping.
  *
  * This only works on the server side.
  */
-export const createUnsafeTextNode = (txt: Type): Node => isBrowser ?
-    document.createTextNode(String(txt)) : new WMLDOMText(String(txt), false);
+export const createUnsafeTextNode = (txt: Type): Node => {
+  let str = String((txt == null) ? '' : txt);
+  return isBrowser ?  document.createTextNode(str) : new WMLDOMText(str, false);
+}
 
 export { createTextNode as text, createUnsafeTextNode as unsafe }
 
