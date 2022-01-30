@@ -20,50 +20,63 @@
       "children": [
         {
           "expression": {
-            "target": {
-              "value": "panel",
+            "expression": {
+              "target": {
+                "value": "panel",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 9,
+                  "last_line": 1,
+                  "last_column": 14,
+                  "range": [
+                    9,
+                    14
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "typeArgs": [],
+              "args": [
+                {
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 15,
+                    "last_line": 1,
+                    "last_column": 16,
+                    "range": [
+                      15,
+                      16
+                    ]
+                  },
+                  "type": "context-variable"
+                },
+                {
+                  "value": "12",
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 17,
+                    "last_line": 1,
+                    "last_column": 19,
+                    "range": [
+                      17,
+                      19
+                    ]
+                  },
+                  "type": "number-literal"
+                }
+              ],
               "location": {
                 "first_line": 1,
                 "first_column": 9,
                 "last_line": 1,
-                "last_column": 14,
+                "last_column": 20,
                 "range": [
                   9,
-                  14
+                  20
                 ]
               },
-              "type": "unqualified-identifier"
+              "type": "call-expression"
             },
-            "typeArgs": [],
-            "args": [
-              {
-                "location": {
-                  "first_line": 1,
-                  "first_column": 15,
-                  "last_line": 1,
-                  "last_column": 16,
-                  "range": [
-                    15,
-                    16
-                  ]
-                },
-                "type": "context-variable"
-              },
-              {
-                "value": "12",
-                "location": {
-                  "first_line": 1,
-                  "first_column": 17,
-                  "last_line": 1,
-                  "last_column": 19,
-                  "range": [
-                    17,
-                    19
-                  ]
-                },
-                "type": "number-literal"
-              }
-            ],
             "location": {
               "first_line": 1,
               "first_column": 8,
@@ -74,7 +87,7 @@
                 21
               ]
             },
-            "type": "fun-application"
+            "type": "view-construction"
           },
           "filters": [],
           "location": {

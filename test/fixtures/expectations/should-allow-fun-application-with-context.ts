@@ -61,8 +61,10 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
 __this.node('div', <__wml.Attrs>{}, [
 
-        panel (__context,12)(__this)
+        __this.registerView(panel(__context,12)).render()
      ])

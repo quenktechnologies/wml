@@ -20,32 +20,47 @@
       "children": [
         {
           "expression": {
-            "cons": {
-              "value": "Panel",
+            "expression": {
+              "cons": {
+                "value": "Panel",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 7,
+                  "last_line": 1,
+                  "last_column": 12,
+                  "range": [
+                    7,
+                    12
+                  ]
+                },
+                "type": "unqualified-constructor"
+              },
+              "args": [
+                {
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 13,
+                    "last_line": 1,
+                    "last_column": 14,
+                    "range": [
+                      13,
+                      14
+                    ]
+                  },
+                  "type": "context-variable"
+                }
+              ],
               "location": {
                 "first_line": 1,
                 "first_column": 7,
                 "last_line": 1,
-                "last_column": 12,
+                "last_column": 15,
                 "range": [
                   7,
-                  12
+                  15
                 ]
               },
-              "type": "unqualified-constructor"
-            },
-            "context": {
-              "location": {
-                "first_line": 1,
-                "first_column": 13,
-                "last_line": 1,
-                "last_column": 14,
-                "range": [
-                  13,
-                  14
-                ]
-              },
-              "type": "context-variable"
+              "type": "construct-expression"
             },
             "location": {
               "first_line": 1,

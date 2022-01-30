@@ -1210,19 +1210,46 @@
                         "then": [
                           {
                             "expression": {
-                              "target": {
+                              "expression": {
                                 "target": {
                                   "target": {
-                                    "member": {
-                                      "value": "values",
+                                    "target": {
+                                      "member": {
+                                        "value": "values",
+                                        "location": {
+                                          "first_line": 31,
+                                          "first_column": 23,
+                                          "last_line": 31,
+                                          "last_column": 29,
+                                          "range": [
+                                            1047,
+                                            1053
+                                          ]
+                                        },
+                                        "type": "unqualified-identifier"
+                                      },
                                       "location": {
                                         "first_line": 31,
-                                        "first_column": 23,
+                                        "first_column": 22,
                                         "last_line": 31,
                                         "last_column": 29,
                                         "range": [
-                                          1047,
+                                          1046,
                                           1053
+                                        ]
+                                      },
+                                      "type": "context-property"
+                                    },
+                                    "member": {
+                                      "value": "header",
+                                      "location": {
+                                        "first_line": 31,
+                                        "first_column": 30,
+                                        "last_line": 31,
+                                        "last_column": 36,
+                                        "range": [
+                                          1054,
+                                          1060
                                         ]
                                       },
                                       "type": "unqualified-identifier"
@@ -1231,24 +1258,23 @@
                                       "first_line": 31,
                                       "first_column": 22,
                                       "last_line": 31,
-                                      "last_column": 29,
-                                      "range": [
-                                        1046,
-                                        1053
-                                      ]
-                                    },
-                                    "type": "context-property"
-                                  },
-                                  "member": {
-                                    "value": "header",
-                                    "location": {
-                                      "first_line": 31,
-                                      "first_column": 30,
-                                      "last_line": 31,
                                       "last_column": 36,
                                       "range": [
-                                        1054,
+                                        1046,
                                         1060
+                                      ]
+                                    }
+                                  },
+                                  "member": {
+                                    "value": "additionalTabs",
+                                    "location": {
+                                      "first_line": 31,
+                                      "first_column": 37,
+                                      "last_line": 31,
+                                      "last_column": 51,
+                                      "range": [
+                                        1061,
+                                        1075
                                       ]
                                     },
                                     "type": "unqualified-identifier"
@@ -1257,54 +1283,41 @@
                                     "first_line": 31,
                                     "first_column": 22,
                                     "last_line": 31,
-                                    "last_column": 36,
+                                    "last_column": 51,
                                     "range": [
                                       1046,
-                                      1060
+                                      1075
                                     ]
                                   }
                                 },
-                                "member": {
-                                  "value": "additionalTabs",
-                                  "location": {
-                                    "first_line": 31,
-                                    "first_column": 37,
-                                    "last_line": 31,
-                                    "last_column": 51,
-                                    "range": [
-                                      1061,
-                                      1075
-                                    ]
-                                  },
-                                  "type": "unqualified-identifier"
-                                },
+                                "typeArgs": [],
+                                "args": [
+                                  {
+                                    "location": {
+                                      "first_line": 31,
+                                      "first_column": 53,
+                                      "last_line": 31,
+                                      "last_column": 54,
+                                      "range": [
+                                        1077,
+                                        1078
+                                      ]
+                                    },
+                                    "type": "context-variable"
+                                  }
+                                ],
                                 "location": {
                                   "first_line": 31,
-                                  "first_column": 22,
+                                  "first_column": 21,
                                   "last_line": 31,
-                                  "last_column": 51,
+                                  "last_column": 55,
                                   "range": [
-                                    1046,
-                                    1075
+                                    1045,
+                                    1079
                                   ]
-                                }
+                                },
+                                "type": "call-expression"
                               },
-                              "typeArgs": [],
-                              "args": [
-                                {
-                                  "location": {
-                                    "first_line": 31,
-                                    "first_column": 53,
-                                    "last_line": 31,
-                                    "last_column": 54,
-                                    "range": [
-                                      1077,
-                                      1078
-                                    ]
-                                  },
-                                  "type": "context-variable"
-                                }
-                              ],
                               "location": {
                                 "first_line": 31,
                                 "first_column": 20,
@@ -1315,7 +1328,7 @@
                                   1080
                                 ]
                               },
-                              "type": "fun-application"
+                              "type": "view-construction"
                             },
                             "filters": [],
                             "location": {

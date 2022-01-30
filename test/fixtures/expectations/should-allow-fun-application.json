@@ -20,65 +20,78 @@
       "children": [
         {
           "expression": {
-            "target": {
-              "value": "panel",
+            "expression": {
+              "target": {
+                "value": "panel",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 7,
+                  "last_line": 1,
+                  "last_column": 12,
+                  "range": [
+                    7,
+                    12
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "typeArgs": [],
+              "args": [
+                {
+                  "value": "1",
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 13,
+                    "last_line": 1,
+                    "last_column": 14,
+                    "range": [
+                      13,
+                      14
+                    ]
+                  },
+                  "type": "number-literal"
+                },
+                {
+                  "value": "2",
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 16,
+                    "last_line": 1,
+                    "last_column": 17,
+                    "range": [
+                      16,
+                      17
+                    ]
+                  },
+                  "type": "number-literal"
+                },
+                {
+                  "value": "3",
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 19,
+                    "last_line": 1,
+                    "last_column": 20,
+                    "range": [
+                      19,
+                      20
+                    ]
+                  },
+                  "type": "number-literal"
+                }
+              ],
               "location": {
                 "first_line": 1,
                 "first_column": 7,
                 "last_line": 1,
-                "last_column": 12,
+                "last_column": 21,
                 "range": [
                   7,
-                  12
+                  21
                 ]
               },
-              "type": "unqualified-identifier"
+              "type": "call-expression"
             },
-            "typeArgs": [],
-            "args": [
-              {
-                "value": "1",
-                "location": {
-                  "first_line": 1,
-                  "first_column": 13,
-                  "last_line": 1,
-                  "last_column": 14,
-                  "range": [
-                    13,
-                    14
-                  ]
-                },
-                "type": "number-literal"
-              },
-              {
-                "value": "2",
-                "location": {
-                  "first_line": 1,
-                  "first_column": 16,
-                  "last_line": 1,
-                  "last_column": 17,
-                  "range": [
-                    16,
-                    17
-                  ]
-                },
-                "type": "number-literal"
-              },
-              {
-                "value": "3",
-                "location": {
-                  "first_line": 1,
-                  "first_column": 19,
-                  "last_line": 1,
-                  "last_column": 20,
-                  "range": [
-                    19,
-                    20
-                  ]
-                },
-                "type": "number-literal"
-              }
-            ],
             "location": {
               "first_line": 1,
               "first_column": 6,
@@ -89,7 +102,7 @@
                 22
               ]
             },
-            "type": "fun-application"
+            "type": "view-construction"
           },
           "filters": [],
           "location": {
