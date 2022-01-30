@@ -439,15 +439,6 @@ non_function_type
           : constructor_type
             { $$ = $1;                                                  }
 
-          | string_literal
-            { $$ = $1;                                                  }
-
-          | number_literal
-            { $$ = $1;                                                  }
-
-          | boolean_literal
-            { $$ = $1;                                                  }
-
           | record_type
             { $$ = $1;                                                  }
          
@@ -480,18 +471,9 @@ list_type
             { $$ = new yy.ast.ListType(
                      new yy.ast.ConstructorType($1, []), @$);           }
 
-           | cons type_parameters '[' ']'
+          | cons type_parameters '[' ']'
             { $$ = new yy.ast.ListType(
                      new yy.ast.ConstructorType($1, $2), @$);           }
-
-          | string_literal '[' ']'
-            { $$ = new yy.ast.ListType($1, @$);                         }
-
-          | number_literal '[' ']'
-            { $$ = new yy.ast.ListType($1, @$);                         }
-
-          | boolean_literal '[' ']'
-            { $$ = new yy.ast.ListType($1, @$);                         }
 
           | record_type '[' ']'
             { $$ = new yy.ast.ListType($1, @$);                         }
@@ -508,7 +490,6 @@ list_type
           ; 
 
 tuple_type
-
           : '[' ']'
             { $$ = new yy.ast.TupleType([], @$);                        }
 
@@ -747,19 +728,10 @@ characters
           ;
 
 arguments
-          : '(' ')'
-            {$$ = []; }
-
-          | '(' argument_list ')'
-            {$$ = $2; }
-
-          ;
-
-argument_list
           : expression
             {$$ = [$1]; }
 
-          | argument_list ',' expression
+          | arguments ',' expression
             {$$ = $1.concat($3); }
           ;
 
@@ -817,21 +789,18 @@ unary_expression
 
           | '(' expression ')' '??'
             {$$ = new yy.ast.UnaryExpression($4, $2, @$); }
-          
           ;
 
 type_assertion
-
           : '[' '*' type ']' expression
             {$$ = new yy.ast.TypeAssertion($3, $5, @$);  }
           ;
 
 simple_expression
           : (
-             view_construction
-             |fun_application
-             |construct_expression 
+             construct_expression 
              |call_expression 
+             |view_construction
              |member_expression 
              |literal 
              |context_property 
@@ -842,31 +811,11 @@ simple_expression
           ;
 
 view_construction
-          : '<' cons '(' expression ')' '>'
-            { $$ = new yy.ast.ViewConstruction($2, $4, @$); }
-          ;
-          
-fun_application
-          : '<' fun_target type_arguments arguments '>'
-            { $$ = new yy.ast.FunApplication($2, $3, $4, @$); }
+          : '<' simple_expression '>'
+            { $$ = new yy.ast.ViewConstruction($2, @$); }
 
-          | '<' fun_target arguments '>'
-            { $$ = new yy.ast.FunApplication($2, [], $3, @$); }
-
-          | '<' fun_target '>'
-            { $$ = new yy.ast.FunApplication($2, [], [], @$); }
-
-          ;
-
-fun_target
-          : identifier 
-            { $$ = $1; }
-
-          | context_property 
-            { $$ = $1; }
-
-          | '(' expression ')'
-            { $$ = $2; }
+          | '<' '(' expression ')' '>'
+            { $$ = new yy.ast.ViewConstruction($3, @$); }
           ;
 
 type_arguments
@@ -883,37 +832,67 @@ type_arg_list
           ;
 
 construct_expression
-          : cons arguments
-            { $$ = new yy.ast.ConstructExpression($1, $2, @$); }
+          : cons '(' arguments ')'
+            { $$ = new yy.ast.ConstructExpression($1, $3, @$); }
+
+          | cons '(' ')'
+            { $$ = new yy.ast.ConstructExpression($1, [], @$); }
           ;
 
 call_expression
-          : identifier type_arguments arguments
-            {$$ = new yy.ast.CallExpression($1, $2, $3, @$);    }
+          : identifier type_arguments '(' arguments ')'
+            {$$ = new yy.ast.CallExpression($1, $2, $4, @$);    }
 
-          | identifier arguments
-            {$$ = new yy.ast.CallExpression($1, [], $2, @$);    }
+          | identifier type_arguments '(' ')'
+            {$$ = new yy.ast.CallExpression($1, $2, [], @$);    }
 
-          | context_property type_arguments arguments
-            {$$ = new yy.ast.CallExpression($1, $2, $3, @$);    }
+          | identifier '(' arguments ')'
+            {$$ = new yy.ast.CallExpression($1, [], $3, @$);    }
 
-          | context_property arguments
-            {$$ = new yy.ast.CallExpression($1, [], $2, @$);    }
+          | identifier '(' ')'
+            {$$ = new yy.ast.CallExpression($1, [], [], @$);    }
 
-          | member_expression type_arguments arguments
-            {$$ = new yy.ast.CallExpression($1, $2, $3, @$);    }
+          | context_property type_arguments '(' arguments ')'
+            {$$ = new yy.ast.CallExpression($1, $2, $4, @$);    }
 
-          | member_expression arguments
-            {$$ = new yy.ast.CallExpression($1, [], $2, @$);    }
+          | context_property type_arguments '(' ')'
+            {$$ = new yy.ast.CallExpression($1, $2, [], @$);    }
 
-          | '(' expression ')' type_arguments arguments
-            {$$ = new yy.ast.CallExpression($2, $4, $5, @$);    }
+          | context_property '(' arguments ')'
+            {$$ = new yy.ast.CallExpression($1, [], $3, @$);    }
 
-          | '(' expression ')' arguments
-            {$$ = new yy.ast.CallExpression($2, [], $4, @$);    }
+          | context_property '(' ')'
+            {$$ = new yy.ast.CallExpression($1, [], [], @$);    }
 
-          | call_expression arguments
-            {$$ = new yy.ast.CallExpression($1, [], $2, @$);    }
+          | member_expression type_arguments '(' arguments ')'
+            {$$ = new yy.ast.CallExpression($1, $2, $4, @$);    }
+
+          | member_expression type_arguments '(' ')'
+            {$$ = new yy.ast.CallExpression($1, $2, [], @$);    }
+
+          | member_expression '(' arguments ')'
+            {$$ = new yy.ast.CallExpression($1, [], $3, @$);    }
+
+          | member_expression '(' ')'
+            {$$ = new yy.ast.CallExpression($1, [], [], @$);    }
+
+          | '(' expression ')' type_arguments '(' arguments ')'
+            {$$ = new yy.ast.CallExpression($2, $4, $6, @$);    }
+
+          | '(' expression ')' type_arguments '(' ')'
+            {$$ = new yy.ast.CallExpression($2, $4, [], @$);    }
+
+          | '(' expression ')' '(' arguments ')'
+            {$$ = new yy.ast.CallExpression($2, [], $5, @$);    }
+
+          | '(' expression ')' '(' ')'
+            {$$ = new yy.ast.CallExpression($2, [], [], @$);    }
+
+          | call_expression '(' arguments ')'
+            {$$ = new yy.ast.CallExpression($1, [], $3, @$);    }
+
+          | call_expression '(' ')'
+            {$$ = new yy.ast.CallExpression($1, [], [], @$);    }
           ;
 
 member_expression
@@ -946,6 +925,9 @@ member_expression
             {$$ = new yy.ast.MemberExpression($2, $5, @$); }
 
           | member_expression '.' unqualified_identifier
+            {$$ = new yy.ast.MemberExpression($1, $3, @$); }
+
+          | member_expression '[' string_literal ']'
             {$$ = new yy.ast.MemberExpression($1, $3, @$); }
           ;
 
@@ -990,7 +972,7 @@ list
           : '[' ']'
             {$$ = new yy.ast.List([], @$); }
 
-          | '[' argument_list ']'
+          | '[' arguments ']'
             {$$ = new yy.ast.List($2, @$); }
           ;
 

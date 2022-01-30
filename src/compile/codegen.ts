@@ -1174,8 +1174,7 @@ export const typeAssertion2TS = (ctx: CodeGenerator, n: ast.TypeAssertion) =>
  * viewConstruction2TS 
  */
 export const viewConstruction2TS = (ctx: CodeGenerator, n: ast.ViewConstruction) =>
-    `${THIS}.registerView((new ${constructor2TS(n.cons)}` +
-    `(${expression2TS(ctx, n.context)}))).render()`;
+    `${THIS}.registerView(${expression2TS(ctx, n.expression)}).render()`;
 
 /**
  * funApplication2TS 

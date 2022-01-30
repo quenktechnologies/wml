@@ -556,12 +556,6 @@ export const tests: { [key: string]: any } = {
 
     'should parse tupe types': `{% type Tuple = [Number, String, Number] %}`,
 
-    'should parse primitives used as type':
-        '{% type Prims = 1|2|"three"|true|false|"1,2,three,true,false" %}',
-
-    'should parse this type':
-        '{% type SortDir = 1 | -1 %}',
-
     'should parse type assertion':
         '<Panel onClick={{ \e -> [*User]foo(e) }} />',
 
