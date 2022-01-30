@@ -1,10 +1,10 @@
 {
   "name": "@quenk/wml",
-  "version": "2.10.3",
+  "version": "2.10.4",
   "description": "(WML) is a DSL for describing user interfaces in web applications.",
   "main": "lib/index.js",
   "scripts": {
-            "test": "./node_modules/.bin/mocha $(find -name *_test.ts)"
+    "test": "./node_modules/.bin/mocha $(find -name *_test.ts)"
   },
   "types": "lib/index.d.ts",
   "files": [
