@@ -336,11 +336,10 @@ export declare class TypeAssertion {
     constructor(target: Type, expression: Expression);
 }
 export declare class ViewConstruction {
-    cons: Constructor;
-    context: Expression;
+    expression: Expression;
     location: Location;
     type: string;
-    constructor(cons: Constructor, context: Expression, location: Location);
+    constructor(expression: Expression, location: Location);
 }
 export declare class FunApplication {
     target: Expression;

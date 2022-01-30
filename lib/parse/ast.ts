@@ -550,8 +550,7 @@ export class ViewConstruction {
     type = 'view-construction';
 
     constructor(
-        public cons: Constructor,
-        public context: Expression,
+        public expression: Expression,
         public location: Location) { }
 
 }
