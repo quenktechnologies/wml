@@ -369,9 +369,9 @@ export declare class CallExpression {
  */
 export declare class MemberExpression {
     target: Expression;
-    member: UnqualifiedIdentifier;
+    member: UnqualifiedIdentifier | StringLiteral;
     location: Location;
-    constructor(target: Expression, member: UnqualifiedIdentifier, location: Location);
+    constructor(target: Expression, member: UnqualifiedIdentifier | StringLiteral, location: Location);
 }
 export declare class ReadExpression {
     target: Expression;

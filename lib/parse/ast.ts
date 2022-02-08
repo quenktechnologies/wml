@@ -597,7 +597,7 @@ export class MemberExpression {
 
     constructor(
         public target: Expression,
-        public member: UnqualifiedIdentifier,
+        public member: UnqualifiedIdentifier|StringLiteral,
         public location: Location) { }
 
 }

@@ -616,6 +616,13 @@ export const tests: { [key: string]: any } = {
         {% if @["type"]?? %}
             <div/>
         {% endif %}
-      </div>`
+      </div>`,
+
+    'should allow paths to use brackets': `
+   {% view Test (Object) %} 
+    <div>
+     {% if @values.controls["@type"] %} value {% endif %}
+     {% if @values.controls["@type"].value %} value {% endif %}
+    </div>`
 
 }
