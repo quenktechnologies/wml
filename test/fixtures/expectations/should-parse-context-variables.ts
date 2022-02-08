@@ -64,7 +64,7 @@ const text = __document.text;
 const unsafe = __document.unsafe
 // @ts-ignore 6192
 const isSet = (value:any) => value != null
-__this.widget(new Input({'name': __context.level.name }, [
+__this.widget(new Input({'name': __context.level.name}, [
 
         
-     ]),<__wml.Attrs>{'name': __context.level.name })
+     ]),<__wml.Attrs>{'name': __context.level.name})

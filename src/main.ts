@@ -2,12 +2,13 @@
 
 import * as docopt from 'docopt';
 
-import {  resolve  } from 'path';
+import { resolve } from 'path';
 
 import { merge } from '@quenk/noni/lib/data/record';
 import { isDirectory } from '@quenk/noni/lib/io/file';
 
-import {  CLIOptions, Arguments, compileDir, compileFile } from './cli';
+import { CLIOptions, Arguments, compileDir, compileFile } from './cli';
+import { doFuture, voidPure } from '@quenk/noni/lib/control/monad/future';
 
 const args = docopt.docopt(`
 
@@ -22,8 +23,8 @@ Options:
   --dom path           The module to resolve the DOM functions from.
   --version            Show version.
 `, {
-        version: require('../package.json').version
-    });
+    version: require('../package.json').version
+});
 
 const defaultOptions: CLIOptions = {
     debug: false,
@@ -35,16 +36,16 @@ const defaultOptions: CLIOptions = {
 }
 
 
- const main = (cwd: string, args: Arguments) => {
+const main = (cwd: string, args: Arguments) => doFuture<any>(function*() {
 
     let path = resolve(cwd, <string>args['<path>']);
     let opts = merge(defaultOptions, getOptions(args));
+    let result = yield isDirectory(path);
 
-    return isDirectory(path) ?
-        compileDir(path, opts) :
-        compileFile(path, opts);
+    yield result ? compileDir(path, opts) : compileFile(path, opts);
+    return voidPure;
 
-}
+});
 
 const getOptions = (args: Arguments): Partial<CLIOptions> => {
 

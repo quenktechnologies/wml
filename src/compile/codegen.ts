@@ -1235,8 +1235,14 @@ export const args2TS = (ctx: CodeGenerator, ns: ast.Expression[]) =>
 /**
  * memberExpression2TS 
  */
-export const memberExpression2TS = (ctx: CodeGenerator, n: ast.MemberExpression) =>
-    `${expression2TS(ctx, n.target)}.${identifier2TS(n.member)} `;
+export const memberExpression2TS = 
+  (ctx: CodeGenerator, n: ast.MemberExpression) => {
+    let target = expression2TS(ctx, n.target);
+
+    return (n.member instanceof ast.StringLiteral) ?
+        `${target}[${string2TS(n.member)}]` :
+        `${target}.${identifier2TS(n.member)}`;
+}
 
 /**
  * functionExpression2TS

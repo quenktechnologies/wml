@@ -7,14 +7,7 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
-import {Table} from '@quenk/wml-widgets/lib/data/table'; ;
-import {TextField} from '@quenk/wml-widgets/lib/control/text-field'; ;
-import {Panel} from '@quenk/wml-widgets/lib/layout/panel'; ;
-import {PanelHeader} from '@quenk/wml-widgets/lib/layout/panel'; ;
-import {Tab} from '@quenk/wml-widgets/lib/control/tab-bar'; ;
-import {TabBar} from '@quenk/wml-widgets/lib/control/tab-bar'; ;
-import {TabSpec} from '..'; ;
-import {TabbedPanel} from '..'; 
+
 
 
 //@ts-ignore:6192
@@ -71,50 +64,29 @@ const text = __document.text;
 const unsafe = __document.unsafe
 // @ts-ignore 6192
 const isSet = (value:any) => value != null
-export class Main  implements __wml.View {
+export class Test  implements __wml.View {
 
-   constructor(__context: TabbedPanel) {
+   constructor(__context: object) {
 
        this.template = (__this:__wml.Registry) => {
 
        
 
-           return __this.widget(new Panel({ww : { 'class' : __context.values.root.class  }}, [
+           return __this.node('div', <__wml.Attrs>{}, [
 
-        ...((((__context.values.header.tabs.length > 0) || __context.values.header.additionalTabs)) ?
+        ...((__context.values.controls['@type']) ?
 (()=>([
 
-        __this.widget(new PanelHeader({}, [
-
-        __this.widget(new TabBar({}, [
-
-        ...__forIn (__context.values.header.tabs, (tab , _$$i, _$$all)=> 
-([
-
-        __this.widget(new Tab({ww : { 'name' : tab.name ,'onClick' : tab.onClick  }}, [
-
-        
-     ]),<__wml.Attrs>{ww : { 'name' : tab.name ,'onClick' : tab.onClick  }})
-     ]), 
-()=> ([])),
-...((__context.values.header.additionalTabs) ?
-(()=>([
-
-        __this.registerView(__context.values.header.additionalTabs(__context)).render()
+        __document.createTextNode(' value ')
      ]))() :
+(()=>([]))()),
+...((__context.values.controls['@type'].value) ?
 (()=>([
 
-        ''
-     ]))())
-     ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{})
+        __document.createTextNode(' value ')
      ]))() :
-(()=>([
-
-        ''
-     ]))()),
-__context.children
-     ]),<__wml.Attrs>{ww : { 'class' : __context.values.root.class  }});
+(()=>([]))())
+     ]);
 
        }
 
