@@ -336,22 +336,26 @@ member_path
 
 view_statement
 
-           : '{%' VIEW unqualified_constructor '(' type ')' '%}' element
+           : '{%' VIEW unqualified_constructor '(' view_statement_context ')'
+             '%}' element
              { $$ = new yy.ast.ViewStatement($3, [], $5, [], $8, @$);          }
 
-           | '{%' VIEW unqualified_constructor '(' type ')' '%}'
+           | '{%' VIEW unqualified_constructor '(' view_statement_context ')' '%}'
              view_directives element
             { $$ = new yy.ast.ViewStatement($3, [], $5, $8, $9, @$);           }
 
-           | '{%' VIEW unqualified_constructor type_parameters '(' type ')' '%}' 
+           | '{%' VIEW unqualified_constructor type_parameters 
+             '(' view_statement_context ')' '%}' 
               element
              { $$ = new yy.ast.ViewStatement($3, $4, $6, [], $9, @$);          }
 
-           | '{%' VIEW unqualified_constructor type_parameters '(' type ')' '%}'
+           | '{%' VIEW unqualified_constructor type_parameters 
+             '(' view_statement_context ')' '%}'
              view_directives element
              { $$ = new yy.ast.ViewStatement($3, $4, $6, $9, $10, @$);         }
 
-           | '{%' VIEW unqualified_constructor WHERE context_members '%}' element
+           | '{%' VIEW unqualified_constructor WHERE context_members '%}' 
+             element
              { $$ = new yy.ast.ViewStatement($3, [], $5, [], $7, @$);          }
 
            | '{%' VIEW unqualified_constructor WHERE context_members '%}' 
@@ -365,6 +369,16 @@ view_statement
           | '{%' VIEW unqualified_constructor type_parameters WHERE 
             context_members '%}' view_directives element
              { $$ = new yy.ast.ViewStatement($3, $4, $6, $8, $9, @$);          }
+          ;
+
+view_statement_context
+          : type 
+            { $$ = $1; }
+
+          | unqualified_constructor FROM string_literal
+            {$$ = new yy.ast.ImportStatement(new yy.ast.CompositeMember([$1],@$),
+               $3, @$);
+            }
           ;
 
 view_directives

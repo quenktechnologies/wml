@@ -1,12 +1,12 @@
 import * as ast from '../parse/ast';
 /**
- * rewriteViewContext turns the "where" clause of view statements into their
- * own context declaration.
+ * rewriteViewContext normalizes the various forms of the context declaration
+ * in a view statement.
  *
- * A context declaration with id <view-name>Context will be generated and the
- * ViewStatement's context property updated.
+ * WHERE clauses are turned into context declarations with id <view-type>Context,
+ * imports are included in the module's import list.
  */
-export declare const rewriteViewStatementContext: (node: ast.ViewStatement) => ast.Export[];
+export declare const rewriteViewStatementContext: (tree: ast.Module, node: ast.ViewStatement) => ast.Export[];
 /**
  * transformTree applies all the needed transforms to the AST before
  * compilation.

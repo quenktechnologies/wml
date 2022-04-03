@@ -27,6 +27,10 @@ export declare class Module {
     location: Location;
     type: string;
     constructor(imports: ImportStatement[], exports: Export[], location: Location);
+    /**
+     * clone this node.
+     */
+    clone(): Module;
 }
 /**
  * ImportStatement
@@ -120,7 +124,7 @@ export declare class LetStatement {
     type: string;
     constructor(id: UnqualifiedIdentifier, cons: ConstructorType, expression: Expression, location: Location);
 }
-export declare type ContextTypeIndicator = Type | ContextStatementMember[];
+export declare type ContextTypeIndicator = Type | ContextStatementMember[] | ImportStatement;
 /**
  * ViewStatement
  */

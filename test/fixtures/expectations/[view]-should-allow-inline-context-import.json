@@ -18,22 +18,35 @@
       },
       "typeParameters": [],
       "context": {
-        "member": [
-          {
-            "value": "Context",
-            "location": {
-              "first_line": 1,
-              "first_column": 16,
-              "last_line": 1,
-              "last_column": 23,
-              "range": [
-                16,
-                23
-              ]
-            },
-            "type": "unqualified-constructor"
-          }
-        ],
+        "member": {
+          "members": [
+            {
+              "value": "Context",
+              "location": {
+                "first_line": 1,
+                "first_column": 16,
+                "last_line": 1,
+                "last_column": 23,
+                "range": [
+                  16,
+                  23
+                ]
+              },
+              "type": "unqualified-constructor"
+            }
+          ],
+          "location": {
+            "first_line": 1,
+            "first_column": 16,
+            "last_line": 1,
+            "last_column": 33,
+            "range": [
+              16,
+              33
+            ]
+          },
+          "type": "composite-member"
+        },
         "module": {
           "value": "./",
           "type": "string"

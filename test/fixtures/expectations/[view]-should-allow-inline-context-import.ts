@@ -7,7 +7,7 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
-import  from './'; 
+import {Context} from './'; 
 
 
 //@ts-ignore:6192
@@ -66,7 +66,7 @@ const unsafe = __document.unsafe
 const isSet = (value:any) => value != null
 export class MyView  implements __wml.View {
 
-   constructor(__context: ) {
+   constructor(__context: Context) {
 
        this.template = (__this:__wml.Registry) => {
 

@@ -38,6 +38,16 @@ export class Module {
         public exports: Export[],
         public location: Location) { }
 
+    /**
+     * clone this node.
+     */
+    clone() {
+
+        return new Module(this.imports.slice(), this.exports.slice(),
+            this.location);
+
+    }
+
 }
 
 /**
@@ -180,7 +190,11 @@ export class LetStatement {
 
 }
 
-export type ContextTypeIndicator = Type | ContextStatementMember[];
+export type ContextTypeIndicator
+    = Type
+    | ContextStatementMember[]
+    | ImportStatement
+    ;
 
 /**
  * ViewStatement
@@ -597,7 +611,7 @@ export class MemberExpression {
 
     constructor(
         public target: Expression,
-        public member: UnqualifiedIdentifier|StringLiteral,
+        public member: UnqualifiedIdentifier | StringLiteral,
         public location: Location) { }
 
 }
@@ -694,7 +708,7 @@ export class ContextProperty {
     type = 'context-property';
 
     constructor(
-        public member: UnqualifiedIdentifier|StringLiteral,
+        public member: UnqualifiedIdentifier | StringLiteral,
         public location: Location) { }
 
 }

@@ -71,7 +71,6 @@ export type ImportMember
     = AggregateMember
     | AliasedMember
     | CompositeMember
-    | Member
     ;
 
 /**

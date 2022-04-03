@@ -39,10 +39,11 @@ export const rewriteViewStatementContext =
             return [context, view];
 
         } else if (node.context instanceof ast.ImportStatement) {
-            console.error(node);
+
             tree.imports.push(node.context);
 
-            let cons = (<ast.UnqualifiedConstructor>                node.context.member);
+            let cons = (<ast.UnqualifiedConstructor>(<ast.CompositeMember>
+                node.context.member).members[0]);
 
             let ctx = new ast.ConstructorType(cons, [], node.location);
 

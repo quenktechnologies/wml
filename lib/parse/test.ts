@@ -223,6 +223,11 @@ export const tests: { [key: string]: any } = {
         input: '<Input name={{@level.name}}/>'
 
     },
+    '[view] should allow inline context import': {
+
+        input: '{% view MyView (Context from "./") %}} <div>{{@text}}</div>'
+
+    },
     'should allow construct expression': {
 
         input: '<TextView android:thing={value=1}>{{Person(@value)}}</TextView>'

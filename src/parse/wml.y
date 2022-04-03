@@ -376,7 +376,9 @@ view_statement_context
             { $$ = $1; }
 
           | unqualified_constructor FROM string_literal
-            {$$ = new yy.ast.ImportStatement([$1], $3, @$);}
+            {$$ = new yy.ast.ImportStatement(new yy.ast.CompositeMember([$1],@$),
+               $3, @$);
+            }
           ;
 
 view_directives
