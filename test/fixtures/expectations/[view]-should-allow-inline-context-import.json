@@ -1,0 +1,153 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "MyView",
+        "location": {
+          "first_line": 1,
+          "first_column": 8,
+          "last_line": 1,
+          "last_column": 14,
+          "range": [
+            8,
+            14
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "context": {
+        "member": [
+          {
+            "value": "Context",
+            "location": {
+              "first_line": 1,
+              "first_column": 16,
+              "last_line": 1,
+              "last_column": 23,
+              "range": [
+                16,
+                23
+              ]
+            },
+            "type": "unqualified-constructor"
+          }
+        ],
+        "module": {
+          "value": "./",
+          "type": "string"
+        },
+        "location": {
+          "first_line": 1,
+          "first_column": 16,
+          "last_line": 1,
+          "last_column": 33,
+          "range": [
+            16,
+            33
+          ]
+        },
+        "type": "import-statement"
+      },
+      "directives": [],
+      "root": {
+        "open": {
+          "value": "div",
+          "location": {
+            "first_line": 1,
+            "first_column": 40,
+            "last_line": 1,
+            "last_column": 43,
+            "range": [
+              40,
+              43
+            ]
+          },
+          "type": "unqualified-identifier"
+        },
+        "attributes": [],
+        "children": [
+          {
+            "expression": {
+              "member": {
+                "value": "text",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 47,
+                  "last_line": 1,
+                  "last_column": 51,
+                  "range": [
+                    47,
+                    51
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "location": {
+                "first_line": 1,
+                "first_column": 46,
+                "last_line": 1,
+                "last_column": 51,
+                "range": [
+                  46,
+                  51
+                ]
+              },
+              "type": "context-property"
+            },
+            "filters": [],
+            "location": {
+              "first_line": 1,
+              "first_column": 44,
+              "last_line": 1,
+              "last_column": 53,
+              "range": [
+                44,
+                53
+              ]
+            },
+            "type": "interpolation"
+          }
+        ],
+        "close": {
+          "value": "div",
+          "location": {
+            "first_line": 1,
+            "first_column": 55,
+            "last_line": 1,
+            "last_column": 58,
+            "range": [
+              55,
+              58
+            ]
+          },
+          "type": "unqualified-identifier"
+        },
+        "type": "node"
+      },
+      "location": {
+        "first_line": 1,
+        "first_column": 0,
+        "last_line": 1,
+        "last_column": 59,
+        "range": [
+          0,
+          59
+        ]
+      },
+      "type": "view-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 59,
+    "range": [
+      0,
+      59
+    ]
+  },
+  "type": "module"
+}

@@ -1,14 +1,14 @@
 import * as ast from '../parse/ast';
 
 /**
- * rewriteViewContext turns the "where" clause of view statements into their
- * own context declaration. 
+ * rewriteViewContext normalizes the various forms of the context declaration
+ * in a view statement.
  *
- * A context declaration with id <view-name>Context will be generated and the
- * ViewStatement's context property updated.
+ * WHERE clauses are turned into context declarations with id <view-type>Context,
+ * imports are included in the module's import list.
  */
 export const rewriteViewStatementContext =
-    (node: ast.ViewStatement): ast.Export[] => {
+    (tree: ast.Module, node: ast.ViewStatement): ast.Export[] => {
 
         if (Array.isArray(node.context)) {
 
@@ -38,6 +38,25 @@ export const rewriteViewStatementContext =
 
             return [context, view];
 
+        } else if (node.context instanceof ast.ImportStatement) {
+            console.error(node);
+            tree.imports.push(node.context);
+
+            let cons = (<ast.UnqualifiedConstructor>                node.context.member);
+
+            let ctx = new ast.ConstructorType(cons, [], node.location);
+
+            return [
+                new ast.ViewStatement(
+                    node.id,
+                    node.typeParameters,
+                    ctx,
+                    node.directives,
+                    node.root,
+                    node.location
+                )
+            ];
+
         } else {
 
             return [node];
@@ -50,10 +69,15 @@ export const rewriteViewStatementContext =
  * transformTree applies all the needed transforms to the AST before 
  * compilation.
  */
-export const transformTree = (tree: ast.Module) => new ast.Module(
-  tree.imports,
-    tree.exports.reduce((prev, curr) => (curr instanceof ast.ViewStatement) ?
-        [...prev, ...rewriteViewStatementContext(curr)] :
-        [...prev, curr], <ast.Export[]>[]),
-  tree.location
-);
+export const transformTree = (tree: ast.Module) => {
+
+    let newTree = tree.clone(); // Try not to modify what we don't own.
+
+    newTree.exports = tree.exports.reduce((prev, curr) =>
+        (curr instanceof ast.ViewStatement) ?
+            [...prev, ...rewriteViewStatementContext(newTree, curr)] :
+            [...prev, curr], <ast.Export[]>[]);
+
+    return newTree;
+
+}
