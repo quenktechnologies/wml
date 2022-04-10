@@ -133,12 +133,12 @@ export declare const escapeHTML: (value: string) => string;
  */
 export declare const createTextNode: (txt: Type) => Node;
 /**
- * createUnsafeTextNode allows raw strings to be output without escaping.
+ * createUnsafeNode allows raw strings to be output without escaping.
  *
- * This only works on the server side.
+ * THIS MUST ONLY BE USED IF YOU ARE 100% SURE THE STRING IS SAFE TO OUTPUT!
  */
-export declare const createUnsafeTextNode: (txt: Type) => Node;
-export { createTextNode as text, createUnsafeTextNode as unsafe };
+export declare const createUnsafeNode: (txt: Type) => Node;
+export { createTextNode as text, createUnsafeNode as unsafe };
 /**
  * createElement wrapper.
  */
