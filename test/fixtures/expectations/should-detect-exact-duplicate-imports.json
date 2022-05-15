@@ -1,0 +1,108 @@
+{
+  "imports": [
+    {
+      "member": {
+        "members": [
+          {
+            "value": "A",
+            "location": {
+              "first_line": 1,
+              "first_column": 11,
+              "last_line": 1,
+              "last_column": 12,
+              "range": [
+                11,
+                12
+              ]
+            },
+            "type": "unqualified-constructor"
+          }
+        ],
+        "location": {
+          "first_line": 1,
+          "first_column": 10,
+          "last_line": 1,
+          "last_column": 13,
+          "range": [
+            10,
+            13
+          ]
+        },
+        "type": "composite-member"
+      },
+      "module": {
+        "value": "b",
+        "type": "string"
+      },
+      "location": {
+        "first_line": 1,
+        "first_column": 0,
+        "last_line": 1,
+        "last_column": 25,
+        "range": [
+          0,
+          25
+        ]
+      },
+      "type": "import-statement"
+    },
+    {
+      "member": {
+        "members": [
+          {
+            "value": "A",
+            "location": {
+              "first_line": 1,
+              "first_column": 37,
+              "last_line": 1,
+              "last_column": 38,
+              "range": [
+                37,
+                38
+              ]
+            },
+            "type": "unqualified-constructor"
+          }
+        ],
+        "location": {
+          "first_line": 1,
+          "first_column": 36,
+          "last_line": 1,
+          "last_column": 39,
+          "range": [
+            36,
+            39
+          ]
+        },
+        "type": "composite-member"
+      },
+      "module": {
+        "value": "b",
+        "type": "string"
+      },
+      "location": {
+        "first_line": 1,
+        "first_column": 26,
+        "last_line": 1,
+        "last_column": 51,
+        "range": [
+          26,
+          51
+        ]
+      },
+      "type": "import-statement"
+    }
+  ],
+  "exports": [],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 51,
+    "range": [
+      0,
+      51
+    ]
+  },
+  "type": "module"
+}

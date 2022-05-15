@@ -1,0 +1,274 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "MyView",
+        "location": {
+          "first_line": 2,
+          "first_column": 28,
+          "last_line": 2,
+          "last_column": 34,
+          "range": [
+            29,
+            35
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "context": {
+        "member": {
+          "members": [
+            {
+              "value": "Context",
+              "location": {
+                "first_line": 2,
+                "first_column": 36,
+                "last_line": 2,
+                "last_column": 43,
+                "range": [
+                  37,
+                  44
+                ]
+              },
+              "type": "unqualified-constructor"
+            }
+          ],
+          "location": {
+            "first_line": 2,
+            "first_column": 36,
+            "last_line": 2,
+            "last_column": 53,
+            "range": [
+              37,
+              54
+            ]
+          },
+          "type": "composite-member"
+        },
+        "module": {
+          "value": "./",
+          "type": "string"
+        },
+        "location": {
+          "first_line": 2,
+          "first_column": 36,
+          "last_line": 2,
+          "last_column": 53,
+          "range": [
+            37,
+            54
+          ]
+        },
+        "type": "import-statement"
+      },
+      "directives": [],
+      "root": {
+        "open": {
+          "value": "div",
+          "location": {
+            "first_line": 2,
+            "first_column": 59,
+            "last_line": 2,
+            "last_column": 62,
+            "range": [
+              60,
+              63
+            ]
+          },
+          "type": "unqualified-identifier"
+        },
+        "attributes": [],
+        "children": [
+          {
+            "expression": {
+              "member": {
+                "value": "text",
+                "location": {
+                  "first_line": 2,
+                  "first_column": 66,
+                  "last_line": 2,
+                  "last_column": 70,
+                  "range": [
+                    67,
+                    71
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "location": {
+                "first_line": 2,
+                "first_column": 65,
+                "last_line": 2,
+                "last_column": 70,
+                "range": [
+                  66,
+                  71
+                ]
+              },
+              "type": "context-property"
+            },
+            "filters": [],
+            "location": {
+              "first_line": 2,
+              "first_column": 63,
+              "last_line": 2,
+              "last_column": 72,
+              "range": [
+                64,
+                73
+              ]
+            },
+            "type": "interpolation"
+          }
+        ],
+        "close": {
+          "value": "div",
+          "location": {
+            "first_line": 2,
+            "first_column": 74,
+            "last_line": 2,
+            "last_column": 77,
+            "range": [
+              75,
+              78
+            ]
+          },
+          "type": "unqualified-identifier"
+        },
+        "type": "node"
+      },
+      "location": {
+        "first_line": 2,
+        "first_column": 20,
+        "last_line": 2,
+        "last_column": 78,
+        "range": [
+          21,
+          79
+        ]
+      },
+      "type": "view-statement"
+    },
+    {
+      "id": {
+        "value": "YourView",
+        "location": {
+          "first_line": 3,
+          "first_column": 28,
+          "last_line": 3,
+          "last_column": 36,
+          "range": [
+            108,
+            116
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "context": {
+        "member": {
+          "members": [
+            {
+              "value": "Context",
+              "location": {
+                "first_line": 3,
+                "first_column": 38,
+                "last_line": 3,
+                "last_column": 45,
+                "range": [
+                  118,
+                  125
+                ]
+              },
+              "type": "unqualified-constructor"
+            }
+          ],
+          "location": {
+            "first_line": 3,
+            "first_column": 38,
+            "last_line": 3,
+            "last_column": 55,
+            "range": [
+              118,
+              135
+            ]
+          },
+          "type": "composite-member"
+        },
+        "module": {
+          "value": "./",
+          "type": "string"
+        },
+        "location": {
+          "first_line": 3,
+          "first_column": 38,
+          "last_line": 3,
+          "last_column": 55,
+          "range": [
+            118,
+            135
+          ]
+        },
+        "type": "import-statement"
+      },
+      "directives": [],
+      "root": {
+        "open": {
+          "value": "div",
+          "location": {
+            "first_line": 3,
+            "first_column": 61,
+            "last_line": 3,
+            "last_column": 64,
+            "range": [
+              141,
+              144
+            ]
+          },
+          "type": "unqualified-identifier"
+        },
+        "attributes": [],
+        "children": [],
+        "close": {
+          "value": "div",
+          "location": {
+            "first_line": 3,
+            "first_column": 61,
+            "last_line": 3,
+            "last_column": 64,
+            "range": [
+              141,
+              144
+            ]
+          },
+          "type": "unqualified-identifier"
+        },
+        "type": "node"
+      },
+      "location": {
+        "first_line": 3,
+        "first_column": 20,
+        "last_line": 3,
+        "last_column": 66,
+        "range": [
+          100,
+          146
+        ]
+      },
+      "type": "view-statement"
+    }
+  ],
+  "location": {
+    "first_line": 2,
+    "first_column": 20,
+    "last_line": 4,
+    "last_column": 20,
+    "range": [
+      21,
+      167
+    ]
+  },
+  "type": "module"
+}

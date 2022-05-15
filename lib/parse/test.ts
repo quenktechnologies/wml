@@ -6,6 +6,9 @@ export const tests: { [key: string]: any } = {
     'should parse named import': {
         input: `{% import (B) from "path/to/a/b" %}`
     },
+    'should detect exact duplicate imports': {
+        input: `{% import (A) from "b" %} {% import (A) from "b" %}`
+    },
     'should parse a self closing tag': {
         input: '<simple/>'
     },
@@ -225,8 +228,15 @@ export const tests: { [key: string]: any } = {
     },
     '[view] should allow inline context import': {
 
-        input: '{% view MyView (Context from "./") %}} <div>{{@text}}</div>'
+        input: '{% view MyView (Context from "./") %} <div>{{@text}}</div>'
 
+    },
+    '[view] should allow multiple inline context imports': {
+
+        input: `
+                    {% view MyView (Context from "./") %} <div>{{@text}}</div>
+                    {% view YourView (Context from "./") %} <div/>
+                    `
     },
     'should allow construct expression': {
 

@@ -256,13 +256,16 @@ const typeDefinitions = (ctx: CodeGenerator) => [
  */
 export const importStatements2TS =
     (ctx: CodeGenerator, list: ast.ImportStatement[]): TypeScript =>
-        list.map(importStatement2TS).join(`;${eol(ctx)}`);
+        list
+            .map(importStatement2TS)
+            .filter((stmt, idx, list) => list.indexOf(stmt) == idx)
+            .join(`;${eol(ctx)}`);
 
 /**
  * importStatement2TS 
  */
 export const importStatement2TS = (n: ast.ImportStatement): TypeScript =>
-    `import ${importMember2TS(n.member)} from '${n.module.value}'; `;
+    `import ${importMember2TS(n.member)} from '${n.module.value.trim()}'; `;
 
 /**
  * importMember2TS
@@ -1235,14 +1238,14 @@ export const args2TS = (ctx: CodeGenerator, ns: ast.Expression[]) =>
 /**
  * memberExpression2TS 
  */
-export const memberExpression2TS = 
-  (ctx: CodeGenerator, n: ast.MemberExpression) => {
-    let target = expression2TS(ctx, n.target);
+export const memberExpression2TS =
+    (ctx: CodeGenerator, n: ast.MemberExpression) => {
+        let target = expression2TS(ctx, n.target);
 
-    return (n.member instanceof ast.StringLiteral) ?
-        `${target}[${string2TS(n.member)}]` :
-        `${target}.${identifier2TS(n.member)}`;
-}
+        return (n.member instanceof ast.StringLiteral) ?
+            `${target}[${string2TS(n.member)}]` :
+            `${target}.${identifier2TS(n.member)}`;
+    }
 
 /**
  * functionExpression2TS
