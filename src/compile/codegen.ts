@@ -876,6 +876,8 @@ export const child2TS = (ctx: CodeGenerator, n: ast.Child): string => {
         return forInStatement2TS(ctx, n);
     else if (n instanceof ast.ForOfStatement)
         return forOfStatement2TS(ctx, n);
+    else if (n instanceof ast.ForFromStatement)
+        return forFromStatement2TS(ctx, n);
     else if (n instanceof ast.Characters)
         return characters2TS(n);
     else if (n instanceof ast.ContextProperty)
@@ -1042,7 +1044,7 @@ export const forInStatement2TS = (ctx: CodeGenerator, n: ast.ForInStatement) => 
 /**
  * forOfStatement2TS
  */
-export const forOfStatement2TS = (ctx: CodeGenerator, n: ast.ForStatement) => {
+export const forOfStatement2TS = (ctx: CodeGenerator, n: ast.ForOfStatement) => {
 
     let expr = expression2TS(ctx, n.expression);
 
@@ -1063,6 +1065,33 @@ export const forOfStatement2TS = (ctx: CodeGenerator, n: ast.ForStatement) => {
     ].join(eol(ctx));
 
 }
+
+/**
+ * forFromStatement2TS
+ */
+export const forFromStatement2TS =
+    (ctx: CodeGenerator, node: ast.ForFromStatement) => {
+
+        let value = parameter2TS(node.variable);
+
+        let start = expression2TS(ctx, node.start);
+
+        let end = expression2TS(ctx, node.end);
+
+        let body = children2TS(ctx, node.body);
+
+        return [
+            `...(function forFrom()  {`,
+            `  let result:${WML}.Content[] = [];`,
+            `  for(let ${value}:number=${start}; ${value}<=${end}; ${value}++)`,
+            `   result.push(`,
+            `     ...${body}`,
+            `   );`,
+            `  return result;`,
+            `})()`
+        ].join(eol(ctx));
+
+    }
 
 /**
  * characters2TS converts character text to a typescript string.
