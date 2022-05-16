@@ -268,7 +268,11 @@ export declare const forInStatement2TS: (ctx: CodeGenerator, n: ast.ForInStateme
 /**
  * forOfStatement2TS
  */
-export declare const forOfStatement2TS: (ctx: CodeGenerator, n: ast.ForStatement) => string;
+export declare const forOfStatement2TS: (ctx: CodeGenerator, n: ast.ForOfStatement) => string;
+/**
+ * forFromStatement2TS
+ */
+export declare const forFromStatement2TS: (ctx: CodeGenerator, node: ast.ForFromStatement) => string;
 /**
  * characters2TS converts character text to a typescript string.
  */

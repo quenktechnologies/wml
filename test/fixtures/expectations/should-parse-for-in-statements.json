@@ -20,9 +20,22 @@
       "children": [
         {
           "variables": [
-            {
-              "id": {
-                "value": "value",
+            [
+              {
+                "id": {
+                  "value": "value",
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 13,
+                    "last_line": 1,
+                    "last_column": 18,
+                    "range": [
+                      13,
+                      18
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
                 "location": {
                   "first_line": 1,
                   "first_column": 13,
@@ -33,20 +46,9 @@
                     18
                   ]
                 },
-                "type": "unqualified-identifier"
-              },
-              "location": {
-                "first_line": 1,
-                "first_column": 13,
-                "last_line": 1,
-                "last_column": 18,
-                "range": [
-                  13,
-                  18
-                ]
-              },
-              "type": "untyped-parameter"
-            },
+                "type": "untyped-parameter"
+              }
+            ],
             {
               "id": {
                 "value": "key",

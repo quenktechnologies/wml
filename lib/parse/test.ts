@@ -74,6 +74,16 @@ export const tests: { [key: string]: any } = {
             '</root>'
 
     },
+    'should parse for from statements': {
+
+        input: `
+              <root>
+                {% for value=1 to 30 %}
+                  <b>{{value}}</b>
+                {% endfor %}
+              </root>
+              `
+    },
     'should parse if then expressions': {
 
         input: '<Html id={{@id}}>{{ if @check() then a else b }}</Html>'

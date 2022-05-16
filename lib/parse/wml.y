@@ -100,6 +100,7 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <CONTROL>'false'                                         return 'FALSE';
 <CONTROL>'where'                                         return 'WHERE';
 <CONTROL>'let'                                           return 'LET';
+<CONTROL>'to'                                            return 'TO';
 <CONTROL>{Constructor}                             return 'CONSTRUCTOR';
 <CONTROL>{Identifier}                              return 'IDENTIFIER';
 <CONTROL>'@'                                             return '@';
@@ -680,6 +681,9 @@ for_statement
 
           | for_of 
             {$$ = $1;}
+
+          | for_from
+            {$$ + $1;}
           ;
 
 for_in
@@ -702,12 +706,16 @@ for_of
             {$$ = new yy.ast.ForOfStatement($3, $5, $7, $11, @$);}
           ;
 
-for_parameters
-          : parameter 
-            {$$ = [$1];                                                 }
+for_from
+          : '{%' FOR untyped_parameter '=' expression TO expression '%}' 
+              children 
+            '{%' ENDFOR '%}'
+            {$$ = new yy.ast.ForFromStatement($3, $5, $7, $9, [], @$);}
+          ;
 
-          | untyped_parameter
-            { $$ = [$1];                                                }
+for_parameters
+          : for_parameter
+            {$$ = [$1];                                                 }
 
           | for_parameters ',' parameter
             {$$ = $1.concat($3);                                        }
@@ -715,7 +723,15 @@ for_parameters
           | for_parameters ',' untyped_parameter
             {$$ = $1.concat($3);                                        }
           ;
-            
+
+for_parameter
+          : parameter 
+            {$$ = $1;          }
+
+          | untyped_parameter
+            { $$ = $1;         }
+          ;
+
 if_statement
           : '{%' IF expression '%}' children '{%' ENDIF '%}'
            {$$ = new yy.ast.IfStatement($3, $5, undefined, @$); }

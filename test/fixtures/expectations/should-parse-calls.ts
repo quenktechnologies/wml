@@ -66,7 +66,7 @@ const unsafe = __document.unsafe
 const isSet = (value:any) => value != null
 __this.node('tr', <__wml.Attrs>{}, [
 
-        ...__forIn (y, (x , i , _$$all)=> 
+        ...__forIn (y, (, i , _$$all)=> 
 ([
 
         f(x,i)

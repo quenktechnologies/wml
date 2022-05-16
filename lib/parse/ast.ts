@@ -423,6 +423,7 @@ export type Control
 export type ForStatement
     = ForInStatement
     | ForOfStatement
+    | ForFromStatement
     ;
 
 export class ForInStatement {
@@ -445,6 +446,20 @@ export class ForOfStatement {
     constructor(
         public variables: Parameter[],
         public expression: Expression,
+        public body: Child[],
+        public otherwise: Child[],
+        public location: Location) { }
+
+}
+
+export class ForFromStatement {
+
+    type = 'for-from-statement';
+
+    constructor(
+        public variable: UntypedParameter,
+        public start: Expression,
+        public end: Expression,
         public body: Child[],
         public otherwise: Child[],
         public location: Location) { }

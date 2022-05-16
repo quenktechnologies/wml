@@ -1,0 +1,183 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "open": {
+        "value": "root",
+        "location": {
+          "first_line": 2,
+          "first_column": 15,
+          "last_line": 2,
+          "last_column": 19,
+          "range": [
+            16,
+            20
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "attributes": [],
+      "children": [
+        {
+          "variable": {
+            "id": {
+              "value": "value",
+              "location": {
+                "first_line": 3,
+                "first_column": 23,
+                "last_line": 3,
+                "last_column": 28,
+                "range": [
+                  45,
+                  50
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            "location": {
+              "first_line": 3,
+              "first_column": 23,
+              "last_line": 3,
+              "last_column": 28,
+              "range": [
+                45,
+                50
+              ]
+            },
+            "type": "untyped-parameter"
+          },
+          "start": {
+            "value": "1",
+            "location": {
+              "first_line": 3,
+              "first_column": 29,
+              "last_line": 3,
+              "last_column": 30,
+              "range": [
+                51,
+                52
+              ]
+            },
+            "type": "number-literal"
+          },
+          "end": {
+            "value": "30",
+            "location": {
+              "first_line": 3,
+              "first_column": 34,
+              "last_line": 3,
+              "last_column": 36,
+              "range": [
+                56,
+                58
+              ]
+            },
+            "type": "number-literal"
+          },
+          "body": [
+            {
+              "open": {
+                "value": "b",
+                "location": {
+                  "first_line": 4,
+                  "first_column": 19,
+                  "last_line": 4,
+                  "last_column": 20,
+                  "range": [
+                    81,
+                    82
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "attributes": [],
+              "children": [
+                {
+                  "expression": {
+                    "value": "value",
+                    "location": {
+                      "first_line": 4,
+                      "first_column": 23,
+                      "last_line": 4,
+                      "last_column": 28,
+                      "range": [
+                        85,
+                        90
+                      ]
+                    },
+                    "type": "unqualified-identifier"
+                  },
+                  "filters": [],
+                  "location": {
+                    "first_line": 4,
+                    "first_column": 21,
+                    "last_line": 4,
+                    "last_column": 30,
+                    "range": [
+                      83,
+                      92
+                    ]
+                  },
+                  "type": "interpolation"
+                }
+              ],
+              "close": {
+                "value": "b",
+                "location": {
+                  "first_line": 4,
+                  "first_column": 32,
+                  "last_line": 4,
+                  "last_column": 33,
+                  "range": [
+                    94,
+                    95
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "type": "node"
+            }
+          ],
+          "otherwise": [],
+          "location": {
+            "first_line": 3,
+            "first_column": 16,
+            "last_line": 5,
+            "last_column": 28,
+            "range": [
+              38,
+              125
+            ]
+          },
+          "type": "for-from-statement"
+        }
+      ],
+      "close": {
+        "value": "root",
+        "location": {
+          "first_line": 6,
+          "first_column": 16,
+          "last_line": 6,
+          "last_column": 20,
+          "range": [
+            142,
+            146
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "type": "node"
+    }
+  ],
+  "location": {
+    "first_line": 2,
+    "first_column": 14,
+    "last_line": 7,
+    "last_column": 14,
+    "range": [
+      15,
+      162
+    ]
+  },
+  "type": "module"
+}

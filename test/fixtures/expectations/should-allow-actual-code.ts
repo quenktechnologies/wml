@@ -88,7 +88,7 @@ export class Main  implements __wml.View {
 
         __this.widget(new TabBar({}, [
 
-        ...__forIn (__context.values.header.tabs, (tab , _$$i, _$$all)=> 
+        ...__forIn (__context.values.header.tabs, (, _$$i, _$$all)=> 
 ([
 
         __this.widget(new Tab({ww : { 'name' : tab.name ,'onClick' : tab.onClick  }}, [

@@ -64,23 +64,20 @@ const text = __document.text;
 const unsafe = __document.unsafe
 // @ts-ignore 6192
 const isSet = (value:any) => value != null
-__this.node('div', <__wml.Attrs>{}, [
+__this.node('root', <__wml.Attrs>{}, [
 
-        ...__forIn ([
+        ...(function forFrom()  {
+  let result:__wml.Content[] = [];
+  for(let value :number=1; value <30; value ++)
+   result.push(
+     [
 
-            string,
-boolean,
-number,
-object,
-undefined,
-null,
-void,
-never,
-any
-            ], (, _$$i, _$$all)=> 
-([
+        __this.node('b', <__wml.Attrs>{}, [
 
-        text (kind)
-     ]), 
-()=> ([]))
+        value
+     ])
+     ]
+   );
+  return result;
+})()
      ])

@@ -489,9 +489,22 @@
         "children": [
           {
             "variables": [
-              {
-                "id": {
-                  "value": "option",
+              [
+                {
+                  "id": {
+                    "value": "option",
+                    "location": {
+                      "first_line": 9,
+                      "first_column": 11,
+                      "last_line": 9,
+                      "last_column": 17,
+                      "range": [
+                        131,
+                        137
+                      ]
+                    },
+                    "type": "unqualified-identifier"
+                  },
                   "location": {
                     "first_line": 9,
                     "first_column": 11,
@@ -502,20 +515,9 @@
                       137
                     ]
                   },
-                  "type": "unqualified-identifier"
-                },
-                "location": {
-                  "first_line": 9,
-                  "first_column": 11,
-                  "last_line": 9,
-                  "last_column": 17,
-                  "range": [
-                    131,
-                    137
-                  ]
-                },
-                "type": "untyped-parameter"
-              },
+                  "type": "untyped-parameter"
+                }
+              ],
               {
                 "id": {
                   "value": "index",

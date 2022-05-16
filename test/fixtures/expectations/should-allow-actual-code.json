@@ -831,9 +831,22 @@
                     "children": [
                       {
                         "variables": [
-                          {
-                            "id": {
-                              "value": "tab",
+                          [
+                            {
+                              "id": {
+                                "value": "tab",
+                                "location": {
+                                  "first_line": 21,
+                                  "first_column": 23,
+                                  "last_line": 21,
+                                  "last_column": 26,
+                                  "range": [
+                                    794,
+                                    797
+                                  ]
+                                },
+                                "type": "unqualified-identifier"
+                              },
                               "location": {
                                 "first_line": 21,
                                 "first_column": 23,
@@ -844,20 +857,9 @@
                                   797
                                 ]
                               },
-                              "type": "unqualified-identifier"
-                            },
-                            "location": {
-                              "first_line": 21,
-                              "first_column": 23,
-                              "last_line": 21,
-                              "last_column": 26,
-                              "range": [
-                                794,
-                                797
-                              ]
-                            },
-                            "type": "untyped-parameter"
-                          }
+                              "type": "untyped-parameter"
+                            }
+                          ]
                         ],
                         "expression": {
                           "target": {

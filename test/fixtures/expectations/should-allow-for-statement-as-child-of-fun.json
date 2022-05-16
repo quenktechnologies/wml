@@ -21,9 +21,22 @@
       "body": [
         {
           "variables": [
-            {
-              "id": {
-                "value": "a",
+            [
+              {
+                "id": {
+                  "value": "a",
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 25,
+                    "last_line": 1,
+                    "last_column": 26,
+                    "range": [
+                      25,
+                      26
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
                 "location": {
                   "first_line": 1,
                   "first_column": 25,
@@ -34,20 +47,9 @@
                     26
                   ]
                 },
-                "type": "unqualified-identifier"
-              },
-              "location": {
-                "first_line": 1,
-                "first_column": 25,
-                "last_line": 1,
-                "last_column": 26,
-                "range": [
-                  25,
-                  26
-                ]
-              },
-              "type": "untyped-parameter"
-            }
+                "type": "untyped-parameter"
+              }
+            ]
           ],
           "expression": {
             "value": "b",
