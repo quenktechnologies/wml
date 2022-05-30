@@ -445,8 +445,8 @@ export const viewStatement2TS = (ctx: CodeGenerator, n: ast.ViewStatement) => {
 
     let typeParams = typeParameters2TS(n.typeParameters);
 
-    // This should be transformed to what we expect.
-    let c = type2TS(<ast.ConstructorType>n.context);
+    let context = type2TS((n.context instanceof ast.ContextFromStatement) ?
+    n.context.cons : <ast.ConstructorType>n.context);
 
     let template = tag2TS(ctx, n.root);
 
@@ -454,7 +454,7 @@ export const viewStatement2TS = (ctx: CodeGenerator, n: ast.ViewStatement) => {
 
         `export class ${id} ${typeParams} implements ${WML}.View {`,
         ``,
-        `   constructor(${CONTEXT}: ${c}) {`,
+        `   constructor(${CONTEXT}: ${context}) {`,
         ``,
         `       this.template = (${THIS}:${WML}.Registry) => {`,
         ``,

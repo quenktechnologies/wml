@@ -191,10 +191,23 @@ export class LetStatement {
 }
 
 export type ContextTypeIndicator
-    = Type
-    | ContextStatementMember[]
-    | ImportStatement
+    = ConstructorType
+    | ContextFromStatement
     ;
+
+/**
+ * ContextFromStatement
+ */
+export class ContextFromStatement {
+
+    type = 'context-from-statement';
+
+    constructor(
+        public cons: ConstructorType,
+        public module: StringLiteral,
+        public location: Location) { }
+
+}
 
 /**
  * ViewStatement

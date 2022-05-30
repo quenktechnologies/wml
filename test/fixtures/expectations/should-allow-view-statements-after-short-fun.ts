@@ -89,7 +89,7 @@ export class Results <A  >  implements __wml.View {
             1,
 3,
 4
-            ], (, index , _$$all)=> 
+            ], (option , index , _$$all)=> 
 ([
 
         __this.node('li', <__wml.Attrs>{}, [

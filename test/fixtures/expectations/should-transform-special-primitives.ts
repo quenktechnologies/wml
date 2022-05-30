@@ -77,7 +77,7 @@ null,
 void,
 never,
 any
-            ], (, _$$i, _$$all)=> 
+            ], (kind , _$$i, _$$all)=> 
 ([
 
         text (kind)

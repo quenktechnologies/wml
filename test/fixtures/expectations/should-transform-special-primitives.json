@@ -20,22 +20,9 @@
       "children": [
         {
           "variables": [
-            [
-              {
-                "id": {
-                  "value": "kind",
-                  "location": {
-                    "first_line": 2,
-                    "first_column": 19,
-                    "last_line": 2,
-                    "last_column": 23,
-                    "range": [
-                      25,
-                      29
-                    ]
-                  },
-                  "type": "unqualified-identifier"
-                },
+            {
+              "id": {
+                "value": "kind",
                 "location": {
                   "first_line": 2,
                   "first_column": 19,
@@ -46,9 +33,20 @@
                     29
                   ]
                 },
-                "type": "untyped-parameter"
-              }
-            ]
+                "type": "unqualified-identifier"
+              },
+              "location": {
+                "first_line": 2,
+                "first_column": 19,
+                "last_line": 2,
+                "last_column": 23,
+                "range": [
+                  25,
+                  29
+                ]
+              },
+              "type": "untyped-parameter"
+            }
           ],
           "expression": {
             "members": [

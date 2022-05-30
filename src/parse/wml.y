@@ -373,14 +373,17 @@ view_statement
           ;
 
 view_statement_context
-          : type 
+          : constructor_type 
             { $$ = $1; }
 
-          | unqualified_constructor FROM string_literal
-            {$$ = new yy.ast.ImportStatement(new yy.ast.CompositeMember([$1],@$),
-               $3, @$);
-            }
+          | context_from_statement
+            {$$ = $1; }
           ;
+
+context_from_statement
+            : constructor_type FROM string_literal
+              {$$ = new yy.ast.ContextFromStatement($1, $3, @$); }
+            ;
 
 view_directives
           : let_statement
@@ -469,7 +472,7 @@ constructor_type
             { $$ = new yy.ast.ConstructorType($1, [], @$);              }
 
           | cons type_parameters
-            { $$ = new yy.ast.ConstructorType($1, $2, @$);               }
+            { $$ = new yy.ast.ConstructorType($1, $2, @$);              }
           ;
 
 record_type

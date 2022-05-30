@@ -69,7 +69,7 @@ __this.node('root', <__wml.Attrs>{}, [
         ...__forIn ([
 
             
-            ], (, key , _$$all)=> 
+            ], (value , key , _$$all)=> 
 ([
 
         __this.node('stem', <__wml.Attrs>{}, [

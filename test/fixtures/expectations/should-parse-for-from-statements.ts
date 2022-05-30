@@ -68,9 +68,9 @@ __this.node('root', <__wml.Attrs>{}, [
 
         ...(function forFrom()  {
   let result:__wml.Content[] = [];
-  for(let value :number=1; value <30; value ++)
+  for(let value :number=1; value <=30; value ++)
    result.push(
-     [
+     ...[
 
         __this.node('b', <__wml.Attrs>{}, [
 

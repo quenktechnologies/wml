@@ -18,34 +18,33 @@
       },
       "typeParameters": [],
       "context": {
-        "member": {
-          "members": [
-            {
-              "value": "Context",
-              "location": {
-                "first_line": 2,
-                "first_column": 36,
-                "last_line": 2,
-                "last_column": 43,
-                "range": [
-                  37,
-                  44
-                ]
-              },
-              "type": "unqualified-constructor"
-            }
-          ],
+        "cons": {
+          "id": {
+            "value": "Context",
+            "location": {
+              "first_line": 2,
+              "first_column": 36,
+              "last_line": 2,
+              "last_column": 43,
+              "range": [
+                37,
+                44
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "typeParameters": [],
           "location": {
             "first_line": 2,
             "first_column": 36,
             "last_line": 2,
-            "last_column": 53,
+            "last_column": 43,
             "range": [
               37,
-              54
+              44
             ]
           },
-          "type": "composite-member"
+          "type": "constructor-type"
         },
         "module": {
           "value": "./",
@@ -61,7 +60,7 @@
             54
           ]
         },
-        "type": "import-statement"
+        "type": "context-from-statement"
       },
       "directives": [],
       "root": {
@@ -168,34 +167,33 @@
       },
       "typeParameters": [],
       "context": {
-        "member": {
-          "members": [
-            {
-              "value": "Context",
-              "location": {
-                "first_line": 3,
-                "first_column": 38,
-                "last_line": 3,
-                "last_column": 45,
-                "range": [
-                  118,
-                  125
-                ]
-              },
-              "type": "unqualified-constructor"
-            }
-          ],
+        "cons": {
+          "id": {
+            "value": "Context",
+            "location": {
+              "first_line": 3,
+              "first_column": 38,
+              "last_line": 3,
+              "last_column": 45,
+              "range": [
+                118,
+                125
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "typeParameters": [],
           "location": {
             "first_line": 3,
             "first_column": 38,
             "last_line": 3,
-            "last_column": 55,
+            "last_column": 45,
             "range": [
               118,
-              135
+              125
             ]
           },
-          "type": "composite-member"
+          "type": "constructor-type"
         },
         "module": {
           "value": "./",
@@ -211,7 +209,7 @@
             135
           ]
         },
-        "type": "import-statement"
+        "type": "context-from-statement"
       },
       "directives": [],
       "root": {

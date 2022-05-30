@@ -12,6 +12,8 @@ export const rewriteViewStatementContext =
 
         if (Array.isArray(node.context)) {
 
+          // TODO: Is this branch still needed?
+
             let contextName = `${node.id.value}Context`;
 
             let context = new ast.ContextStatement(
@@ -38,20 +40,24 @@ export const rewriteViewStatementContext =
 
             return [context, view];
 
-        } else if (node.context instanceof ast.ImportStatement) {
+        } else if (node.context instanceof ast.ContextFromStatement) {
 
-            tree.imports.push(node.context);
+            let { context } = node;
 
-            let cons = (<ast.UnqualifiedConstructor>(<ast.CompositeMember>
-                node.context.member).members[0]);
+            let { location } = context;
 
-            let ctx = new ast.ConstructorType(cons, [], node.location);
+            tree.imports.push(new ast.ImportStatement(
+                new ast.CompositeMember([
+                    <ast.UnqualifiedConstructor>context.cons.id], location),
+                context.module,
+                location
+            ));
 
             return [
                 new ast.ViewStatement(
                     node.id,
                     node.typeParameters,
-                    ctx,
+                    context.cons,
                     node.directives,
                     node.root,
                     node.location
