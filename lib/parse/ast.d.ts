@@ -124,7 +124,17 @@ export declare class LetStatement {
     type: string;
     constructor(id: UnqualifiedIdentifier, cons: ConstructorType, expression: Expression, location: Location);
 }
-export declare type ContextTypeIndicator = Type | ContextStatementMember[] | ImportStatement;
+export declare type ContextTypeIndicator = ConstructorType | ContextFromStatement;
+/**
+ * ContextFromStatement
+ */
+export declare class ContextFromStatement {
+    cons: ConstructorType;
+    module: StringLiteral;
+    location: Location;
+    type: string;
+    constructor(cons: ConstructorType, module: StringLiteral, location: Location);
+}
 /**
  * ViewStatement
  */
