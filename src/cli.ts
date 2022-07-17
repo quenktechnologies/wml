@@ -4,7 +4,9 @@ import {
     Future,
     pure,
     raise,
-    parallel
+    parallel,
+    doFuture,
+    voidPure
 } from '@quenk/noni/lib/control/monad/future';
 import {
     listFilesRec,
@@ -68,8 +70,8 @@ export const compileDir = (path: string, opts: CLIOptions) =>
  * If that file does not have the specified inputExtension, it will be
  * ignored.
  */
-export const compileFile = (path: string, opts: CLIOptions)
-    : Future<void> => {
+export const compileFile = (path: string, opts: CLIOptions) : Future<void> => 
+  doFuture(function*() {
 
     if (extname(path) !== `.${opts.inputExtension}`) {
 
@@ -79,21 +81,26 @@ export const compileFile = (path: string, opts: CLIOptions)
 
         let p = `${getFileName(path)}.${opts.outputExtension}`;
 
-        return readTextFile(path)
-            .chain(buf => {
+        let buf = yield readTextFile(path);
 
-                let eitherTs = compile(buf, opts);
+        let eitherTs = compile(buf, opts);
 
-                if (eitherTs.isLeft())
-                    return raise<string>(eitherTs.takeLeft());
-                else
-                    return pure(eitherTs.takeRight());
+      if(eitherTs.isLeft()) {
 
-            })
-            .chain(txt => writeTextFile(p, txt));
+        let msg = eitherTs.takeLeft().message;
+        
+        return raise(new Error(
+          `Error occurred while compiling "${path}":\n ${msg}`));
+
+      } else {
+
+            yield writeTextFile(p, eitherTs.takeRight());
     }
 
-}
+      return voidPure;
+
+    }
+});
 
 const getFileName = (file: string) =>
     `${dirname(file)}/${basename(file, extname(file))}`;
