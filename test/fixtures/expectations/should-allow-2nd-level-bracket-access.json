@@ -1,0 +1,158 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "open": {
+        "value": "div",
+        "location": {
+          "first_line": 1,
+          "first_column": 1,
+          "last_line": 1,
+          "last_column": 4,
+          "range": [
+            1,
+            4
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "attributes": [],
+      "children": [
+        {
+          "variables": [
+            {
+              "id": {
+                "value": "item",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 12,
+                  "last_line": 1,
+                  "last_column": 16,
+                  "range": [
+                    12,
+                    16
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "location": {
+                "first_line": 1,
+                "first_column": 12,
+                "last_line": 1,
+                "last_column": 16,
+                "range": [
+                  12,
+                  16
+                ]
+              },
+              "type": "untyped-parameter"
+            }
+          ],
+          "expression": {
+            "head": {
+              "value": "our",
+              "location": {
+                "first_line": 1,
+                "first_column": 20,
+                "last_line": 1,
+                "last_column": 23,
+                "range": [
+                  20,
+                  23
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            "tail": {
+              "value": "items",
+              "type": "string"
+            },
+            "location": {
+              "first_line": 1,
+              "first_column": 20,
+              "last_line": 1,
+              "last_column": 31,
+              "range": [
+                20,
+                31
+              ]
+            }
+          },
+          "body": [
+            {
+              "open": {
+                "value": "div",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 36,
+                  "last_line": 1,
+                  "last_column": 39,
+                  "range": [
+                    36,
+                    39
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "attributes": [],
+              "children": [],
+              "close": {
+                "value": "div",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 36,
+                  "last_line": 1,
+                  "last_column": 39,
+                  "range": [
+                    36,
+                    39
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "type": "node"
+            }
+          ],
+          "otherwise": [],
+          "location": {
+            "first_line": 1,
+            "first_column": 5,
+            "last_line": 1,
+            "last_column": 53,
+            "range": [
+              5,
+              53
+            ]
+          },
+          "type": "for-in-statement"
+        }
+      ],
+      "close": {
+        "value": "div",
+        "location": {
+          "first_line": 1,
+          "first_column": 55,
+          "last_line": 1,
+          "last_column": 58,
+          "range": [
+            55,
+            58
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "type": "node"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 60,
+    "range": [
+      0,
+      60
+    ]
+  },
+  "type": "module"
+}

@@ -648,6 +648,12 @@ export const tests: { [key: string]: any } = {
     <div>
      {% if @values.controls["@type"] %} value {% endif %}
      {% if @values.controls["@type"].value %} value {% endif %}
-    </div>`
+    </div>`,
+
+    'should allow 2nd level bracket access':
+        `<div>{% for item in our."items" %} <div/>{% endfor %}</div> `,
+
+    'should allow type to be used in if statement expression':
+        `<div>{% if item."type" == 1 %}<p/>{% endif %}</div>`
 
 }

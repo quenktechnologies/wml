@@ -48,7 +48,7 @@
           },
           "value": {
             "expression": {
-              "target": {
+              "head": {
                 "member": {
                   "value": "level",
                   "location": {
@@ -75,7 +75,7 @@
                 },
                 "type": "context-property"
               },
-              "member": {
+              "tail": {
                 "value": "name",
                 "location": {
                   "first_line": 1,

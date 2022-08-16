@@ -468,10 +468,10 @@ non_function_type
           ;
 
 constructor_type
-          : cons
+          : unqualified_constructor
             { $$ = new yy.ast.ConstructorType($1, [], @$);              }
 
-          | cons type_parameters
+          | unqualified_constructor type_parameters
             { $$ = new yy.ast.ConstructorType($1, $2, @$);              }
           ;
 
@@ -485,11 +485,11 @@ record_type
           ;
 
 list_type
-          : cons '[' ']'
+          : unqualified_constructor '[' ']'
             { $$ = new yy.ast.ListType(
                      new yy.ast.ConstructorType($1, []), @$);           }
 
-          | cons type_parameters '[' ']'
+          | unqualified_constructor type_parameters '[' ']'
             { $$ = new yy.ast.ListType(
                      new yy.ast.ConstructorType($1, $2), @$);           }
 
@@ -837,8 +837,8 @@ simple_expression
              |member_expression 
              |literal 
              |context_property 
-             |cons 
-             |identifier 
+             |unqualified_constructor 
+             |unqualified_identifier 
              |context_variable)
             { $$ = $1; }
           ;
@@ -865,24 +865,24 @@ type_arg_list
           ;
 
 construct_expression
-          : cons '(' arguments ')'
+          : unqualified_constructor '(' arguments ')'
             { $$ = new yy.ast.ConstructExpression($1, $3, @$); }
 
-          | cons '(' ')'
+          | unqualified_constructor '(' ')'
             { $$ = new yy.ast.ConstructExpression($1, [], @$); }
           ;
 
 call_expression
-          : identifier type_arguments '(' arguments ')'
+          : unqualified_identifier type_arguments '(' arguments ')'
             {$$ = new yy.ast.CallExpression($1, $2, $4, @$);    }
 
-          | identifier type_arguments '(' ')'
+          | unqualified_identifier type_arguments '(' ')'
             {$$ = new yy.ast.CallExpression($1, $2, [], @$);    }
 
-          | identifier '(' arguments ')'
+          | unqualified_identifier '(' arguments ')'
             {$$ = new yy.ast.CallExpression($1, [], $3, @$);    }
 
-          | identifier '(' ')'
+          | unqualified_identifier '(' ')'
             {$$ = new yy.ast.CallExpression($1, [], [], @$);    }
 
           | context_property type_arguments '(' arguments ')'
@@ -929,43 +929,34 @@ call_expression
           ;
 
 member_expression
-
-          : qualified_identifier '.' unqualified_identifier
+          : member_expression_head '.' member_expression_tail
             {$$ = new yy.ast.MemberExpression($1, $3, @$); }
 
-          | qualified_constructor '.' unqualified_identifier
-            {$$ = new yy.ast.MemberExpression($1, $3, @$); }
-
-          | context_variable '.' unqualified_identifier
-            {$$ = new yy.ast.MemberExpression($1, $3, @$); }
-
-          | context_property '.' unqualified_identifier
-            {$$ = new yy.ast.MemberExpression($1, $3, @$); }
-
-          | list '.' unqualified_identifier   
-            {$$ = new yy.ast.MemberExpression($1, $3, @$); }
-
-          | record '.' unqualified_identifier   
-            {$$ = new yy.ast.MemberExpression($1, $3, @$); }
-
-          | string_literal '.' unqualified_identifier
-            {$$ = new yy.ast.MemberExpression($1, $3, @$); }
-
-          | call_expression '.' unqualified_identifier
-            {$$ = new yy.ast.MemberExpression($1, $3, @$); }
-
-          |'(' expression ')' '.' unqualified_identifier
-            {$$ = new yy.ast.MemberExpression($2, $5, @$); }
-
-          | member_expression '.' unqualified_identifier
+          | member_expression '.' member_expression_tail
             {$$ = new yy.ast.MemberExpression($1, $3, @$); }
 
           | member_expression '[' string_literal ']'
             {$$ = new yy.ast.MemberExpression($1, $3, @$); }
           ;
 
-function_expression
+member_expression_head:
+           ( unqualified_identifier 
+           | unqualified_constructor
+           | context_variable 
+           | context_property 
+           | list 
+           | record 
+           | string_literal 
+           | call_expression 
+           |'(' expression ')' 
+           )
+           ;
 
+member_expression_tail
+          : (unqualified_identifier| unqualified_constructor|string_literal)
+          ;
+
+function_expression
           : parameters '->'  expression
             {$$ = new yy.ast.FunctionExpression($1, $3, @$); }
 

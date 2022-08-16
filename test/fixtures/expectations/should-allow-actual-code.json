@@ -462,8 +462,8 @@
             },
             "value": {
               "expression": {
-                "target": {
-                  "target": {
+                "head": {
+                  "head": {
                     "member": {
                       "value": "values",
                       "location": {
@@ -490,7 +490,7 @@
                     },
                     "type": "context-property"
                   },
-                  "member": {
+                  "tail": {
                     "value": "root",
                     "location": {
                       "first_line": 13,
@@ -515,7 +515,7 @@
                     ]
                   }
                 },
-                "member": {
+                "tail": {
                   "value": "class",
                   "location": {
                     "first_line": 13,
@@ -571,9 +571,9 @@
             "condition": {
               "left": {
                 "left": {
-                  "target": {
-                    "target": {
-                      "target": {
+                  "head": {
+                    "head": {
+                      "head": {
                         "member": {
                           "value": "values",
                           "location": {
@@ -600,7 +600,7 @@
                         },
                         "type": "context-property"
                       },
-                      "member": {
+                      "tail": {
                         "value": "header",
                         "location": {
                           "first_line": 15,
@@ -625,7 +625,7 @@
                         ]
                       }
                     },
-                    "member": {
+                    "tail": {
                       "value": "tabs",
                       "location": {
                         "first_line": 15,
@@ -650,7 +650,7 @@
                       ]
                     }
                   },
-                  "member": {
+                  "tail": {
                     "value": "length",
                     "location": {
                       "first_line": 15,
@@ -704,8 +704,8 @@
               },
               "operator": "||",
               "right": {
-                "target": {
-                  "target": {
+                "head": {
+                  "head": {
                     "member": {
                       "value": "values",
                       "location": {
@@ -732,7 +732,7 @@
                     },
                     "type": "context-property"
                   },
-                  "member": {
+                  "tail": {
                     "value": "header",
                     "location": {
                       "first_line": 15,
@@ -757,7 +757,7 @@
                     ]
                   }
                 },
-                "member": {
+                "tail": {
                   "value": "additionalTabs",
                   "location": {
                     "first_line": 15,
@@ -860,8 +860,8 @@
                           }
                         ],
                         "expression": {
-                          "target": {
-                            "target": {
+                          "head": {
+                            "head": {
                               "member": {
                                 "value": "values",
                                 "location": {
@@ -888,7 +888,7 @@
                               },
                               "type": "context-property"
                             },
-                            "member": {
+                            "tail": {
                               "value": "header",
                               "location": {
                                 "first_line": 21,
@@ -913,7 +913,7 @@
                               ]
                             }
                           },
-                          "member": {
+                          "tail": {
                             "value": "tabs",
                             "location": {
                               "first_line": 21,
@@ -986,8 +986,34 @@
                                 },
                                 "value": {
                                   "expression": {
-                                    "qualifier": "tab",
-                                    "member": "name",
+                                    "head": {
+                                      "value": "tab",
+                                      "location": {
+                                        "first_line": 24,
+                                        "first_column": 29,
+                                        "last_line": 24,
+                                        "last_column": 32,
+                                        "range": [
+                                          877,
+                                          880
+                                        ]
+                                      },
+                                      "type": "unqualified-identifier"
+                                    },
+                                    "tail": {
+                                      "value": "name",
+                                      "location": {
+                                        "first_line": 24,
+                                        "first_column": 33,
+                                        "last_line": 24,
+                                        "last_column": 37,
+                                        "range": [
+                                          881,
+                                          885
+                                        ]
+                                      },
+                                      "type": "unqualified-identifier"
+                                    },
                                     "location": {
                                       "first_line": 24,
                                       "first_column": 29,
@@ -997,8 +1023,7 @@
                                         877,
                                         885
                                       ]
-                                    },
-                                    "type": "qualified-identifier"
+                                    }
                                   },
                                   "filters": [],
                                   "location": {
@@ -1056,8 +1081,34 @@
                                 },
                                 "value": {
                                   "expression": {
-                                    "qualifier": "tab",
-                                    "member": "onClick",
+                                    "head": {
+                                      "value": "tab",
+                                      "location": {
+                                        "first_line": 25,
+                                        "first_column": 32,
+                                        "last_line": 25,
+                                        "last_column": 35,
+                                        "range": [
+                                          920,
+                                          923
+                                        ]
+                                      },
+                                      "type": "unqualified-identifier"
+                                    },
+                                    "tail": {
+                                      "value": "onClick",
+                                      "location": {
+                                        "first_line": 25,
+                                        "first_column": 36,
+                                        "last_line": 25,
+                                        "last_column": 43,
+                                        "range": [
+                                          924,
+                                          931
+                                        ]
+                                      },
+                                      "type": "unqualified-identifier"
+                                    },
                                     "location": {
                                       "first_line": 25,
                                       "first_column": 32,
@@ -1067,8 +1118,7 @@
                                         920,
                                         931
                                       ]
-                                    },
-                                    "type": "qualified-identifier"
+                                    }
                                   },
                                   "filters": [],
                                   "location": {
@@ -1129,8 +1179,8 @@
                       },
                       {
                         "condition": {
-                          "target": {
-                            "target": {
+                          "head": {
+                            "head": {
                               "member": {
                                 "value": "values",
                                 "location": {
@@ -1157,7 +1207,7 @@
                               },
                               "type": "context-property"
                             },
-                            "member": {
+                            "tail": {
                               "value": "header",
                               "location": {
                                 "first_line": 29,
@@ -1182,7 +1232,7 @@
                               ]
                             }
                           },
-                          "member": {
+                          "tail": {
                             "value": "additionalTabs",
                             "location": {
                               "first_line": 29,
@@ -1212,8 +1262,8 @@
                             "expression": {
                               "expression": {
                                 "target": {
-                                  "target": {
-                                    "target": {
+                                  "head": {
+                                    "head": {
                                       "member": {
                                         "value": "values",
                                         "location": {
@@ -1240,7 +1290,7 @@
                                       },
                                       "type": "context-property"
                                     },
-                                    "member": {
+                                    "tail": {
                                       "value": "header",
                                       "location": {
                                         "first_line": 31,
@@ -1265,7 +1315,7 @@
                                       ]
                                     }
                                   },
-                                  "member": {
+                                  "tail": {
                                     "value": "additionalTabs",
                                     "location": {
                                       "first_line": 31,

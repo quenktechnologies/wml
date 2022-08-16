@@ -1269,11 +1269,11 @@ export const args2TS = (ctx: CodeGenerator, ns: ast.Expression[]) =>
  */
 export const memberExpression2TS =
     (ctx: CodeGenerator, n: ast.MemberExpression) => {
-        let target = expression2TS(ctx, n.target);
+        let target = expression2TS(ctx, n.head);
 
-        return (n.member instanceof ast.StringLiteral) ?
-            `${target}[${string2TS(n.member)}]` :
-            `${target}.${identifier2TS(n.member)}`;
+        return (n.tail instanceof ast.StringLiteral) ?
+            `${target}[${string2TS(n.tail)}]` :
+            `${target}.${expression2TS(ctx, n.tail)}`;
     }
 
 /**

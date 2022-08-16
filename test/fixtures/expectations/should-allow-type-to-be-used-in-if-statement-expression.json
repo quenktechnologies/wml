@@ -1,0 +1,156 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "open": {
+        "value": "div",
+        "location": {
+          "first_line": 1,
+          "first_column": 1,
+          "last_line": 1,
+          "last_column": 4,
+          "range": [
+            1,
+            4
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "attributes": [],
+      "children": [
+        {
+          "condition": {
+            "left": {
+              "head": {
+                "value": "item",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 11,
+                  "last_line": 1,
+                  "last_column": 15,
+                  "range": [
+                    11,
+                    15
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "tail": {
+                "value": "type",
+                "type": "string"
+              },
+              "location": {
+                "first_line": 1,
+                "first_column": 11,
+                "last_line": 1,
+                "last_column": 22,
+                "range": [
+                  11,
+                  22
+                ]
+              }
+            },
+            "operator": "==",
+            "right": {
+              "value": "1",
+              "location": {
+                "first_line": 1,
+                "first_column": 26,
+                "last_line": 1,
+                "last_column": 27,
+                "range": [
+                  26,
+                  27
+                ]
+              },
+              "type": "number-literal"
+            },
+            "location": {
+              "first_line": 1,
+              "first_column": 11,
+              "last_line": 1,
+              "last_column": 27,
+              "range": [
+                11,
+                27
+              ]
+            },
+            "type": "binary-expression"
+          },
+          "then": [
+            {
+              "open": {
+                "value": "p",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 31,
+                  "last_line": 1,
+                  "last_column": 32,
+                  "range": [
+                    31,
+                    32
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "attributes": [],
+              "children": [],
+              "close": {
+                "value": "p",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 31,
+                  "last_line": 1,
+                  "last_column": 32,
+                  "range": [
+                    31,
+                    32
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "type": "node"
+            }
+          ],
+          "location": {
+            "first_line": 1,
+            "first_column": 5,
+            "last_line": 1,
+            "last_column": 45,
+            "range": [
+              5,
+              45
+            ]
+          },
+          "type": "if-statement"
+        }
+      ],
+      "close": {
+        "value": "div",
+        "location": {
+          "first_line": 1,
+          "first_column": 47,
+          "last_line": 1,
+          "last_column": 50,
+          "range": [
+            47,
+            50
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "type": "node"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 51,
+    "range": [
+      0,
+      51
+    ]
+  },
+  "type": "module"
+}

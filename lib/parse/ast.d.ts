@@ -392,10 +392,10 @@ export declare class CallExpression {
  * MemberExpression
  */
 export declare class MemberExpression {
-    target: Expression;
-    member: UnqualifiedIdentifier | StringLiteral;
+    head: Expression;
+    tail: UnqualifiedIdentifier | UnqualifiedConstructor | StringLiteral;
     location: Location;
-    constructor(target: Expression, member: UnqualifiedIdentifier | StringLiteral, location: Location);
+    constructor(head: Expression, tail: UnqualifiedIdentifier | UnqualifiedConstructor | StringLiteral, location: Location);
 }
 export declare class ReadExpression {
     target: Expression;

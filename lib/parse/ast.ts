@@ -638,8 +638,8 @@ export class CallExpression {
 export class MemberExpression {
 
     constructor(
-        public target: Expression,
-        public member: UnqualifiedIdentifier | StringLiteral,
+        public head: Expression,
+        public tail: UnqualifiedIdentifier | UnqualifiedConstructor | StringLiteral,
         public location: Location) { }
 
 }

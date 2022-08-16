@@ -50,8 +50,34 @@
             "expression": {
               "left": {
                 "left": {
-                  "qualifier": "Styles",
-                  "member": "A",
+                  "head": {
+                    "value": "Styles",
+                    "location": {
+                      "first_line": 1,
+                      "first_column": 15,
+                      "last_line": 1,
+                      "last_column": 21,
+                      "range": [
+                        15,
+                        21
+                      ]
+                    },
+                    "type": "unqualified-constructor"
+                  },
+                  "tail": {
+                    "value": "A",
+                    "location": {
+                      "first_line": 1,
+                      "first_column": 22,
+                      "last_line": 1,
+                      "last_column": 23,
+                      "range": [
+                        22,
+                        23
+                      ]
+                    },
+                    "type": "unqualified-constructor"
+                  },
                   "location": {
                     "first_line": 1,
                     "first_column": 15,
@@ -61,8 +87,7 @@
                       15,
                       23
                     ]
-                  },
-                  "type": "qualified-constructor"
+                  }
                 },
                 "operator": "+",
                 "right": {
@@ -83,8 +108,34 @@
               },
               "operator": "+",
               "right": {
-                "qualifier": "Style",
-                "member": "B",
+                "head": {
+                  "value": "Style",
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 33,
+                    "last_line": 1,
+                    "last_column": 38,
+                    "range": [
+                      33,
+                      38
+                    ]
+                  },
+                  "type": "unqualified-constructor"
+                },
+                "tail": {
+                  "value": "B",
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 39,
+                    "last_line": 1,
+                    "last_column": 40,
+                    "range": [
+                      39,
+                      40
+                    ]
+                  },
+                  "type": "unqualified-constructor"
+                },
                 "location": {
                   "first_line": 1,
                   "first_column": 33,
@@ -94,8 +145,7 @@
                     33,
                     40
                   ]
-                },
-                "type": "qualified-constructor"
+                }
               },
               "location": {
                 "first_line": 1,
