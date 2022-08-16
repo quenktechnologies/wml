@@ -13,14 +13,3 @@ test: test/dom/wml
 test/dom/wml: $(shell find test/dom/wml -type f -name \*.wml)
 	lib/main.js --module=../../../lib --dom=../../../lib/dom $@
 	touch $@
-
-.PHONY: docs
-docs: lib
-	./node_modules/.bin/typedoc \
-	--mode modules \
-	--out $@ \
-	--tsconfig lib/tsconfig.json \
-	--theme minimal lib  \
-	--excludeNotExported \
-	--excludePrivate && \
-	echo "" > docs/.nojekyll
