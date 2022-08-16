@@ -654,6 +654,9 @@ export const tests: { [key: string]: any } = {
         `<div>{% for item in our."items" %} <div/>{% endfor %}</div> `,
 
     'should allow type to be used in if statement expression':
-        `<div>{% if item."type" == 1 %}<p/>{% endif %}</div>`
+        `<div>{% if item."type" == 1 %}<p/>{% endif %}</div>`,
+
+  'should support the special wml:attrs attribute':
+  `<Panel wml:attrs={{@panelAttrs}}><div wml:attrs={{divAttrs}}/></Panel>`
 
 }

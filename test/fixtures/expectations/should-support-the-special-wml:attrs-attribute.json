@@ -1,0 +1,236 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "open": {
+        "value": "Panel",
+        "location": {
+          "first_line": 1,
+          "first_column": 1,
+          "last_line": 1,
+          "last_column": 6,
+          "range": [
+            1,
+            6
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "attributes": [
+        {
+          "namespace": {
+            "value": "wml",
+            "location": {
+              "first_line": 1,
+              "first_column": 7,
+              "last_line": 1,
+              "last_column": 10,
+              "range": [
+                7,
+                10
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "name": {
+            "value": "attrs",
+            "location": {
+              "first_line": 1,
+              "first_column": 11,
+              "last_line": 1,
+              "last_column": 16,
+              "range": [
+                11,
+                16
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "value": {
+            "expression": {
+              "member": {
+                "value": "panelAttrs",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 20,
+                  "last_line": 1,
+                  "last_column": 30,
+                  "range": [
+                    20,
+                    30
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "location": {
+                "first_line": 1,
+                "first_column": 19,
+                "last_line": 1,
+                "last_column": 30,
+                "range": [
+                  19,
+                  30
+                ]
+              },
+              "type": "context-property"
+            },
+            "filters": [],
+            "location": {
+              "first_line": 1,
+              "first_column": 17,
+              "last_line": 1,
+              "last_column": 32,
+              "range": [
+                17,
+                32
+              ]
+            },
+            "type": "interpolation"
+          },
+          "location": {
+            "first_line": 1,
+            "first_column": 7,
+            "last_line": 1,
+            "last_column": 32,
+            "range": [
+              7,
+              32
+            ]
+          },
+          "type": "attribute"
+        }
+      ],
+      "children": [
+        {
+          "open": {
+            "value": "div",
+            "location": {
+              "first_line": 1,
+              "first_column": 34,
+              "last_line": 1,
+              "last_column": 37,
+              "range": [
+                34,
+                37
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "attributes": [
+            {
+              "namespace": {
+                "value": "wml",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 38,
+                  "last_line": 1,
+                  "last_column": 41,
+                  "range": [
+                    38,
+                    41
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "name": {
+                "value": "attrs",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 42,
+                  "last_line": 1,
+                  "last_column": 47,
+                  "range": [
+                    42,
+                    47
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "value": {
+                "expression": {
+                  "value": "divAttrs",
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 50,
+                    "last_line": 1,
+                    "last_column": 58,
+                    "range": [
+                      50,
+                      58
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "filters": [],
+                "location": {
+                  "first_line": 1,
+                  "first_column": 48,
+                  "last_line": 1,
+                  "last_column": 60,
+                  "range": [
+                    48,
+                    60
+                  ]
+                },
+                "type": "interpolation"
+              },
+              "location": {
+                "first_line": 1,
+                "first_column": 38,
+                "last_line": 1,
+                "last_column": 60,
+                "range": [
+                  38,
+                  60
+                ]
+              },
+              "type": "attribute"
+            }
+          ],
+          "children": [],
+          "close": {
+            "value": "div",
+            "location": {
+              "first_line": 1,
+              "first_column": 34,
+              "last_line": 1,
+              "last_column": 37,
+              "range": [
+                34,
+                37
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "type": "node"
+        }
+      ],
+      "close": {
+        "value": "Panel",
+        "location": {
+          "first_line": 1,
+          "first_column": 64,
+          "last_line": 1,
+          "last_column": 69,
+          "range": [
+            64,
+            69
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "type": "widget"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 70,
+    "range": [
+      0,
+      70
+    ]
+  },
+  "type": "module"
+}
