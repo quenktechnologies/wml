@@ -15,7 +15,7 @@ import {
     isRecord
 } from '@quenk/noni/lib/data/record';
 
-import { contains, partition } from '@quenk/noni/lib/data/array';
+import { contains, find, partition } from '@quenk/noni/lib/data/array';
 
 import { transformTree } from './transform';
 
@@ -446,7 +446,7 @@ export const viewStatement2TS = (ctx: CodeGenerator, n: ast.ViewStatement) => {
     let typeParams = typeParameters2TS(n.typeParameters);
 
     let context = type2TS((n.context instanceof ast.ContextFromStatement) ?
-    n.context.cons : <ast.ConstructorType>n.context);
+        n.context.cons : <ast.ConstructorType>n.context);
 
     let template = tag2TS(ctx, n.root);
 
@@ -909,7 +909,7 @@ export const tag2TS = (ctx: CodeGenerator, n: ast.Tag) => (n.type === 'widget') 
 export const widget2TS = (ctx: CodeGenerator, n: ast.Widget) => {
 
     let name = constructor2TS(n.open);
-    let attrs = attrs2String(groupAttrs(ctx, n.attributes));
+    let attrs = attrs2String(ctx, n.attributes);
     let childs = children2TS(ctx, n.children);
 
     return `${THIS}.widget(new ${name}(${attrs}, ${childs}),` +
@@ -925,7 +925,7 @@ export const widget2TS = (ctx: CodeGenerator, n: ast.Widget) => {
 export const node2TS = (ctx: CodeGenerator, n: ast.Node) => {
 
     let name = identifier2TS(n.open);
-    let attrs = attrs2String(groupAttrs(ctx, n.attributes));
+    let attrs = attrs2String(ctx, n.attributes);
     let childs = children2TS(ctx, n.children);
 
     return `${THIS}.node('${name}', <${WML}.Attrs>${attrs}, ${childs})`;
@@ -956,19 +956,15 @@ export const attributeName2TS = (_: CodeGenerator, n: ast.Attribute) =>
 /**
  * attrs2String 
  */
-export const attrs2String = (attrs: { [key: string]: string | string[] }) =>
-    '{' +
-    Object.keys(attrs).map(name =>
-        Array.isArray(attrs[name]) ?
-            `${name} : { ${(<string[]>attrs[name]).join(',')} }` :
-            `${name}: ${attrs[name]}`) +
-    '}';
+export const attrs2String = (ctx: CodeGenerator, attrs: ast.Attribute[]) => {
 
-/**
- * groupAttrs
- */
-export const groupAttrs = (ctx: CodeGenerator, attrs: ast.Attribute[])
-    : { [key: string]: string | string[] } => {
+    // Check for the special wml:attrs attribute.
+
+    let mallAttrs = find(attrs, attr => ((attr.namespace.value === 'wml') &&
+        (attr.name.value === 'attrs')));
+
+    if (mallAttrs.isJust())
+        return attributeValue2TS(ctx, mallAttrs.get());
 
     let [nns, ns] = partition(attrs, a => (a.namespace.value === ''));
 
@@ -978,13 +974,21 @@ export const groupAttrs = (ctx: CodeGenerator, attrs: ast.Attribute[])
 
     }), <{ [key: string]: string[] }>{});
 
-    return nns.reduce((p, n) => merge(p, {
+    return _attrs2String(nns.reduce((p, n) => merge(p, {
 
         [attributeName2TS(ctx, n)]: attributeValue2TS(ctx, n)
 
-    }), <{ [key: string]: string | string[] }>nso);
+    }), <{ [key: string]: string | string[] }>nso));
 
 }
+
+ const _attrs2String = (attrs: { [key: string]: string | string[] }) =>
+  '{' +
+    Object.keys(attrs).map(name =>
+        Array.isArray(attrs[name]) ?
+            `${name} : { ${(<string[]>attrs[name]).join(',')} }` :
+            `${name}: ${attrs[name]}`) +
+    '}';
 
 /**
  * interpolation2TS 

@@ -244,15 +244,7 @@ export declare const attributeName2TS: (_: CodeGenerator, n: ast.Attribute) => s
 /**
  * attrs2String
  */
-export declare const attrs2String: (attrs: {
-    [key: string]: string | string[];
-}) => string;
-/**
- * groupAttrs
- */
-export declare const groupAttrs: (ctx: CodeGenerator, attrs: ast.Attribute[]) => {
-    [key: string]: string | string[];
-};
+export declare const attrs2String: (ctx: CodeGenerator, attrs: ast.Attribute[]) => string;
 /**
  * interpolation2TS
  */
