@@ -459,7 +459,7 @@ non_function_type
 
           | record_type
             { $$ = $1;                                                  }
-         
+
           | list_type
             { $$ = $1;                                                  }
 
@@ -472,6 +472,12 @@ constructor_type
             { $$ = new yy.ast.ConstructorType($1, [], @$);              }
 
           | unqualified_constructor type_parameters
+            { $$ = new yy.ast.ConstructorType($1, $2, @$);              }
+
+          | qualified_constructor
+            { $$ = new yy.ast.ConstructorType($1, [], @$);              }
+
+          | qualified_constructor type_parameters
             { $$ = new yy.ast.ConstructorType($1, $2, @$);              }
           ;
 
