@@ -582,7 +582,7 @@ export const tests: { [key: string]: any } = {
     'should parse tupe types': `{% type Tuple = [Number, String, Number] %}`,
 
     'should parse type assertion':
-        '<Panel onClick={{ \e -> [*User]foo(e) }} />',
+        '<Panel onClick={{ \e -> foo(e) as User }} />',
 
     'should parse partial application in expression':
         '<Link ww:text={{truncate(50)(@text)}} />',
@@ -659,8 +659,8 @@ export const tests: { [key: string]: any } = {
     'should support the special wml:attrs attribute':
         `<Panel wml:attrs={{@panelAttrs}}><div wml:attrs={{divAttrs}}/></Panel>`,
 
-    'should parse widgets with type arguments': 
-    `<div>
+    'should parse widgets with type arguments':
+        `<div>
       <Panel[Text]>
         <PanelHeader[Text] wml:id="header"/>
         <PanelBody/>

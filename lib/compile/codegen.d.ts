@@ -286,10 +286,6 @@ export declare const binaryExpression2TS: (ctx: CodeGenerator, n: ast.BinaryExpr
  */
 export declare const unaryExpression2TS: (ctx: CodeGenerator, n: ast.UnaryExpression) => string;
 /**
- * typeAssertion2TS
- */
-export declare const typeAssertion2TS: (ctx: CodeGenerator, n: ast.TypeAssertion) => string;
-/**
  * viewConstruction2TS
  */
 export declare const viewConstruction2TS: (ctx: CodeGenerator, n: ast.ViewConstruction) => string;

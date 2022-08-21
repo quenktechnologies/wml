@@ -25,10 +25,10 @@
               "first_line": 1,
               "first_column": 7,
               "last_line": 1,
-              "last_column": 39,
+              "last_column": 40,
               "range": [
                 7,
-                39
+                40
               ]
             },
             "type": "unqualified-identifier"
@@ -79,45 +79,17 @@
                 }
               ],
               "body": {
-                "target": {
-                  "id": {
-                    "value": "User",
-                    "location": {
-                      "first_line": 1,
-                      "first_column": 25,
-                      "last_line": 1,
-                      "last_column": 29,
-                      "range": [
-                        25,
-                        29
-                      ]
-                    },
-                    "type": "unqualified-constructor"
-                  },
-                  "typeParameters": [],
-                  "location": {
-                    "first_line": 1,
-                    "first_column": 25,
-                    "last_line": 1,
-                    "last_column": 29,
-                    "range": [
-                      25,
-                      29
-                    ]
-                  },
-                  "type": "constructor-type"
-                },
-                "expression": {
+                "left": {
                   "target": {
                     "value": "foo",
                     "location": {
                       "first_line": 1,
-                      "first_column": 30,
+                      "first_column": 23,
                       "last_line": 1,
-                      "last_column": 33,
+                      "last_column": 26,
                       "range": [
-                        30,
-                        33
+                        23,
+                        26
                       ]
                     },
                     "type": "unqualified-identifier"
@@ -128,12 +100,12 @@
                       "value": "e",
                       "location": {
                         "first_line": 1,
-                        "first_column": 34,
+                        "first_column": 27,
                         "last_line": 1,
-                        "last_column": 35,
+                        "last_column": 28,
                         "range": [
-                          34,
-                          35
+                          27,
+                          28
                         ]
                       },
                       "type": "unqualified-identifier"
@@ -141,26 +113,51 @@
                   ],
                   "location": {
                     "first_line": 1,
-                    "first_column": 30,
+                    "first_column": 23,
                     "last_line": 1,
-                    "last_column": 36,
+                    "last_column": 29,
                     "range": [
-                      30,
-                      36
+                      23,
+                      29
                     ]
                   },
                   "type": "call-expression"
                 },
-                "type": "type-assertion"
+                "operator": "as",
+                "right": {
+                  "value": "User",
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 33,
+                    "last_line": 1,
+                    "last_column": 37,
+                    "range": [
+                      33,
+                      37
+                    ]
+                  },
+                  "type": "unqualified-constructor"
+                },
+                "location": {
+                  "first_line": 1,
+                  "first_column": 23,
+                  "last_line": 1,
+                  "last_column": 37,
+                  "range": [
+                    23,
+                    37
+                  ]
+                },
+                "type": "binary-expression"
               },
               "location": {
                 "first_line": 1,
                 "first_column": 18,
                 "last_line": 1,
-                "last_column": 36,
+                "last_column": 37,
                 "range": [
                   18,
-                  36
+                  37
                 ]
               },
               "type": "function-expression"
@@ -170,10 +167,10 @@
               "first_line": 1,
               "first_column": 15,
               "last_line": 1,
-              "last_column": 39,
+              "last_column": 40,
               "range": [
                 15,
-                39
+                40
               ]
             },
             "type": "interpolation"
@@ -182,10 +179,10 @@
             "first_line": 1,
             "first_column": 7,
             "last_line": 1,
-            "last_column": 39,
+            "last_column": 40,
             "range": [
               7,
-              39
+              40
             ]
           },
           "type": "attribute"
@@ -216,10 +213,10 @@
     "first_line": 1,
     "first_column": 0,
     "last_line": 1,
-    "last_column": 42,
+    "last_column": 43,
     "range": [
       0,
-      42
+      43
     ]
   },
   "type": "module"

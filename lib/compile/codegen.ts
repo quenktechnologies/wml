@@ -1117,8 +1117,6 @@ export const expression2TS = (ctx: CodeGenerator, n: ast.Expression): string => 
         return binaryExpression2TS(ctx, n)
     else if (n instanceof ast.UnaryExpression)
         return unaryExpression2TS(ctx, n);
-    else if (n instanceof ast.TypeAssertion)
-        return typeAssertion2TS(ctx, n);
     else if (n instanceof ast.ViewConstruction)
         return viewConstruction2TS(ctx, n);
     else if (n instanceof ast.FunApplication)
@@ -1177,13 +1175,16 @@ export const ifThenExpression2TS = (ctx: CodeGenerator, n: ast.IfThenExpression)
 export const binaryExpression2TS = (ctx: CodeGenerator, n: ast.BinaryExpression) => {
 
     let left = expression2TS(ctx, n.left);
+
     let right = expression2TS(ctx, n.right);
 
     let op = operators.hasOwnProperty(n.operator) ?
         operators[n.operator] :
         n.operator;
 
-    return `(${left} ${op} ${right})`;
+    return (n.operator.toLowerCase() === 'as') ?
+        `<${right}>(${left})` :
+        `(${left} ${op} ${right})`;
 
 }
 
@@ -1200,12 +1201,6 @@ export const unaryExpression2TS =
             `${n.operator}(${expr})`;
 
     }
-
-/**
- * typeAssertion2TS
- */
-export const typeAssertion2TS = (ctx: CodeGenerator, n: ast.TypeAssertion) =>
-    `<${type2TS(n.target)}>(${expression2TS(ctx, n.expression)})`;
 
 /**
  * viewConstruction2TS 
@@ -1237,9 +1232,9 @@ export const constructExpression2TS =
 
         return contains(casters, consOriginal) ?
 
-             `${consOriginal}${typeArgs}(${args})` :
+            `${consOriginal}${typeArgs}(${args})` :
 
-             `new ${cons}${typeArgs}(${args})`;
+            `new ${cons}${typeArgs}(${args})`;
 
     }
 
