@@ -343,10 +343,10 @@ export declare class IfThenExpression {
 export declare class BinaryExpression {
     left: Expression;
     operator: string;
-    right: Expression;
+    right: Expression | Type;
     location: Location;
     type: string;
-    constructor(left: Expression, operator: string, right: Expression, location: Location);
+    constructor(left: Expression, operator: string, right: Expression | Type, location: Location);
 }
 export declare class UnaryExpression {
     operator: string;

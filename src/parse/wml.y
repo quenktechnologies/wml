@@ -810,7 +810,13 @@ binary_expression
          | simple_expression binary_operator '(' expression ')'
            {$$ = new yy.ast.BinaryExpression($1, $2, $4, @$); }
 
+         | simple_expression AS type
+           {$$ = new yy.ast.BinaryExpression($1, $2, $3, @$); }
+
          | '(' expression ')' binary_operator simple_expression
+           {$$ = new yy.ast.BinaryExpression($2, $4, $5, @$); }
+
+         | '(' expression ')' AS type
            {$$ = new yy.ast.BinaryExpression($2, $4, $5, @$); }
 
          | '(' expression ')' binary_operator '(' expression ')'
@@ -1078,7 +1084,7 @@ unqualified_identifier
          ;
 
 binary_operator
-          : ('>'|'>='|'<'|'<='|'=='|'!='|'+'|'/'|'-'|'='|'&&'|'||'|'^'|INSTANCEOF|AS)
+          : ('>'|'>='|'<'|'<='|'=='|'!='|'+'|'/'|'-'|'='|'&&'|'||'|'^'|INSTANCEOF)
             { $$ = $1; }
           ;
 

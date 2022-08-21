@@ -561,7 +561,7 @@ export class BinaryExpression {
     constructor(
         public left: Expression,
         public operator: string,
-        public right: Expression,
+        public right: Expression|Type,
         public location: Location) { }
 
 }

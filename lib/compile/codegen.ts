@@ -1172,19 +1172,20 @@ export const ifThenExpression2TS = (ctx: CodeGenerator, n: ast.IfThenExpression)
 /**
  * binaryExpression2TS 
  */
-export const binaryExpression2TS = (ctx: CodeGenerator, n: ast.BinaryExpression) => {
+export const binaryExpression2TS = 
+  (ctx: CodeGenerator, n: ast.BinaryExpression) => {
 
     let left = expression2TS(ctx, n.left);
 
-    let right = expression2TS(ctx, n.right);
+    let right = n.operator === 'as' ?
+        type2TS(<ast.Type>n.right) :
+        expression2TS(ctx, n.right);
 
     let op = operators.hasOwnProperty(n.operator) ?
         operators[n.operator] :
         n.operator;
 
-    return (n.operator.toLowerCase() === 'as') ?
-        `<${right}>(${left})` :
-        `(${left} ${op} ${right})`;
+    return (n.operator === 'as') ? `<${right}>(${left})` : `(${left} ${op} ${right})`;
 
 }
 

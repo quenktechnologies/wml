@@ -125,7 +125,21 @@
                 },
                 "operator": "as",
                 "right": {
-                  "value": "User",
+                  "id": {
+                    "value": "User",
+                    "location": {
+                      "first_line": 1,
+                      "first_column": 33,
+                      "last_line": 1,
+                      "last_column": 37,
+                      "range": [
+                        33,
+                        37
+                      ]
+                    },
+                    "type": "unqualified-constructor"
+                  },
+                  "typeParameters": [],
                   "location": {
                     "first_line": 1,
                     "first_column": 33,
@@ -136,7 +150,7 @@
                       37
                     ]
                   },
-                  "type": "unqualified-constructor"
+                  "type": "constructor-type"
                 },
                 "location": {
                   "first_line": 1,
