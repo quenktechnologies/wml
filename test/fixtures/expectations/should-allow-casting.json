@@ -61,6 +61,7 @@
           },
           "type": "unqualified-constructor"
         },
+        "typeArgs": [],
         "attributes": [
           {
             "namespace": {
@@ -107,6 +108,7 @@
                   },
                   "type": "unqualified-constructor"
                 },
+                "typeArgs": [],
                 "args": [
                   {
                     "member": {
@@ -218,6 +220,7 @@
                   },
                   "type": "unqualified-constructor"
                 },
+                "typeArgs": [],
                 "args": [
                   {
                     "member": {
@@ -329,6 +332,7 @@
                   },
                   "type": "unqualified-constructor"
                 },
+                "typeArgs": [],
                 "args": [
                   {
                     "member": {
@@ -397,20 +401,23 @@
           }
         ],
         "children": [],
-        "close": {
-          "value": "Widget",
-          "location": {
-            "first_line": 3,
-            "first_column": 11,
-            "last_line": 3,
-            "last_column": 17,
-            "range": [
-              45,
-              51
-            ]
+        "close": [
+          {
+            "value": "Widget",
+            "location": {
+              "first_line": 3,
+              "first_column": 11,
+              "last_line": 3,
+              "last_column": 17,
+              "range": [
+                45,
+                51
+              ]
+            },
+            "type": "unqualified-constructor"
           },
-          "type": "unqualified-constructor"
-        },
+          []
+        ],
         "type": "widget"
       },
       "location": {

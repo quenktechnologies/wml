@@ -3,15 +3,15 @@
   "exports": [
     {
       "open": {
-        "value": "p",
+        "value": "div",
         "location": {
           "first_line": 1,
           "first_column": 1,
           "last_line": 1,
-          "last_column": 2,
+          "last_column": 4,
           "range": [
             1,
-            2
+            4
           ]
         },
         "type": "unqualified-identifier"
@@ -25,27 +25,56 @@
                 "value": "Panel",
                 "location": {
                   "first_line": 1,
-                  "first_column": 7,
+                  "first_column": 8,
                   "last_line": 1,
-                  "last_column": 12,
+                  "last_column": 13,
                   "range": [
-                    7,
-                    12
+                    8,
+                    13
                   ]
                 },
                 "type": "unqualified-constructor"
               },
-              "typeArgs": [],
+              "typeArgs": [
+                {
+                  "id": {
+                    "value": "Text",
+                    "location": {
+                      "first_line": 1,
+                      "first_column": 14,
+                      "last_line": 1,
+                      "last_column": 18,
+                      "range": [
+                        14,
+                        18
+                      ]
+                    },
+                    "type": "unqualified-constructor"
+                  },
+                  "typeParameters": [],
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 14,
+                    "last_line": 1,
+                    "last_column": 18,
+                    "range": [
+                      14,
+                      18
+                    ]
+                  },
+                  "type": "constructor-type"
+                }
+              ],
               "args": [
                 {
                   "location": {
                     "first_line": 1,
-                    "first_column": 13,
+                    "first_column": 20,
                     "last_line": 1,
-                    "last_column": 14,
+                    "last_column": 21,
                     "range": [
-                      13,
-                      14
+                      20,
+                      21
                     ]
                   },
                   "type": "context-variable"
@@ -53,24 +82,24 @@
               ],
               "location": {
                 "first_line": 1,
-                "first_column": 7,
+                "first_column": 8,
                 "last_line": 1,
-                "last_column": 15,
+                "last_column": 22,
                 "range": [
-                  7,
-                  15
+                  8,
+                  22
                 ]
               },
               "type": "construct-expression"
             },
             "location": {
               "first_line": 1,
-              "first_column": 6,
+              "first_column": 7,
               "last_line": 1,
-              "last_column": 16,
+              "last_column": 23,
               "range": [
-                6,
-                16
+                7,
+                23
               ]
             },
             "type": "view-construction"
@@ -78,27 +107,27 @@
           "filters": [],
           "location": {
             "first_line": 1,
-            "first_column": 3,
+            "first_column": 5,
             "last_line": 1,
-            "last_column": 19,
+            "last_column": 25,
             "range": [
-              3,
-              19
+              5,
+              25
             ]
           },
           "type": "interpolation"
         }
       ],
       "close": {
-        "value": "p",
+        "value": "div",
         "location": {
           "first_line": 1,
-          "first_column": 21,
+          "first_column": 27,
           "last_line": 1,
-          "last_column": 22,
+          "last_column": 30,
           "range": [
-            21,
-            22
+            27,
+            30
           ]
         },
         "type": "unqualified-identifier"
@@ -110,10 +139,10 @@
     "first_line": 1,
     "first_column": 0,
     "last_line": 1,
-    "last_column": 23,
+    "last_column": 31,
     "range": [
       0,
-      23
+      31
     ]
   },
   "type": "module"

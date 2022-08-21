@@ -656,7 +656,19 @@ export const tests: { [key: string]: any } = {
     'should allow type to be used in if statement expression':
         `<div>{% if item."type" == 1 %}<p/>{% endif %}</div>`,
 
-  'should support the special wml:attrs attribute':
-  `<Panel wml:attrs={{@panelAttrs}}><div wml:attrs={{divAttrs}}/></Panel>`
+    'should support the special wml:attrs attribute':
+        `<Panel wml:attrs={{@panelAttrs}}><div wml:attrs={{divAttrs}}/></Panel>`,
+
+    'should parse widgets with type arguments': 
+    `<div>
+      <Panel[Text]>
+        <PanelHeader[Text] wml:id="header"/>
+        <PanelBody/>
+      </Panel>
+    </div>`,
+
+    'should parse view construction with type arguments':
+        `<div>{{<Panel[Text](@)>}}</div>`,
+
 
 }

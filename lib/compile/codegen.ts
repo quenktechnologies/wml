@@ -15,7 +15,7 @@ import {
     isRecord
 } from '@quenk/noni/lib/data/record';
 
-import { contains, find, partition } from '@quenk/noni/lib/data/array';
+import { contains, empty, find, partition } from '@quenk/noni/lib/data/array';
 
 import { transformTree } from './transform';
 
@@ -898,8 +898,8 @@ export const child2TS = (ctx: CodeGenerator, n: ast.Child): string => {
 /**
  * tag2TS converts a tag to typescript.
  */
-export const tag2TS = (ctx: CodeGenerator, n: ast.Tag) => (n.type === 'widget') ?
-    widget2TS(ctx, n) : node2TS(ctx, n);
+export const tag2TS = (ctx: CodeGenerator, n: ast.Tag) =>
+    (n instanceof ast.Widget) ? widget2TS(ctx, n) : node2TS(ctx, n);
 
 /**
  * widget2TS converts a Widget node into its typescript representation.
@@ -909,10 +909,11 @@ export const tag2TS = (ctx: CodeGenerator, n: ast.Tag) => (n.type === 'widget') 
 export const widget2TS = (ctx: CodeGenerator, n: ast.Widget) => {
 
     let name = constructor2TS(n.open);
+    let typeParams = typeArgs2TS(n.typeArgs);
     let attrs = attrs2String(ctx, n.attributes);
     let childs = children2TS(ctx, n.children);
 
-    return `${THIS}.widget(new ${name}(${attrs}, ${childs}),` +
+    return `${THIS}.widget(new ${name}${typeParams}(${attrs}, ${childs}),` +
         `<${WML}.Attrs>${attrs})`;
 
 }
@@ -982,8 +983,8 @@ export const attrs2String = (ctx: CodeGenerator, attrs: ast.Attribute[]) => {
 
 }
 
- const _attrs2String = (attrs: { [key: string]: string | string[] }) =>
-  '{' +
+const _attrs2String = (attrs: { [key: string]: string | string[] }) =>
+    '{' +
     Object.keys(attrs).map(name =>
         Array.isArray(attrs[name]) ?
             `${name} : { ${(<string[]>attrs[name]).join(',')} }` :
@@ -1209,8 +1210,9 @@ export const typeAssertion2TS = (ctx: CodeGenerator, n: ast.TypeAssertion) =>
 /**
  * viewConstruction2TS 
  */
-export const viewConstruction2TS = (ctx: CodeGenerator, n: ast.ViewConstruction) =>
-    `${THIS}.registerView(${expression2TS(ctx, n.expression)}).render()`;
+export const viewConstruction2TS =
+    (ctx: CodeGenerator, n: ast.ViewConstruction) =>
+        `${THIS}.registerView(${expression2TS(ctx, n.expression)}).render()`;
 
 /**
  * funApplication2TS 
@@ -1229,17 +1231,15 @@ export const constructExpression2TS =
 
         let consOriginal = `${cons[0].toUpperCase()}${cons.slice(1)}`;
 
+        let typeArgs = typeArgs2TS(n.typeArgs);
+
         let args = args2TS(ctx, n.args);
 
-        if (contains(casters, consOriginal)) {
+        return contains(casters, consOriginal) ?
 
-            return `${consOriginal}(${args})`;
+             `${consOriginal}${typeArgs}(${args})` :
 
-        } else {
-
-            return `new ${cons}(${args})`;
-
-        }
+             `new ${cons}${typeArgs}(${args})`;
 
     }
 
@@ -1260,7 +1260,7 @@ export const callExpression2TS = (ctx: CodeGenerator, n: ast.CallExpression) => 
  * typeArgs2TS 
  */
 export const typeArgs2TS = (ns: ast.Type[]) =>
-    ns.length === 0 ? '' : `<${ns.map(type2TS).join(',')}>`;
+    empty(ns) ? '' : `<${ns.map(type2TS).join(',')}>`;
 
 /**
  * args2TS converts a list of arguments to a typescript argument tupple.

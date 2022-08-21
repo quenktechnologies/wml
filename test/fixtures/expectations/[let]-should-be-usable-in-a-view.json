@@ -182,6 +182,7 @@
                   },
                   "type": "unqualified-constructor"
                 },
+                "typeArgs": [],
                 "args": [
                   {
                     "value": "head",

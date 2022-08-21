@@ -200,6 +200,7 @@
             },
             "type": "unqualified-constructor"
           },
+          "typeArgs": [],
           "attributes": [
             {
               "namespace": {
@@ -410,20 +411,23 @@
             }
           ],
           "children": [],
-          "close": {
-            "value": "View",
-            "location": {
-              "first_line": 1,
-              "first_column": 45,
-              "last_line": 1,
-              "last_column": 49,
-              "range": [
-                45,
-                49
-              ]
+          "close": [
+            {
+              "value": "View",
+              "location": {
+                "first_line": 1,
+                "first_column": 45,
+                "last_line": 1,
+                "last_column": 49,
+                "range": [
+                  45,
+                  49
+                ]
+              },
+              "type": "unqualified-constructor"
             },
-            "type": "unqualified-constructor"
-          },
+            []
+          ],
           "type": "widget"
         }
       ],

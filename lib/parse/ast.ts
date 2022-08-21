@@ -394,6 +394,7 @@ export class Widget {
 
     constructor(
         public open: Constructor,
+        public typeArgs: Type[],
         public attributes: Attribute[],
         public children: Child[],
         public close: Constructor) { }
@@ -615,6 +616,7 @@ export class ConstructExpression {
 
     constructor(
         public cons: Constructor,
+        public typeArgs: Type[],
         public args: Expression[],
         public location: Location) { }
 

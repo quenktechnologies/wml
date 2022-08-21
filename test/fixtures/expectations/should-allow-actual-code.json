@@ -430,6 +430,7 @@
           },
           "type": "unqualified-constructor"
         },
+        "typeArgs": [],
         "attributes": [
           {
             "namespace": {
@@ -810,6 +811,7 @@
                   },
                   "type": "unqualified-constructor"
                 },
+                "typeArgs": [],
                 "attributes": [],
                 "children": [
                   {
@@ -827,6 +829,7 @@
                       },
                       "type": "unqualified-constructor"
                     },
+                    "typeArgs": [],
                     "attributes": [],
                     "children": [
                       {
@@ -954,6 +957,7 @@
                               },
                               "type": "unqualified-constructor"
                             },
+                            "typeArgs": [],
                             "attributes": [
                               {
                                 "namespace": {
@@ -1147,20 +1151,23 @@
                               }
                             ],
                             "children": [],
-                            "close": {
-                              "value": "Tab",
-                              "location": {
-                                "first_line": 23,
-                                "first_column": 19,
-                                "last_line": 23,
-                                "last_column": 22,
-                                "range": [
-                                  844,
-                                  847
-                                ]
+                            "close": [
+                              {
+                                "value": "Tab",
+                                "location": {
+                                  "first_line": 23,
+                                  "first_column": 19,
+                                  "last_line": 23,
+                                  "last_column": 22,
+                                  "range": [
+                                    844,
+                                    847
+                                  ]
+                                },
+                                "type": "unqualified-constructor"
                               },
-                              "type": "unqualified-constructor"
-                            },
+                              []
+                            ],
                             "type": "widget"
                           }
                         ],

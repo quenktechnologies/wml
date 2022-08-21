@@ -16,6 +16,7 @@
         },
         "type": "unqualified-constructor"
       },
+      "typeArgs": [],
       "attributes": [
         {
           "namespace": {
@@ -132,6 +133,7 @@
               },
               "type": "unqualified-constructor"
             },
+            "typeArgs": [],
             "args": [
               {
                 "member": {

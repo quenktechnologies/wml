@@ -619,17 +619,21 @@ node
           ;
 
 widget
-          : '<' cons attributes '>' children? '</' cons '>'
-             {$$ = new yy.ast.Widget($2, $3, $5||[], $7, @$);}
+          : '<' widget_constructor attributes '>' children? '</' cons '>'
+             {$$ = new yy.ast.Widget($2[0], $2[1], $3, $5||[], $7, @$);}
 
-          | '<' cons '>' children? '</' cons '>'
-             {$$ = new yy.ast.Widget($2, [], $4||[], $6, @$);}
+          | '<' widget_constructor '>' children? '</' cons '>'
+             {$$ = new yy.ast.Widget($2[0], $2[1], [], $4||[], $6, @$);}
 
-          | '<' cons attributes '/>'
-            { $$ = new yy.ast.Widget($2, $3, [], $2, @$); }
+          | '<' widget_constructor attributes '/>'
+            { $$ = new yy.ast.Widget($2[0], $2[1], $3, [], $2, @$); }
 
-          | '<' cons '/>'
-            { $$ = new yy.ast.Widget($2, [], [], $2, @$); }
+          | '<' widget_constructor '/>'
+            { $$ = new yy.ast.Widget($2[0], $2[1], [], [], $2, @$); }
+          ;
+
+widget_constructor
+          : cons type_arguments? {$$ = [$1, $2 || []]; }
           ;
 
 attributes
@@ -871,11 +875,17 @@ type_arg_list
           ;
 
 construct_expression
-          : unqualified_constructor '(' arguments ')'
-            { $$ = new yy.ast.ConstructExpression($1, $3, @$); }
+          : unqualified_constructor type_arguments '(' arguments ')'
+            { $$ = new yy.ast.ConstructExpression($1, $2, $4, @$); }
+
+          | unqualified_constructor '(' arguments ')'
+            { $$ = new yy.ast.ConstructExpression($1, [], $3, @$); }
+
+          | unqualified_constructor type_arguments '(' ')'
+            { $$ = new yy.ast.ConstructExpression($1, $2, [], @$); }
 
           | unqualified_constructor '(' ')'
-            { $$ = new yy.ast.ConstructExpression($1, [], @$); }
+            { $$ = new yy.ast.ConstructExpression($1, [], [], @$); }
           ;
 
 call_expression

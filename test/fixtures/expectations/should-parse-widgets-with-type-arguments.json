@@ -1,0 +1,292 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "open": {
+        "value": "div",
+        "location": {
+          "first_line": 1,
+          "first_column": 1,
+          "last_line": 1,
+          "last_column": 4,
+          "range": [
+            1,
+            4
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "attributes": [],
+      "children": [
+        {
+          "open": {
+            "value": "Panel",
+            "location": {
+              "first_line": 2,
+              "first_column": 7,
+              "last_line": 2,
+              "last_column": 12,
+              "range": [
+                13,
+                18
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "typeArgs": [
+            {
+              "id": {
+                "value": "Text",
+                "location": {
+                  "first_line": 2,
+                  "first_column": 13,
+                  "last_line": 2,
+                  "last_column": 17,
+                  "range": [
+                    19,
+                    23
+                  ]
+                },
+                "type": "unqualified-constructor"
+              },
+              "typeParameters": [],
+              "location": {
+                "first_line": 2,
+                "first_column": 13,
+                "last_line": 2,
+                "last_column": 17,
+                "range": [
+                  19,
+                  23
+                ]
+              },
+              "type": "constructor-type"
+            }
+          ],
+          "attributes": [],
+          "children": [
+            {
+              "open": {
+                "value": "PanelHeader",
+                "location": {
+                  "first_line": 3,
+                  "first_column": 9,
+                  "last_line": 3,
+                  "last_column": 20,
+                  "range": [
+                    35,
+                    46
+                  ]
+                },
+                "type": "unqualified-constructor"
+              },
+              "typeArgs": [
+                {
+                  "id": {
+                    "value": "Text",
+                    "location": {
+                      "first_line": 3,
+                      "first_column": 21,
+                      "last_line": 3,
+                      "last_column": 25,
+                      "range": [
+                        47,
+                        51
+                      ]
+                    },
+                    "type": "unqualified-constructor"
+                  },
+                  "typeParameters": [],
+                  "location": {
+                    "first_line": 3,
+                    "first_column": 21,
+                    "last_line": 3,
+                    "last_column": 25,
+                    "range": [
+                      47,
+                      51
+                    ]
+                  },
+                  "type": "constructor-type"
+                }
+              ],
+              "attributes": [
+                {
+                  "namespace": {
+                    "value": "wml",
+                    "location": {
+                      "first_line": 3,
+                      "first_column": 27,
+                      "last_line": 3,
+                      "last_column": 30,
+                      "range": [
+                        53,
+                        56
+                      ]
+                    },
+                    "type": "unqualified-identifier"
+                  },
+                  "name": {
+                    "value": "id",
+                    "location": {
+                      "first_line": 3,
+                      "first_column": 31,
+                      "last_line": 3,
+                      "last_column": 33,
+                      "range": [
+                        57,
+                        59
+                      ]
+                    },
+                    "type": "unqualified-identifier"
+                  },
+                  "value": {
+                    "value": "header",
+                    "type": "string"
+                  },
+                  "location": {
+                    "first_line": 3,
+                    "first_column": 27,
+                    "last_line": 3,
+                    "last_column": 42,
+                    "range": [
+                      53,
+                      68
+                    ]
+                  },
+                  "type": "attribute"
+                }
+              ],
+              "children": [],
+              "close": [
+                {
+                  "value": "PanelHeader",
+                  "location": {
+                    "first_line": 3,
+                    "first_column": 9,
+                    "last_line": 3,
+                    "last_column": 20,
+                    "range": [
+                      35,
+                      46
+                    ]
+                  },
+                  "type": "unqualified-constructor"
+                },
+                [
+                  {
+                    "id": {
+                      "value": "Text",
+                      "location": {
+                        "first_line": 3,
+                        "first_column": 21,
+                        "last_line": 3,
+                        "last_column": 25,
+                        "range": [
+                          47,
+                          51
+                        ]
+                      },
+                      "type": "unqualified-constructor"
+                    },
+                    "typeParameters": [],
+                    "location": {
+                      "first_line": 3,
+                      "first_column": 21,
+                      "last_line": 3,
+                      "last_column": 25,
+                      "range": [
+                        47,
+                        51
+                      ]
+                    },
+                    "type": "constructor-type"
+                  }
+                ]
+              ],
+              "type": "widget"
+            },
+            {
+              "open": {
+                "value": "PanelBody",
+                "location": {
+                  "first_line": 4,
+                  "first_column": 9,
+                  "last_line": 4,
+                  "last_column": 18,
+                  "range": [
+                    80,
+                    89
+                  ]
+                },
+                "type": "unqualified-constructor"
+              },
+              "typeArgs": [],
+              "attributes": [],
+              "children": [],
+              "close": [
+                {
+                  "value": "PanelBody",
+                  "location": {
+                    "first_line": 4,
+                    "first_column": 9,
+                    "last_line": 4,
+                    "last_column": 18,
+                    "range": [
+                      80,
+                      89
+                    ]
+                  },
+                  "type": "unqualified-constructor"
+                },
+                []
+              ],
+              "type": "widget"
+            }
+          ],
+          "close": {
+            "value": "Panel",
+            "location": {
+              "first_line": 5,
+              "first_column": 8,
+              "last_line": 5,
+              "last_column": 13,
+              "range": [
+                100,
+                105
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "type": "widget"
+        }
+      ],
+      "close": {
+        "value": "div",
+        "location": {
+          "first_line": 6,
+          "first_column": 6,
+          "last_line": 6,
+          "last_column": 9,
+          "range": [
+            113,
+            116
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "type": "node"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 6,
+    "last_column": 10,
+    "range": [
+      0,
+      117
+    ]
+  },
+  "type": "module"
+}

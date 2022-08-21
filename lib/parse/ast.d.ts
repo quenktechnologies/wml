@@ -250,11 +250,12 @@ export declare class Node {
 }
 export declare class Widget {
     open: Constructor;
+    typeArgs: Type[];
     attributes: Attribute[];
     children: Child[];
     close: Constructor;
     type: string;
-    constructor(open: Constructor, attributes: Attribute[], children: Child[], close: Constructor);
+    constructor(open: Constructor, typeArgs: Type[], attributes: Attribute[], children: Child[], close: Constructor);
 }
 export declare class Attribute {
     namespace: UnqualifiedIdentifier;
@@ -375,10 +376,11 @@ export declare class FunApplication {
 }
 export declare class ConstructExpression {
     cons: Constructor;
+    typeArgs: Type[];
     args: Expression[];
     location: Location;
     type: string;
-    constructor(cons: Constructor, args: Expression[], location: Location);
+    constructor(cons: Constructor, typeArgs: Type[], args: Expression[], location: Location);
 }
 export declare class CallExpression {
     target: Expression;

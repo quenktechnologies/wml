@@ -315,6 +315,7 @@
               },
               "type": "unqualified-constructor"
             },
+            "typeArgs": [],
             "args": [
               {
                 "value": "o",

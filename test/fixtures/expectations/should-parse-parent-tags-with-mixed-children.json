@@ -109,22 +109,26 @@
             },
             "type": "unqualified-constructor"
           },
+          "typeArgs": [],
           "attributes": [],
           "children": [],
-          "close": {
-            "value": "Input",
-            "location": {
-              "first_line": 1,
-              "first_column": 51,
-              "last_line": 1,
-              "last_column": 56,
-              "range": [
-                51,
-                56
-              ]
+          "close": [
+            {
+              "value": "Input",
+              "location": {
+                "first_line": 1,
+                "first_column": 51,
+                "last_line": 1,
+                "last_column": 56,
+                "range": [
+                  51,
+                  56
+                ]
+              },
+              "type": "unqualified-constructor"
             },
-            "type": "unqualified-constructor"
-          },
+            []
+          ],
           "type": "widget"
         }
       ],
