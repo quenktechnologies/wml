@@ -587,16 +587,10 @@ export const viewStatement2TS = (ctx: CodeGenerator, n: ast.ViewStatement) => {
         ``,
         `   }`,
         ``,
-        `   findByGroup<E extends ${WML}.WMLElement>(name: string): ` +
-        `${MAYBE}<E[]> {`,
+        `   findGroupById<E extends ${WML}.WMLElement>(name: string): E[] {` +
         ``,
-        `      let mGroup:${MAYBE}<E[]> =`,
-        `           ${FROM_ARRAY}(this.groups.hasOwnProperty(name) ?`,
-        `           <any>this.groups[name] : `,
-        `           []);`,
-        ``,
-        `      return this.views.reduce((p,c) =>`,
-        `       p.isJust() ? p : c.findByGroup(name), mGroup);`,
+        `           return this.groups.hasOwnProperty(name) ?`,
+        `           <E[]>this.groups[name] : [];`,
         ``,
         `   }`,
         ``,
@@ -1172,22 +1166,22 @@ export const ifThenExpression2TS = (ctx: CodeGenerator, n: ast.IfThenExpression)
 /**
  * binaryExpression2TS 
  */
-export const binaryExpression2TS = 
-  (ctx: CodeGenerator, n: ast.BinaryExpression) => {
+export const binaryExpression2TS =
+    (ctx: CodeGenerator, n: ast.BinaryExpression) => {
 
-    let left = expression2TS(ctx, n.left);
+        let left = expression2TS(ctx, n.left);
 
-    let right = n.operator === 'as' ?
-        type2TS(<ast.Type>n.right) :
-        expression2TS(ctx, n.right);
+        let right = n.operator === 'as' ?
+            type2TS(<ast.Type>n.right) :
+            expression2TS(ctx, n.right);
 
-    let op = operators.hasOwnProperty(n.operator) ?
-        operators[n.operator] :
-        n.operator;
+        let op = operators.hasOwnProperty(n.operator) ?
+            operators[n.operator] :
+            n.operator;
 
-    return (n.operator === 'as') ? `<${right}>(${left})` : `(${left} ${op} ${right})`;
+        return (n.operator === 'as') ? `<${right}>(${left})` : `(${left} ${op} ${right})`;
 
-}
+    }
 
 /**
  * unaryExpression2TS 

@@ -61,12 +61,16 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
 export class ChildText  implements __wml.View {
 
    constructor(__context: object) {
 
        this.template = (__this:__wml.Registry) => {
+
+       
 
            return __this.node('h4', <__wml.Attrs>{}, [
 
@@ -146,6 +150,11 @@ export class ChildText  implements __wml.View {
 
              e.setAttribute(key, '');
 
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
+
            }
 
        });
@@ -193,15 +202,9 @@ export class ChildText  implements __wml.View {
 
    }
 
-   findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]> {
-
-      let mGroup:__Maybe<E[]> =
-           __fromArray(this.groups.hasOwnProperty(name) ?
-           <any>this.groups[name] : 
-           []);
-
-      return this.views.reduce((p,c) =>
-       p.isJust() ? p : c.findByGroup(name), mGroup);
+   findGroupById<E extends __wml.WMLElement>(name: string): E[] {
+           return this.groups.hasOwnProperty(name) ?
+           <E[]>this.groups[name] : [];
 
    }
 
