@@ -111,18 +111,14 @@ export interface View extends Renderable {
     /**
      * findById retrives a WMLElement that has been assigned a `wml:id` 
      * attribute matching id.
-     *
-     * Returns a Maybe type from the afpl library.
      */
     findById<E extends WMLElement>(id: string): Maybe<E>;
 
     /**
-     * findByGroup retrives an array of WMLElements that have a `wml:group`
+     * findGroupById retrives an array of WMLElements that have a `wml:group`
      * attribute matching name.
-     *
-     * Returns a Maybe type from the afpl library.
      */
-    findByGroup<E extends WMLElement>(name: string): Maybe<E[]>;
+    findGroupById<E extends WMLElement>(name: string): E[];
 
 }
 
