@@ -669,6 +669,24 @@ export const tests: { [key: string]: any } = {
 
     'should parse view construction with type arguments':
         `<div>{{<Panel[Text](@)>}}</div>`,
-
+ 
+    'should use createElementNS() recursively for xmlns attribute':
+    `{% view TestView (Object) %}
+     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <path
+       fill="none"
+       stroke="red"
+       d="M 10,10 h 10
+       m  0,10 h 10
+       m  0,10 h 10
+       M 40,20 h 10
+       m  0,10 h 10
+       m  0,10 h 10
+       m  0,10 h 10
+       M 50,50 h 10
+       m-20,10 h 10
+       m-20,10 h 10
+       m-20,10 h 10" />
+    </svg>`
 
 }

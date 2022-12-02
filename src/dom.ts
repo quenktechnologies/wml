@@ -413,7 +413,8 @@ export { createTextNode as text, createUnsafeNode as unsafe }
 export const createElement = (
     tag: string,
     attrs: WMLDOMAttrs = {},
-    children: Node[] = []): Element => {
+    children: Node[] = [],
+    ns = ''): Element => {
 
     if (!isBrowser) {
 
@@ -423,9 +424,11 @@ export const createElement = (
 
     } else {
 
-        let e = document.createElement(tag);
+        let e = ns ?
+            document.createElementNS(ns, tag) :
+            document.createElement(tag);
 
-        forEach(attrs, (value, key) => {
+        forEach(attrs, (value: Type, key) => {
 
             if (typeof value === 'function') {
 
@@ -440,6 +443,10 @@ export const createElement = (
             } else if (typeof value === 'boolean') {
 
                 e.setAttribute(key, '');
+
+            } else if (!isBrowser && value instanceof WMLDOMText) {
+
+                e.setAttribute(key, value);
 
             }
 
