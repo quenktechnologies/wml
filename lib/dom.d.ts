@@ -142,4 +142,4 @@ export { createTextNode as text, createUnsafeNode as unsafe };
 /**
  * createElement wrapper.
  */
-export declare const createElement: (tag: string, attrs?: WMLDOMAttrs, children?: Node[]) => Element;
+export declare const createElement: (tag: string, attrs?: WMLDOMAttrs, children?: Node[], ns?: string) => Element;

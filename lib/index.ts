@@ -204,7 +204,9 @@ export interface Attrs {
 
         id?: string,
 
-        group?: string
+        group?: string,
+
+      ns?: string
 
     }
 

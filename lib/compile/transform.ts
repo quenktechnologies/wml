@@ -4,15 +4,15 @@ import * as ast from '../parse/ast';
  * rewriteViewContext normalizes the various forms of the context declaration
  * in a view statement.
  *
- * WHERE clauses are turned into context declarations with id <view-type>Context,
- * imports are included in the module's import list.
+ * "where" clauses are turned into context declarations with id 
+ * <view-type>Context, imports are included in the module's import list.
  */
 export const rewriteViewStatementContext =
     (tree: ast.Module, node: ast.ViewStatement): ast.Export[] => {
 
         if (Array.isArray(node.context)) {
 
-          // TODO: Is this branch still needed?
+            // TODO: Is this branch still needed?
 
             let contextName = `${node.id.value}Context`;
 
@@ -73,6 +73,39 @@ export const rewriteViewStatementContext =
     }
 
 /**
+ * tagXMLNamespaces detects the "xmlns" attribute on DOM nodes and copies them
+ * to the `wml:ns` attribute recursively.
+ *
+ * This has the effect of ensuring nodes are created using createElementNS()
+ * instead of createElement in the browser.
+ */
+export const tagXMLNamespaces =
+    (tag: ast.Tag | ast.Widget, parentAttr?: ast.Attribute) => {
+
+        let attr = (tag.attributes.find(attr =>
+            (attr.namespace.value == '') && (attr.name.value === 'xmlns'))) ||
+            parentAttr;
+
+        if (attr) {
+
+            tag.attributes.push(new ast.Attribute(
+                new ast.UnqualifiedIdentifier('wml', attr.location),
+                new ast.UnqualifiedIdentifier('ns', attr.location),
+                attr.value,
+                attr.location
+            ));
+
+        }
+
+        tag.children = tag.children.map(child =>
+            ((child instanceof ast.Node) || (child instanceof ast.Widget)) ?
+                tagXMLNamespaces(child, attr) : child);
+
+        return tag;
+
+    }
+
+/**
  * transformTree applies all the needed transforms to the AST before 
  * compilation.
  */
@@ -80,10 +113,20 @@ export const transformTree = (tree: ast.Module) => {
 
     let newTree = tree.clone(); // Try not to modify what we don't own.
 
-    newTree.exports = tree.exports.reduce((prev, curr) =>
-        (curr instanceof ast.ViewStatement) ?
-            [...prev, ...rewriteViewStatementContext(newTree, curr)] :
-            [...prev, curr], <ast.Export[]>[]);
+    newTree.exports = tree.exports.reduce((prev, next) => {
+
+        if (next instanceof ast.ViewStatement) {
+
+            next.root = tagXMLNamespaces(next.root);
+
+            return [...prev, ...rewriteViewStatementContext(newTree, next)]
+
+        } else {
+
+            return [...prev, next]
+
+        }
+    }, <ast.Export[]>[]);
 
     return newTree;
 

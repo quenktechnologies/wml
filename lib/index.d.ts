@@ -148,6 +148,7 @@ export interface Attrs {
     wml?: {
         id?: string;
         group?: string;
+        ns?: string;
     };
 }
 /**
