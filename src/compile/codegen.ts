@@ -14,7 +14,6 @@ import {
     reduce,
     isRecord
 } from '@quenk/noni/lib/data/record';
-
 import { contains, empty, find, partition } from '@quenk/noni/lib/data/array';
 
 import { transformTree } from './transform';
@@ -1267,7 +1266,8 @@ export const boolean2TS = (n: ast.BooleanLiteral) => `${n.value} `;
 /**
  * string2TS
  */
-export const string2TS = (n: ast.StringLiteral) => `'${n.value}'`;
+export const string2TS = (n: ast.StringLiteral) =>
+  n.value.split('\n').map(str => `"${str}"`).join('+');
 
 /**
  * number2TS 

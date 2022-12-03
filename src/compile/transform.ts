@@ -83,7 +83,7 @@ export const tagXMLNamespaces =
     (tag: ast.Tag | ast.Widget, parentAttr?: ast.Attribute) => {
 
         let attr = (tag.attributes.find(attr =>
-            (attr.namespace.value = '') && (attr.name.value === 'xmlns'))) ||
+            (attr.namespace.value == '') && (attr.name.value === 'xmlns'))) ||
             parentAttr;
 
         if (attr) {
@@ -97,12 +97,9 @@ export const tagXMLNamespaces =
 
         }
 
-        tag.children.forEach(child => {
-
-            if ((child instanceof ast.Node) || (child instanceof ast.Widget))
-                tagXMLNamespaces(child, attr);
-
-        });
+        tag.children = tag.children.map(child =>
+            ((child instanceof ast.Node) || (child instanceof ast.Widget)) ?
+                tagXMLNamespaces(child, attr) : child);
 
         return tag;
 
@@ -117,18 +114,19 @@ export const transformTree = (tree: ast.Module) => {
     let newTree = tree.clone(); // Try not to modify what we don't own.
 
     newTree.exports = tree.exports.reduce((prev, next) => {
-    
-      if (next instanceof ast.ViewStatement)  {
 
-        next.root = tagXMLNamespaces(next.root);
-            
-        return [...prev, ...rewriteViewStatementContext(newTree, next)] 
+        if (next instanceof ast.ViewStatement) {
 
-      } else {
+            next.root = tagXMLNamespaces(next.root);
+
+            return [...prev, ...rewriteViewStatementContext(newTree, next)]
+
+        } else {
 
             return [...prev, next]
 
-      }}, <ast.Export[]>[]);
+        }
+    }, <ast.Export[]>[]);
 
     return newTree;
 
