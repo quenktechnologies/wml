@@ -64,7 +64,7 @@ const text = __document.text;
 const unsafe = __document.unsafe
 // @ts-ignore 6192
 const isSet = (value:any) => value != null
-__this.node('user', <__wml.Attrs>{wml : { 'val' : 'test'  },'name': 'xyaa aaz','position': x(20) (4)}, [
+__this.node('user', <__wml.Attrs>{wml : { 'val' : "test"  },'name': "xyaa aaz",'position': x(20) (4)}, [
 
         
      ])

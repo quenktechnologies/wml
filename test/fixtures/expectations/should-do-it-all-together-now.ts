@@ -64,7 +64,7 @@ const text = __document.text;
 const unsafe = __document.unsafe
 // @ts-ignore 6192
 const isSet = (value:any) => value != null
-__this.node('modal', <__wml.Attrs>{'name': 'mymodal','x': '1','y': '2'}, [
+__this.node('modal', <__wml.Attrs>{'name': "mymodal",'x': "1",'y': "2"}, [
 
         __this.node('modal-header', <__wml.Attrs>{}, [
 
@@ -82,7 +82,7 @@ __this.node('vote-count', <__wml.Attrs>{'source': __context}, [
         
      ]),
 __document.createTextNode(' Votes'),
-__this.node('textarea', <__wml.Attrs>{wml : { 'id' : 'ta'  },'disabled': true ,'size': 32,'onchange': __context.setText}, [
+__this.node('textarea', <__wml.Attrs>{wml : { 'id' : "ta"  },'disabled': true ,'size': 32,'onchange': __context.setText}, [
 
         __document.createTextNode(' Various text')
      ])

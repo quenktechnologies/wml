@@ -66,7 +66,7 @@ const unsafe = __document.unsafe
 const isSet = (value:any) => value != null
 __this.node('panel', <__wml.Attrs>{}, [
 
-        __this.node('a', <__wml.Attrs>{'href': 'link','onclick': __context.someting.invoke()}, [
+        __this.node('a', <__wml.Attrs>{'href': "link",'onclick': __context.someting.invoke()}, [
 
         __document.createTextNode('Click Here')
      ]),

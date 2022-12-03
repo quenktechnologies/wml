@@ -1,0 +1,367 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "TestView",
+        "location": {
+          "first_line": 1,
+          "first_column": 8,
+          "last_line": 1,
+          "last_column": 16,
+          "range": [
+            8,
+            16
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "context": {
+        "id": {
+          "value": "Object",
+          "location": {
+            "first_line": 1,
+            "first_column": 18,
+            "last_line": 1,
+            "last_column": 24,
+            "range": [
+              18,
+              24
+            ]
+          },
+          "type": "unqualified-constructor"
+        },
+        "typeParameters": [],
+        "location": {
+          "first_line": 1,
+          "first_column": 18,
+          "last_line": 1,
+          "last_column": 24,
+          "range": [
+            18,
+            24
+          ]
+        },
+        "type": "constructor-type"
+      },
+      "directives": [],
+      "root": {
+        "open": {
+          "value": "svg",
+          "location": {
+            "first_line": 2,
+            "first_column": 6,
+            "last_line": 2,
+            "last_column": 9,
+            "range": [
+              35,
+              38
+            ]
+          },
+          "type": "unqualified-identifier"
+        },
+        "attributes": [
+          {
+            "namespace": {
+              "value": "",
+              "location": {
+                "first_line": 2,
+                "first_column": 10,
+                "last_line": 2,
+                "last_column": 31,
+                "range": [
+                  39,
+                  60
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            "name": {
+              "value": "viewBox",
+              "location": {
+                "first_line": 2,
+                "first_column": 10,
+                "last_line": 2,
+                "last_column": 17,
+                "range": [
+                  39,
+                  46
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            "value": {
+              "value": "0 0 100 100",
+              "type": "string"
+            },
+            "location": {
+              "first_line": 2,
+              "first_column": 10,
+              "last_line": 2,
+              "last_column": 31,
+              "range": [
+                39,
+                60
+              ]
+            },
+            "type": "attribute"
+          },
+          {
+            "namespace": {
+              "value": "",
+              "location": {
+                "first_line": 2,
+                "first_column": 32,
+                "last_line": 2,
+                "last_column": 66,
+                "range": [
+                  61,
+                  95
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            "name": {
+              "value": "xmlns",
+              "location": {
+                "first_line": 2,
+                "first_column": 32,
+                "last_line": 2,
+                "last_column": 37,
+                "range": [
+                  61,
+                  66
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            "value": {
+              "value": "http://www.w3.org/2000/svg",
+              "type": "string"
+            },
+            "location": {
+              "first_line": 2,
+              "first_column": 32,
+              "last_line": 2,
+              "last_column": 66,
+              "range": [
+                61,
+                95
+              ]
+            },
+            "type": "attribute"
+          }
+        ],
+        "children": [
+          {
+            "open": {
+              "value": "path",
+              "location": {
+                "first_line": 3,
+                "first_column": 7,
+                "last_line": 3,
+                "last_column": 11,
+                "range": [
+                  104,
+                  108
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            "attributes": [
+              {
+                "namespace": {
+                  "value": "",
+                  "location": {
+                    "first_line": 4,
+                    "first_column": 7,
+                    "last_line": 4,
+                    "last_column": 18,
+                    "range": [
+                      116,
+                      127
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "name": {
+                  "value": "fill",
+                  "location": {
+                    "first_line": 4,
+                    "first_column": 7,
+                    "last_line": 4,
+                    "last_column": 11,
+                    "range": [
+                      116,
+                      120
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "value": {
+                  "value": "none",
+                  "type": "string"
+                },
+                "location": {
+                  "first_line": 4,
+                  "first_column": 7,
+                  "last_line": 4,
+                  "last_column": 18,
+                  "range": [
+                    116,
+                    127
+                  ]
+                },
+                "type": "attribute"
+              },
+              {
+                "namespace": {
+                  "value": "",
+                  "location": {
+                    "first_line": 5,
+                    "first_column": 7,
+                    "last_line": 5,
+                    "last_column": 19,
+                    "range": [
+                      135,
+                      147
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "name": {
+                  "value": "stroke",
+                  "location": {
+                    "first_line": 5,
+                    "first_column": 7,
+                    "last_line": 5,
+                    "last_column": 13,
+                    "range": [
+                      135,
+                      141
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "value": {
+                  "value": "red",
+                  "type": "string"
+                },
+                "location": {
+                  "first_line": 5,
+                  "first_column": 7,
+                  "last_line": 5,
+                  "last_column": 19,
+                  "range": [
+                    135,
+                    147
+                  ]
+                },
+                "type": "attribute"
+              },
+              {
+                "namespace": {
+                  "value": "",
+                  "location": {
+                    "first_line": 6,
+                    "first_column": 7,
+                    "last_line": 16,
+                    "last_column": 20,
+                    "range": [
+                      155,
+                      371
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "name": {
+                  "value": "d",
+                  "location": {
+                    "first_line": 6,
+                    "first_column": 7,
+                    "last_line": 6,
+                    "last_column": 8,
+                    "range": [
+                      155,
+                      156
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "value": {
+                  "value": "M 10,10 h 10\n       m  0,10 h 10\n       m  0,10 h 10\n       M 40,20 h 10\n       m  0,10 h 10\n       m  0,10 h 10\n       m  0,10 h 10\n       M 50,50 h 10\n       m-20,10 h 10\n       m-20,10 h 10\n       m-20,10 h 10",
+                  "type": "string"
+                },
+                "location": {
+                  "first_line": 6,
+                  "first_column": 7,
+                  "last_line": 16,
+                  "last_column": 20,
+                  "range": [
+                    155,
+                    371
+                  ]
+                },
+                "type": "attribute"
+              }
+            ],
+            "children": [],
+            "close": {
+              "value": "path",
+              "location": {
+                "first_line": 3,
+                "first_column": 7,
+                "last_line": 3,
+                "last_column": 11,
+                "range": [
+                  104,
+                  108
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            "type": "node"
+          }
+        ],
+        "close": {
+          "value": "svg",
+          "location": {
+            "first_line": 17,
+            "first_column": 6,
+            "last_line": 17,
+            "last_column": 9,
+            "range": [
+              381,
+              384
+            ]
+          },
+          "type": "unqualified-identifier"
+        },
+        "type": "node"
+      },
+      "location": {
+        "first_line": 1,
+        "first_column": 0,
+        "last_line": 17,
+        "last_column": 10,
+        "range": [
+          0,
+          385
+        ]
+      },
+      "type": "view-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 17,
+    "last_column": 10,
+    "range": [
+      0,
+      385
+    ]
+  },
+  "type": "module"
+}

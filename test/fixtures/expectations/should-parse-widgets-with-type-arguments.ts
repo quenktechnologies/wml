@@ -68,10 +68,10 @@ __this.node('div', <__wml.Attrs>{}, [
 
         __this.widget(new Panel<Text>({}, [
 
-        __this.widget(new PanelHeader<Text>({wml : { 'id' : 'header'  }}, [
+        __this.widget(new PanelHeader<Text>({wml : { 'id' : "header"  }}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : 'header'  }}),
+     ]),<__wml.Attrs>{wml : { 'id' : "header"  }}),
 __this.widget(new PanelBody({}, [
 
         

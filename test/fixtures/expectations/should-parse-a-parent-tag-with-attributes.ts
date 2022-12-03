@@ -64,7 +64,7 @@ const text = __document.text;
 const unsafe = __document.unsafe
 // @ts-ignore 6192
 const isSet = (value:any) => value != null
-__this.node('panel', <__wml.Attrs>{'type': 'default','size': '40','align': 'left'}, [
+__this.node('panel', <__wml.Attrs>{'type': "default",'size': "40",'align': "left"}, [
 
         
      ])

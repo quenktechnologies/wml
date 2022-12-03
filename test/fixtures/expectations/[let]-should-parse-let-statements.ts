@@ -66,9 +66,9 @@ const unsafe = __document.unsafe
 const isSet = (value:any) => value != null
 export const head:HeadCtx = {
  
-      'title' : 'Foo'
+      'title' : "Foo"
      };
 export const head2:HeadCtx = {
  
-      'title' : 'My Title'
+      'title' : "My Title"
      }

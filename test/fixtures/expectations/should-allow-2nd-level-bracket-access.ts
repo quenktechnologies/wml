@@ -66,7 +66,7 @@ const unsafe = __document.unsafe
 const isSet = (value:any) => value != null
 __this.node('div', <__wml.Attrs>{}, [
 
-        ...__forIn (our['items'], (item , _$$i, _$$all)=> 
+        ...__forIn (our["items"], (item , _$$i, _$$all)=> 
 ([
 
         __this.node('div', <__wml.Attrs>{}, [

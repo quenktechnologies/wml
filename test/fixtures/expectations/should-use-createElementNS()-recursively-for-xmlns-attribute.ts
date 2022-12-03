@@ -64,17 +64,20 @@ const text = __document.text;
 const unsafe = __document.unsafe
 // @ts-ignore 6192
 const isSet = (value:any) => value != null
-export class Main  implements __wml.View {
+export class TestView  implements __wml.View {
 
-   constructor(__context: Context<string  > ) {
+   constructor(__context: object) {
 
        this.template = (__this:__wml.Registry) => {
 
        
 
-           return __this.node('p', <__wml.Attrs>{}, [
+           return __this.node('svg', <__wml.Attrs>{wml : { 'ns' : "http://www.w3.org/2000/svg"  },'viewBox': "0 0 100 100",'xmlns': "http://www.w3.org/2000/svg"}, [
 
-        __context.value
+        __this.node('path', <__wml.Attrs>{wml : { 'ns' : "http://www.w3.org/2000/svg"  },'fill': "none",'stroke': "red",'d': "M 10,10 h 10"+"       m  0,10 h 10"+"       m  0,10 h 10"+"       M 40,20 h 10"+"       m  0,10 h 10"+"       m  0,10 h 10"+"       m  0,10 h 10"+"       M 50,50 h 10"+"       m-20,10 h 10"+"       m-20,10 h 10"+"       m-20,10 h 10"}, [
+
+        
+     ])
      ]);
 
        }

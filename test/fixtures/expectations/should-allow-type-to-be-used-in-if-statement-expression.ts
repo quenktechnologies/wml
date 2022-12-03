@@ -66,7 +66,7 @@ const unsafe = __document.unsafe
 const isSet = (value:any) => value != null
 __this.node('div', <__wml.Attrs>{}, [
 
-        ...(((item['type'] === 1)) ?
+        ...(((item["type"] === 1)) ?
 (()=>([
 
         __this.node('p', <__wml.Attrs>{}, [
