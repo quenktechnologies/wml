@@ -7,8 +7,8 @@
  * suite.
  */
 
-import { Record, map, mapTo, forEach } from '@quenk/noni/lib/data/record';
-import { Type, isFunction } from '@quenk/noni/lib/data/type';
+import { Record, mapTo, forEach } from '@quenk/noni/lib/data/record';
+import { Type, isFunction, isObject } from '@quenk/noni/lib/data/type';
 
 // Declared so isBrowser works on node.js.
 let window: Type = global;
@@ -326,8 +326,16 @@ export class WMLDOMElement extends WMLDOMNode {
         let { tag } = this;
         let content = this.innerHTML;
 
-        let attrs = mapTo(escapeAttrs(this.attrs), (value, name) => !value ?
-            name : `${name}="${value}"`).join(' ');
+        let attrs = mapTo(this.attrs, (value, name) => {
+
+            if (isObject(value) && (value instanceof WMLDOMText))
+                return value.textContent;
+            else if (isFunction(value) || isObject(value) || (value == null))
+                return '';
+            else
+                return `${name}="${escapeAttrValue(String(value))}"`
+
+        }).join(' ');
 
         attrs = (attrs.trim() != '') ? ` ${attrs}` : '';
 
@@ -360,14 +368,6 @@ export class WMLDOMElement extends WMLDOMNode {
  * isBrowser is set to true if we detect a window and document global variable.
  */
 export const isBrowser = ((window != null) && (document != null));
-
-/**
- * escapeAttrs escapes each key value pair of a WMLDOMAttrs.
- */
-export const escapeAttrs = (attrs: WMLDOMAttrs) => map(attrs, value =>
-    isFunction(value) ? value :
-        (value instanceof WMLDOMText) ? value.textContent :
-            escapeAttrValue(String(value)));
 
 /**
  * escapeAttrValue for safe browser display.

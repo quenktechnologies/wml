@@ -117,10 +117,6 @@ export declare class WMLDOMElement extends WMLDOMNode {
  */
 export declare const isBrowser: boolean;
 /**
- * escapeAttrs escapes each key value pair of a WMLDOMAttrs.
- */
-export declare const escapeAttrs: (attrs: WMLDOMAttrs) => Record<string | (<A, B>(a: A) => B)>;
-/**
  * escapeAttrValue for safe browser display.
  */
 export declare const escapeAttrValue: (value: string) => string;
