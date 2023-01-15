@@ -1,0 +1,218 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "open": {
+        "value": "div",
+        "location": {
+          "first_line": 1,
+          "first_column": 1,
+          "last_line": 1,
+          "last_column": 4,
+          "range": [
+            1,
+            4
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "attributes": [],
+      "children": [
+        {
+          "condition": {
+            "left": {
+              "value": "value",
+              "location": {
+                "first_line": 1,
+                "first_column": 11,
+                "last_line": 1,
+                "last_column": 16,
+                "range": [
+                  11,
+                  16
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            "operator": "??",
+            "right": {
+              "value": true,
+              "location": {
+                "first_line": 1,
+                "first_column": 20,
+                "last_line": 1,
+                "last_column": 24,
+                "range": [
+                  20,
+                  24
+                ]
+              },
+              "type": "boolean-literal"
+            },
+            "location": {
+              "first_line": 1,
+              "first_column": 11,
+              "last_line": 1,
+              "last_column": 24,
+              "range": [
+                11,
+                24
+              ]
+            },
+            "type": "binary-expression"
+          },
+          "then": [
+            {
+              "open": {
+                "value": "b",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 28,
+                  "last_line": 1,
+                  "last_column": 29,
+                  "range": [
+                    28,
+                    29
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "attributes": [],
+              "children": [
+                {
+                  "value": "True",
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 30,
+                    "last_line": 1,
+                    "last_column": 34,
+                    "range": [
+                      30,
+                      34
+                    ]
+                  },
+                  "type": "characters"
+                }
+              ],
+              "close": {
+                "value": "b",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 36,
+                  "last_line": 1,
+                  "last_column": 37,
+                  "range": [
+                    36,
+                    37
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "type": "node"
+            }
+          ],
+          "elseClause": {
+            "children": [
+              {
+                "open": {
+                  "value": "b",
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 49,
+                    "last_line": 1,
+                    "last_column": 50,
+                    "range": [
+                      49,
+                      50
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "attributes": [],
+                "children": [
+                  {
+                    "value": "False",
+                    "location": {
+                      "first_line": 1,
+                      "first_column": 51,
+                      "last_line": 1,
+                      "last_column": 56,
+                      "range": [
+                        51,
+                        56
+                      ]
+                    },
+                    "type": "characters"
+                  }
+                ],
+                "close": {
+                  "value": "b",
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 58,
+                    "last_line": 1,
+                    "last_column": 59,
+                    "range": [
+                      58,
+                      59
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "type": "node"
+              }
+            ],
+            "location": {
+              "first_line": 1,
+              "first_column": 38,
+              "last_line": 1,
+              "last_column": 71,
+              "range": [
+                38,
+                71
+              ]
+            },
+            "type": "else-clause"
+          },
+          "location": {
+            "first_line": 1,
+            "first_column": 5,
+            "last_line": 1,
+            "last_column": 71,
+            "range": [
+              5,
+              71
+            ]
+          },
+          "type": "if-statement"
+        }
+      ],
+      "close": {
+        "value": "div",
+        "location": {
+          "first_line": 1,
+          "first_column": 73,
+          "last_line": 1,
+          "last_column": 76,
+          "range": [
+            73,
+            76
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "type": "node"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 1,
+    "last_column": 77,
+    "range": [
+      0,
+      77
+    ]
+  },
+  "type": "module"
+}

@@ -74,7 +74,7 @@ export class Test  implements __wml.View {
 
            return __this.node('div', <__wml.Attrs>{}, [
 
-        ...(((__context.type) != null) ?
+        ...(((__context.type === 1)) ?
 (()=>([
 
         __this.node('div', <__wml.Attrs>{}, [

@@ -1143,13 +1143,8 @@ export const binaryExpression2TS =
  */
 export const unaryExpression2TS =
     (ctx: CodeGenerator, n: ast.UnaryExpression) => {
-
         let expr = expression2TS(ctx, n.expression);
-
-        return (n.operator === '??') ?
-            `(${expr}) != null` :
-            `${n.operator}(${expr})`;
-
+        return `${n.operator}(${expr})`;
     }
 
 /**
@@ -1267,7 +1262,7 @@ export const boolean2TS = (n: ast.BooleanLiteral) => `${n.value} `;
  * string2TS
  */
 export const string2TS = (n: ast.StringLiteral) =>
-  n.value.split('\n').map(str => `"${str}"`).join('+');
+    n.value.split('\n').map(str => `"${str}"`).join('+');
 
 /**
  * number2TS 

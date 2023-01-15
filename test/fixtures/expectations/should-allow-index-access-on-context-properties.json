@@ -65,8 +65,7 @@
         "children": [
           {
             "condition": {
-              "operator": "??",
-              "expression": {
+              "left": {
                 "member": {
                   "value": "type",
                   "type": "string"
@@ -83,7 +82,32 @@
                 },
                 "type": "context-property"
               },
-              "type": "unary-expression"
+              "operator": "==",
+              "right": {
+                "value": "1",
+                "location": {
+                  "first_line": 3,
+                  "first_column": 27,
+                  "last_line": 3,
+                  "last_column": 28,
+                  "range": [
+                    65,
+                    66
+                  ]
+                },
+                "type": "number-literal"
+              },
+              "location": {
+                "first_line": 3,
+                "first_column": 14,
+                "last_line": 3,
+                "last_column": 28,
+                "range": [
+                  52,
+                  66
+                ]
+              },
+              "type": "binary-expression"
             },
             "then": [
               {
@@ -95,8 +119,8 @@
                     "last_line": 4,
                     "last_column": 16,
                     "range": [
-                      80,
-                      83
+                      83,
+                      86
                     ]
                   },
                   "type": "unqualified-identifier"
@@ -111,8 +135,8 @@
                     "last_line": 4,
                     "last_column": 16,
                     "range": [
-                      80,
-                      83
+                      83,
+                      86
                     ]
                   },
                   "type": "unqualified-identifier"
@@ -127,7 +151,7 @@
               "last_column": 19,
               "range": [
                 46,
-                105
+                108
               ]
             },
             "type": "if-statement"
@@ -141,8 +165,8 @@
             "last_line": 6,
             "last_column": 11,
             "range": [
-              114,
-              117
+              117,
+              120
             ]
           },
           "type": "unqualified-identifier"
@@ -156,7 +180,7 @@
         "last_column": 12,
         "range": [
           0,
-          118
+          121
         ]
       },
       "type": "view-statement"
@@ -169,7 +193,7 @@
     "last_column": 12,
     "range": [
       0,
-      118
+      121
     ]
   },
   "type": "module"

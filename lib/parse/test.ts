@@ -611,8 +611,11 @@ export const tests: { [key: string]: any } = {
             val3={{Boolean(@value)}} />
       `,
 
-    'should parse null query operator':
-        `<div>{% if value ?? %}<b>True</b>{% else %}<b>False</b>{% endif %}</div>`,
+    'should parse nullish operator':
+        `<div>{% if value ?? true %}<b>True</b>{% else %}<b>False</b>{% endif %}</div>`,
+
+    'should parse optional chain operator':
+        `<div>{% if (value?.val) ?? 1 %}<b>True</b>{% else %}<b>False</b>{% endif %}</div>`,
 
     '[let] should parse let statements':
         `{% let head:HeadCtx = {title = "Foo"} %}
@@ -638,7 +641,7 @@ export const tests: { [key: string]: any } = {
     'should allow index access on context properties':
         `{% view Test (Object) %}
        <div>
-        {% if @["type"]?? %}
+        {% if @["type"] == 1 %}
             <div/>
         {% endif %}
       </div>`,
@@ -669,9 +672,9 @@ export const tests: { [key: string]: any } = {
 
     'should parse view construction with type arguments':
         `<div>{{<Panel[Text](@)>}}</div>`,
- 
+
     'should use createElementNS() recursively for xmlns attribute':
-    `{% view TestView (Object) %}
+        `{% view TestView (Object) %}
      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
       <path
        fill="none"
