@@ -45,7 +45,7 @@ export declare class ImportStatement {
 /**
  * ImportMember
  */
-export declare type ImportMember = AggregateMember | AliasedMember | CompositeMember;
+export type ImportMember = AggregateMember | AliasedMember | CompositeMember;
 /**
  * AliasedMember
  * @property {Identifier} alias - The identifier introduced to scope.
@@ -77,8 +77,8 @@ export declare class CompositeMember {
     type: string;
     constructor(members: (Member | AliasedMember)[], location: Location);
 }
-export declare type Member = UnqualifiedIdentifier | UnqualifiedConstructor;
-export declare type Export = AliasStatement | ContextStatement | LetStatement | FunStatement | ViewStatement | Tag;
+export type Member = UnqualifiedIdentifier | UnqualifiedConstructor;
+export type Export = AliasStatement | ContextStatement | LetStatement | FunStatement | ViewStatement | Tag;
 /**
  * AliasStatement
  */
@@ -90,7 +90,7 @@ export declare class AliasStatement {
     type: string;
     constructor(id: UnqualifiedConstructor, typeParameters: TypeParameter[], members: Type[], location: Location);
 }
-export declare type ContextStatementMember = ConstructorType | MemberDeclaration;
+export type ContextStatementMember = ConstructorType | MemberDeclaration;
 /**
  * ContextStatement
  */
@@ -124,7 +124,7 @@ export declare class LetStatement {
     type: string;
     constructor(id: UnqualifiedIdentifier, cons: ConstructorType, expression: Expression, location: Location);
 }
-export declare type ContextTypeIndicator = ConstructorType | ContextFromStatement;
+export type ContextTypeIndicator = ConstructorType | ContextFromStatement;
 /**
  * ContextFromStatement
  */
@@ -170,7 +170,7 @@ export declare class TypeParameter {
 /**
  * Type
  */
-export declare type Type = ConstructorType | FunctionType | RecordType | ListType;
+export type Type = ConstructorType | FunctionType | RecordType | ListType;
 /**
  * ConstructorType
  */
@@ -221,7 +221,7 @@ export declare class TupleType {
 /**
  * Parameter
  */
-export declare type Parameter = TypedParameter | UntypedParameter;
+export type Parameter = TypedParameter | UntypedParameter;
 /**
  * TypeParameter
  */
@@ -238,8 +238,8 @@ export declare class UntypedParameter {
     type: string;
     constructor(id: UnqualifiedIdentifier, location: Location);
 }
-export declare type Child = Tag | Interpolation | Control | Characters | Identifier;
-export declare type Tag = Node | Widget;
+export type Child = Tag | Interpolation | Control | Characters | Identifier;
+export type Tag = Node | Widget;
 export declare class Node {
     open: Identifier;
     attributes: Attribute[];
@@ -265,7 +265,7 @@ export declare class Attribute {
     type: string;
     constructor(namespace: UnqualifiedIdentifier, name: UnqualifiedIdentifier, value: AttributeValue, location: Location);
 }
-export declare type AttributeValue = Interpolation | Literal;
+export type AttributeValue = Interpolation | Literal;
 export declare class Interpolation {
     expression: Expression;
     filters: Expression[];
@@ -273,8 +273,8 @@ export declare class Interpolation {
     type: string;
     constructor(expression: Expression, filters: Expression[], location: Location);
 }
-export declare type Control = ForStatement | IfStatement;
-export declare type ForStatement = ForInStatement | ForOfStatement | ForFromStatement;
+export type Control = ForStatement | IfStatement;
+export type ForStatement = ForInStatement | ForOfStatement | ForFromStatement;
 export declare class ForInStatement {
     variables: Parameter[];
     expression: Expression;
@@ -331,7 +331,7 @@ export declare class Characters {
     type: string;
     constructor(value: string, location: Location);
 }
-export declare type Expression = IfThenExpression | BinaryExpression | UnaryExpression | ViewConstruction | FunApplication | ConstructExpression | CallExpression | MemberExpression | ReadExpression | FunctionExpression | Literal | ContextProperty | Constructor | Identifier | ContextVariable;
+export type Expression = IfThenExpression | BinaryExpression | UnaryExpression | ViewConstruction | FunApplication | ConstructExpression | CallExpression | MemberExpression | ReadExpression | FunctionExpression | Literal | ContextProperty | Constructor | Identifier | ContextVariable;
 export declare class IfThenExpression {
     condition: Expression;
     iftrue: Expression;
@@ -409,7 +409,7 @@ export declare class FunctionExpression {
     type: string;
     constructor(parameters: Parameter[], body: Expression, location: Location);
 }
-export declare type Literal = Record | List | StringLiteral | NumberLiteral | BooleanLiteral;
+export type Literal = Record | List | StringLiteral | NumberLiteral | BooleanLiteral;
 export declare class List {
     members: Expression[];
     location: Location;
@@ -458,7 +458,7 @@ export declare class ContextVariable {
     type: string;
     constructor(location: Location);
 }
-export declare type Constructor = UnqualifiedConstructor | QualifiedConstructor;
+export type Constructor = UnqualifiedConstructor | QualifiedConstructor;
 export declare class UnqualifiedConstructor {
     value: string;
     location: Location;
@@ -475,7 +475,7 @@ export declare class QualifiedConstructor {
 /**
  * Identifier
  */
-export declare type Identifier = UnqualifiedIdentifier | QualifiedIdentifier;
+export type Identifier = UnqualifiedIdentifier | QualifiedIdentifier;
 export declare class UnqualifiedIdentifier {
     value: string;
     location: Location;
