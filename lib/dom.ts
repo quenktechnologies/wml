@@ -329,7 +329,7 @@ export class WMLDOMElement extends WMLDOMNode {
         let attrs = mapTo(this.attrs, (value, name) => {
 
             if (isObject(value) && (value instanceof WMLDOMText))
-                return value.textContent;
+                return `${name}="${value.textContent}"`;
             else if (isFunction(value) || isObject(value) || (value == null))
                 return '';
             else

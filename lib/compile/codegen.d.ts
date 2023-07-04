@@ -12,11 +12,11 @@ export declare const THIS = "__this";
 /**
  *  TypeScript code.
  */
-export type TypeScript = string;
+export declare type TypeScript = string;
 /**
  * TypeOrMap
  */
-export type TypeOrMap = TypeScript | ExpandedTypeMap;
+export declare type TypeOrMap = TypeScript | ExpandedTypeMap;
 /**
  * TypeMap contains a recursive map of dotted paths to Type nodes.
  */
