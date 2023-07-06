@@ -3,29 +3,29 @@ export { Maybe };
 /**
  * WidgetConstructor
  */
-export declare type WidgetConstructor<A extends Attrs> = new (attributes: A, children: Content[]) => Widget;
+export type WidgetConstructor<A extends Attrs> = new (attributes: A, children: Content[]) => Widget;
 /**
  * WMLElement can be DOM content or a user defined widget.
  */
-export declare type WMLElement = Content | Widget;
+export type WMLElement = Content | Widget;
 /**
  * Content is what is actually intended to be rendered on a web page.
  */
-export declare type Content = Node | Element | HTMLElement;
+export type Content = Node | Element | HTMLElement;
 /**
  * HTMLAttributeValue
  */
-export declare type HTMLAttributeValue = string | number | boolean | null | undefined | Function;
+export type HTMLAttributeValue = string | number | boolean | null | undefined | Function;
 /**
  * Template is a function that given a View (Registry)
  * will provide DOM content as well as performing
  * the side-effects of adding ids etc.
  */
-export declare type Template = (r: Registry) => Content;
+export type Template = (r: Registry) => Content;
 /**
  * Fun corresponds to the compiled signature of fun statements.
  */
-export declare type Fun = (r: Registry) => Content[];
+export type Fun = (r: Registry) => Content[];
 /**
  * Registry keeps track of the WMLElements in a view.
  */

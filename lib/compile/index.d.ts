@@ -3,7 +3,7 @@ import { CodeGeneratorOptions } from './codegen';
 /**
  * TypeScript output.
  */
-export declare type TypeScript = string;
+export type TypeScript = string;
 /**
  * Options for changing the behaviour of compilation.
  */
