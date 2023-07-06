@@ -10,10 +10,6 @@
 import { Record, mapTo, forEach } from '@quenk/noni/lib/data/record';
 import { Type, isFunction, isObject } from '@quenk/noni/lib/data/type';
 
-// Declared so isBrowser works on node.js.
-let window: Type = global;
-let document: Type = global.document;
-
 const DOCTYPE = '<!DOCTYPE html>';
 
 const ATTR_ESC_MAP: { [key: string]: string } = {
@@ -367,7 +363,7 @@ export class WMLDOMElement extends WMLDOMNode {
 /**
  * isBrowser is set to true if we detect a window and document global variable.
  */
-export const isBrowser = ((window != null) && (document != null));
+export const isBrowser = typeof window !== "undefined" && typeof window.document !== "undefined";
 
 /**
  * escapeAttrValue for safe browser display.
@@ -446,7 +442,7 @@ export const createElement = (
 
             } else if (!isBrowser && value instanceof WMLDOMText) {
 
-                e.setAttribute(key, value);
+                e.setAttribute(key, <Type>value);
 
             }
 
