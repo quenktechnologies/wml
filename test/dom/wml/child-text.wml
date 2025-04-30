@@ -1,3 +1,6 @@
 
 {% view ChildText(Object) %}
   <h4>Test Text</h4>
+
+{% view CommaText(Object) %}
+<p>We, have a comma!</p>

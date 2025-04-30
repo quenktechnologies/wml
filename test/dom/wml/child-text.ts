@@ -130,51 +130,147 @@ export class ChildText  implements __wml.View {
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]): __wml.Content {
 
-       let e = __document.createElement(tag);
+       let asDOMAttrs = <__document.WMLDOMAttrs><object>attrs
 
-       Object.keys(attrs).forEach(key => {
+       let e = __document.createElement(tag, asDOMAttrs, children,
+                attrs.wml && attrs.wml.ns || '');
 
-           let value = (<any>attrs)[key];
+       this.register(e, attrs);
 
-           if (typeof value === 'function') {
+       return e;
 
-           (<any>e)[key] = value;
+   }
 
-           } else if (typeof value === 'string') {
 
-               //prevent setting things like disabled=''
-               if (value !== '')
-               e.setAttribute(key, value);
+   widget(w: __wml.Widget, attrs:__wml.Attrs) : __wml.Content {
 
-           } else if (typeof value === 'boolean') {
+       this.register(w, attrs);
 
-             e.setAttribute(key, '');
+       this.widgets.push(w);
 
-           } else if(!__document.isBrowser && 
-                     value instanceof __document.WMLDOMText) {
+       return w.render();
 
-             e.setAttribute(key, <any>value);
+   }
 
-           }
+   findById<E extends __wml.WMLElement>(id: string): __Maybe<E> {
 
-       });
+       let mW:__Maybe<E> = __fromNullable<E>(<E>this.ids[id])
 
-       children.forEach(c => {
+       return this.views.reduce((p,c)=>
+       p.isJust() ? p : c.findById(id), mW);
 
-               switch (typeof c) {
+   }
 
-                   case 'string':
-                   case 'number':
-                   case 'boolean':
-                     let tn = __document.createTextNode(''+c);
-                     e.appendChild(<Node>tn)
-                   case 'object':
-                       e.appendChild(<Node>c);
-                   break;
-                   default:
-                                throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
+   findGroupById<E extends __wml.WMLElement>(name: string): E[] {
+           return this.groups.hasOwnProperty(name) ?
+           <E[]>this.groups[name] : [];
 
-               }})
+   }
+
+   invalidate() : void {
+
+       let {tree} = this;
+       let parent = <Node>tree.parentNode;
+
+       if (tree == null)
+           return console.warn('invalidate(): '+       'Missing DOM tree!');
+
+       if (tree.parentNode == null)
+                  throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
+
+       parent.replaceChild(<Node>this.render(), tree) 
+
+   }
+
+   render(): __wml.Content {
+
+       this.ids = {};
+       this.widgets.forEach(w => w.removed());
+       this.widgets = [];
+       this.views = [];
+       this.tree = <Node>this.template(this);
+
+       this.ids['root'] = (this.ids['root']) ?
+       this.ids['root'] : 
+       this.tree;
+
+       this.widgets.forEach(w => w.rendered());
+
+       return this.tree;
+
+   }
+
+};
+export class CommaText  implements __wml.View {
+
+   constructor(__context: object) {
+
+       this.template = (__this:__wml.Registry) => {
+
+       
+
+           return __this.node('p', <__wml.Attrs>{}, [
+
+        __document.createTextNode('We, have a comma!')
+     ]);
+
+       }
+
+   }
+
+   ids: { [key: string]: __wml.WMLElement } = {};
+
+   groups: { [key: string]: __wml.WMLElement[] } = {};
+
+   views: __wml.View[] = [];
+
+   widgets: __wml.Widget[] = [];
+
+   tree: Node = <Node>__document.createElement('div');
+
+   template: __wml.Template;
+
+   registerView(v:__wml.View) : __wml.View {
+
+       this.views.push(v);
+
+       return v;
+
+}
+   register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) : __wml.WMLElement {
+
+       let attrsMap = (<__wml.Attrs><any>attrs)
+
+       if(attrsMap.wml) {
+
+         let {id, group} = attrsMap.wml;
+
+         if(id != null) {
+
+             if (this.ids.hasOwnProperty(id))
+               throw new Error(`Duplicate id '${id}' detected!`);
+
+             this.ids[id] = e;
+
+         }
+
+         if(group != null) {
+
+             this.groups[group] = this.groups[group] || [];
+             this.groups[group].push(e);
+
+         }
+
+         }
+       return e;
+}
+
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]): __wml.Content {
+
+       let asDOMAttrs = <__document.WMLDOMAttrs><object>attrs
+
+       let e = __document.createElement(tag, asDOMAttrs, children,
+                attrs.wml && attrs.wml.ns || '');
 
        this.register(e, attrs);
 

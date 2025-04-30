@@ -48,7 +48,7 @@ const HTML_ENT_MAP: { [key: string]: string } = {
 
 }
 
-const htmlEscRegex = new RegExp(`[${mapTo(HTML_ENT_MAP, (_, k) => k)}]`, 'g');
+const htmlEscRegex = new RegExp(`[${mapTo(HTML_ENT_MAP, (_, k) => k).join('')}]`, 'g');
 
 const voidElements = [
     'area',
