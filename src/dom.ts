@@ -403,6 +403,10 @@ const createBrowserUnsafeNode = (html: string) => {
 
 export { createTextNode as text, createUnsafeNode as unsafe }
 
+const namespaces = new Map([ 
+  ['svg', 'http://www.w3.org/2000/svg']
+]);
+
 /**
  * createElement wrapper.
  */
@@ -421,7 +425,7 @@ export const createElement = (
     } else {
 
         let e = ns ?
-            document.createElementNS(ns, tag) :
+            document.createElementNS(namespaces.get(ns) ?? '', tag) :
             document.createElement(tag);
 
         forEach(attrs, (value: Type, key) => {

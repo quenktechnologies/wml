@@ -434,13 +434,18 @@ export type Control
     | IfStatement
     ;
 
-export type ForStatement
-    = ForInStatement
-    | ForOfStatement
-    | ForFromStatement
-    ;
+export abstract class ForStatement  {
 
-export class ForInStatement {
+    abstract type: string;
+
+    constructor(
+        public body: Child[],
+        public otherwise: Child[],
+        public location: Location) { }
+
+}
+
+export class ForInStatement extends ForStatement {
 
     type = 'for-in-statement';
 
@@ -449,11 +454,11 @@ export class ForInStatement {
         public expression: Expression,
         public body: Child[],
         public otherwise: Child[],
-        public location: Location) { }
+        public location: Location) { super(body, otherwise, location)}
 
 }
 
-export class ForOfStatement {
+export class ForOfStatement extends ForStatement {
 
     type = 'for-of-statement';
 
@@ -462,11 +467,11 @@ export class ForOfStatement {
         public expression: Expression,
         public body: Child[],
         public otherwise: Child[],
-        public location: Location) { }
+        public location: Location) { super(body, otherwise, location)}
 
 }
 
-export class ForFromStatement {
+export class ForFromStatement extends ForStatement {
 
     type = 'for-from-statement';
 
@@ -476,7 +481,7 @@ export class ForFromStatement {
         public end: Expression,
         public body: Child[],
         public otherwise: Child[],
-        public location: Location) { }
+        public location: Location) { super(body, otherwise, location)}
 
 }
 
