@@ -7,14 +7,16 @@ import * as ast from '../parse/ast';
  * <view-type>Context, imports are included in the module's import list.
  */
 export declare const rewriteViewStatementContext: (tree: ast.Module, node: ast.ViewStatement) => ast.Export[];
+export declare const TAG_NAME_SVG = "svg";
 /**
- * tagXMLNamespaces detects the "xmlns" attribute on DOM nodes and copies them
- * to the `wml:ns` attribute recursively.
+ * tagSVGNodes traverses the tree to detect any embedded svg.
  *
- * This has the effect of ensuring nodes are created using createElementNS()
- * instead of createElement in the browser.
+ * If an svg parent tag is found, it and all its children will receive a
+ * wml:ns=svg attribute. This will cause the runtime to use createElementNS()
+ * instead of createElement, allowing the svg document to be treated as SVG
+ * and not HTML DOM.
  */
-export declare const tagXMLNamespaces: (tag: ast.Tag | ast.Widget, parentAttr?: ast.Attribute) => ast.Tag;
+export declare const tagSVGNodes: (tag: ast.Tag) => ast.Tag;
 /**
  * transformTree applies all the needed transforms to the AST before
  * compilation.

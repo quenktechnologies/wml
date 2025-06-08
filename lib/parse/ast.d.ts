@@ -274,8 +274,14 @@ export declare class Interpolation {
     constructor(expression: Expression, filters: Expression[], location: Location);
 }
 export type Control = ForStatement | IfStatement;
-export type ForStatement = ForInStatement | ForOfStatement | ForFromStatement;
-export declare class ForInStatement {
+export declare abstract class ForStatement {
+    body: Child[];
+    otherwise: Child[];
+    location: Location;
+    abstract type: string;
+    constructor(body: Child[], otherwise: Child[], location: Location);
+}
+export declare class ForInStatement extends ForStatement {
     variables: Parameter[];
     expression: Expression;
     body: Child[];
@@ -284,7 +290,7 @@ export declare class ForInStatement {
     type: string;
     constructor(variables: Parameter[], expression: Expression, body: Child[], otherwise: Child[], location: Location);
 }
-export declare class ForOfStatement {
+export declare class ForOfStatement extends ForStatement {
     variables: Parameter[];
     expression: Expression;
     body: Child[];
@@ -293,7 +299,7 @@ export declare class ForOfStatement {
     type: string;
     constructor(variables: Parameter[], expression: Expression, body: Child[], otherwise: Child[], location: Location);
 }
-export declare class ForFromStatement {
+export declare class ForFromStatement extends ForStatement {
     variable: UntypedParameter;
     start: Expression;
     end: Expression;

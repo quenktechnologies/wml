@@ -155,14 +155,14 @@ export class CodeGenerator {
      */
     generate(tree: ast.Module): TypeScript {
 
-        let newTree = transformTree(tree);
+       tree = transformTree(tree);
 
         return [
 
             `import * as ${WML} from '${this.options.module}';`,
             `import * as ${DOCUMENT} from '${this.options.dom}';`,
             imports(this),
-            importStatements2TS(this, newTree.imports),
+            importStatements2TS(this, tree.imports),
             eol(this),
             typeDefinitions(this),
             eol(this),
@@ -172,7 +172,7 @@ export class CodeGenerator {
             `const unsafe = ${DOCUMENT}.unsafe`,
             `// @ts-ignore 6192`,
             `const isSet = (value:any) => value != null`,
-            exports2TS(this, newTree.exports)
+            exports2TS(this, tree.exports)
 
         ].join(eol(this));
 

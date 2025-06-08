@@ -1,4 +1,5 @@
 import * as ast from '../parse/ast';
+import { identifierOrConstructor2TS } from './codegen';
 
 /**
  * rewriteViewContext normalizes the various forms of the context declaration
@@ -72,34 +73,63 @@ export const rewriteViewStatementContext =
 
     }
 
+export const TAG_NAME_SVG = 'svg';
+
 /**
- * tagXMLNamespaces detects the "xmlns" attribute on DOM nodes and copies them
- * to the `wml:ns` attribute recursively.
+ * tagSVGNodes traverses the tree to detect any embedded svg.
  *
- * This has the effect of ensuring nodes are created using createElementNS()
- * instead of createElement in the browser.
+ * If an svg parent tag is found, it and all its children will receive a 
+ * wml:ns=svg attribute. This will cause the runtime to use createElementNS()
+ * instead of createElement, allowing the svg document to be treated as SVG 
+ * and not HTML DOM.
  */
-export const tagXMLNamespaces =
-    (tag: ast.Tag | ast.Widget, parentAttr?: ast.Attribute) => {
+export const tagSVGNodes =
+    (tag: ast.Tag) => {
+        let pending:[boolean, object[]][] = [[false, [tag]]];
 
-        let attr = (tag.attributes.find(attr =>
-            (attr.namespace.value == '') && (attr.name.value === 'xmlns'))) ||
-            parentAttr;
+        while(pending.length) {
+          let [isSvg, stack ] = <[boolean, object[]]>pending.pop();
+          
+          while(stack.length) {
+            let next = stack.pop();
 
-        if (attr) {
+            if((next instanceof ast.Node) &&
+              (identifierOrConstructor2TS(next.open)
+               === TAG_NAME_SVG) && 
+              !isSvg
+            ) {
+              pending.push([true, [next]]);
+              break;
+            }
 
-            tag.attributes.push(new ast.Attribute(
-                new ast.UnqualifiedIdentifier('wml', attr.location),
-                new ast.UnqualifiedIdentifier('ns', attr.location),
-                attr.value,
-                attr.location
+            let childrens = [];
+          if(next instanceof ast.Node) {
+            if(isSvg)
+            next.attributes.push(new ast.Attribute(
+                new ast.UnqualifiedIdentifier('wml',{}),
+                new ast.UnqualifiedIdentifier('ns', {}),
+                new ast.StringLiteral('svg', {}),
+                {}
             ));
 
-        }
+            childrens.push(next.children);
+        } else if((next instanceof ast.Widget) || (next instanceof ast.ElseClause)) {
+            childrens.push(next.children);
+          } else if(next instanceof ast.ForOfStatement) {
+            childrens.push(next.body, next.otherwise);
+          } else if((next instanceof ast.IfStatement)||(next instanceof ast.ElseIfClause)) {
+            childrens.push(next.then);
+            if(next.elseClause) childrens.push([next.elseClause])
+          }
 
-        tag.children = tag.children.map(child =>
-            ((child instanceof ast.Node) || (child instanceof ast.Widget)) ?
-                tagXMLNamespaces(child, attr) : child);
+          for(let children of childrens)
+            for(let child of children)
+              stack.push(child);
+
+          }
+
+
+        }
 
         return tag;
 
@@ -117,7 +147,7 @@ export const transformTree = (tree: ast.Module) => {
 
         if (next instanceof ast.ViewStatement) {
 
-            next.root = tagXMLNamespaces(next.root);
+            next.root = tagSVGNodes(next.root);
 
             return [...prev, ...rewriteViewStatementContext(newTree, next)]
 
