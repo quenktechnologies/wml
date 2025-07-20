@@ -22,45 +22,12 @@ export const CONTEXT = '__context';
 export const VIEW = '__view';
 export const WML = '__wml';
 export const DOCUMENT = '__document';
+export const UTILS = '__utils';
 export const THIS = '__this';
 
-const MAYBE = '__Maybe';
-
-const FROM_NULLABLE = '__fromNullable';
-
-const FROM_ARRAY = '__fromArray';
-
-const NODE_PARAMS = `tag:string, attrs:${WML}.Attrs, ` +
-    `children: ${WML}.Content[]`;
-
-const WIDGET_PARAMS =
-    `w: ${WML}.Widget, attrs:${WML}.Attrs`;
-
-const REGISTER_VIEW_PARAMS = `v:${WML}.View`;
-
-const REGISTER_PARAMS = `e:${WML}.WMLElement, ` +
-    `attrs:${WML}.Attributes<any>`;
-
-const THROW_INVALIDATE_ERR = `       throw new Error('invalidate(): cannot ` +
-    `invalidate this view, it has no parent node!');`;
-
-const IGNORE_UNUSED = '//@ts-ignore:6192';
-
-const RECORD = '__Record<A>';
-
-const IF = '__if';
-
-const IFARG = `__IfArg`;
-
-const FOR_OF = '__forOf';
-
-const FOR_IN = '__forIn';
-
-const FOR_ALT_TYPE = '__ForAlt';
-
-const FOR_IN_BODY = '__ForInBody<A>';
-
-const FOR_OF_BODY = '__ForOfBody<A>';
+const VIEW_CLASS = 'BaseView';
+const FOR_OF = `${UTILS}.forOf`;
+const FOR_IN = `${UTILS}.forIn`;
 
 /**
  *  TypeScript code.
@@ -159,19 +126,20 @@ export class CodeGenerator {
 
         return [
 
+            `// @ts-ignore 6192`,
             `import * as ${WML} from '${this.options.module}';`,
-            `import * as ${DOCUMENT} from '${this.options.dom}';`,
-            imports(this),
+            `// @ts-ignore 6192`,
+            `import * as ${DOCUMENT} from '${this.options.module}/lib/dom';`,
+            `// @ts-ignore 6192`,
+            `import * as ${UTILS} from '${this.options.module}/lib/util';`,
             importStatements2TS(this, tree.imports),
-            eol(this),
-            typeDefinitions(this),
             eol(this),
             `// @ts-ignore 6192`,
             `const text = ${DOCUMENT}.text;`,
             `// @ts-ignore 6192`,
             `const unsafe = ${DOCUMENT}.unsafe`,
             `// @ts-ignore 6192`,
-            `const isSet = (value:any) => value != null`,
+            `const isSet = ${UTILS}.isSet`,
             exports2TS(this, tree.exports)
 
         ].join(eol(this));
@@ -181,71 +149,6 @@ export class CodeGenerator {
 }
 
 const eol = (ctx: CodeGenerator) => `${ctx.options.EOL}`;
-
-const imports = (ctx: CodeGenerator) => [
-    `//@ts-ignore: 6192`,
-    `import {`,
-    `Maybe as ${MAYBE},`,
-    `fromNullable as ${FROM_NULLABLE},`,
-    `fromArray as ${FROM_ARRAY}`,
-    `}`,
-    `from '@quenk/noni/lib/data/maybe';`
-].join(eol(ctx));
-
-const typeDefinitions = (ctx: CodeGenerator) => [
-    `${IGNORE_UNUSED}`,
-    `type ${IFARG} = ()=>${WML}.Content[]`,
-    ``,
-    `${IGNORE_UNUSED}`,
-    `type ${FOR_ALT_TYPE} = ()=> ${WML}.Content[]`,
-    ``,
-    `${IGNORE_UNUSED}`,
-    `type ${FOR_IN_BODY} =(val:A, idx:number, all:A[])=>` +
-    `${WML}.Content[]`,
-    ``,
-    `${IGNORE_UNUSED}`,
-    `type ${FOR_OF_BODY} = (val:A, key:string, all:object) =>` +
-    `${WML}.Content[]`,
-    ``,
-    `${IGNORE_UNUSED}`,
-    `interface ${RECORD} {`,
-    ``,
-    ` [key:string]: A`,
-    ``,
-    `}`,
-    ``,
-    `${IGNORE_UNUSED}`,
-    `const ${IF} = (__expr:boolean, __conseq:${IFARG},__alt?:${IFARG}) ` +
-    `: Content[]=>`,
-    `(__expr) ? __conseq() :  __alt ? __alt() : [];`,
-    ``,
-    `${IGNORE_UNUSED}`,
-    `const ${FOR_IN} = <A>(list:A[], f:${FOR_IN_BODY}, alt:` +
-    `${FOR_ALT_TYPE}) : ${WML}.Content[] => {`,
-    ``,
-    `   let ret:${WML}.Content[] = [];`,
-    ``,
-    `   for(let i=0; i<list.length; i++)`,
-    `       ret = ret.concat(f(list[i], i, list));`,
-    ``,
-    `   return ret.length === 0 ? alt() : ret;`,
-    ``,
-    `}`,
-    `${IGNORE_UNUSED}`,
-    `const ${FOR_OF} = <A>(o:${RECORD}, f:${FOR_OF_BODY},` +
-    `alt:${FOR_ALT_TYPE}) : ${WML}.Content[] => {`,
-    ``,
-    `    let ret:${WML}.Content[] = [];`,
-    ``,
-    `    for(let key in o)`,
-    `  	    if(o.hasOwnProperty(key)) `,
-    `	        ret = ret.concat(f((o)[key], key, o));`,
-    ``,
-    `    return ret.length === 0 ? alt(): ret;`,
-    ``,
-    `}`
-
-].join(eol(ctx));
 
 /**
  * importStatements2TS converts a list of ImportStatements into typescript.
@@ -448,140 +351,19 @@ export const viewStatement2TS = (ctx: CodeGenerator, n: ast.ViewStatement) => {
 
     return [
 
-        `export class ${id} ${typeParams} implements ${WML}.View {`,
+        `export class ${id} ${typeParams} extends ${WML}.${VIEW_CLASS} {`,
         ``,
         `   constructor(${CONTEXT}: ${context}) {`,
         ``,
-        `       this.template = (${THIS}:${WML}.Registry) => {`,
+        `       super(${CONTEXT}, (${THIS}:${WML}.Registry) => {`,
         ``,
         `       ${instances}`,
         ``,
         `           return ${template};`,
         ``,
-        `       }`,
+        `       });`,
         ``,
-        `   }`,
-        ``,
-        `   ids: { [key: string]: ${WML}.WMLElement } = {};`,
-        ``,
-        `   groups: { [key: string]: ${WML}.WMLElement[] } = {};`,
-        ``,
-        `   views: ${WML}.View[] = [];`,
-        ``,
-        `   widgets: ${WML}.Widget[] = [];`,
-        ``,
-        `   tree: Node = <Node>${DOCUMENT}.createElement('div');`,
-        ``,
-        `   template: ${WML}.Template;`,
-        ``,
-        `   registerView(${REGISTER_VIEW_PARAMS}) : ${WML}.View {`,
-        ``,
-        `       this.views.push(v);`,
-        ``,
-        `       return v;`,
-        ``,
-        `}`,
-        `   register(${REGISTER_PARAMS}) : ${WML}.WMLElement {`,
-        ``,
-        `       let attrsMap = (<${WML}.Attrs><any>attrs)`,
-        ``,
-        `       if(attrsMap.wml) {`,
-        ``,
-        `         let {id, group} = attrsMap.wml;`,
-        ``,
-        `         if(id != null) {`,
-        ``,
-        `             if (this.ids.hasOwnProperty(id))`,
-        `               throw new Error(\`Duplicate id '\${id}' detected!\`);`,
-        ``,
-        `             this.ids[id] = e;`,
-        ``,
-        `         }`,
-        ``,
-        `         if(group != null) {`,
-        ``,
-        `             this.groups[group] = this.groups[group] || [];`,
-        `             this.groups[group].push(e);`,
-        ``,
-        `         }`,
-        ``,
-        `         }`,
-        `       return e;`,
-        `}`,
-        ``,
-        `   node(${NODE_PARAMS}): ${WML}.Content {`,
-        ``,
-        `       let asDOMAttrs = <${DOCUMENT}.WMLDOMAttrs><object>attrs`,
-        ``,
-        `       let e = ${DOCUMENT}.createElement(tag, asDOMAttrs, children,`,
-        `                attrs.wml && attrs.wml.ns || '');`,
-        ``,
-        `       this.register(e, attrs);`,
-        ``,
-        `       return e;`,
-        ``,
-        `   }`,
-        ``,
-        ``,
-        `   widget(${WIDGET_PARAMS}) : ${WML}.Content {`,
-        ``,
-        `       this.register(w, attrs);`,
-        ``,
-        `       this.widgets.push(w);`,
-        ``,
-        `       return w.render();`,
-        ``,
-        `   }`,
-        ``,
-        `   findById<E extends ${WML}.WMLElement>(id: string): ${MAYBE}<E> {`,
-        ``,
-        `       let mW:${MAYBE}<E> = ${FROM_NULLABLE}<E>(<E>this.ids[id])`,
-        ``,
-        `       return this.views.reduce((p,c)=>`,
-        `       p.isJust() ? p : c.findById(id), mW);`,
-        ``,
-        `   }`,
-        ``,
-        `   findGroupById<E extends ${WML}.WMLElement>(name: string): E[] {` +
-        ``,
-        `           return this.groups.hasOwnProperty(name) ?`,
-        `           <E[]>this.groups[name] : [];`,
-        ``,
-        `   }`,
-        ``,
-        `   invalidate() : void {`,
-        ``,
-        `       let {tree} = this;`,
-        `       let parent = <Node>tree.parentNode;`,
-        ``,
-        `       if (tree == null)`,
-        `           return console.warn('invalidate(): '+` +
-        `       'Missing DOM tree!');`,
-        ``,
-        `       if (tree.parentNode == null)`,
-        `           ${THROW_INVALIDATE_ERR}`,
-        ``,
-        `       parent.replaceChild(<Node>this.render(), tree) `,
-        ``,
-        `   }`,
-        ``,
-        `   render(): ${WML}.Content {`,
-        ``,
-        `       this.ids = {};`,
-        `       this.widgets.forEach(w => w.removed());`,
-        `       this.widgets = [];`,
-        `       this.views = [];`,
-        `       this.tree = <Node>this.template(this);`,
-        ``,
-        `       this.ids['root'] = (this.ids['root']) ?`,
-        `       this.ids['root'] : `,
-        `       this.tree;`,
-        ``,
-        `       this.widgets.forEach(w => w.rendered());`,
-        ``,
-        `       return this.tree;`,
-        ``,
-        `   }`,
+        ` }`,
         ``,
         `}`
 

@@ -46,15 +46,8 @@ describe('compile', function() {
 
             it(k, function() {
 
-                if (Array.isArray(tests[k])) {
-
-                    tests[k].forEach(makeTest);
-
-                } else {
 
                     makeTest(tests[k], k);
-
-                }
 
             });
         });
