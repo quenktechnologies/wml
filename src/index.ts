@@ -1,8 +1,7 @@
-import { Maybe } from "@quenk/noni/lib/data/maybe";
-import { View } from "./view";
 
-export { Maybe };
-export { BaseView } from './view';
+import {  View } from "./view";
+
+export { View } 
 export { ViewFrame } from './view/frame';
 
 /**

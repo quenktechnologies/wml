@@ -1,6 +1,6 @@
 import { Maybe } from "@quenk/noni/lib/data/maybe";
 
-import { Content, Renderable, WMLElement } from "..";
+import { Content, WMLElement } from "..";
 import { Entry, ViewFrame } from "./frame";
 
 /**
@@ -14,7 +14,15 @@ export type Renderer = (frame: ViewFrame) => ViewFrame;
  * They provide an api for rendering user interfaces and
  * querying individual objects(WMLElement) it is made of.
  */
-export interface View extends Renderable {
+export interface View {
+  /**
+   * render the View.
+   *
+   * If a ViewFrame is provided, it will be used instead of creating a new one
+   * internally. In this case the View itself will not be mutated.
+   */
+  render(frame?:ViewFrame): Content;
+
   /**
    * invalidate this View causing the DOM to be re-rendered.
    *
@@ -57,7 +65,7 @@ export class BaseView implements View {
   }
 
   findGroupById<E extends WMLElement>(name: string): E[] {
-    return <E[]>this.frame.findGroupBy(name);
+    return <E[]>this.frame.findGroupBy(name).map(entry => entry.widget ?? entry.node);
   }
 
   invalidate(): void {
@@ -78,9 +86,11 @@ export class BaseView implements View {
     parent.replaceChild(newTree, frame.tree);
   }
 
-  render(): Content {
+  render(frame?: ViewFrame): Content {
     //TODO onDOMConnected/onDOMDisconnected
+    if(frame) return <Content>this.renderer(frame).tree;
+
     this.frame = this.renderer(new ViewFrame());
-    return <Node>this.frame.tree;
+    return <Content>this.frame.tree;
   }
 }

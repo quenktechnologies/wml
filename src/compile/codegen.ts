@@ -905,7 +905,7 @@ export const unaryExpression2TS =
  */
 export const viewConstruction2TS =
     (ctx: CodeGenerator, n: ast.ViewConstruction) =>
-        `(${expression2TS(ctx, n.expression)}).render()`;
+        `${THIS}.view(${expression2TS(ctx, n.expression)})`;
 
 /**
  * funApplication2TS 
