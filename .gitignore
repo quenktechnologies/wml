@@ -1,4 +1,4 @@
-lib-cov
+lib
 *.seed
 *.log
 *.csv
@@ -7,27 +7,10 @@ lib-cov
 *.pid
 *.gz
 *.DS_Store
-
-# vim tmp/swp files
 *.swp
 *.un~
-
 pids
 logs
 results
-
 npm-debug.log
-
 node_modules/
-
-*.iml
-*.ipr
-*.iws
-.idea/
-
-docs/_dist
-coverage
-coverage.html
-.cover*
-
-*.sublime-*
