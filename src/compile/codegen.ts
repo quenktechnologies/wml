@@ -24,8 +24,11 @@ export const WML = '__wml';
 export const DOCUMENT = '__document';
 export const UTILS = '__utils';
 export const THIS = '__this';
+export const VIEW_FRAME = '__viewFrame';
 
 const VIEW_CLASS = 'BaseView';
+const VIEW_FRAME_CLASS = 'ViewFrame';
+
 const FOR_OF = `${UTILS}.forOf`;
 const FOR_IN = `${UTILS}.forIn`;
 
@@ -220,8 +223,6 @@ export const export2TS = (ctx: CodeGenerator, n: ast.Export) => {
         return contextStatement2TS(n);
     else if (n instanceof ast.LetStatement)
         return letStatement2TS(ctx, n);
-    else if (n instanceof ast.FunStatement)
-        return funStatement2TS(ctx, n);
     else if (n instanceof ast.ViewStatement)
         return viewStatement2TS(ctx, n);
     else if ((n instanceof ast.Widget) || (n instanceof ast.Node))
@@ -299,38 +300,6 @@ const _setStatement2TS =
     }
 
 /**
- * funStatement2TS generates Typescript output for fun statements.
- *
- * This is a curried function that first accepts zero or more arguments then
- * a single Registry, finally the content.
- */
-export const funStatement2TS = (ctx: CodeGenerator, n: ast.FunStatement) => {
-
-    let id = unqualifiedIdentifier2TS(n.id);
-
-    let typeParams = typeParameters2TS(n.typeParameters);
-
-    let params = parameters2TS(n.parameters);
-
-    let factory = `(${THIS}:${WML}.Registry) : ${WML}.Content[] =>`;
-
-    let body = children2TS(ctx, n.body);
-
-    return [
-
-        `export const ${id} = `,
-        ``,
-        `${typeParams}(${params})=>${factory} {`,
-        ``,
-        `   return ${body};`,
-        ``,
-        `};`
-
-    ].join(eol(ctx));
-
-}
-
-/**
  * viewStatement2TS converts a ViewStatement to its typescript form.
  *
  * This is a class with template and various useful helpers.
@@ -355,11 +324,13 @@ export const viewStatement2TS = (ctx: CodeGenerator, n: ast.ViewStatement) => {
         ``,
         `   constructor(${CONTEXT}: ${context}) {`,
         ``,
-        `       super(${CONTEXT}, (${THIS}:${WML}.Registry) => {`,
+        `       super(${CONTEXT}, (${THIS}:${WML}.${VIEW_FRAME_CLASS}) => {`,
         ``,
-        `       ${instances}`,
+        `         ${instances}`,
         ``,
-        `           return ${template};`,
+        `         ${THIS}.root(${template});`,
+        ``,
+        `         return ${THIS};`,
         ``,
         `       });`,
         ``,
@@ -934,7 +905,7 @@ export const unaryExpression2TS =
  */
 export const viewConstruction2TS =
     (ctx: CodeGenerator, n: ast.ViewConstruction) =>
-        `${THIS}.registerView(${expression2TS(ctx, n.expression)}).render()`;
+        `(${expression2TS(ctx, n.expression)}).render()`;
 
 /**
  * funApplication2TS 
