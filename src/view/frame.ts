@@ -1,40 +1,40 @@
-import * as dom from '../dom';
+import * as dom from "../dom";
 
-import { Maybe } from '@quenk/noni/lib/data/maybe';
+import { Maybe } from "@quenk/noni/lib/data/maybe";
 
-import { Attrs, Content, WMLElement, WMLId, Widget } from "..";
-import { View } from '.';
+import { DOMMonitor } from "../dom/monitor";
+import { Attrs, Content, WMLId, Widget } from "..";
+import { View } from ".";
 
 export interface Entry {
-  node: Content 
-  widget?: Widget
+  node: Content;
+  widget?: Widget;
 }
 
 /**
  * ViewFrame serves as a container for a View's rendered template.
  *
- * This class containers helper methods for retreiving elements by id or 
+ * This class containers helper methods for retreiving elements by id or
  * group freeing the View class of such logic.
  */
 export class ViewFrame {
   constructor(
     public ids: Map<WMLId, Entry> = new Map(),
     public groups: Map<WMLId, Entry[]> = new Map(),
-    public tree?: Content
-
+    public tree?: Content,
   ) {}
 
-  _register(id:WMLId, node:Content, widget?: Widget) {
+  _register(id: WMLId, node: Content, widget?: Widget) {
     // throw if in use?
-    let entry = this.ids.get(id) ?? {node}
+    let entry = this.ids.get(id) ?? { node };
     entry.widget = widget;
     this.ids.set(id, entry);
   }
 
-  _registerGroupMember(id:WMLId, node:Content, widget?:Widget) {
+  _registerGroupMember(id: WMLId, node: Content, widget?: Widget) {
     // throw if in use?
     let group = this.groups.get(id) ?? [];
-    group.push({node, widget});
+    group.push({ node, widget });
     this.groups.set(id, group);
   }
 
@@ -58,39 +58,36 @@ export class ViewFrame {
       (attrs.wml && attrs.wml.ns) || "",
     );
 
-    if(attrs?.wml?.id) 
-      this._register(attrs.wml.id, elm);
-    
+    if (attrs?.wml?.id) this._register(attrs.wml.id, elm);
 
-    if(attrs?.wml?.group)
-      this._registerGroupMember(attrs.wml.group, elm);
+    if (attrs?.wml?.group) this._registerGroupMember(attrs.wml.group, elm);
 
     return elm;
   }
 
   /**
    * widget constructs a DOM sub-tree for a Widget in the View's tree.
-   * 
+   *
    * Any id or group assignment will be honored.
    */
   widget(w: Widget, attrs: Attrs): Content {
     let tree = w.render();
 
-    if(attrs?.wml?.id)
-      this._register(attrs.wml.id, tree, w);
+    DOMMonitor.getInstance().monitor(tree, w);
 
-    if(attrs?.wml?.group)
-      this._registerGroupMember(attrs.wml.group, tree, w);
+    if (attrs?.wml?.id) this._register(attrs.wml.id, tree, w);
 
-    return  tree;
+    if (attrs?.wml?.group) this._registerGroupMember(attrs.wml.group, tree, w);
+
+    return tree;
   }
 
   /**
-   * view renders the content of another view, saving its ids and groups to 
+   * view renders the content of another view, saving its ids and groups to
    * this one.
    */
-  view(view: View): WMLElement {
-    let { root } = this; 
+  view(view: View): Content {
+    let { root } = this;
     let tree = view.render(this);
     this.root = root;
     return tree;
@@ -106,16 +103,16 @@ export class ViewFrame {
   /**
    * findGroupByid returns all the entries stored fro a group.
    */
-  findGroupBy(id:WMLId) : Entry[] {
-    return (this.groups.get(id) ?? []);
+  findGroupBy(id: WMLId): Entry[] {
+    return this.groups.get(id) ?? [];
   }
 
   _redraw(entry: Entry) {
-    if(!entry.node.parentNode) return;
+    if (!entry.node.parentNode) return;
 
     let currentNode = entry.node;
 
-    entry.node =  entry.widget ? entry.widget.render() : currentNode;
+    entry.node = entry.widget ? entry.widget.render() : currentNode;
 
     (<Node>entry.node.parentNode).replaceChild(entry.node, currentNode);
   }
@@ -126,21 +123,19 @@ export class ViewFrame {
    *
    * For id'd HTML DOM nodes, this is a effectively a noop.
    */
-  redraw(id:WMLId) {
+  redraw(id: WMLId) {
     let entry = this.ids.get(id);
 
-    if(entry) 
-    this._redraw(entry);
+    if (entry) this._redraw(entry);
   }
 
   /**
    * redrawGroup is like redraw() but for groups.
    */
-  redrawGroup(id:WMLId) {
-    for(let entry of this.groups.get(id) ?? []) {
+  redrawGroup(id: WMLId) {
+    for (let entry of this.groups.get(id) ?? []) {
       this._redraw(entry);
-      if(!entry.node.parentNode) continue;
+      if (!entry.node.parentNode) continue;
     }
   }
 }
-

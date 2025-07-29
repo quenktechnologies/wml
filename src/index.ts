@@ -1,8 +1,9 @@
+import { DOMEventCallbacks } from "./dom/monitor";
+import { View, BaseView } from "./view";
 
-import {  View } from "./view";
-
-export { View } 
-export { ViewFrame } from './view/frame';
+export { Maybe } from '@quenk/noni/lib/data/maybe';
+export { ViewFrame } from "./view/frame";
+export { View, BaseView };
 
 /**
  * WidgetConstructor
@@ -20,7 +21,7 @@ export type WMLElement = Content | Widget;
 /**
  * WMLId is a string used to identify a WML element or group within  a view.
  */
-export type WMLId = string; 
+export type WMLId = string;
 
 /**
  * Content is what is actually intended to be rendered on a web page.
@@ -55,7 +56,7 @@ export interface Renderable {
  *
  * It has two lifecycle methods that are recognized by View.
  */
-export interface Widget extends Renderable {
+export interface Widget extends Renderable, DOMEventCallbacks {
   /**
    * rendered is called after the Widget has been added to a DOM tree.
    */

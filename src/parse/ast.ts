@@ -6,20 +6,16 @@
  * Location is jison's location tracking information.
  */
 export interface Location {
-
-    [key: string]: string | number
-
-};
+  [key: string]: string | number;
+}
 
 /**
  * AST is the interface of all the nodes
  */
 export interface AST {
+  type: string;
 
-    type: string
-
-    location: Location
-
+  location: Location;
 }
 
 /**
@@ -30,48 +26,43 @@ export interface AST {
  * as private here.
  */
 export class Module {
+  type = "module";
 
-    type = 'module'
+  constructor(
+    public imports: ImportStatement[],
+    public exports: Export[],
+    public location: Location,
+  ) {}
 
-    constructor(
-        public imports: ImportStatement[],
-        public exports: Export[],
-        public location: Location) { }
-
-    /**
-     * clone this node.
-     */
-    clone() {
-
-        return new Module(this.imports.slice(), this.exports.slice(),
-            this.location);
-
-    }
-
+  /**
+   * clone this node.
+   */
+  clone() {
+    return new Module(
+      this.imports.slice(),
+      this.exports.slice(),
+      this.location,
+    );
+  }
 }
 
 /**
  * ImportStatement
  */
 export class ImportStatement {
+  type = "import-statement";
 
-    type = 'import-statement';
-
-    constructor(
-        public member: ImportMember,
-        public module: StringLiteral,
-        public location: Location) { }
-
+  constructor(
+    public member: ImportMember,
+    public module: StringLiteral,
+    public location: Location,
+  ) {}
 }
 
 /**
  * ImportMember
  */
-export type ImportMember
-    = AggregateMember
-    | AliasedMember
-    | CompositeMember
-    ;
+export type ImportMember = AggregateMember | AliasedMember | CompositeMember;
 
 /**
  * AliasedMember
@@ -79,25 +70,25 @@ export type ImportMember
  * @property {Identifier} member - The identifier that is aliased.
  */
 export class AliasedMember {
+  type = "aliased-member";
 
-    type = 'aliased-member';
-
-    constructor(
-        public member: Member,
-        public alias: Member,
-        public location: Location) { }
-
+  constructor(
+    public member: Member,
+    public alias: Member,
+    public location: Location,
+  ) {}
 }
 
 /**
  * AggregateMember
  */
 export class AggregateMember {
+  type = "qualified-member";
 
-    type = 'qualified-member';
-
-    constructor(public id: Member, public location: Location) { }
-
+  constructor(
+    public id: Member,
+    public location: Location,
+  ) {}
 }
 
 /**
@@ -105,42 +96,36 @@ export class AggregateMember {
  * @property {...Identifier|Aliased_Member} members
  */
 export class CompositeMember {
+  type = "composite-member";
 
-    type = 'composite-member';
-
-    constructor(
-        public members: (Member | AliasedMember)[],
-        public location: Location) { }
-
+  constructor(
+    public members: (Member | AliasedMember)[],
+    public location: Location,
+  ) {}
 }
 
-export type Member
-    = UnqualifiedIdentifier
-    | UnqualifiedConstructor
-    ;
+export type Member = UnqualifiedIdentifier | UnqualifiedConstructor;
 
-export type Export
-    = AliasStatement
-    | ContextStatement
-    | LetStatement
-    | FunStatement
-    | ViewStatement
-    | Tag
-    ;
+export type Export =
+  | AliasStatement
+  | ContextStatement
+  | LetStatement
+  | FunStatement
+  | ViewStatement
+  | Tag;
 
 /**
  * AliasStatement
  */
 export class AliasStatement {
+  type = "alias-statement";
 
-    type = 'alias-statement';
-
-    constructor(
-        public id: UnqualifiedConstructor,
-        public typeParameters: TypeParameter[],
-        public members: Type[],
-        public location: Location) { }
-
+  constructor(
+    public id: UnqualifiedConstructor,
+    public typeParameters: TypeParameter[],
+    public members: Type[],
+    public location: Location,
+  ) {}
 }
 
 export type ContextStatementMember = ConstructorType | MemberDeclaration;
@@ -149,653 +134,581 @@ export type ContextStatementMember = ConstructorType | MemberDeclaration;
  * ContextStatement
  */
 export class ContextStatement {
+  type = "context-statement";
 
-    type = 'context-statement';
-
-    constructor(
-        public id: UnqualifiedConstructor,
-        public typeParameters: TypeParameter[],
-        public members: ContextStatementMember[],
-        public location: Location) { }
-
+  constructor(
+    public id: UnqualifiedConstructor,
+    public typeParameters: TypeParameter[],
+    public members: ContextStatementMember[],
+    public location: Location,
+  ) {}
 }
 
 /**
  * MemberDeclaration
  */
 export class MemberDeclaration {
+  type = "member-declaration";
 
-    type = 'member-declaration';
-
-    constructor(
-        public path: UnqualifiedIdentifier[],
-        public kind: Type,
-        public optional: boolean,
-        public location: Location) { }
-
+  constructor(
+    public path: UnqualifiedIdentifier[],
+    public kind: Type,
+    public optional: boolean,
+    public location: Location,
+  ) {}
 }
 
 /**
  * LetStatement
  */
 export class LetStatement {
+  type = "let-statement";
 
-    type = 'let-statement';
-
-    constructor(
-        public id: UnqualifiedIdentifier,
-        public cons: ConstructorType,
-        public expression: Expression,
-        public location: Location) { }
-
+  constructor(
+    public id: UnqualifiedIdentifier,
+    public cons: ConstructorType,
+    public expression: Expression,
+    public location: Location,
+  ) {}
 }
 
-export type ContextTypeIndicator
-    = ConstructorType
-    | ContextFromStatement
-    ;
+export type ContextTypeIndicator = ConstructorType | ContextFromStatement;
 
 /**
  * ContextFromStatement
  */
 export class ContextFromStatement {
+  type = "context-from-statement";
 
-    type = 'context-from-statement';
-
-    constructor(
-        public cons: ConstructorType,
-        public module: StringLiteral,
-        public location: Location) { }
-
+  constructor(
+    public cons: ConstructorType,
+    public module: StringLiteral,
+    public location: Location,
+  ) {}
 }
 
 /**
  * ViewStatement
  */
 export class ViewStatement {
+  type = "view-statement";
 
-    type = 'view-statement';
-
-    constructor(
-        public id: UnqualifiedConstructor,
-        public typeParameters: TypeParameter[],
-        public context: ContextTypeIndicator,
-        public directives: LetStatement[],
-        public root: Tag,
-        public location: Location) { }
-
+  constructor(
+    public id: UnqualifiedConstructor,
+    public typeParameters: TypeParameter[],
+    public context: ContextTypeIndicator,
+    public directives: LetStatement[],
+    public root: Tag,
+    public location: Location,
+  ) {}
 }
 
 export class FunStatement {
+  type = "fun-statement";
 
-    type = 'fun-statement';
-
-    constructor(
-        public id: UnqualifiedIdentifier,
-        public typeParameters: TypeParameter[],
-        public parameters: Parameter[],
-        public body: Child[],
-        public location: Location) { }
-
+  constructor(
+    public id: UnqualifiedIdentifier,
+    public typeParameters: TypeParameter[],
+    public parameters: Parameter[],
+    public body: Child[],
+    public location: Location,
+  ) {}
 }
 
 /**
  * TypeParameter
  */
 export class TypeParameter {
+  type = "type-parameter";
 
-    type = 'type-parameter';
-
-    constructor(
-        public id: UnqualifiedConstructor,
-        public constraint: Type,
-        public location: Location) { }
-
+  constructor(
+    public id: UnqualifiedConstructor,
+    public constraint: Type,
+    public location: Location,
+  ) {}
 }
 
 /**
  * Type
  */
-export type Type
-    = ConstructorType
-    | FunctionType
-    | RecordType
-    | ListType
-    ;
+export type Type = ConstructorType | FunctionType | RecordType | ListType;
 
 /**
  * ConstructorType
  */
 export class ConstructorType {
+  type = "constructor-type";
 
-    type = 'constructor-type';
-
-    constructor(
-        public id: UnqualifiedIdentifier | Constructor,
-        public typeParameters: TypeParameter[],
-        public location: Location) { }
-
+  constructor(
+    public id: UnqualifiedIdentifier | Constructor,
+    public typeParameters: TypeParameter[],
+    public location: Location,
+  ) {}
 }
 
 /**
  * FunctionType
  */
 export class FunctionType {
+  type = "function-type";
 
-    type = 'function-type';
-
-    constructor(
-        public parameters: Type[],
-        public returnType: Type,
-        public location: Location) { }
-
+  constructor(
+    public parameters: Type[],
+    public returnType: Type,
+    public location: Location,
+  ) {}
 }
 
 /**
  * RecordType
  */
 export class RecordType {
+  type = "record-type";
 
-    type = 'record-type';
-
-    constructor(
-        public members: MemberDeclaration[],
-        public location: Location) { }
-
+  constructor(
+    public members: MemberDeclaration[],
+    public location: Location,
+  ) {}
 }
 
 /**
  * ListType
  */
 export class ListType {
+  type = "list-type";
 
-    type = 'list-type';
-
-    constructor(
-        public elementType: Type,
-        public location: Location) { }
-
+  constructor(
+    public elementType: Type,
+    public location: Location,
+  ) {}
 }
 
 /**
  * TupleType
  */
 export class TupleType {
+  type = "tuple-type";
 
-    type = 'tuple-type';
-
-    constructor(
-        public members: Type[],
-        public location: Location) { }
-
+  constructor(
+    public members: Type[],
+    public location: Location,
+  ) {}
 }
-
 
 /**
  * Parameter
  */
-export type Parameter
-    = TypedParameter
-    | UntypedParameter
-    ;
+export type Parameter = TypedParameter | UntypedParameter;
 
 /**
  * TypeParameter
  */
 export class TypedParameter {
+  type = "typed-parameter";
 
-    type = 'typed-parameter';
-
-    constructor(
-        public id: UnqualifiedIdentifier,
-        public hint: Type,
-        public location: Location) { }
-
+  constructor(
+    public id: UnqualifiedIdentifier,
+    public hint: Type,
+    public location: Location,
+  ) {}
 }
 
 export class UntypedParameter {
+  type = "untyped-parameter";
 
-    type = 'untyped-parameter';
-
-    constructor(
-        public id: UnqualifiedIdentifier,
-        public location: Location) { }
-
+  constructor(
+    public id: UnqualifiedIdentifier,
+    public location: Location,
+  ) {}
 }
 
-export type Child
-    = Tag
-    | Interpolation
-    | Control
-    | Characters
-    | Identifier
-    ;
+export type Child = Tag | Interpolation | Control | Characters | Identifier;
 
-export type Tag
-    = Node
-    | Widget
-    ;
+export type Tag = Node | Widget;
 
 export class Node {
+  type = "node";
 
-    type = 'node';
-
-    constructor(
-        public open: Identifier,
-        public attributes: Attribute[],
-        public children: Child[],
-        public close: Identifier) { }
-
+  constructor(
+    public open: Identifier,
+    public attributes: Attribute[],
+    public children: Child[],
+    public close: Identifier,
+  ) {}
 }
 
 export class Widget {
+  type = "widget";
 
-    type = 'widget';
-
-    constructor(
-        public open: Constructor,
-        public typeArgs: Type[],
-        public attributes: Attribute[],
-        public children: Child[],
-        public close: Constructor) { }
-
+  constructor(
+    public open: Constructor,
+    public typeArgs: Type[],
+    public attributes: Attribute[],
+    public children: Child[],
+    public close: Constructor,
+  ) {}
 }
 
 export class Attribute {
+  type = "attribute";
 
-    type = 'attribute';
-
-    constructor(
-        public namespace: UnqualifiedIdentifier,
-        public name: UnqualifiedIdentifier,
-        public value: AttributeValue,
-        public location: Location) { }
-
+  constructor(
+    public namespace: UnqualifiedIdentifier,
+    public name: UnqualifiedIdentifier,
+    public value: AttributeValue,
+    public location: Location,
+  ) {}
 }
 
-export type AttributeValue
-    = Interpolation
-    | Literal
-    ;
+export type AttributeValue = Interpolation | Literal;
 
 export class Interpolation {
+  type = "interpolation";
 
-    type = 'interpolation';
-
-    constructor(
-        public expression: Expression,
-        public filters: Expression[],
-        public location: Location) { }
-
+  constructor(
+    public expression: Expression,
+    public filters: Expression[],
+    public location: Location,
+  ) {}
 }
 
-export type Control
-    = ForStatement
-    | IfStatement
-    ;
+export type Control = ForStatement | IfStatement;
 
-export abstract class ForStatement  {
+export abstract class ForStatement {
+  abstract type: string;
 
-    abstract type: string;
-
-    constructor(
-        public body: Child[],
-        public otherwise: Child[],
-        public location: Location) { }
-
+  constructor(
+    public body: Child[],
+    public otherwise: Child[],
+    public location: Location,
+  ) {}
 }
 
 export class ForInStatement extends ForStatement {
+  type = "for-in-statement";
 
-    type = 'for-in-statement';
-
-    constructor(
-        public variables: Parameter[],
-        public expression: Expression,
-        public body: Child[],
-        public otherwise: Child[],
-        public location: Location) { super(body, otherwise, location)}
-
+  constructor(
+    public variables: Parameter[],
+    public expression: Expression,
+    public body: Child[],
+    public otherwise: Child[],
+    public location: Location,
+  ) {
+    super(body, otherwise, location);
+  }
 }
 
 export class ForOfStatement extends ForStatement {
+  type = "for-of-statement";
 
-    type = 'for-of-statement';
-
-    constructor(
-        public variables: Parameter[],
-        public expression: Expression,
-        public body: Child[],
-        public otherwise: Child[],
-        public location: Location) { super(body, otherwise, location)}
-
+  constructor(
+    public variables: Parameter[],
+    public expression: Expression,
+    public body: Child[],
+    public otherwise: Child[],
+    public location: Location,
+  ) {
+    super(body, otherwise, location);
+  }
 }
 
 export class ForFromStatement extends ForStatement {
+  type = "for-from-statement";
 
-    type = 'for-from-statement';
-
-    constructor(
-        public variable: UntypedParameter,
-        public start: Expression,
-        public end: Expression,
-        public body: Child[],
-        public otherwise: Child[],
-        public location: Location) { super(body, otherwise, location)}
-
+  constructor(
+    public variable: UntypedParameter,
+    public start: Expression,
+    public end: Expression,
+    public body: Child[],
+    public otherwise: Child[],
+    public location: Location,
+  ) {
+    super(body, otherwise, location);
+  }
 }
 
 export class IfStatement {
+  type = "if-statement";
 
-    type = 'if-statement';
-
-    constructor(
-        public condition: Expression,
-        public then: Child[],
-        public elseClause: ElseIfClause | ElseClause | undefined,
-        public location: Location) { }
-
+  constructor(
+    public condition: Expression,
+    public then: Child[],
+    public elseClause: ElseIfClause | ElseClause | undefined,
+    public location: Location,
+  ) {}
 }
 
 export class ElseClause {
+  type = "else-clause";
 
-    type = 'else-clause';
-
-    constructor(
-        public children: Child[],
-        public location: Location) { }
-
+  constructor(
+    public children: Child[],
+    public location: Location,
+  ) {}
 }
 
 export class ElseIfClause {
+  type = "else-if-clause";
 
-    type = 'else-if-clause';
-
-    constructor(
-        public condition: Expression,
-        public then: Child[],
-        public elseClause: ElseClause | ElseIfClause | undefined,
-        public location: Location) { }
-
+  constructor(
+    public condition: Expression,
+    public then: Child[],
+    public elseClause: ElseClause | ElseIfClause | undefined,
+    public location: Location,
+  ) {}
 }
 
 export class Characters {
+  type = "characters";
 
-    type = 'characters';
-
-    constructor(
-        public value: string,
-        public location: Location) { }
-
+  constructor(
+    public value: string,
+    public location: Location,
+  ) {}
 }
 
-export type Expression
-    = IfThenExpression
-    | BinaryExpression
-    | UnaryExpression
-    | ViewConstruction
-    | FunApplication
-    | ConstructExpression
-    | CallExpression
-    | MemberExpression
-    | ReadExpression
-    | FunctionExpression
-    | Literal
-    | ContextProperty
-    | Constructor
-    | Identifier
-    | ContextVariable
-    ;
+export type Expression =
+  | IfThenExpression
+  | BinaryExpression
+  | UnaryExpression
+  | ViewConstruction
+  | FunApplication
+  | ConstructExpression
+  | CallExpression
+  | MemberExpression
+  | ReadExpression
+  | FunctionExpression
+  | Literal
+  | ContextProperty
+  | Constructor
+  | Identifier
+  | ContextVariable;
 
 export class IfThenExpression {
+  type = "if-then-expression";
 
-    type = 'if-then-expression';
-
-    constructor(
-        public condition: Expression,
-        public iftrue: Expression,
-        public iffalse: Expression,
-        public location: Location) { }
-
+  constructor(
+    public condition: Expression,
+    public iftrue: Expression,
+    public iffalse: Expression,
+    public location: Location,
+  ) {}
 }
 
 export class BinaryExpression {
+  type = "binary-expression";
 
-    type = 'binary-expression';
-
-    constructor(
-        public left: Expression,
-        public operator: string,
-        public right: Expression|Type,
-        public location: Location) { }
-
+  constructor(
+    public left: Expression,
+    public operator: string,
+    public right: Expression | Type,
+    public location: Location,
+  ) {}
 }
 
 export class UnaryExpression {
+  type = "unary-expression";
 
-    type = 'unary-expression';
-
-    constructor(
-        public operator: string,
-        public expression: Expression) { }
-
+  constructor(
+    public operator: string,
+    public expression: Expression,
+  ) {}
 }
 
 export class ViewConstruction {
+  type = "view-construction";
 
-    type = 'view-construction';
-
-    constructor(
-        public expression: Expression,
-        public location: Location) { }
-
+  constructor(
+    public expression: Expression,
+    public location: Location,
+  ) {}
 }
 
 export class FunApplication {
+  type = "fun-application";
 
-    type = 'fun-application';
-
-    constructor(
-        public target: Expression,
-        public typeArgs: Type[],
-        public args: Expression[],
-        public location: Location) { }
-
+  constructor(
+    public target: Expression,
+    public typeArgs: Type[],
+    public args: Expression[],
+    public location: Location,
+  ) {}
 }
 
 export class ConstructExpression {
+  type = "construct-expression";
 
-    type = 'construct-expression';
-
-    constructor(
-        public cons: Constructor,
-        public typeArgs: Type[],
-        public args: Expression[],
-        public location: Location) { }
-
+  constructor(
+    public cons: Constructor,
+    public typeArgs: Type[],
+    public args: Expression[],
+    public location: Location,
+  ) {}
 }
 
 export class CallExpression {
+  type = "call-expression";
 
-    type = 'call-expression';
-
-    constructor(
-        public target: Expression,
-        public typeArgs: Type[],
-        public args: Expression[],
-        public location: Location) { }
-
+  constructor(
+    public target: Expression,
+    public typeArgs: Type[],
+    public args: Expression[],
+    public location: Location,
+  ) {}
 }
 
 /**
  * MemberExpression
  */
 export class MemberExpression {
-
-    constructor(
-        public head: Expression,
-        public tail: UnqualifiedIdentifier | UnqualifiedConstructor | StringLiteral,
-        public location: Location) { }
-
+  constructor(
+    public head: Expression,
+    public tail: UnqualifiedIdentifier | UnqualifiedConstructor | StringLiteral,
+    public location: Location,
+  ) {}
 }
 
 export class ReadExpression {
+  type = "read-expression";
 
-    type = 'read-expression';
-
-    constructor(
-        public target: Expression,
-        public path: Expression,
-        public hint: Type,
-        public defaults: Expression,
-        public location: Location) { }
-
+  constructor(
+    public target: Expression,
+    public path: Expression,
+    public hint: Type,
+    public defaults: Expression,
+    public location: Location,
+  ) {}
 }
 
 export class FunctionExpression {
+  type = "function-expression";
 
-    type = 'function-expression';
-
-    constructor(
-        public parameters: Parameter[],
-        public body: Expression,
-        public location: Location) { }
-
+  constructor(
+    public parameters: Parameter[],
+    public body: Expression,
+    public location: Location,
+  ) {}
 }
 
-export type Literal
-    = Record
-    | List
-    | StringLiteral
-    | NumberLiteral
-    | BooleanLiteral
-    ;
+export type Literal =
+  | Record
+  | List
+  | StringLiteral
+  | NumberLiteral
+  | BooleanLiteral;
 
 export class List {
-
-    type = 'list';
-    constructor(
-        public members: Expression[],
-        public location: Location) { }
-
+  type = "list";
+  constructor(
+    public members: Expression[],
+    public location: Location,
+  ) {}
 }
 
 export class Record {
+  type = "record";
 
-    type = 'record';
-
-    constructor(
-        public properties: Property[],
-        public location: Location) { }
-
+  constructor(
+    public properties: Property[],
+    public location: Location,
+  ) {}
 }
 
 export class Property {
+  type = "property";
 
-    type = 'property';
-
-    constructor(
-        public key: UnqualifiedIdentifier | StringLiteral,
-        public value: Expression,
-        public location: Location) { }
-
+  constructor(
+    public key: UnqualifiedIdentifier | StringLiteral,
+    public value: Expression,
+    public location: Location,
+  ) {}
 }
 
 export class StringLiteral {
+  type = "string";
 
-    type = 'string';
-
-    constructor(
-        public value: string,
-        public location: Location) { }
-
+  constructor(
+    public value: string,
+    public location: Location,
+  ) {}
 }
 
 export class NumberLiteral {
-
-    type = 'number-literal';
-    constructor(public value: string, public location: Location) { }
-
+  type = "number-literal";
+  constructor(
+    public value: string,
+    public location: Location,
+  ) {}
 }
 
 export class BooleanLiteral {
+  type = "boolean-literal";
 
-    type = 'boolean-literal';
-
-    constructor(public value: boolean, public location: Location) { }
-
+  constructor(
+    public value: boolean,
+    public location: Location,
+  ) {}
 }
 
 export class ContextProperty {
+  type = "context-property";
 
-    type = 'context-property';
-
-    constructor(
-        public member: UnqualifiedIdentifier | StringLiteral,
-        public location: Location) { }
-
+  constructor(
+    public member: UnqualifiedIdentifier | StringLiteral,
+    public location: Location,
+  ) {}
 }
 
 export class ContextVariable {
+  type = "context-variable";
 
-    type = 'context-variable';
-
-    constructor(public location: Location) { }
-
+  constructor(public location: Location) {}
 }
 
-export type Constructor
-    = UnqualifiedConstructor
-    | QualifiedConstructor
-    ;
+export type Constructor = UnqualifiedConstructor | QualifiedConstructor;
 
 export class UnqualifiedConstructor {
+  type = "unqualified-constructor";
 
-    type = 'unqualified-constructor';
-
-    constructor(
-        public value: string,
-        public location: Location) { }
-
+  constructor(
+    public value: string,
+    public location: Location,
+  ) {}
 }
 
 export class QualifiedConstructor {
+  type = "qualified-constructor";
 
-    type = 'qualified-constructor';
-
-    constructor(
-        public qualifier: string,
-        public member: string,
-        public location: Location) { }
-
+  constructor(
+    public qualifier: string,
+    public member: string,
+    public location: Location,
+  ) {}
 }
 
 /**
  * Identifier
  */
-export type Identifier
-    = UnqualifiedIdentifier
-    | QualifiedIdentifier
-    ;
+export type Identifier = UnqualifiedIdentifier | QualifiedIdentifier;
 
 export class UnqualifiedIdentifier {
+  type = "unqualified-identifier";
 
-    type = 'unqualified-identifier';
-
-    constructor(public value: string, public location: Location) { }
-
+  constructor(
+    public value: string,
+    public location: Location,
+  ) {}
 }
 
 /**
  * QualifiedIdentifier
  */
 export class QualifiedIdentifier {
+  type = "qualified-identifier";
 
-    type = 'qualified-identifier';
-
-    constructor(
-        public qualifier: string,
-        public member: string,
-        public location: Location) { }
-
+  constructor(
+    public qualifier: string,
+    public member: string,
+    public location: Location,
+  ) {}
 }

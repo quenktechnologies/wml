@@ -1,6 +1,6 @@
 import { Maybe } from "@quenk/noni/lib/data/maybe";
 
-import { Content, WMLElement } from "..";
+import { Content, WMLElement, WMLId } from "..";
 import { Entry, ViewFrame } from "./frame";
 
 /**
@@ -19,18 +19,20 @@ export interface View {
    * render the View.
    *
    * If a ViewFrame is provided, it will be used instead of creating a new one
-   * internally. In this case the View itself will not be mutated.
+   * internally. In this case the View itself will not be mutated internally.
    */
-  render(frame?:ViewFrame): Content;
+  render(frame?: ViewFrame): Content;
 
   /**
    * invalidate this View causing the DOM to be re-rendered.
    *
-   * Re-rendering is done by finding the parentNode of the root
-   * of the View's Content and replacing it with a new version.
-   * If the view has not yet been added to the DOM, this will fail.
+   * Re-rendering is done by finding the parentNode of the root of the View's
+   * content and replacing it with a new version. If an id  or a group prefixed
+   * by '$' is passed, then only the corresponding content is invalidated.
+   *
+   * It is an error to invaldiate a View that has not yet been added to the DOM.
    */
-  invalidate(): void;
+  invalidate(target?: WMLId): void;
 
   /**
    * findById retrives a WMLElement that has been assigned a `wml:id`
@@ -55,7 +57,7 @@ export class BaseView implements View {
   constructor(
     public context: object,
     public renderer: Renderer,
-    public frame = new ViewFrame()
+    public frame = new ViewFrame(),
   ) {}
 
   findById<E extends WMLElement>(id: string): Maybe<E> {
@@ -65,11 +67,12 @@ export class BaseView implements View {
   }
 
   findGroupById<E extends WMLElement>(name: string): E[] {
-    return <E[]>this.frame.findGroupBy(name).map(entry => entry.widget ?? entry.node);
+    return <E[]>(
+      this.frame.findGroupBy(name).map((entry) => entry.widget ?? entry.node)
+    );
   }
 
-  invalidate(): void {
-    //TODO: Support optional id/group
+  invalidate(id?: WMLId): void {
     let { frame } = this;
 
     if (frame.tree == null || frame.tree.parentNode == null)
@@ -77,18 +80,17 @@ export class BaseView implements View {
         "invalidate(): cannot invalidate this view, it has no parent node!",
       );
 
-    let parent = frame.tree.parentNode;
-
-    let newTree = this.render();
-
-    this.frame = this.renderer(new ViewFrame());
-
-    parent.replaceChild(newTree, frame.tree);
+    if (id) {
+      if (id[0] === "$") frame.redrawGroup(id.slice(1));
+      else frame.redraw(id);
+    } else {
+      frame.tree.parentNode.replaceChild(this.render(), frame.tree);
+    }
   }
 
   render(frame?: ViewFrame): Content {
     //TODO onDOMConnected/onDOMDisconnected
-    if(frame) return <Content>this.renderer(frame).tree;
+    if (frame) return <Content>this.renderer(frame).tree;
 
     this.frame = this.renderer(new ViewFrame());
     return <Content>this.frame.tree;

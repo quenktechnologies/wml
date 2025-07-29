@@ -36,5 +36,4 @@ export const forOf = <A>(
   return ret.length === 0 ? alt() : ret;
 };
 
-export const isSet = (value:Type) => value != null;
-
+export const isSet = (value: Type) => value != null;
