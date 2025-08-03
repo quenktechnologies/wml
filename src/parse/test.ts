@@ -199,6 +199,10 @@ export const tests: { [key: string]: any } = {
                     {% view YourView (Context from "./") %} <div/>
                     `,
   },
+
+  "[view] should allow without context type": {
+    input: `{% view TestView %}<b>Test</b>`,
+  },
   "should allow construct expression": {
     input: "<TextView android:thing={value=1}>{{Person(@value)}}</TextView>",
   },

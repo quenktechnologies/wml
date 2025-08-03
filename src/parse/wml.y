@@ -371,6 +371,10 @@ view_statement
           | '{%' VIEW unqualified_constructor type_parameters WHERE 
             context_members '%}' view_directives element
              { $$ = new yy.ast.ViewStatement($3, $4, $6, $8, $9, @$);          }
+
+          | '{%' VIEW unqualified_constructor '%}' 
+            view_directives? element
+             { $$ = new yy.ast.ViewStatement($3, [], undefined, $5 || [], $6, @$);   }
           ;
 
 view_statement_context

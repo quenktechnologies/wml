@@ -196,7 +196,7 @@ export class ViewStatement {
   constructor(
     public id: UnqualifiedConstructor,
     public typeParameters: TypeParameter[],
-    public context: ContextTypeIndicator,
+    public context: ContextTypeIndicator | undefined,
     public directives: LetStatement[],
     public root: Tag,
     public location: Location,

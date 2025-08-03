@@ -295,18 +295,22 @@ export const viewStatement2TS = (ctx: CodeGenerator, n: ast.ViewStatement) => {
 
   let typeParams = typeParameters2TS(n.typeParameters);
 
-  let context = type2TS(
-    n.context instanceof ast.ContextFromStatement
-      ? n.context.cons
-      : <ast.ConstructorType>n.context,
-  );
+  let context = n.context
+    ? type2TS(
+        n.context instanceof ast.ContextFromStatement
+          ? n.context.cons
+          : <ast.ConstructorType>n.context,
+      )
+    : "object";
+
+  let defaultContext = n.context ? "" : "={}";
 
   let template = tag2TS(ctx, n.root);
 
   return [
     `export class ${id} ${typeParams} extends ${WML}.${VIEW_CLASS} {`,
     ``,
-    `   constructor(${CONTEXT}: ${context}) {`,
+    `   constructor(${CONTEXT}: ${context} ${defaultContext}) {`,
     ``,
     `       super(${CONTEXT}, (${THIS}:${WML}.${VIEW_FRAME_CLASS}) => {`,
     ``,
@@ -351,7 +355,7 @@ export const type2TS = (n: ast.Type): TypeScript => {
   else if (n instanceof ast.BooleanLiteral) return boolean2TS(n);
   else if (n instanceof ast.FunctionType) return functionType2TS(n);
 
-  return "<error>";
+  return "void";
 };
 
 /**
