@@ -19,6 +19,52 @@
       "attributes": [],
       "children": [
         {
+          "body": [
+            {
+              "open": {
+                "value": "div",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 36,
+                  "last_line": 1,
+                  "last_column": 39,
+                  "range": [
+                    36,
+                    39
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "attributes": [],
+              "children": [],
+              "close": {
+                "value": "div",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 36,
+                  "last_line": 1,
+                  "last_column": 39,
+                  "range": [
+                    36,
+                    39
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "type": "node"
+            }
+          ],
+          "otherwise": [],
+          "location": {
+            "first_line": 1,
+            "first_column": 5,
+            "last_line": 1,
+            "last_column": 53,
+            "range": [
+              5,
+              53
+            ]
+          },
           "variables": [
             {
               "id": {
@@ -77,52 +123,6 @@
                 31
               ]
             }
-          },
-          "body": [
-            {
-              "open": {
-                "value": "div",
-                "location": {
-                  "first_line": 1,
-                  "first_column": 36,
-                  "last_line": 1,
-                  "last_column": 39,
-                  "range": [
-                    36,
-                    39
-                  ]
-                },
-                "type": "unqualified-identifier"
-              },
-              "attributes": [],
-              "children": [],
-              "close": {
-                "value": "div",
-                "location": {
-                  "first_line": 1,
-                  "first_column": 36,
-                  "last_line": 1,
-                  "last_column": 39,
-                  "range": [
-                    36,
-                    39
-                  ]
-                },
-                "type": "unqualified-identifier"
-              },
-              "type": "node"
-            }
-          ],
-          "otherwise": [],
-          "location": {
-            "first_line": 1,
-            "first_column": 5,
-            "last_line": 1,
-            "last_column": 53,
-            "range": [
-              5,
-              53
-            ]
           },
           "type": "for-in-statement"
         }

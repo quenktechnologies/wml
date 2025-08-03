@@ -833,114 +833,6 @@
                     "attributes": [],
                     "children": [
                       {
-                        "variables": [
-                          {
-                            "id": {
-                              "value": "tab",
-                              "location": {
-                                "first_line": 21,
-                                "first_column": 23,
-                                "last_line": 21,
-                                "last_column": 26,
-                                "range": [
-                                  794,
-                                  797
-                                ]
-                              },
-                              "type": "unqualified-identifier"
-                            },
-                            "location": {
-                              "first_line": 21,
-                              "first_column": 23,
-                              "last_line": 21,
-                              "last_column": 26,
-                              "range": [
-                                794,
-                                797
-                              ]
-                            },
-                            "type": "untyped-parameter"
-                          }
-                        ],
-                        "expression": {
-                          "head": {
-                            "head": {
-                              "member": {
-                                "value": "values",
-                                "location": {
-                                  "first_line": 21,
-                                  "first_column": 31,
-                                  "last_line": 21,
-                                  "last_column": 37,
-                                  "range": [
-                                    802,
-                                    808
-                                  ]
-                                },
-                                "type": "unqualified-identifier"
-                              },
-                              "location": {
-                                "first_line": 21,
-                                "first_column": 30,
-                                "last_line": 21,
-                                "last_column": 37,
-                                "range": [
-                                  801,
-                                  808
-                                ]
-                              },
-                              "type": "context-property"
-                            },
-                            "tail": {
-                              "value": "header",
-                              "location": {
-                                "first_line": 21,
-                                "first_column": 38,
-                                "last_line": 21,
-                                "last_column": 44,
-                                "range": [
-                                  809,
-                                  815
-                                ]
-                              },
-                              "type": "unqualified-identifier"
-                            },
-                            "location": {
-                              "first_line": 21,
-                              "first_column": 30,
-                              "last_line": 21,
-                              "last_column": 44,
-                              "range": [
-                                801,
-                                815
-                              ]
-                            }
-                          },
-                          "tail": {
-                            "value": "tabs",
-                            "location": {
-                              "first_line": 21,
-                              "first_column": 45,
-                              "last_line": 21,
-                              "last_column": 49,
-                              "range": [
-                                816,
-                                820
-                              ]
-                            },
-                            "type": "unqualified-identifier"
-                          },
-                          "location": {
-                            "first_line": 21,
-                            "first_column": 30,
-                            "last_line": 21,
-                            "last_column": 49,
-                            "range": [
-                              801,
-                              820
-                            ]
-                          }
-                        },
                         "body": [
                           {
                             "open": {
@@ -1181,6 +1073,114 @@
                             787,
                             966
                           ]
+                        },
+                        "variables": [
+                          {
+                            "id": {
+                              "value": "tab",
+                              "location": {
+                                "first_line": 21,
+                                "first_column": 23,
+                                "last_line": 21,
+                                "last_column": 26,
+                                "range": [
+                                  794,
+                                  797
+                                ]
+                              },
+                              "type": "unqualified-identifier"
+                            },
+                            "location": {
+                              "first_line": 21,
+                              "first_column": 23,
+                              "last_line": 21,
+                              "last_column": 26,
+                              "range": [
+                                794,
+                                797
+                              ]
+                            },
+                            "type": "untyped-parameter"
+                          }
+                        ],
+                        "expression": {
+                          "head": {
+                            "head": {
+                              "member": {
+                                "value": "values",
+                                "location": {
+                                  "first_line": 21,
+                                  "first_column": 31,
+                                  "last_line": 21,
+                                  "last_column": 37,
+                                  "range": [
+                                    802,
+                                    808
+                                  ]
+                                },
+                                "type": "unqualified-identifier"
+                              },
+                              "location": {
+                                "first_line": 21,
+                                "first_column": 30,
+                                "last_line": 21,
+                                "last_column": 37,
+                                "range": [
+                                  801,
+                                  808
+                                ]
+                              },
+                              "type": "context-property"
+                            },
+                            "tail": {
+                              "value": "header",
+                              "location": {
+                                "first_line": 21,
+                                "first_column": 38,
+                                "last_line": 21,
+                                "last_column": 44,
+                                "range": [
+                                  809,
+                                  815
+                                ]
+                              },
+                              "type": "unqualified-identifier"
+                            },
+                            "location": {
+                              "first_line": 21,
+                              "first_column": 30,
+                              "last_line": 21,
+                              "last_column": 44,
+                              "range": [
+                                801,
+                                815
+                              ]
+                            }
+                          },
+                          "tail": {
+                            "value": "tabs",
+                            "location": {
+                              "first_line": 21,
+                              "first_column": 45,
+                              "last_line": 21,
+                              "last_column": 49,
+                              "range": [
+                                816,
+                                820
+                              ]
+                            },
+                            "type": "unqualified-identifier"
+                          },
+                          "location": {
+                            "first_line": 21,
+                            "first_column": 30,
+                            "last_line": 21,
+                            "last_column": 49,
+                            "range": [
+                              801,
+                              820
+                            ]
+                          }
                         },
                         "type": "for-in-statement"
                       },

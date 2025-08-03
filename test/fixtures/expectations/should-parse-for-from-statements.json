@@ -19,61 +19,6 @@
       "attributes": [],
       "children": [
         {
-          "variable": {
-            "id": {
-              "value": "value",
-              "location": {
-                "first_line": 3,
-                "first_column": 23,
-                "last_line": 3,
-                "last_column": 28,
-                "range": [
-                  45,
-                  50
-                ]
-              },
-              "type": "unqualified-identifier"
-            },
-            "location": {
-              "first_line": 3,
-              "first_column": 23,
-              "last_line": 3,
-              "last_column": 28,
-              "range": [
-                45,
-                50
-              ]
-            },
-            "type": "untyped-parameter"
-          },
-          "start": {
-            "value": "1",
-            "location": {
-              "first_line": 3,
-              "first_column": 29,
-              "last_line": 3,
-              "last_column": 30,
-              "range": [
-                51,
-                52
-              ]
-            },
-            "type": "number-literal"
-          },
-          "end": {
-            "value": "30",
-            "location": {
-              "first_line": 3,
-              "first_column": 34,
-              "last_line": 3,
-              "last_column": 36,
-              "range": [
-                56,
-                58
-              ]
-            },
-            "type": "number-literal"
-          },
           "body": [
             {
               "open": {
@@ -148,6 +93,61 @@
               38,
               125
             ]
+          },
+          "variable": {
+            "id": {
+              "value": "value",
+              "location": {
+                "first_line": 3,
+                "first_column": 23,
+                "last_line": 3,
+                "last_column": 28,
+                "range": [
+                  45,
+                  50
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            "location": {
+              "first_line": 3,
+              "first_column": 23,
+              "last_line": 3,
+              "last_column": 28,
+              "range": [
+                45,
+                50
+              ]
+            },
+            "type": "untyped-parameter"
+          },
+          "start": {
+            "value": "1",
+            "location": {
+              "first_line": 3,
+              "first_column": 29,
+              "last_line": 3,
+              "last_column": 30,
+              "range": [
+                51,
+                52
+              ]
+            },
+            "type": "number-literal"
+          },
+          "end": {
+            "value": "30",
+            "location": {
+              "first_line": 3,
+              "first_column": 34,
+              "last_line": 3,
+              "last_column": 36,
+              "range": [
+                56,
+                58
+              ]
+            },
+            "type": "number-literal"
           },
           "type": "for-from-statement"
         }

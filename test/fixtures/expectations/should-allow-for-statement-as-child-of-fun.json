@@ -20,6 +20,47 @@
       "parameters": [],
       "body": [
         {
+          "body": [
+            {
+              "expression": {
+                "value": "b",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 37,
+                  "last_line": 1,
+                  "last_column": 38,
+                  "range": [
+                    37,
+                    38
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "filters": [],
+              "location": {
+                "first_line": 1,
+                "first_column": 35,
+                "last_line": 1,
+                "last_column": 40,
+                "range": [
+                  35,
+                  40
+                ]
+              },
+              "type": "interpolation"
+            }
+          ],
+          "otherwise": [],
+          "location": {
+            "first_line": 1,
+            "first_column": 18,
+            "last_line": 1,
+            "last_column": 53,
+            "range": [
+              18,
+              53
+            ]
+          },
           "variables": [
             {
               "id": {
@@ -62,47 +103,6 @@
               ]
             },
             "type": "unqualified-identifier"
-          },
-          "body": [
-            {
-              "expression": {
-                "value": "b",
-                "location": {
-                  "first_line": 1,
-                  "first_column": 37,
-                  "last_line": 1,
-                  "last_column": 38,
-                  "range": [
-                    37,
-                    38
-                  ]
-                },
-                "type": "unqualified-identifier"
-              },
-              "filters": [],
-              "location": {
-                "first_line": 1,
-                "first_column": 35,
-                "last_line": 1,
-                "last_column": 40,
-                "range": [
-                  35,
-                  40
-                ]
-              },
-              "type": "interpolation"
-            }
-          ],
-          "otherwise": [],
-          "location": {
-            "first_line": 1,
-            "first_column": 18,
-            "last_line": 1,
-            "last_column": 53,
-            "range": [
-              18,
-              53
-            ]
           },
           "type": "for-in-statement"
         }

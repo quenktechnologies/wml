@@ -19,6 +19,62 @@
       "attributes": [],
       "children": [
         {
+          "body": [
+            {
+              "expression": {
+                "value": "kind",
+                "location": {
+                  "first_line": 12,
+                  "first_column": 17,
+                  "last_line": 12,
+                  "last_column": 21,
+                  "range": [
+                    375,
+                    379
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "filters": [
+                {
+                  "value": "text",
+                  "location": {
+                    "first_line": 12,
+                    "first_column": 24,
+                    "last_line": 12,
+                    "last_column": 28,
+                    "range": [
+                      382,
+                      386
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                }
+              ],
+              "location": {
+                "first_line": 12,
+                "first_column": 14,
+                "last_line": 12,
+                "last_column": 31,
+                "range": [
+                  372,
+                  389
+                ]
+              },
+              "type": "interpolation"
+            }
+          ],
+          "otherwise": [],
+          "location": {
+            "first_line": 2,
+            "first_column": 12,
+            "last_line": 13,
+            "last_column": 24,
+            "range": [
+              18,
+              414
+            ]
+          },
           "variables": [
             {
               "id": {
@@ -188,62 +244,6 @@
               ]
             },
             "type": "list"
-          },
-          "body": [
-            {
-              "expression": {
-                "value": "kind",
-                "location": {
-                  "first_line": 12,
-                  "first_column": 17,
-                  "last_line": 12,
-                  "last_column": 21,
-                  "range": [
-                    375,
-                    379
-                  ]
-                },
-                "type": "unqualified-identifier"
-              },
-              "filters": [
-                {
-                  "value": "text",
-                  "location": {
-                    "first_line": 12,
-                    "first_column": 24,
-                    "last_line": 12,
-                    "last_column": 28,
-                    "range": [
-                      382,
-                      386
-                    ]
-                  },
-                  "type": "unqualified-identifier"
-                }
-              ],
-              "location": {
-                "first_line": 12,
-                "first_column": 14,
-                "last_line": 12,
-                "last_column": 31,
-                "range": [
-                  372,
-                  389
-                ]
-              },
-              "type": "interpolation"
-            }
-          ],
-          "otherwise": [],
-          "location": {
-            "first_line": 2,
-            "first_column": 12,
-            "last_line": 13,
-            "last_column": 24,
-            "range": [
-              18,
-              414
-            ]
           },
           "type": "for-in-statement"
         }

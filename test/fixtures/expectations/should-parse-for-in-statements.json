@@ -19,76 +19,6 @@
       "attributes": [],
       "children": [
         {
-          "variables": [
-            {
-              "id": {
-                "value": "value",
-                "location": {
-                  "first_line": 1,
-                  "first_column": 13,
-                  "last_line": 1,
-                  "last_column": 18,
-                  "range": [
-                    13,
-                    18
-                  ]
-                },
-                "type": "unqualified-identifier"
-              },
-              "location": {
-                "first_line": 1,
-                "first_column": 13,
-                "last_line": 1,
-                "last_column": 18,
-                "range": [
-                  13,
-                  18
-                ]
-              },
-              "type": "untyped-parameter"
-            },
-            {
-              "id": {
-                "value": "key",
-                "location": {
-                  "first_line": 1,
-                  "first_column": 19,
-                  "last_line": 1,
-                  "last_column": 22,
-                  "range": [
-                    19,
-                    22
-                  ]
-                },
-                "type": "unqualified-identifier"
-              },
-              "location": {
-                "first_line": 1,
-                "first_column": 19,
-                "last_line": 1,
-                "last_column": 22,
-                "range": [
-                  19,
-                  22
-                ]
-              },
-              "type": "untyped-parameter"
-            }
-          ],
-          "expression": {
-            "members": [],
-            "location": {
-              "first_line": 1,
-              "first_column": 26,
-              "last_line": 1,
-              "last_column": 28,
-              "range": [
-                26,
-                28
-              ]
-            },
-            "type": "list"
-          },
           "body": [
             {
               "open": {
@@ -163,6 +93,76 @@
               6,
               65
             ]
+          },
+          "variables": [
+            {
+              "id": {
+                "value": "value",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 13,
+                  "last_line": 1,
+                  "last_column": 18,
+                  "range": [
+                    13,
+                    18
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "location": {
+                "first_line": 1,
+                "first_column": 13,
+                "last_line": 1,
+                "last_column": 18,
+                "range": [
+                  13,
+                  18
+                ]
+              },
+              "type": "untyped-parameter"
+            },
+            {
+              "id": {
+                "value": "key",
+                "location": {
+                  "first_line": 1,
+                  "first_column": 19,
+                  "last_line": 1,
+                  "last_column": 22,
+                  "range": [
+                    19,
+                    22
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "location": {
+                "first_line": 1,
+                "first_column": 19,
+                "last_line": 1,
+                "last_column": 22,
+                "range": [
+                  19,
+                  22
+                ]
+              },
+              "type": "untyped-parameter"
+            }
+          ],
+          "expression": {
+            "members": [],
+            "location": {
+              "first_line": 1,
+              "first_column": 26,
+              "last_line": 1,
+              "last_column": 28,
+              "range": [
+                26,
+                28
+              ]
+            },
+            "type": "list"
           },
           "type": "for-in-statement"
         }
