@@ -22,18 +22,42 @@ let monitor: DOMMonitor;
  * getInstance() static method.
  */
 export class DOMMonitor {
-  constructor(public callbacks = new WeakMap<Content, DOMEventCallbacks>()) {}
+  constructor(
+    public connectHandlers = new WeakMap<Content, Handler>(),
+    public disconnectHandlers = new WeakMap<Content, Handler>(),
+  ) {}
 
-  observer: MutationObserver = new MutationObserver((list) => {
+  _observer: MutationObserver = new MutationObserver((list) => {
     for (let mutation of list) {
-      for (let added of mutation.addedNodes) {
-        this.callbacks.get(added)?.onDOMConnected?.();
-      }
-      for (let removed of mutation.removedNodes) {
-        this.callbacks.get(removed)?.onDOMDisconnected?.();
-      }
+      (this._checkAndDispatch(this.connectHandlers, mutation.addedNodes),
+        this._checkAndDispatch(this.disconnectHandlers, mutation.removedNodes));
     }
   });
+
+  static getInstance() {
+    if (!monitor) {
+      monitor = new DOMMonitor();
+      monitor.init();
+    }
+    return monitor;
+  }
+
+  _checkAndDispatch(handlers: WeakMap<Content, Handler>, dom: NodeList) {
+    let stack = [...dom];
+    while (stack.length) {
+      let next = <Element>stack.pop();
+      if (!next.children) continue;
+      stack.push(...next.children);
+      handlers.get(next)?.();
+    }
+  }
+
+  init() {
+    this._observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+  }
 
   /**
    * monitor a DOM tree for lifecylce changes.
@@ -42,18 +66,10 @@ export class DOMMonitor {
    * no monitoring will be configured for the DOM node.
    */
   monitor(dom: Content, handler: DOMEventCallbacks) {
-    if (handler.onDOMConnected || handler.onDOMDisconnected)
-      this.callbacks.set(dom, handler);
-  }
+    if (handler.onDOMConnected)
+      this.connectHandlers.set(dom, ()=>handler.onDOMConnected?.());
 
-  static getInstance() {
-    if (!monitor) {
-      monitor = new DOMMonitor();
-      monitor.observer.observe(document.body, {
-        childList: true,
-        subtree: true,
-      });
-    }
-    return monitor;
+    if (handler.onDOMDisconnected)
+      this.disconnectHandlers.set(dom, ()=>handler.onDOMDisconnected?.());
   }
 }
