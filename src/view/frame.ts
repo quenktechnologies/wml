@@ -114,7 +114,7 @@ export class ViewFrame {
 
     entry.node = entry.widget ? entry.widget.render() : currentNode;
 
-    (<Node>entry.node.parentNode).replaceChild(entry.node, currentNode);
+    (<Node>entry.node.parentNode)?.replaceChild(entry.node, currentNode);
   }
 
   /**
@@ -125,7 +125,6 @@ export class ViewFrame {
    */
   redraw(id: WMLId) {
     let entry = this.ids.get(id);
-
     if (entry) this._redraw(entry);
   }
 
@@ -135,7 +134,6 @@ export class ViewFrame {
   redrawGroup(id: WMLId) {
     for (let entry of this.groups.get(id) ?? []) {
       this._redraw(entry);
-      if (!entry.node.parentNode) continue;
     }
   }
 }
