@@ -3,7 +3,7 @@
     "baseUrl": "src",
     "lib": ["es5", "ES2015", "dom", "dom.iterable"],
     "module": "commonjs",
-    "target": "es6",
+    "target": "ES2021",
     "rootDir": ".",
     "moduleResolution": "node",
     "allowUnreachableCode": true,

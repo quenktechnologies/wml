@@ -67,9 +67,9 @@ export class DOMMonitor {
    */
   monitor(dom: Content, handler: DOMEventCallbacks) {
     if (handler.onDOMConnected)
-      this.connectHandlers.set(dom, ()=>handler.onDOMConnected?.());
+      this.connectHandlers.set(dom, () => handler.onDOMConnected?.());
 
     if (handler.onDOMDisconnected)
-      this.disconnectHandlers.set(dom, ()=>handler.onDOMDisconnected?.());
+      this.disconnectHandlers.set(dom, () => handler.onDOMDisconnected?.());
   }
 }

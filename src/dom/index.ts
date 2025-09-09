@@ -78,16 +78,19 @@ export interface WMLDOMAttrs extends Record<string | number | Function> {}
  * @private
  */
 export class WMLNodeList implements NodeListOf<WMLDOMNode> {
-  entries(): IterableIterator<[number, WMLDOMNode]> {
+  entries(): ArrayIterator<[number, WMLDOMNode]> {
     throw new Error("Method not implemented.");
   }
-  keys(): IterableIterator<number> {
+  keys(): ArrayIterator<number> {
     throw new Error("Method not implemented.");
   }
-  values(): IterableIterator<WMLDOMNode> {
+  values(): ArrayIterator<WMLDOMNode> {
     throw new Error("Method not implemented.");
   }
-  [Symbol.iterator](): IterableIterator<WMLDOMNode> {
+  [Symbol.iterator](): ArrayIterator<WMLDOMNode> {
+    throw new Error("Method not implemented.");
+  }
+  [Symbol.dispose]() {
     throw new Error("Method not implemented.");
   }
 
@@ -178,6 +181,8 @@ export class WMLDOMNode implements Node {
   get textContent() {
     return "";
   }
+
+  [Symbol.dispose]() {}
 
   addEventListener() {}
 

@@ -68,7 +68,7 @@ export class BaseView implements View {
 
   findGroupById<E extends WMLElement>(name: string): E[] {
     return <E[]>(
-      this.frame.findGroupBy(name).map((entry) => entry.widget ?? entry.node)
+      this.frame.findByGroup(name).map((entry) => entry.widget ?? entry.node)
     );
   }
 
@@ -81,17 +81,16 @@ export class BaseView implements View {
       );
 
     if (id) {
-      if (id[0] === "$") frame.redrawGroup(id.slice(1));
-      else frame.redraw(id);
+      let next = this.renderer(new ViewFrame());
+      if (id[0] === "$") frame.replaceByGroup(next, id.slice(1));
+      else frame.replaceById(next, id);
     } else {
       frame.tree.parentNode.replaceChild(this.render(), frame.tree);
     }
   }
 
   render(frame?: ViewFrame): Content {
-    //TODO onDOMConnected/onDOMDisconnected
     if (frame) return <Content>this.renderer(frame).tree;
-
     this.frame = this.renderer(new ViewFrame());
     return <Content>this.frame.tree;
   }
