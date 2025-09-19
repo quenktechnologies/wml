@@ -76,7 +76,7 @@ export class BaseView implements View {
     let { frame } = this;
 
     if (frame.tree == null || frame.tree.parentNode == null)
-      throw new Error(
+      return console.warn(
         "invalidate(): cannot invalidate this view, it has no parent node!",
       );
 

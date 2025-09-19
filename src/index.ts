@@ -56,20 +56,7 @@ export interface Renderable {
  *
  * It has two lifecycle methods that are recognized by View.
  */
-export interface Widget extends Renderable, DOMEventCallbacks {
-  /**
-   * rendered is called after the Widget has been added to a DOM tree.
-   */
-  rendered(): void;
-
-  /**
-   * removed is only called after the View has been invalidated.
-   *
-   * That means it is NOT called if the Widget is removed from the DOM
-   * in some other way.
-   */
-  removed(): void;
-}
+export interface Widget extends Renderable, DOMEventCallbacks {}
 
 /**
  * Component is an abstract Widget implementation
