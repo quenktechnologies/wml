@@ -1,12 +1,12 @@
 import { Maybe } from "@quenk/noni/lib/data/maybe";
 
 import { Content, WMLElement, WMLId } from "..";
-import { Entry, ViewFrame } from "./frame";
+import { Entry, Frame, MultiFrame, ViewFrame } from "./frame";
 
 /**
  * Renderer is a function that builds up a ViewFrame on behalf of the view.
  */
-export type Renderer = (frame: ViewFrame) => ViewFrame;
+export type Renderer = (frame: Frame) => void;
 
 /**
  * View instances are compiled from wml template files.
@@ -81,7 +81,8 @@ export class BaseView implements View {
       );
 
     if (id) {
-      let next = this.renderer(new ViewFrame());
+      let next = new ViewFrame();
+      this.renderer(next);
       if (id[0] === "$") frame.replaceByGroup(next, id.slice(1));
       else frame.replaceById(next, id);
     } else {
@@ -89,9 +90,9 @@ export class BaseView implements View {
     }
   }
 
-  render(frame?: ViewFrame): Content {
-    if (frame) return <Content>this.renderer(frame).tree;
-    this.frame = this.renderer(new ViewFrame());
+  render(frame?: Frame): Content {
+    this.frame = new ViewFrame();
+    this.renderer(frame ? new MultiFrame([this.frame, frame]) : this.frame);
     return <Content>this.frame.tree;
   }
 }

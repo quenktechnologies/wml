@@ -27,7 +27,7 @@ export const THIS = "__this";
 export const VIEW_FRAME = "__viewFrame";
 
 const VIEW_CLASS = "BaseView";
-const VIEW_FRAME_CLASS = "ViewFrame";
+const FRAME_TYPE = "Frame";
 
 const FOR_OF = `${UTILS}.forOf`;
 const FOR_IN = `${UTILS}.forIn`;
@@ -312,13 +312,12 @@ export const viewStatement2TS = (ctx: CodeGenerator, n: ast.ViewStatement) => {
     ``,
     `   constructor(${CONTEXT}: ${context} ${defaultContext}) {`,
     ``,
-    `       super(${CONTEXT}, (${THIS}:${WML}.${VIEW_FRAME_CLASS}) => {`,
+    `       super(${CONTEXT}, (${THIS}:${WML}.${FRAME_TYPE}) => {`,
     ``,
     `         ${instances}`,
     ``,
     `         ${THIS}.root(${template});`,
     ``,
-    `         return ${THIS};`,
     ``,
     `       });`,
     ``,

@@ -71,12 +71,74 @@ class SetList {
 }
 
 /**
- * ViewFrame serves as a container for a View's rendered template.
+ * Frame serves as a container for the DOM elements a View's template
+ * renders.
  *
- * This class containers helper methods for retreiving elements by id or
+ * Each time the render() method is called a new Frame is created and passed
+ * to the rendering logic so that a DOM tree is built along with accesible
+ * wml ids and groups.
+ */
+export interface Frame {
+  /**
+   * root sets the root element of a View's tree.
+   */
+  root(el: Content): void;
+
+  /**
+   * node constructs a DOM node to be used in the View's tree.
+   *
+   * Any id or group assignment will be honored.
+   */
+  node(tag: string, attrs: Attrs, children: Content[]): Content;
+
+  /**
+   * widget constructs a DOM sub-tree for a Widget in the View's tree.
+   *
+   * Any id or group assignment will be honored.
+   */
+  widget(w: Widget, attrs: Attrs): Content;
+
+  /**
+   * view renders the content of another view, saving its ids and groups to
+   * this one.
+   */
+  view(view: View): Content;
+}
+
+/**
+ * MultiFrame is a composite that allows more than one Frame to be rendered
+ * at the same time.
+ */
+export class MultiFrame implements Frame {
+  constructor(public frames: Frame[] = []) {}
+
+  root(el: Content) {
+    for (let f of this.frames) {
+      f.root(el);
+    }
+  }
+
+  node(tag: string, attrs: Attrs, children: Content[]): Content {
+    let results = this.frames.map((f) => f.node(tag, attrs, children));
+    return results[0] ?? dom.createElement("div", {}, []);
+  }
+
+  widget(w: Widget, attrs: Attrs): Content {
+    let results = this.frames.map((f) => f.widget(w, attrs));
+    return results[0] ?? dom.createElement("div", {}, []);
+  }
+
+  view(view: View): Content {
+    let results = this.frames.map((f) => f.view(view));
+    return results[0] ?? dom.createElement("div", {}, []);
+  }
+}
+
+/**
+ * ViewFrame contains helper methods for retreiving elements by id or
  * group freeing the View class of such logic.
  */
-export class ViewFrame {
+export class ViewFrame implements Frame {
   constructor(
     public nodes = new SetList(),
     public widgets = new Map<Index, Widget>(),
@@ -105,18 +167,10 @@ export class ViewFrame {
     this.groups.set(id, group);
   }
 
-  /**
-   * root sets the root element of a View's tree.
-   */
   root(el: Content) {
     this.tree = el;
   }
 
-  /**
-   * node constructs a DOM node to be used in the View's tree.
-   *
-   * Any id or group assignment will be honored.
-   */
   node(tag: string, attrs: Attrs, children: Content[]): Content {
     let elm = dom.createElement(
       tag,
@@ -132,11 +186,6 @@ export class ViewFrame {
     return elm;
   }
 
-  /**
-   * widget constructs a DOM sub-tree for a Widget in the View's tree.
-   *
-   * Any id or group assignment will be honored.
-   */
   widget(w: Widget, attrs: Attrs): Content {
     let tree = w.render();
 
@@ -149,10 +198,6 @@ export class ViewFrame {
     return tree;
   }
 
-  /**
-   * view renders the content of another view, saving its ids and groups to
-   * this one.
-   */
   view(view: View): Content {
     let { root } = this;
     let tree = view.render(this);

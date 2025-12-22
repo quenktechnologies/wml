@@ -2,7 +2,7 @@ import { DOMEventCallbacks } from "./dom/monitor";
 import { View, BaseView } from "./view";
 
 export { Maybe } from "@quenk/noni/lib/data/maybe";
-export { ViewFrame } from "./view/frame";
+export { Frame, ViewFrame } from "./view/frame";
 export { View, BaseView };
 
 /**
