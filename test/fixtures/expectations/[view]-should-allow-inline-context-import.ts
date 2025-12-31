@@ -17,7 +17,7 @@ export class MyView  extends __wml.BaseView {
 
    constructor(__context: Context ) {
 
-       super(__context, (__this:__wml.ViewFrame) => {
+       super(__context, (__this:__wml.Frame) => {
 
          
 
@@ -26,7 +26,6 @@ export class MyView  extends __wml.BaseView {
         __context.text
      ]));
 
-         return __this;
 
        });
 

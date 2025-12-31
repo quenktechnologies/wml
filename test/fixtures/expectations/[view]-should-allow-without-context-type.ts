@@ -17,7 +17,7 @@ export class TestView  extends __wml.BaseView {
 
    constructor(__context: object ={}) {
 
-       super(__context, (__this:__wml.ViewFrame) => {
+       super(__context, (__this:__wml.Frame) => {
 
          
 
@@ -26,7 +26,6 @@ export class TestView  extends __wml.BaseView {
         __document.createTextNode('Test')
      ]));
 
-         return __this;
 
        });
 

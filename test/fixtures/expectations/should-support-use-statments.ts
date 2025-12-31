@@ -13,25 +13,17 @@ const text = __document.text;
 const unsafe = __document.unsafe
 // @ts-ignore 6192
 const isSet = __utils.isSet
-export class MyView  extends __wml.BaseView {
+__this.node('div', <__wml.Attrs>{}, [
 
-   constructor(__context: object ) {
-
-       super(__context, (__this:__wml.Frame) => {
-
-         let head:HeadViewContext = {
+        ...(myPart(__this, __context)),
+__this.view(MyView),
+...(path.to.part(__this, __context)),
+__this.view(path.to.View),
+...(__context.path.to.part(__this, __context)),
+__this.view(__context.path.to.View),
+__this.view(new SomeView(__context)),
+...(path.to.part({
  
-      'title' : "My Title"
-     }
-
-         __this.root(__this.node('h1', <__wml.Attrs>{}, [
-
-        __this.view(new HeadView(head))
-     ]));
-
-
-       });
-
- }
-
-}
+      
+     })(__this, __context))
+     ])

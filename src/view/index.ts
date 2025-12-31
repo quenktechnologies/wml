@@ -1,7 +1,7 @@
 import { Maybe } from "@quenk/noni/lib/data/maybe";
 
 import { Content, WMLElement, WMLId } from "..";
-import { Entry, Frame, MultiFrame, ViewFrame } from "./frame";
+import { Entry, Frame, ViewFrame } from "./frame";
 
 /**
  * Renderer is a function that builds up a ViewFrame on behalf of the view.
@@ -18,10 +18,11 @@ export interface View {
   /**
    * render the View.
    *
-   * If a ViewFrame is provided, it will be used instead of creating a new one
-   * internally. In this case the View itself will not be mutated internally.
+   * If parent is provided, it is treated as the parent Frame to the internal
+   * frame the view will be created. This allows ids from this frame to be
+   * accessed in the parent scope.
    */
-  render(frame?: ViewFrame): Content;
+  render(parent?: ViewFrame): Content;
 
   /**
    * invalidate this View causing the DOM to be re-rendered.
@@ -57,7 +58,7 @@ export class BaseView implements View {
   constructor(
     public context: object,
     public renderer: Renderer,
-    public frame = new ViewFrame(),
+    public frame: Frame = new ViewFrame(),
   ) {}
 
   findById<E extends WMLElement>(id: string): Maybe<E> {
@@ -90,9 +91,10 @@ export class BaseView implements View {
     }
   }
 
-  render(frame?: Frame): Content {
+  render(): Content {
+    this.frame?.destroy();
     this.frame = new ViewFrame();
-    this.renderer(frame ? new MultiFrame([this.frame, frame]) : this.frame);
+    this.renderer(this.frame);
     return <Content>this.frame.tree;
   }
 }

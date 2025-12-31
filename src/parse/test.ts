@@ -121,35 +121,6 @@ export const tests: { [key: string]: any } = {
         </Tag>`,
   },
 
-  "should parse short fun statements": {
-    input: "{% fun vue () = <View/> %}",
-  },
-
-  "should parse short fun statements with arguments": {
-    input:
-      "{% fun vue (a:String, b:String, c:String) = " +
-      "<View a={{a}} b={{b}} c={{c}}/> %}",
-  },
-
-  "should parse short fun statements with type parameters": {
-    input: "{% fun vue [A,B:C,C] (a:A, b:B) = " + "{{ (a + b) + c }} %}",
-  },
-
-  "should parse extended fun statements": {
-    input: "{% fun vue () %} <View/> {% endfun %}",
-  },
-
-  "should parse extended fun statements with arguments": {
-    input:
-      "{% fun vue (a:String, b:String, c:String) %}" +
-      "<View a={{a}} b={{b}} c={{c}}/> {% endfun %}",
-  },
-
-  "should parse extended fun statements with type parameters": {
-    input:
-      "{% fun vue [A,B:C,C] (a:A, b:B) %} {{ ((a + b) + c) }} {% endfun %}",
-  },
-
   "should parse binary expressions": {
     input: "<p>{{(Styles.A  + Styles.B)}}</p>",
   },
@@ -158,14 +129,6 @@ export const tests: { [key: string]: any } = {
     input: '<div class={{((Styles.A + " ") + Style.B)}}/>',
   },
 
-  "should allow for statement as child of fun": {
-    input: "{% fun sven () %} {% for a in b %} {{b}} {% endfor %} {% endfun %}",
-  },
-  "should allow if statement as child of  fun": {
-    input:
-      "{% fun ate (o:Object) %} {% if a %} {{a}} {% else %} {{a}} " +
-      "{% endif %} {% endfun %}",
-  },
   "should allow for booleans in interpolations": {
     input: "<bool active={{true}}>{{if fun() then false else true}}</bool>",
   },
@@ -215,32 +178,8 @@ export const tests: { [key: string]: any } = {
   "should allow fun application with context": {
     input: "<div>{{ <panel(@,12)> }}</div>",
   },
-  "should parse list types": {
-    input: "{% fun action [A] (s: String[], a:A[]) = {{  '${s}${a}' }} %}",
-  },
   "should allow context properties as fun application": {
     input: "<div>{{ <@action()> }}</div>",
-  },
-  "should allow view statements after short fun": {
-    input: `
-
-{% fun template [A] (d: Date[A], o:A, _:String, __:A[]) = {{String(o)}}  %}
-
-{% view Results [A](Date[A]) %}
-
-  <ul>
-
-    {% for option,index in [1,3,4] %}
-
-      <li>{{option}}and{{index}}</li>
-
-    {% else %}
-
-      <p>De nada!</p>
-
-    {% endfor %}
-
-  </ul>`,
   },
   "should allow actual code": {
     input: `
@@ -294,10 +233,6 @@ export const tests: { [key: string]: any } = {
         {{@children}}
 
 </Panel>`,
-  },
-
-  "should recognize type parameters": {
-    input: "{% fun test[A:String] (a:A) %} {{a}} {% endfun %}",
   },
 
   "should allow ifs without elses": {
@@ -533,9 +468,6 @@ export const tests: { [key: string]: any } = {
 
   "[comment] should parse wml comments in statements": `{% view Name {# This is a comment! #} (Object) %} <div/> %}`,
 
-  "[fun] should parse multi dimensional array parameters": `
-    {% fun test (value:List[][]) %}<p/>{% endfun %}`,
-
   "should allow index access on context properties": `{% view Test (Object) %}
        <div>
         {% if @["type"] == 1 %}
@@ -582,4 +514,33 @@ export const tests: { [key: string]: any } = {
        m-20,10 h 10
        m-20,10 h 10" />
     </svg>`,
+  "should support part statements": `
+      {% part myPart0 (Ctx) %} 
+        {% let name:String = "Me" %}
+        <h1>{{@name}}</h1>
+      {% endpart %}
+
+      {% part myPart1 (Ctx) %}<h1>{{@name}}</h1>{% endpart %}
+
+      {% part myPart2 (Ctx from "..") %}<h1>{{@name}}</h1>{% endpart %}
+
+      {% part myPart3 where name: String %}<h1>{{@name}}</h1>{% endpart %}
+
+      {% part myPart4 where name: String %}
+        {% let name:String = "Me" %}
+        <h1>{{@name}}</h1>
+      {% endpart %}
+    `,
+  "should support use statments": `
+    <div>
+      {% use part myPart %} 
+      {% use view MyView %}
+      {% use part path.to.part %}
+      {% use view path.to.View %}
+      {% use part @path.to.part %}
+      {% use view @path.to.View %}
+      {% use view SomeView(@) %}
+      {% use part path.to.part({}) %}
+    </div>
+  `,
 };

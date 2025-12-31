@@ -7,14 +7,14 @@ describe('dom', () => {
     it('should render child text in html elements', () => {
 
         let view = new ChildText({});
-        let element = <HTMLElement>view.render();
+        let element = view.render() as HTMLElement
         assert(element.outerHTML).equal('<h4>Test Text</h4>');
 
     });
 
     it('should not escape commas', () => {
         let view = new CommaText({});
-        let element = <HTMLElement>view.render();
+        let element = view.render() as HTMLElement
         assert(element.outerHTML).equal('<p>We, have a comma!</p>');
     });
 

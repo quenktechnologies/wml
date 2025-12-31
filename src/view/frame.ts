@@ -80,6 +80,11 @@ class SetList {
  */
 export interface Frame {
   /**
+   * tree when sets is the rendered DOM content of the view
+   */
+  tree?: Content;
+
+  /**
    * root sets the root element of a View's tree.
    */
   root(el: Content): void;
@@ -103,35 +108,52 @@ export interface Frame {
    * this one.
    */
   view(view: View): Content;
-}
 
-/**
- * MultiFrame is a composite that allows more than one Frame to be rendered
- * at the same time.
- */
-export class MultiFrame implements Frame {
-  constructor(public frames: Frame[] = []) {}
+  /**
+   * register content and widget under the specified id.
+   */
+  register(id: WMLId, node: Content, widget?: Widget): void;
 
-  root(el: Content) {
-    for (let f of this.frames) {
-      f.root(el);
-    }
-  }
+  /**
+   * registerGroupMember registers a content and widget as a member of a group.
+   */
+  registerGroupMember(id: WMLId, node: Content, widget?: Widget): void;
 
-  node(tag: string, attrs: Attrs, children: Content[]): Content {
-    let results = this.frames.map((f) => f.node(tag, attrs, children));
-    return results[0] ?? dom.createElement("div", {}, []);
-  }
+  /**
+   * findById returns the entry stored for the specified wml element.
+   */
+  findById(id: WMLId): Maybe<Entry>;
 
-  widget(w: Widget, attrs: Attrs): Content {
-    let results = this.frames.map((f) => f.widget(w, attrs));
-    return results[0] ?? dom.createElement("div", {}, []);
-  }
+  /**
+   * findByGroup returns all the entries stored fro a group.
+   */
+  findByGroup(id: WMLId): Entry[];
 
-  view(view: View): Content {
-    let results = this.frames.map((f) => f.view(view));
-    return results[0] ?? dom.createElement("div", {}, []);
-  }
+  /**
+   * replaceByIndex performs the heavy work of replacing a WMLElement
+   * with the corresponding index from another ViewFrame.
+   *
+   * The replaced element will have its DOM content redrawn if a parentNode
+   * is detected.
+   */
+  replaceByIndex(next: ViewFrame, idx: Index): void;
+
+  /**
+   * replaceById allows WMLElement replacement by using an id.
+   */
+  replaceById(next: ViewFrame, id: WMLId): void;
+
+  /**
+   * replaceByGroup allows WMLElement replaced by using a group identifier.
+   */
+  replaceByGroup(next: ViewFrame, id: WMLId): void;
+
+  /**
+   * destroy the frame.
+   *
+   * Currently a no-op but may be used in the future.
+   */
+  destroy(): void;
 }
 
 /**
@@ -148,7 +170,7 @@ export class ViewFrame implements Frame {
     public tree?: Content,
   ) {}
 
-  _register(id: WMLId, node: Content, widget?: Widget) {
+  register(id: WMLId, node: Content, widget?: Widget) {
     let idx = this.nodes.add(node);
     this.ids.set(id, idx);
     this.indexes.set(idx, id);
@@ -157,7 +179,7 @@ export class ViewFrame implements Frame {
     }
   }
 
-  _registerGroupMember(id: WMLId, node: Content, widget?: Widget) {
+  registerGroupMember(id: WMLId, node: Content, widget?: Widget) {
     let group = this.groups.get(id) ?? [];
     let idx = this.nodes.add(node);
     group.push(idx);
@@ -179,9 +201,9 @@ export class ViewFrame implements Frame {
       (attrs.wml && attrs.wml.ns) || "",
     );
 
-    if (attrs?.wml?.id) this._register(attrs.wml.id, elm);
+    if (attrs?.wml?.id) this.register(attrs.wml.id, elm);
 
-    if (attrs?.wml?.group) this._registerGroupMember(attrs.wml.group, elm);
+    if (attrs?.wml?.group) this.registerGroupMember(attrs.wml.group, elm);
 
     return elm;
   }
@@ -191,9 +213,9 @@ export class ViewFrame implements Frame {
 
     DOMMonitor.getInstance().monitor(tree, w);
 
-    if (attrs?.wml?.id) this._register(attrs.wml.id, tree, w);
+    if (attrs?.wml?.id) this.register(attrs.wml.id, tree, w);
 
-    if (attrs?.wml?.group) this._registerGroupMember(attrs.wml.group, tree, w);
+    if (attrs?.wml?.group) this.registerGroupMember(attrs.wml.group, tree, w);
 
     return tree;
   }
@@ -205,9 +227,6 @@ export class ViewFrame implements Frame {
     return tree;
   }
 
-  /**
-   * findById returns the entry stored for the specified wml element.
-   */
   findById(id: WMLId): Maybe<Entry> {
     let idx = this.ids.get(id) ?? -1;
     let node = this.nodes.get(idx);
@@ -218,9 +237,6 @@ export class ViewFrame implements Frame {
     });
   }
 
-  /**
-   * findByGroup returns all the entries stored fro a group.
-   */
   findByGroup(id: WMLId): Entry[] {
     let result = [];
     for (let idx of this.groups.get(id) ?? []) {
@@ -232,19 +248,11 @@ export class ViewFrame implements Frame {
     return result;
   }
 
-  /**
-   * replaceByIndex performs the heavy work of replacing a WMLElement
-   * with the corresponding index from another ViewFrame.
-   *
-   * The replaced element will have its DOM content redrawn if a parentNode
-   * is detected.
-   */
   replaceByIndex(next: ViewFrame, idx: Index) {
     let originalNode = this.nodes.get(idx);
-    let id = this.indexes.get(idx) ?? "";
 
     if (idx == null || originalNode == null) {
-      console.warn(`Not replacing missing WMLElement for id "${id}"!`);
+      console.warn(`Not replacing missing element by index ${idx}!`);
       return;
     }
 
@@ -252,12 +260,16 @@ export class ViewFrame implements Frame {
 
     let node = next.nodes.get(idx);
     let widget = next.widgets.get(idx);
+
     if (node == null) {
       // Remove references since the node no longer exists.
       this.nodes.delete(idx);
       this.widgets.delete(idx);
+
+      let id = this.indexes.get(idx) ?? "";
       this.ids.delete(id);
       this.indexes.delete(idx);
+
       if (parentNode) parentNode.removeChild(originalNode);
       return;
     }
@@ -270,16 +282,10 @@ export class ViewFrame implements Frame {
     if (parentNode) parentNode.replaceChild(node, originalNode);
   }
 
-  /**
-   * replaceById allows WMLElement replacement by using an id.
-   */
   replaceById(next: ViewFrame, id: WMLId) {
     this.replaceByIndex(next, this.ids.get(id) ?? -1);
   }
 
-  /**
-   * replaceByGroup allows WMLElement replaced by using a group identifier.
-   */
   replaceByGroup(next: ViewFrame, id: WMLId) {
     let group = this.groups.get(id) ?? [];
 
@@ -291,4 +297,6 @@ export class ViewFrame implements Frame {
 
     this.groups.set(id, newGroup);
   }
+
+  destroy() {}
 }

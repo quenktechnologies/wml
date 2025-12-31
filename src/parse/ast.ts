@@ -110,7 +110,7 @@ export type Export =
   | AliasStatement
   | ContextStatement
   | LetStatement
-  | FunStatement
+  | PartStatement
   | ViewStatement
   | Tag;
 
@@ -203,13 +203,13 @@ export class ViewStatement {
   ) {}
 }
 
-export class FunStatement {
-  type = "fun-statement";
+export class PartStatement {
+  type = "part-statement";
 
   constructor(
     public id: UnqualifiedIdentifier,
-    public typeParameters: TypeParameter[],
-    public parameters: Parameter[],
+    public context: ContextTypeIndicator | undefined,
+    public directives: LetStatement[],
     public body: Child[],
     public location: Location,
   ) {}
@@ -372,7 +372,7 @@ export class Interpolation {
   ) {}
 }
 
-export type Control = ForStatement | IfStatement;
+export type Control = ForStatement | IfStatement | UseStatement;
 
 export abstract class ForStatement {
   abstract type: string;
@@ -454,6 +454,27 @@ export class ElseIfClause {
     public condition: Expression,
     public then: Child[],
     public elseClause: ElseClause | ElseIfClause | undefined,
+    public location: Location,
+  ) {}
+}
+
+export type UseStatement = UsePartStatement | UseViewStatement;
+
+export class UsePartStatement {
+  type = "use-part-statement";
+
+  constructor(
+    public target: Expression,
+    public context: Expression | undefined,
+    public location: Location,
+  ) {}
+}
+
+export class UseViewStatement {
+  type = "use-view-statement";
+
+  constructor(
+    public target: Expression,
     public location: Location,
   ) {}
 }

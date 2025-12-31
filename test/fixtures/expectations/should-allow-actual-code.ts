@@ -24,7 +24,7 @@ export class Main  extends __wml.BaseView {
 
    constructor(__context: TabbedPanel ) {
 
-       super(__context, (__this:__wml.ViewFrame) => {
+       super(__context, (__this:__wml.Frame) => {
 
          
 
@@ -65,7 +65,6 @@ export class Main  extends __wml.BaseView {
 __context.children
      ]),<__wml.Attrs>{ww : { 'class' : __context.values.root.class  }}));
 
-         return __this;
 
        });
 

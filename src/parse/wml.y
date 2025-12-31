@@ -77,8 +77,9 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <CONTROL>'import'                                        return 'IMPORT';
 <CONTROL>'from'                                          return 'FROM';
 <CONTROL>'as'                                            return 'AS';
-<CONTROL>'macro'                                         return 'MACRO';
-<CONTROL>'endmacro'                                      return 'ENDMACRO';
+<CONTROL>'part'                                          return 'PART';
+<CONTROL>'endpart'                                       return 'ENDPART';
+<CONTROL>'use'                                           return 'USE';
 <CONTROL>'for'                                           return 'FOR';
 <CONTROL>'endfor'                                        return 'ENDFOR';
 <CONTROL>'if'                                            return 'IF';
@@ -101,6 +102,7 @@ Text ({DoubleStringCharacter}*)|({SingleStringCharacter}*)
 <CONTROL>'where'                                         return 'WHERE';
 <CONTROL>'let'                                           return 'LET';
 <CONTROL>'to'                                            return 'TO';
+<CONTROL>'with'                                          return 'WITH';
 <CONTROL>{Constructor}                             return 'CONSTRUCTOR';
 <CONTROL>{Identifier}                              return 'IDENTIFIER';
 <CONTROL>'@'                                             return '@';
@@ -249,7 +251,7 @@ export
 
           | view_statement           
 
-          | fun_statement 
+          | part_statment 
 
           | element
             {$$ = $1; }
@@ -398,24 +400,53 @@ view_directives
             { $$ = $1.concat($2); }
           ;
 
-fun_statement
+part_statment 
+          : '{%' PART unqualified_identifier '(' view_statement_context ')' '%}' 
+             view_directives children
+            '{%' ENDPART '%}'
+            {$$ = new yy.ast.PartStatement($3, $5, $8, $9, @$); }
 
-          : '{%' FUN unqualified_identifier type_parameters parameters '%}' 
-              children 
-            '{%' ENDFUN '%}'
-            {$$ = new yy.ast.FunStatement($3, $4, $5, $7, @$); }
+          | '{%' PART unqualified_identifier '(' view_statement_context ')' '%}' 
+             children
+            '{%' ENDPART '%}'
+            {$$ = new yy.ast.PartStatement($3, $5, [], $8, @$); }
 
-          | '{%' FUN unqualified_identifier parameters '%}' 
-              children 
-            '{%' ENDFUN '%}'
-            {$$ = new yy.ast.FunStatement($3, [], $4, $6, @$); }
+          | '{%' PART unqualified_identifier '%}' 
+             view_directives children
+            '{%' ENDPART '%}'
+            {$$ = new yy.ast.PartStatement($3, undefined, $5, $6, @$); }
 
-          | '{%' FUN unqualified_identifier type_parameters parameters '='
-              child '%}' 
-            {$$ = new yy.ast.FunStatement($3, $4, $5, [$7], @$); }
+          | '{%' PART unqualified_identifier '%}' 
+             children
+            '{%' ENDPART '%}'
+            {$$ = new yy.ast.PartStatement($3, undefined, [], $5, @$); }
 
-          | '{%' FUN unqualified_identifier parameters '=' child '%}' 
-            {$$ = new yy.ast.FunStatement($3, [], $4, [$6], @$); }
+          | '{%' PART unqualified_identifier WHERE context_members '%}' 
+              view_directives children
+            '{%' ENDPART '%}'
+            {$$ = new yy.ast.PartStatement($3, $5, $7, $8, @$); }
+
+          | '{%' PART unqualified_identifier WHERE context_members '%}' 
+              children
+            '{%' ENDPART '%}'
+            {$$ = new yy.ast.PartStatement($3, $5, [], $7, @$); }
+          ;
+
+use_statement
+          : '{%' USE PART use_target WITH expression '%}'
+            {$$ = new yy.ast.UsePartStatement($4, $7,  @$); }
+
+          | '{%' USE PART use_target '%}'
+            {$$ = new yy.ast.UsePartStatement($4, undefined, @$); }
+
+          | '{%' USE VIEW use_target '%}'
+            {$$ = new yy.ast.UseViewStatement($4, @$); }
+          ;
+
+use_target
+          : (construct_expression | call_expression | member_expression 
+           | context_property | unqualified_constructor | unqualified_identifier 
+           | context_variable)
           ;
 
 type_parameters
@@ -689,7 +720,7 @@ filter
           ;
 
 control
-          : (for_statement|if_statement) 
+          : (for_statement|if_statement|use_statement) 
             {$$ = $1;}
           ;
 
@@ -966,7 +997,10 @@ member_expression_head:
            ;
 
 member_expression_tail
-          : (unqualified_identifier| unqualified_constructor|string_literal)
+          : unqualified_identifier
+          | unqualified_constructor
+          | string_literal
+          | keyword
           ;
 
 function_expression
@@ -1088,3 +1122,9 @@ binary_operator
             { $$ = $1; }
           ;
 
+keyword
+      : (IMPORT | FROM | AS | TYPE | CONTEXT | WHERE | LET | VIEW | PART |
+        ENDPART | FOR | IN | OF | TO | ENDFOR | IF | ELSE | ENDIF | USE |
+        TRUE | FALSE | INSTANCEOF | WITH)
+        {$$ = new yy.ast.UnqualifiedIdentifier($1, @$)}
+      ;

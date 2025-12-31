@@ -17,7 +17,7 @@ export class Test  extends __wml.BaseView {
 
    constructor(__context: object ) {
 
-       super(__context, (__this:__wml.ViewFrame) => {
+       super(__context, (__this:__wml.Frame) => {
 
          
 
@@ -37,7 +37,6 @@ export class Test  extends __wml.BaseView {
 (()=>([]))())
      ]));
 
-         return __this;
 
        });
 

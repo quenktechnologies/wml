@@ -1,0 +1,882 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "myPart0",
+        "location": {
+          "first_line": 2,
+          "first_column": 14,
+          "last_line": 2,
+          "last_column": 21,
+          "range": [
+            15,
+            22
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "context": {
+        "id": {
+          "value": "Ctx",
+          "location": {
+            "first_line": 2,
+            "first_column": 23,
+            "last_line": 2,
+            "last_column": 26,
+            "range": [
+              24,
+              27
+            ]
+          },
+          "type": "unqualified-constructor"
+        },
+        "typeParameters": [],
+        "location": {
+          "first_line": 2,
+          "first_column": 23,
+          "last_line": 2,
+          "last_column": 26,
+          "range": [
+            24,
+            27
+          ]
+        },
+        "type": "constructor-type"
+      },
+      "directives": [
+        {
+          "id": {
+            "value": "name",
+            "location": {
+              "first_line": 3,
+              "first_column": 15,
+              "last_line": 3,
+              "last_column": 19,
+              "range": [
+                48,
+                52
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "cons": {
+            "id": {
+              "value": "String",
+              "location": {
+                "first_line": 3,
+                "first_column": 20,
+                "last_line": 3,
+                "last_column": 26,
+                "range": [
+                  53,
+                  59
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "typeParameters": [],
+            "location": {
+              "first_line": 3,
+              "first_column": 20,
+              "last_line": 3,
+              "last_column": 26,
+              "range": [
+                53,
+                59
+              ]
+            },
+            "type": "constructor-type"
+          },
+          "expression": {
+            "value": "Me",
+            "type": "string"
+          },
+          "location": {
+            "first_line": 3,
+            "first_column": 8,
+            "last_line": 3,
+            "last_column": 36,
+            "range": [
+              41,
+              69
+            ]
+          },
+          "type": "let-statement"
+        }
+      ],
+      "body": [
+        {
+          "open": {
+            "value": "h1",
+            "location": {
+              "first_line": 4,
+              "first_column": 9,
+              "last_line": 4,
+              "last_column": 11,
+              "range": [
+                79,
+                81
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "attributes": [],
+          "children": [
+            {
+              "expression": {
+                "member": {
+                  "value": "name",
+                  "location": {
+                    "first_line": 4,
+                    "first_column": 15,
+                    "last_line": 4,
+                    "last_column": 19,
+                    "range": [
+                      85,
+                      89
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "location": {
+                  "first_line": 4,
+                  "first_column": 14,
+                  "last_line": 4,
+                  "last_column": 19,
+                  "range": [
+                    84,
+                    89
+                  ]
+                },
+                "type": "context-property"
+              },
+              "filters": [],
+              "location": {
+                "first_line": 4,
+                "first_column": 12,
+                "last_line": 4,
+                "last_column": 21,
+                "range": [
+                  82,
+                  91
+                ]
+              },
+              "type": "interpolation"
+            }
+          ],
+          "close": {
+            "value": "h1",
+            "location": {
+              "first_line": 4,
+              "first_column": 23,
+              "last_line": 4,
+              "last_column": 25,
+              "range": [
+                93,
+                95
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "type": "node"
+        }
+      ],
+      "location": {
+        "first_line": 2,
+        "first_column": 6,
+        "last_line": 5,
+        "last_column": 19,
+        "range": [
+          7,
+          116
+        ]
+      },
+      "type": "part-statement"
+    },
+    {
+      "id": {
+        "value": "myPart1",
+        "location": {
+          "first_line": 7,
+          "first_column": 14,
+          "last_line": 7,
+          "last_column": 21,
+          "range": [
+            132,
+            139
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "context": {
+        "id": {
+          "value": "Ctx",
+          "location": {
+            "first_line": 7,
+            "first_column": 23,
+            "last_line": 7,
+            "last_column": 26,
+            "range": [
+              141,
+              144
+            ]
+          },
+          "type": "unqualified-constructor"
+        },
+        "typeParameters": [],
+        "location": {
+          "first_line": 7,
+          "first_column": 23,
+          "last_line": 7,
+          "last_column": 26,
+          "range": [
+            141,
+            144
+          ]
+        },
+        "type": "constructor-type"
+      },
+      "directives": [],
+      "body": [
+        {
+          "open": {
+            "value": "h1",
+            "location": {
+              "first_line": 7,
+              "first_column": 31,
+              "last_line": 7,
+              "last_column": 33,
+              "range": [
+                149,
+                151
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "attributes": [],
+          "children": [
+            {
+              "expression": {
+                "member": {
+                  "value": "name",
+                  "location": {
+                    "first_line": 7,
+                    "first_column": 37,
+                    "last_line": 7,
+                    "last_column": 41,
+                    "range": [
+                      155,
+                      159
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "location": {
+                  "first_line": 7,
+                  "first_column": 36,
+                  "last_line": 7,
+                  "last_column": 41,
+                  "range": [
+                    154,
+                    159
+                  ]
+                },
+                "type": "context-property"
+              },
+              "filters": [],
+              "location": {
+                "first_line": 7,
+                "first_column": 34,
+                "last_line": 7,
+                "last_column": 43,
+                "range": [
+                  152,
+                  161
+                ]
+              },
+              "type": "interpolation"
+            }
+          ],
+          "close": {
+            "value": "h1",
+            "location": {
+              "first_line": 7,
+              "first_column": 45,
+              "last_line": 7,
+              "last_column": 47,
+              "range": [
+                163,
+                165
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "type": "node"
+        }
+      ],
+      "location": {
+        "first_line": 7,
+        "first_column": 6,
+        "last_line": 7,
+        "last_column": 61,
+        "range": [
+          124,
+          179
+        ]
+      },
+      "type": "part-statement"
+    },
+    {
+      "id": {
+        "value": "myPart2",
+        "location": {
+          "first_line": 9,
+          "first_column": 14,
+          "last_line": 9,
+          "last_column": 21,
+          "range": [
+            195,
+            202
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "context": {
+        "cons": {
+          "id": {
+            "value": "Ctx",
+            "location": {
+              "first_line": 9,
+              "first_column": 23,
+              "last_line": 9,
+              "last_column": 26,
+              "range": [
+                204,
+                207
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "typeParameters": [],
+          "location": {
+            "first_line": 9,
+            "first_column": 23,
+            "last_line": 9,
+            "last_column": 26,
+            "range": [
+              204,
+              207
+            ]
+          },
+          "type": "constructor-type"
+        },
+        "module": {
+          "value": "..",
+          "type": "string"
+        },
+        "location": {
+          "first_line": 9,
+          "first_column": 23,
+          "last_line": 9,
+          "last_column": 36,
+          "range": [
+            204,
+            217
+          ]
+        },
+        "type": "context-from-statement"
+      },
+      "directives": [],
+      "body": [
+        {
+          "open": {
+            "value": "h1",
+            "location": {
+              "first_line": 9,
+              "first_column": 41,
+              "last_line": 9,
+              "last_column": 43,
+              "range": [
+                222,
+                224
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "attributes": [],
+          "children": [
+            {
+              "expression": {
+                "member": {
+                  "value": "name",
+                  "location": {
+                    "first_line": 9,
+                    "first_column": 47,
+                    "last_line": 9,
+                    "last_column": 51,
+                    "range": [
+                      228,
+                      232
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "location": {
+                  "first_line": 9,
+                  "first_column": 46,
+                  "last_line": 9,
+                  "last_column": 51,
+                  "range": [
+                    227,
+                    232
+                  ]
+                },
+                "type": "context-property"
+              },
+              "filters": [],
+              "location": {
+                "first_line": 9,
+                "first_column": 44,
+                "last_line": 9,
+                "last_column": 53,
+                "range": [
+                  225,
+                  234
+                ]
+              },
+              "type": "interpolation"
+            }
+          ],
+          "close": {
+            "value": "h1",
+            "location": {
+              "first_line": 9,
+              "first_column": 55,
+              "last_line": 9,
+              "last_column": 57,
+              "range": [
+                236,
+                238
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "type": "node"
+        }
+      ],
+      "location": {
+        "first_line": 9,
+        "first_column": 6,
+        "last_line": 9,
+        "last_column": 71,
+        "range": [
+          187,
+          252
+        ]
+      },
+      "type": "part-statement"
+    },
+    {
+      "id": {
+        "value": "myPart3",
+        "location": {
+          "first_line": 11,
+          "first_column": 14,
+          "last_line": 11,
+          "last_column": 21,
+          "range": [
+            268,
+            275
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "context": [
+        {
+          "path": [
+            {
+              "value": "name",
+              "location": {
+                "first_line": 11,
+                "first_column": 28,
+                "last_line": 11,
+                "last_column": 32,
+                "range": [
+                  282,
+                  286
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "id": {
+              "value": "String",
+              "location": {
+                "first_line": 11,
+                "first_column": 34,
+                "last_line": 11,
+                "last_column": 40,
+                "range": [
+                  288,
+                  294
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "typeParameters": [],
+            "location": {
+              "first_line": 11,
+              "first_column": 34,
+              "last_line": 11,
+              "last_column": 40,
+              "range": [
+                288,
+                294
+              ]
+            },
+            "type": "constructor-type"
+          },
+          "optional": false,
+          "location": {
+            "first_line": 11,
+            "first_column": 28,
+            "last_line": 11,
+            "last_column": 40,
+            "range": [
+              282,
+              294
+            ]
+          },
+          "type": "member-declaration"
+        }
+      ],
+      "directives": [],
+      "body": [
+        {
+          "open": {
+            "value": "h1",
+            "location": {
+              "first_line": 11,
+              "first_column": 44,
+              "last_line": 11,
+              "last_column": 46,
+              "range": [
+                298,
+                300
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "attributes": [],
+          "children": [
+            {
+              "expression": {
+                "member": {
+                  "value": "name",
+                  "location": {
+                    "first_line": 11,
+                    "first_column": 50,
+                    "last_line": 11,
+                    "last_column": 54,
+                    "range": [
+                      304,
+                      308
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "location": {
+                  "first_line": 11,
+                  "first_column": 49,
+                  "last_line": 11,
+                  "last_column": 54,
+                  "range": [
+                    303,
+                    308
+                  ]
+                },
+                "type": "context-property"
+              },
+              "filters": [],
+              "location": {
+                "first_line": 11,
+                "first_column": 47,
+                "last_line": 11,
+                "last_column": 56,
+                "range": [
+                  301,
+                  310
+                ]
+              },
+              "type": "interpolation"
+            }
+          ],
+          "close": {
+            "value": "h1",
+            "location": {
+              "first_line": 11,
+              "first_column": 58,
+              "last_line": 11,
+              "last_column": 60,
+              "range": [
+                312,
+                314
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "type": "node"
+        }
+      ],
+      "location": {
+        "first_line": 11,
+        "first_column": 6,
+        "last_line": 11,
+        "last_column": 74,
+        "range": [
+          260,
+          328
+        ]
+      },
+      "type": "part-statement"
+    },
+    {
+      "id": {
+        "value": "myPart4",
+        "location": {
+          "first_line": 13,
+          "first_column": 14,
+          "last_line": 13,
+          "last_column": 21,
+          "range": [
+            344,
+            351
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "context": [
+        {
+          "path": [
+            {
+              "value": "name",
+              "location": {
+                "first_line": 13,
+                "first_column": 28,
+                "last_line": 13,
+                "last_column": 32,
+                "range": [
+                  358,
+                  362
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "id": {
+              "value": "String",
+              "location": {
+                "first_line": 13,
+                "first_column": 34,
+                "last_line": 13,
+                "last_column": 40,
+                "range": [
+                  364,
+                  370
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "typeParameters": [],
+            "location": {
+              "first_line": 13,
+              "first_column": 34,
+              "last_line": 13,
+              "last_column": 40,
+              "range": [
+                364,
+                370
+              ]
+            },
+            "type": "constructor-type"
+          },
+          "optional": false,
+          "location": {
+            "first_line": 13,
+            "first_column": 28,
+            "last_line": 13,
+            "last_column": 40,
+            "range": [
+              358,
+              370
+            ]
+          },
+          "type": "member-declaration"
+        }
+      ],
+      "directives": [
+        {
+          "id": {
+            "value": "name",
+            "location": {
+              "first_line": 14,
+              "first_column": 15,
+              "last_line": 14,
+              "last_column": 19,
+              "range": [
+                389,
+                393
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "cons": {
+            "id": {
+              "value": "String",
+              "location": {
+                "first_line": 14,
+                "first_column": 20,
+                "last_line": 14,
+                "last_column": 26,
+                "range": [
+                  394,
+                  400
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "typeParameters": [],
+            "location": {
+              "first_line": 14,
+              "first_column": 20,
+              "last_line": 14,
+              "last_column": 26,
+              "range": [
+                394,
+                400
+              ]
+            },
+            "type": "constructor-type"
+          },
+          "expression": {
+            "value": "Me",
+            "type": "string"
+          },
+          "location": {
+            "first_line": 14,
+            "first_column": 8,
+            "last_line": 14,
+            "last_column": 36,
+            "range": [
+              382,
+              410
+            ]
+          },
+          "type": "let-statement"
+        }
+      ],
+      "body": [
+        {
+          "open": {
+            "value": "h1",
+            "location": {
+              "first_line": 15,
+              "first_column": 9,
+              "last_line": 15,
+              "last_column": 11,
+              "range": [
+                420,
+                422
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "attributes": [],
+          "children": [
+            {
+              "expression": {
+                "member": {
+                  "value": "name",
+                  "location": {
+                    "first_line": 15,
+                    "first_column": 15,
+                    "last_line": 15,
+                    "last_column": 19,
+                    "range": [
+                      426,
+                      430
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "location": {
+                  "first_line": 15,
+                  "first_column": 14,
+                  "last_line": 15,
+                  "last_column": 19,
+                  "range": [
+                    425,
+                    430
+                  ]
+                },
+                "type": "context-property"
+              },
+              "filters": [],
+              "location": {
+                "first_line": 15,
+                "first_column": 12,
+                "last_line": 15,
+                "last_column": 21,
+                "range": [
+                  423,
+                  432
+                ]
+              },
+              "type": "interpolation"
+            }
+          ],
+          "close": {
+            "value": "h1",
+            "location": {
+              "first_line": 15,
+              "first_column": 23,
+              "last_line": 15,
+              "last_column": 25,
+              "range": [
+                434,
+                436
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "type": "node"
+        }
+      ],
+      "location": {
+        "first_line": 13,
+        "first_column": 6,
+        "last_line": 16,
+        "last_column": 19,
+        "range": [
+          336,
+          457
+        ]
+      },
+      "type": "part-statement"
+    }
+  ],
+  "location": {
+    "first_line": 2,
+    "first_column": 6,
+    "last_line": 17,
+    "last_column": 4,
+    "range": [
+      7,
+      462
+    ]
+  },
+  "type": "module"
+}

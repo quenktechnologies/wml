@@ -1,0 +1,611 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "open": {
+        "value": "div",
+        "location": {
+          "first_line": 2,
+          "first_column": 5,
+          "last_line": 2,
+          "last_column": 8,
+          "range": [
+            6,
+            9
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "attributes": [],
+      "children": [
+        {
+          "target": {
+            "value": "myPart",
+            "location": {
+              "first_line": 3,
+              "first_column": 18,
+              "last_line": 3,
+              "last_column": 24,
+              "range": [
+                29,
+                35
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "location": {
+            "first_line": 3,
+            "first_column": 6,
+            "last_line": 3,
+            "last_column": 27,
+            "range": [
+              17,
+              38
+            ]
+          },
+          "type": "use-part-statement"
+        },
+        {
+          "target": {
+            "value": "MyView",
+            "location": {
+              "first_line": 4,
+              "first_column": 18,
+              "last_line": 4,
+              "last_column": 24,
+              "range": [
+                58,
+                64
+              ]
+            },
+            "type": "unqualified-constructor"
+          },
+          "location": {
+            "first_line": 4,
+            "first_column": 6,
+            "last_line": 4,
+            "last_column": 27,
+            "range": [
+              46,
+              67
+            ]
+          },
+          "type": "use-view-statement"
+        },
+        {
+          "target": {
+            "head": {
+              "head": {
+                "value": "path",
+                "location": {
+                  "first_line": 5,
+                  "first_column": 18,
+                  "last_line": 5,
+                  "last_column": 22,
+                  "range": [
+                    86,
+                    90
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "tail": {
+                "value": "to",
+                "location": {
+                  "first_line": 5,
+                  "first_column": 23,
+                  "last_line": 5,
+                  "last_column": 25,
+                  "range": [
+                    91,
+                    93
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "location": {
+                "first_line": 5,
+                "first_column": 18,
+                "last_line": 5,
+                "last_column": 25,
+                "range": [
+                  86,
+                  93
+                ]
+              }
+            },
+            "tail": {
+              "value": "part",
+              "location": {
+                "first_line": 5,
+                "first_column": 26,
+                "last_line": 5,
+                "last_column": 30,
+                "range": [
+                  94,
+                  98
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            "location": {
+              "first_line": 5,
+              "first_column": 18,
+              "last_line": 5,
+              "last_column": 30,
+              "range": [
+                86,
+                98
+              ]
+            }
+          },
+          "location": {
+            "first_line": 5,
+            "first_column": 6,
+            "last_line": 5,
+            "last_column": 33,
+            "range": [
+              74,
+              101
+            ]
+          },
+          "type": "use-part-statement"
+        },
+        {
+          "target": {
+            "head": {
+              "head": {
+                "value": "path",
+                "location": {
+                  "first_line": 6,
+                  "first_column": 18,
+                  "last_line": 6,
+                  "last_column": 22,
+                  "range": [
+                    120,
+                    124
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "tail": {
+                "value": "to",
+                "location": {
+                  "first_line": 6,
+                  "first_column": 23,
+                  "last_line": 6,
+                  "last_column": 25,
+                  "range": [
+                    125,
+                    127
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "location": {
+                "first_line": 6,
+                "first_column": 18,
+                "last_line": 6,
+                "last_column": 25,
+                "range": [
+                  120,
+                  127
+                ]
+              }
+            },
+            "tail": {
+              "value": "View",
+              "location": {
+                "first_line": 6,
+                "first_column": 26,
+                "last_line": 6,
+                "last_column": 30,
+                "range": [
+                  128,
+                  132
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "location": {
+              "first_line": 6,
+              "first_column": 18,
+              "last_line": 6,
+              "last_column": 30,
+              "range": [
+                120,
+                132
+              ]
+            }
+          },
+          "location": {
+            "first_line": 6,
+            "first_column": 6,
+            "last_line": 6,
+            "last_column": 33,
+            "range": [
+              108,
+              135
+            ]
+          },
+          "type": "use-view-statement"
+        },
+        {
+          "target": {
+            "head": {
+              "head": {
+                "member": {
+                  "value": "path",
+                  "location": {
+                    "first_line": 7,
+                    "first_column": 19,
+                    "last_line": 7,
+                    "last_column": 23,
+                    "range": [
+                      155,
+                      159
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "location": {
+                  "first_line": 7,
+                  "first_column": 18,
+                  "last_line": 7,
+                  "last_column": 23,
+                  "range": [
+                    154,
+                    159
+                  ]
+                },
+                "type": "context-property"
+              },
+              "tail": {
+                "value": "to",
+                "location": {
+                  "first_line": 7,
+                  "first_column": 24,
+                  "last_line": 7,
+                  "last_column": 26,
+                  "range": [
+                    160,
+                    162
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "location": {
+                "first_line": 7,
+                "first_column": 18,
+                "last_line": 7,
+                "last_column": 26,
+                "range": [
+                  154,
+                  162
+                ]
+              }
+            },
+            "tail": {
+              "value": "part",
+              "location": {
+                "first_line": 7,
+                "first_column": 27,
+                "last_line": 7,
+                "last_column": 31,
+                "range": [
+                  163,
+                  167
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            "location": {
+              "first_line": 7,
+              "first_column": 18,
+              "last_line": 7,
+              "last_column": 31,
+              "range": [
+                154,
+                167
+              ]
+            }
+          },
+          "location": {
+            "first_line": 7,
+            "first_column": 6,
+            "last_line": 7,
+            "last_column": 34,
+            "range": [
+              142,
+              170
+            ]
+          },
+          "type": "use-part-statement"
+        },
+        {
+          "target": {
+            "head": {
+              "head": {
+                "member": {
+                  "value": "path",
+                  "location": {
+                    "first_line": 8,
+                    "first_column": 19,
+                    "last_line": 8,
+                    "last_column": 23,
+                    "range": [
+                      190,
+                      194
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "location": {
+                  "first_line": 8,
+                  "first_column": 18,
+                  "last_line": 8,
+                  "last_column": 23,
+                  "range": [
+                    189,
+                    194
+                  ]
+                },
+                "type": "context-property"
+              },
+              "tail": {
+                "value": "to",
+                "location": {
+                  "first_line": 8,
+                  "first_column": 24,
+                  "last_line": 8,
+                  "last_column": 26,
+                  "range": [
+                    195,
+                    197
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "location": {
+                "first_line": 8,
+                "first_column": 18,
+                "last_line": 8,
+                "last_column": 26,
+                "range": [
+                  189,
+                  197
+                ]
+              }
+            },
+            "tail": {
+              "value": "View",
+              "location": {
+                "first_line": 8,
+                "first_column": 27,
+                "last_line": 8,
+                "last_column": 31,
+                "range": [
+                  198,
+                  202
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "location": {
+              "first_line": 8,
+              "first_column": 18,
+              "last_line": 8,
+              "last_column": 31,
+              "range": [
+                189,
+                202
+              ]
+            }
+          },
+          "location": {
+            "first_line": 8,
+            "first_column": 6,
+            "last_line": 8,
+            "last_column": 34,
+            "range": [
+              177,
+              205
+            ]
+          },
+          "type": "use-view-statement"
+        },
+        {
+          "target": {
+            "cons": {
+              "value": "SomeView",
+              "location": {
+                "first_line": 9,
+                "first_column": 18,
+                "last_line": 9,
+                "last_column": 26,
+                "range": [
+                  224,
+                  232
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "typeArgs": [],
+            "args": [
+              {
+                "location": {
+                  "first_line": 9,
+                  "first_column": 27,
+                  "last_line": 9,
+                  "last_column": 28,
+                  "range": [
+                    233,
+                    234
+                  ]
+                },
+                "type": "context-variable"
+              }
+            ],
+            "location": {
+              "first_line": 9,
+              "first_column": 18,
+              "last_line": 9,
+              "last_column": 29,
+              "range": [
+                224,
+                235
+              ]
+            },
+            "type": "construct-expression"
+          },
+          "location": {
+            "first_line": 9,
+            "first_column": 6,
+            "last_line": 9,
+            "last_column": 32,
+            "range": [
+              212,
+              238
+            ]
+          },
+          "type": "use-view-statement"
+        },
+        {
+          "target": {
+            "target": {
+              "head": {
+                "head": {
+                  "value": "path",
+                  "location": {
+                    "first_line": 10,
+                    "first_column": 18,
+                    "last_line": 10,
+                    "last_column": 22,
+                    "range": [
+                      257,
+                      261
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "tail": {
+                  "value": "to",
+                  "location": {
+                    "first_line": 10,
+                    "first_column": 23,
+                    "last_line": 10,
+                    "last_column": 25,
+                    "range": [
+                      262,
+                      264
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "location": {
+                  "first_line": 10,
+                  "first_column": 18,
+                  "last_line": 10,
+                  "last_column": 25,
+                  "range": [
+                    257,
+                    264
+                  ]
+                }
+              },
+              "tail": {
+                "value": "part",
+                "location": {
+                  "first_line": 10,
+                  "first_column": 26,
+                  "last_line": 10,
+                  "last_column": 30,
+                  "range": [
+                    265,
+                    269
+                  ]
+                },
+                "type": "unqualified-identifier"
+              },
+              "location": {
+                "first_line": 10,
+                "first_column": 18,
+                "last_line": 10,
+                "last_column": 30,
+                "range": [
+                  257,
+                  269
+                ]
+              }
+            },
+            "typeArgs": [],
+            "args": [
+              {
+                "properties": [],
+                "location": {
+                  "first_line": 10,
+                  "first_column": 31,
+                  "last_line": 10,
+                  "last_column": 33,
+                  "range": [
+                    270,
+                    272
+                  ]
+                },
+                "type": "record"
+              }
+            ],
+            "location": {
+              "first_line": 10,
+              "first_column": 18,
+              "last_line": 10,
+              "last_column": 34,
+              "range": [
+                257,
+                273
+              ]
+            },
+            "type": "call-expression"
+          },
+          "location": {
+            "first_line": 10,
+            "first_column": 6,
+            "last_line": 10,
+            "last_column": 37,
+            "range": [
+              245,
+              276
+            ]
+          },
+          "type": "use-part-statement"
+        }
+      ],
+      "close": {
+        "value": "div",
+        "location": {
+          "first_line": 11,
+          "first_column": 6,
+          "last_line": 11,
+          "last_column": 9,
+          "range": [
+            283,
+            286
+          ]
+        },
+        "type": "unqualified-identifier"
+      },
+      "type": "node"
+    }
+  ],
+  "location": {
+    "first_line": 2,
+    "first_column": 4,
+    "last_line": 12,
+    "last_column": 2,
+    "range": [
+      5,
+      290
+    ]
+  },
+  "type": "module"
+}

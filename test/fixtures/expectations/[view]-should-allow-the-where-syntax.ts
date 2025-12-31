@@ -18,7 +18,7 @@ export class HeadView  extends __wml.BaseView {
 
    constructor(__context: HeadViewContext ) {
 
-       super(__context, (__this:__wml.ViewFrame) => {
+       super(__context, (__this:__wml.Frame) => {
 
          
 
@@ -27,7 +27,6 @@ export class HeadView  extends __wml.BaseView {
         __context.title
      ]));
 
-         return __this;
 
        });
 

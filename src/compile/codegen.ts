@@ -212,6 +212,7 @@ export const export2TS = (ctx: CodeGenerator, n: ast.Export) => {
   else if (n instanceof ast.ViewStatement) return viewStatement2TS(ctx, n);
   else if (n instanceof ast.Widget || n instanceof ast.Node)
     return tag2TS(ctx, n);
+  else if (n instanceof ast.PartStatement) return partStatement2TS(ctx, n);
   else return "";
 };
 
@@ -528,6 +529,10 @@ export const child2TS = (ctx: CodeGenerator, n: ast.Child): string => {
   else if (n instanceof ast.ForOfStatement) return forOfStatement2TS(ctx, n);
   else if (n instanceof ast.ForFromStatement)
     return forFromStatement2TS(ctx, n);
+  else if (n instanceof ast.UsePartStatement)
+    return usePartStatement2TS(ctx, n);
+  else if (n instanceof ast.UseViewStatement)
+    return useViewStatement2TS(ctx, n);
   else if (n instanceof ast.Characters) return characters2TS(n);
   else if (n instanceof ast.ContextProperty) return contextProperty2TS(n);
   else if (n instanceof ast.QualifiedConstructor)
@@ -562,6 +567,33 @@ export const widget2TS = (ctx: CodeGenerator, n: ast.Widget) => {
     `${THIS}.widget(new ${name}${typeParams}(${attrs}, ${childs}),` +
     `<${WML}.Attrs>${attrs})`
   );
+};
+
+/**
+ * partStatement2TS
+ */
+export const partStatement2TS = (ctx: CodeGenerator, n: ast.PartStatement) => {
+  let directives = n.directives
+    .map((i) => _setStatement2TS(ctx, i, "let"))
+    .join(`;${ctx.options.EOL}`);
+
+  let id = expression2TS(ctx, n.id);
+
+  let context = n.context
+    ? type2TS(
+        n.context instanceof ast.ContextFromStatement
+          ? n.context.cons
+          : <ast.ConstructorType>n.context,
+      )
+    : "object";
+
+  let defaultContext = n.context ? "" : "={}";
+
+  let body = children2TS(ctx, n.body);
+  return `export const ${id} = (${THIS}:${WML}.${FRAME_TYPE}, ${CONTEXT}: ${context} ${defaultContext}) => {
+          ${directives}
+          return ${body}
+       }`;
 };
 
 /**
@@ -755,6 +787,26 @@ export const forFromStatement2TS = (
 };
 
 /**
+ * useViewStatement2TS
+ */
+export const useViewStatement2TS = (
+  ctx: CodeGenerator,
+  n: ast.UseViewStatement,
+) => {
+  let target = expression2TS(ctx, n.target);
+  return _viewCons2Ts(target);
+};
+
+export const usePartStatement2TS = (
+  ctx: CodeGenerator,
+  n: ast.UsePartStatement,
+) => {
+  let target = expression2TS(ctx, n.target);
+  let context = n.context ? expression2TS(ctx, n.context) : CONTEXT;
+  return `...(${target}(${THIS}, ${context}))`;
+};
+
+/**
  * characters2TS converts character text to a typescript string.
  */
 export const characters2TS = (n: ast.Characters) =>
@@ -855,7 +907,9 @@ export const unaryExpression2TS = (
 export const viewConstruction2TS = (
   ctx: CodeGenerator,
   n: ast.ViewConstruction,
-) => `${THIS}.view(${expression2TS(ctx, n.expression)})`;
+) => _viewCons2Ts(expression2TS(ctx, n.expression));
+
+const _viewCons2Ts = (id: TypeScript) => `${THIS}.view(${id})`;
 
 /**
  * funApplication2TS
