@@ -1,0 +1,302 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "FuncContext",
+        "location": {
+          "first_line": 2,
+          "first_column": 16,
+          "last_line": 2,
+          "last_column": 27,
+          "range": [
+            17,
+            28
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "members": [
+        {
+          "path": [
+            {
+              "value": "func0",
+              "location": {
+                "first_line": 3,
+                "first_column": 8,
+                "last_line": 3,
+                "last_column": 13,
+                "range": [
+                  43,
+                  48
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "parameters": [
+              {
+                "target": {
+                  "id": {
+                    "value": "String",
+                    "location": {
+                      "first_line": 3,
+                      "first_column": 16,
+                      "last_line": 3,
+                      "last_column": 22,
+                      "range": [
+                        51,
+                        57
+                      ]
+                    },
+                    "type": "unqualified-constructor"
+                  },
+                  "typeParameters": [],
+                  "location": {
+                    "first_line": 3,
+                    "first_column": 16,
+                    "last_line": 3,
+                    "last_column": 22,
+                    "range": [
+                      51,
+                      57
+                    ]
+                  },
+                  "type": "constructor-type"
+                },
+                "location": {
+                  "first_line": 3,
+                  "first_column": 16,
+                  "last_line": 3,
+                  "last_column": 23,
+                  "range": [
+                    51,
+                    58
+                  ]
+                },
+                "type": "optional-type"
+              }
+            ],
+            "returnType": {
+              "id": {
+                "value": "Void",
+                "location": {
+                  "first_line": 3,
+                  "first_column": 27,
+                  "last_line": 3,
+                  "last_column": 31,
+                  "range": [
+                    62,
+                    66
+                  ]
+                },
+                "type": "unqualified-constructor"
+              },
+              "typeParameters": [],
+              "location": {
+                "first_line": 3,
+                "first_column": 27,
+                "last_line": 3,
+                "last_column": 31,
+                "range": [
+                  62,
+                  66
+                ]
+              },
+              "type": "constructor-type"
+            },
+            "location": {
+              "first_line": 3,
+              "first_column": 16,
+              "last_line": 3,
+              "last_column": 31,
+              "range": [
+                51,
+                66
+              ]
+            },
+            "type": "function-type"
+          },
+          "optional": false,
+          "location": {
+            "first_line": 3,
+            "first_column": 8,
+            "last_line": 3,
+            "last_column": 31,
+            "range": [
+              43,
+              66
+            ]
+          },
+          "type": "member-declaration"
+        },
+        {
+          "path": [
+            {
+              "value": "func1",
+              "location": {
+                "first_line": 4,
+                "first_column": 8,
+                "last_line": 4,
+                "last_column": 13,
+                "range": [
+                  76,
+                  81
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "parameters": [
+              {
+                "id": {
+                  "value": "String",
+                  "location": {
+                    "first_line": 4,
+                    "first_column": 16,
+                    "last_line": 4,
+                    "last_column": 22,
+                    "range": [
+                      84,
+                      90
+                    ]
+                  },
+                  "type": "unqualified-constructor"
+                },
+                "typeParameters": [],
+                "location": {
+                  "first_line": 4,
+                  "first_column": 16,
+                  "last_line": 4,
+                  "last_column": 22,
+                  "range": [
+                    84,
+                    90
+                  ]
+                },
+                "type": "constructor-type"
+              },
+              {
+                "target": {
+                  "id": {
+                    "value": "Number",
+                    "location": {
+                      "first_line": 4,
+                      "first_column": 24,
+                      "last_line": 4,
+                      "last_column": 30,
+                      "range": [
+                        92,
+                        98
+                      ]
+                    },
+                    "type": "unqualified-constructor"
+                  },
+                  "typeParameters": [],
+                  "location": {
+                    "first_line": 4,
+                    "first_column": 24,
+                    "last_line": 4,
+                    "last_column": 30,
+                    "range": [
+                      92,
+                      98
+                    ]
+                  },
+                  "type": "constructor-type"
+                },
+                "location": {
+                  "first_line": 4,
+                  "first_column": 24,
+                  "last_line": 4,
+                  "last_column": 31,
+                  "range": [
+                    92,
+                    99
+                  ]
+                },
+                "type": "optional-type"
+              }
+            ],
+            "returnType": {
+              "id": {
+                "value": "Void",
+                "location": {
+                  "first_line": 4,
+                  "first_column": 36,
+                  "last_line": 4,
+                  "last_column": 40,
+                  "range": [
+                    104,
+                    108
+                  ]
+                },
+                "type": "unqualified-constructor"
+              },
+              "typeParameters": [],
+              "location": {
+                "first_line": 4,
+                "first_column": 36,
+                "last_line": 4,
+                "last_column": 40,
+                "range": [
+                  104,
+                  108
+                ]
+              },
+              "type": "constructor-type"
+            },
+            "location": {
+              "first_line": 4,
+              "first_column": 15,
+              "last_line": 4,
+              "last_column": 40,
+              "range": [
+                83,
+                108
+              ]
+            },
+            "type": "function-type"
+          },
+          "optional": false,
+          "location": {
+            "first_line": 4,
+            "first_column": 8,
+            "last_line": 4,
+            "last_column": 40,
+            "range": [
+              76,
+              108
+            ]
+          },
+          "type": "member-declaration"
+        }
+      ],
+      "location": {
+        "first_line": 2,
+        "first_column": 5,
+        "last_line": 5,
+        "last_column": 6,
+        "range": [
+          6,
+          115
+        ]
+      },
+      "type": "context-statement"
+    }
+  ],
+  "location": {
+    "first_line": 2,
+    "first_column": 5,
+    "last_line": 6,
+    "last_column": 2,
+    "range": [
+      6,
+      118
+    ]
+  },
+  "type": "module"
+}

@@ -13,4 +13,4 @@ const text = __document.text;
 const unsafe = __document.unsafe
 // @ts-ignore 6192
 const isSet = __utils.isSet
-export interface Test<A  > {value : ($0:Text<A  > ,$1:Text<A  > ) => Text<A  > }
+export interface Test<A  > {value : ($0: Text<A  > ,$1: Text<A  > ) => Text<A  > }

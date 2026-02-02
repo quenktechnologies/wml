@@ -13,4 +13,5 @@ const text = __document.text;
 const unsafe = __document.unsafe
 // @ts-ignore 6192
 const isSet = __utils.isSet
-export interface Test<A  > {value : ($0: Text<A  > ) => Text<A  > }
+export interface FuncContext{func0 : ($0?: void) => void,
+func1 : ($0: string,$1?: void) => void}

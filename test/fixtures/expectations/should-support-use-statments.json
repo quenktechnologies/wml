@@ -578,18 +578,58 @@
             ]
           },
           "type": "use-part-statement"
+        },
+        {
+          "target": {
+            "value": "myPath",
+            "location": {
+              "first_line": 11,
+              "first_column": 18,
+              "last_line": 11,
+              "last_column": 24,
+              "range": [
+                295,
+                301
+              ]
+            },
+            "type": "unqualified-identifier"
+          },
+          "context": {
+            "location": {
+              "first_line": 11,
+              "first_column": 30,
+              "last_line": 11,
+              "last_column": 31,
+              "range": [
+                307,
+                308
+              ]
+            },
+            "type": "context-variable"
+          },
+          "location": {
+            "first_line": 11,
+            "first_column": 6,
+            "last_line": 11,
+            "last_column": 34,
+            "range": [
+              283,
+              311
+            ]
+          },
+          "type": "use-part-statement"
         }
       ],
       "close": {
         "value": "div",
         "location": {
-          "first_line": 11,
+          "first_line": 12,
           "first_column": 6,
-          "last_line": 11,
+          "last_line": 12,
           "last_column": 9,
           "range": [
-            283,
-            286
+            318,
+            321
           ]
         },
         "type": "unqualified-identifier"
@@ -600,11 +640,11 @@
   "location": {
     "first_line": 2,
     "first_column": 4,
-    "last_line": 12,
+    "last_line": 13,
     "last_column": 2,
     "range": [
       5,
-      290
+      325
     ]
   },
   "type": "module"

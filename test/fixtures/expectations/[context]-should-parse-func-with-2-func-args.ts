@@ -13,4 +13,4 @@ const text = __document.text;
 const unsafe = __document.unsafe
 // @ts-ignore 6192
 const isSet = __utils.isSet
-export interface Test{value : ($0:($0:string) => string,$1:($0:string) => string) => string}
+export interface Test{value : ($0: ($0: string) => string,$1: ($0: string) => string) => string}

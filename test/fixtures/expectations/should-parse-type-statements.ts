@@ -13,4 +13,4 @@ const text = __document.text;
 const unsafe = __document.unsafe
 // @ts-ignore 6192
 const isSet = __utils.isSet
-export type Type = string|number|boolean|(Type)[]|($0:Type) => Type;
+export type Type = string|number|boolean|(Type)[]|($0: Type) => Type;

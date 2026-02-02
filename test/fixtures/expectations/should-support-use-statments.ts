@@ -25,5 +25,6 @@ __this.view(new SomeView(__context)),
 ...(path.to.part({
  
       
-     })(__this, __context))
+     })(__this, __context)),
+...(myPath(__this, __context))
      ])
