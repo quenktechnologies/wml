@@ -376,9 +376,11 @@ export const constructorType2TS = (n: ast.ConstructorType) => {
  */
 export const functionType2TS = (n: ast.FunctionType) => {
   let params = n.parameters.map((node, idx) => {
-    let param = type2TS(node);
-    let name = node instanceof ast.OptionalType ? `$${idx}?` : `$${idx}`;
-    return `${name}: ${param}`;
+    if(node instanceof ast.OptionalType) {
+    let param = type2TS(node.target)
+      return `$${idx}?: ${param}`;
+    }
+    return `$${idx}: ${type2TS(node)}`;
   });
   let ret = type2TS(n.returnType);
   return `(${params}) => ${ret}`;
