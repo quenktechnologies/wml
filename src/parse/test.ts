@@ -541,6 +541,13 @@ export const tests: { [key: string]: any } = {
       {% use view @path.to.View %}
       {% use view SomeView(@) %}
       {% use part path.to.part({}) %}
+      {% use part myPath with @ %}
     </div>
   `,
+  "should support function types with optional params": `
+     {% context FuncContext where
+        func0:  String? -> Void,
+        func1: (String, Number?) -> Void
+    %}
+  `
 };

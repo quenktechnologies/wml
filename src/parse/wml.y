@@ -434,7 +434,7 @@ part_statment
 
 use_statement
           : '{%' USE PART use_target WITH expression '%}'
-            {$$ = new yy.ast.UsePartStatement($4, $7,  @$); }
+            {$$ = new yy.ast.UsePartStatement($4, $6,  @$); }
 
           | '{%' USE PART use_target '%}'
             {$$ = new yy.ast.UsePartStatement($4, undefined, @$); }
@@ -480,6 +480,7 @@ type
           | grouped_type 
             { $$ = $1;                                                  }
           ;
+
 
 grouped_type
           : '(' non_function_type ')'
@@ -572,27 +573,42 @@ function_type
           | '('  ')' '->' type
             { $$ = new yy.ast.FunctionType([], $4, @$);                 }
 
-          | non_function_type '->' type                                 
+          | function_type_parameter  '->' type                                 
             { $$ = new yy.ast.FunctionType([$1], $3, @$);               }
 
-          // If we don't use grouped_type here jison will trip up on the 
-          // ambiguity that implicitly exists between the type sub rules
-          | grouped_type '->' type
+          | grouped_type '->' type                                 
             { $$ = new yy.ast.FunctionType([$1], $3, @$);               }
-
+        
           | '(' function_type_parameters ')' '->' type
             { $$ = new yy.ast.FunctionType($2, $5, @$);                 }
           ;
 
+function_type_parameter
+         : non_function_type 
+            { $$ = $1;                                                  }
+
+         | optional_function_type
+            { $$ = $1;                                                  }
+         ;
+
+optional_function_type
+         : non_function_type '?'
+            { $$ = new yy.ast.OptionalType($1, @$);                     }
+
+         | '(' function_type ')' '?'
+            { $$ = new yy.ast.OptionalType($1, @$);                     }
+
+         ;
+
 function_type_parameters
 
-          : non_function_type ',' non_function_type
+          :  function_type_parameter ',' function_type_parameter
             { $$ = [$1, $3];                                             }
 
           | '(' function_type ')' ',' '(' function_type ')'
             { $$ = [$2, $6];                                             }
 
-          | function_type_parameters ',' non_function_type
+          | function_type_parameters ',' function_type_parameter
             { $$ = $1.concat($3);                                        }
 
           | function_type_parameters ',' '(' function_type ')'

@@ -231,7 +231,7 @@ export class TypeParameter {
 /**
  * Type
  */
-export type Type = ConstructorType | FunctionType | RecordType | ListType;
+export type Type = ConstructorType | FunctionType | RecordType | ListType | OptionalType;
 
 /**
  * ConstructorType
@@ -291,6 +291,15 @@ export class TupleType {
 
   constructor(
     public members: Type[],
+    public location: Location,
+  ) {}
+}
+
+export class OptionalType {
+  type = "optional-type";
+  
+  constructor(
+    public target: Type,
     public location: Location,
   ) {}
 }
