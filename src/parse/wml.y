@@ -445,7 +445,7 @@ use_statement
 
 use_target
           : (construct_expression | call_expression | member_expression 
-           | context_property | unqualified_constructor | unqualified_identifier 
+           | unqualified_constructor | unqualified_identifier 
            | context_variable)
           ;
 
@@ -890,7 +890,6 @@ simple_expression
              |view_construction
              |member_expression 
              |literal 
-             |context_property 
              |unqualified_constructor 
              |unqualified_identifier 
              |context_variable)
@@ -919,61 +918,31 @@ type_arg_list
           ;
 
 construct_expression
-          : unqualified_constructor type_arguments '(' arguments ')'
-            { $$ = new yy.ast.ConstructExpression($1, $2, $4, @$); }
-
-          | unqualified_constructor '(' arguments ')'
+          : unqualified_constructor '(' arguments ')'
             { $$ = new yy.ast.ConstructExpression($1, [], $3, @$); }
-
-          | unqualified_constructor type_arguments '(' ')'
-            { $$ = new yy.ast.ConstructExpression($1, $2, [], @$); }
 
           | unqualified_constructor '(' ')'
             { $$ = new yy.ast.ConstructExpression($1, [], [], @$); }
           ;
 
 call_expression
-          : unqualified_identifier type_arguments '(' arguments ')'
-            {$$ = new yy.ast.CallExpression($1, $2, $4, @$);    }
-
-          | unqualified_identifier type_arguments '(' ')'
-            {$$ = new yy.ast.CallExpression($1, $2, [], @$);    }
-
-          | unqualified_identifier '(' arguments ')'
+          : unqualified_identifier '(' arguments ')'
             {$$ = new yy.ast.CallExpression($1, [], $3, @$);    }
 
           | unqualified_identifier '(' ')'
             {$$ = new yy.ast.CallExpression($1, [], [], @$);    }
 
-          | context_property type_arguments '(' arguments ')'
-            {$$ = new yy.ast.CallExpression($1, $2, $4, @$);    }
-
-          | context_property type_arguments '(' ')'
-            {$$ = new yy.ast.CallExpression($1, $2, [], @$);    }
-
-          | context_property '(' arguments ')'
+          | context_variable '(' arguments ')'
             {$$ = new yy.ast.CallExpression($1, [], $3, @$);    }
 
-          | context_property '(' ')'
+          | context_variable '(' ')'
             {$$ = new yy.ast.CallExpression($1, [], [], @$);    }
-
-          | member_expression type_arguments '(' arguments ')'
-            {$$ = new yy.ast.CallExpression($1, $2, $4, @$);    }
-
-          | member_expression type_arguments '(' ')'
-            {$$ = new yy.ast.CallExpression($1, $2, [], @$);    }
 
           | member_expression '(' arguments ')'
             {$$ = new yy.ast.CallExpression($1, [], $3, @$);    }
 
           | member_expression '(' ')'
             {$$ = new yy.ast.CallExpression($1, [], [], @$);    }
-
-          | '(' expression ')' type_arguments '(' arguments ')'
-            {$$ = new yy.ast.CallExpression($2, $4, $6, @$);    }
-
-          | '(' expression ')' type_arguments '(' ')'
-            {$$ = new yy.ast.CallExpression($2, $4, [], @$);    }
 
           | '(' expression ')' '(' arguments ')'
             {$$ = new yy.ast.CallExpression($2, [], $5, @$);    }
@@ -992,10 +961,13 @@ member_expression
           : member_expression_head '.' member_expression_tail
             {$$ = new yy.ast.MemberExpression($1, $3, @$); }
 
+          | member_expression_head '[' expression ']'
+            {$$ = new yy.ast.MemberExpression($1, $3, @$); }
+
           | member_expression '.' member_expression_tail
             {$$ = new yy.ast.MemberExpression($1, $3, @$); }
 
-          | member_expression '[' string_literal ']'
+          | member_expression '[' expression ']'
             {$$ = new yy.ast.MemberExpression($1, $3, @$); }
           ;
 
@@ -1003,7 +975,6 @@ member_expression_head:
            ( unqualified_identifier 
            | unqualified_constructor
            | context_variable 
-           | context_property 
            | list 
            | record 
            | string_literal 
@@ -1081,16 +1052,11 @@ boolean_literal
             {$$ = new yy.ast.BooleanLiteral(false, @$);}
           ;
 
-context_property
+context_variable
           : '@' unqualified_identifier
             { $$ = new yy.ast.ContextProperty($2, @$) }
-
-          | '@' '[' string_literal ']'
-            { $$ = new yy.ast.ContextProperty($3, @$) }
-          ;
-
-context_variable
-          : '@' {$$ = new yy.ast.ContextVariable(@$);}
+          
+          | '@' {$$ = new yy.ast.ContextVariable(@$);}
           ;
 
 cons

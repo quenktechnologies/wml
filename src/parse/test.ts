@@ -549,5 +549,13 @@ export const tests: { [key: string]: any } = {
         func0:  String? -> Void,
         func1: (String, Number?) -> Void
     %}
-  `
+  `,
+  "should allow brackets in property expressions": `
+  {% view Test (Ctx) %}
+   <div>
+    {% for elm in @x[item]['in'][('li'+'st')] %}
+        <div>{{@elm[item]['value']}}</div>
+    {% endfor %}
+   </div>`
+
 };

@@ -133,6 +133,73 @@ export const tagSVGNodes = (tag: ast.Tag) => {
 };
 
 /**
+ * rewritePartStatementContext normalizes the various forms of the context 
+ * declaration in a part statement.
+ *
+ * This is the same operation as rewriteViewStatementContext, but for parts.
+ *
+ * TODO: Refactor to avoid code duplication.
+ */
+export const rewritePartStatementContext = (
+  tree: ast.Module,
+  node: ast.PartStatement,
+): ast.Export[] => {
+  if (Array.isArray(node.context)) {
+    let contextName = `${node.id.value}Context`;
+
+    let context = new ast.ContextStatement(
+      new ast.UnqualifiedIdentifier(contextName, node.id.location),
+      [],
+      node.context,
+      node.location,
+    );
+
+    let consType = new ast.ConstructorType(
+      context.id,
+      context.typeParameters,
+      context.location,
+    );
+
+    let view = new ast.PartStatement(
+      node.id,
+      consType,
+      node.directives,
+      node.body,
+      node.location,
+    );
+
+    return [context, view];
+  } else if (node.context instanceof ast.ContextFromStatement) {
+    let { context } = node;
+
+    let { location } = context;
+
+    tree.imports.push(
+      new ast.ImportStatement(
+        new ast.CompositeMember(
+          [<ast.UnqualifiedConstructor>context.cons.id],
+          location,
+        ),
+        context.module,
+        location,
+      ),
+    );
+
+    return [
+      new ast.PartStatement(
+        node.id,
+        context.cons,
+        node.directives,
+        node.body,
+        node.location,
+      ),
+    ];
+  } else {
+    return [node];
+  }
+};
+
+/**
  * transformTree applies all the needed transforms to the AST before
  * compilation.
  */
@@ -145,6 +212,8 @@ export const transformTree = (tree: ast.Module) => {
         next.root = tagSVGNodes(next.root);
 
         return [...prev, ...rewriteViewStatementContext(newTree, next)];
+      } else if( next instanceof ast.PartStatement) {
+        return [...prev, ...rewritePartStatementContext(newTree, next)];
       } else {
         return [...prev, next];
       }
