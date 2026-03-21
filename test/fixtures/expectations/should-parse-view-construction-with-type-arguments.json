@@ -21,37 +21,23 @@
         {
           "expression": {
             "expression": {
-              "cons": {
-                "value": "Panel",
-                "location": {
-                  "first_line": 1,
-                  "first_column": 8,
-                  "last_line": 1,
-                  "last_column": 13,
-                  "range": [
-                    8,
-                    13
-                  ]
-                },
-                "type": "unqualified-constructor"
-              },
-              "typeArgs": [
-                {
-                  "id": {
-                    "value": "Text",
-                    "location": {
-                      "first_line": 1,
-                      "first_column": 14,
-                      "last_line": 1,
-                      "last_column": 18,
-                      "range": [
-                        14,
-                        18
-                      ]
-                    },
-                    "type": "unqualified-constructor"
+              "target": {
+                "head": {
+                  "value": "Panel",
+                  "location": {
+                    "first_line": 1,
+                    "first_column": 8,
+                    "last_line": 1,
+                    "last_column": 13,
+                    "range": [
+                      8,
+                      13
+                    ]
                   },
-                  "typeParameters": [],
+                  "type": "unqualified-constructor"
+                },
+                "tail": {
+                  "value": "Text",
                   "location": {
                     "first_line": 1,
                     "first_column": 14,
@@ -62,9 +48,20 @@
                       18
                     ]
                   },
-                  "type": "constructor-type"
+                  "type": "unqualified-constructor"
+                },
+                "location": {
+                  "first_line": 1,
+                  "first_column": 8,
+                  "last_line": 1,
+                  "last_column": 19,
+                  "range": [
+                    8,
+                    19
+                  ]
                 }
-              ],
+              },
+              "typeArgs": [],
               "args": [
                 {
                   "location": {
@@ -90,7 +87,7 @@
                   22
                 ]
               },
-              "type": "construct-expression"
+              "type": "call-expression"
             },
             "location": {
               "first_line": 1,

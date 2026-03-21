@@ -962,13 +962,13 @@ member_expression
             {$$ = new yy.ast.MemberExpression($1, $3, @$); }
 
           | member_expression_head '[' expression ']'
-            {$$ = new yy.ast.MemberExpression($1, $3, @$); }
+            {$$ = new yy.ast.MemberExpression($1, $3, @$, true); }
 
           | member_expression '.' member_expression_tail
             {$$ = new yy.ast.MemberExpression($1, $3, @$); }
 
           | member_expression '[' expression ']'
-            {$$ = new yy.ast.MemberExpression($1, $3, @$); }
+            {$$ = new yy.ast.MemberExpression($1, $3, @$, true); }
           ;
 
 member_expression_head:

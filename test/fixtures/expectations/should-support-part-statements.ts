@@ -4,7 +4,7 @@ import * as __wml from '../../../src';
 import * as __document from '../../../src/lib/dom';
 // @ts-ignore 6192
 import * as __utils from '../../../src/lib/util';
-
+import {Ctx} from '..'; 
 
 
 // @ts-ignore 6192
@@ -43,7 +43,8 @@ export const myPart2 = (__this:__wml.Frame, __context: Ctx ) => {
      ])
      ]
        };
-export const myPart3 = (__this:__wml.Frame, __context: void ) => {
+export interface myPart3Context{name : string};
+export const myPart3 = (__this:__wml.Frame, __context: myPart3Context ) => {
           
           return [
 
@@ -53,7 +54,8 @@ export const myPart3 = (__this:__wml.Frame, __context: void ) => {
      ])
      ]
        };
-export const myPart4 = (__this:__wml.Frame, __context: void ) => {
+export interface myPart4Context{name : string};
+export const myPart4 = (__this:__wml.Frame, __context: myPart4Context ) => {
           let name:string = "Me"
           return [
 

@@ -15,5 +15,5 @@ const unsafe = __document.unsafe
 const isSet = __utils.isSet
 __this.node('div', <__wml.Attrs>{}, [
 
-        __this.view(new Panel<Text>(__context))
+        __this.view(Panel.Text(__context))
      ])

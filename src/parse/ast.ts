@@ -593,8 +593,9 @@ export class CallExpression {
 export class MemberExpression {
   constructor(
     public head: Expression,
-    public tail: UnqualifiedIdentifier | UnqualifiedConstructor | StringLiteral,
+    public tail: Expression,
     public location: Location,
+    public useBrackets: boolean = false,
   ) {}
 }
 

@@ -1,0 +1,372 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "Test",
+        "location": {
+          "first_line": 2,
+          "first_column": 10,
+          "last_line": 2,
+          "last_column": 14,
+          "range": [
+            11,
+            15
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "context": {
+        "id": {
+          "value": "Ctx",
+          "location": {
+            "first_line": 2,
+            "first_column": 16,
+            "last_line": 2,
+            "last_column": 19,
+            "range": [
+              17,
+              20
+            ]
+          },
+          "type": "unqualified-constructor"
+        },
+        "typeParameters": [],
+        "location": {
+          "first_line": 2,
+          "first_column": 16,
+          "last_line": 2,
+          "last_column": 19,
+          "range": [
+            17,
+            20
+          ]
+        },
+        "type": "constructor-type"
+      },
+      "directives": [],
+      "root": {
+        "open": {
+          "value": "div",
+          "location": {
+            "first_line": 3,
+            "first_column": 4,
+            "last_line": 3,
+            "last_column": 7,
+            "range": [
+              29,
+              32
+            ]
+          },
+          "type": "unqualified-identifier"
+        },
+        "attributes": [],
+        "children": [
+          {
+            "body": [
+              {
+                "open": {
+                  "value": "div",
+                  "location": {
+                    "first_line": 5,
+                    "first_column": 9,
+                    "last_line": 5,
+                    "last_column": 12,
+                    "range": [
+                      92,
+                      95
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "attributes": [],
+                "children": [
+                  {
+                    "expression": {
+                      "head": {
+                        "head": {
+                          "member": {
+                            "value": "elm",
+                            "location": {
+                              "first_line": 5,
+                              "first_column": 16,
+                              "last_line": 5,
+                              "last_column": 19,
+                              "range": [
+                                99,
+                                102
+                              ]
+                            },
+                            "type": "unqualified-identifier"
+                          },
+                          "location": {
+                            "first_line": 5,
+                            "first_column": 15,
+                            "last_line": 5,
+                            "last_column": 19,
+                            "range": [
+                              98,
+                              102
+                            ]
+                          },
+                          "type": "context-property"
+                        },
+                        "tail": {
+                          "value": "item",
+                          "location": {
+                            "first_line": 5,
+                            "first_column": 20,
+                            "last_line": 5,
+                            "last_column": 24,
+                            "range": [
+                              103,
+                              107
+                            ]
+                          },
+                          "type": "unqualified-identifier"
+                        },
+                        "location": {
+                          "first_line": 5,
+                          "first_column": 15,
+                          "last_line": 5,
+                          "last_column": 25,
+                          "range": [
+                            98,
+                            108
+                          ]
+                        }
+                      },
+                      "tail": {
+                        "value": "value",
+                        "type": "string"
+                      },
+                      "location": {
+                        "first_line": 5,
+                        "first_column": 15,
+                        "last_line": 5,
+                        "last_column": 34,
+                        "range": [
+                          98,
+                          117
+                        ]
+                      }
+                    },
+                    "filters": [],
+                    "location": {
+                      "first_line": 5,
+                      "first_column": 13,
+                      "last_line": 5,
+                      "last_column": 36,
+                      "range": [
+                        96,
+                        119
+                      ]
+                    },
+                    "type": "interpolation"
+                  }
+                ],
+                "close": {
+                  "value": "div",
+                  "location": {
+                    "first_line": 5,
+                    "first_column": 38,
+                    "last_line": 5,
+                    "last_column": 41,
+                    "range": [
+                      121,
+                      124
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "type": "node"
+              }
+            ],
+            "otherwise": [],
+            "location": {
+              "first_line": 4,
+              "first_column": 4,
+              "last_line": 6,
+              "last_column": 16,
+              "range": [
+                38,
+                142
+              ]
+            },
+            "variables": [
+              {
+                "id": {
+                  "value": "elm",
+                  "location": {
+                    "first_line": 4,
+                    "first_column": 11,
+                    "last_line": 4,
+                    "last_column": 14,
+                    "range": [
+                      45,
+                      48
+                    ]
+                  },
+                  "type": "unqualified-identifier"
+                },
+                "location": {
+                  "first_line": 4,
+                  "first_column": 11,
+                  "last_line": 4,
+                  "last_column": 14,
+                  "range": [
+                    45,
+                    48
+                  ]
+                },
+                "type": "untyped-parameter"
+              }
+            ],
+            "expression": {
+              "head": {
+                "head": {
+                  "head": {
+                    "member": {
+                      "value": "x",
+                      "location": {
+                        "first_line": 4,
+                        "first_column": 19,
+                        "last_line": 4,
+                        "last_column": 20,
+                        "range": [
+                          53,
+                          54
+                        ]
+                      },
+                      "type": "unqualified-identifier"
+                    },
+                    "location": {
+                      "first_line": 4,
+                      "first_column": 18,
+                      "last_line": 4,
+                      "last_column": 20,
+                      "range": [
+                        52,
+                        54
+                      ]
+                    },
+                    "type": "context-property"
+                  },
+                  "tail": {
+                    "value": "item",
+                    "location": {
+                      "first_line": 4,
+                      "first_column": 21,
+                      "last_line": 4,
+                      "last_column": 25,
+                      "range": [
+                        55,
+                        59
+                      ]
+                    },
+                    "type": "unqualified-identifier"
+                  },
+                  "location": {
+                    "first_line": 4,
+                    "first_column": 18,
+                    "last_line": 4,
+                    "last_column": 26,
+                    "range": [
+                      52,
+                      60
+                    ]
+                  }
+                },
+                "tail": {
+                  "value": "in",
+                  "type": "string"
+                },
+                "location": {
+                  "first_line": 4,
+                  "first_column": 18,
+                  "last_line": 4,
+                  "last_column": 32,
+                  "range": [
+                    52,
+                    66
+                  ]
+                }
+              },
+              "tail": {
+                "left": {
+                  "value": "li",
+                  "type": "string"
+                },
+                "operator": "+",
+                "right": {
+                  "value": "st",
+                  "type": "string"
+                },
+                "location": {
+                  "first_line": 4,
+                  "first_column": 34,
+                  "last_line": 4,
+                  "last_column": 43,
+                  "range": [
+                    68,
+                    77
+                  ]
+                },
+                "type": "binary-expression"
+              },
+              "location": {
+                "first_line": 4,
+                "first_column": 18,
+                "last_line": 4,
+                "last_column": 45,
+                "range": [
+                  52,
+                  79
+                ]
+              }
+            },
+            "type": "for-in-statement"
+          }
+        ],
+        "close": {
+          "value": "div",
+          "location": {
+            "first_line": 7,
+            "first_column": 5,
+            "last_line": 7,
+            "last_column": 8,
+            "range": [
+              148,
+              151
+            ]
+          },
+          "type": "unqualified-identifier"
+        },
+        "type": "node"
+      },
+      "location": {
+        "first_line": 2,
+        "first_column": 2,
+        "last_line": 7,
+        "last_column": 9,
+        "range": [
+          3,
+          152
+        ]
+      },
+      "type": "view-statement"
+    }
+  ],
+  "location": {
+    "first_line": 2,
+    "first_column": 2,
+    "last_line": 7,
+    "last_column": 9,
+    "range": [
+      3,
+      152
+    ]
+  },
+  "type": "module"
+}

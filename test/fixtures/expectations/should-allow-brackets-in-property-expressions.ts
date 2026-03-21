@@ -15,7 +15,7 @@ const unsafe = __document.unsafe
 const isSet = __utils.isSet
 export class Test  extends __wml.BaseView {
 
-   constructor(__context: object ) {
+   constructor(__context: Ctx ) {
 
        super(__context, (__this:__wml.Frame) => {
 
@@ -23,15 +23,15 @@ export class Test  extends __wml.BaseView {
 
          __this.root(__this.node('div', <__wml.Attrs>{}, [
 
-        ...(((__context["type"] === 1)) ?
-(()=>([
+        ...__utils.forIn (__context.x.item["in"].("li" + "st"), (elm , _$$i, _$$all)=> 
+([
 
         __this.node('div', <__wml.Attrs>{}, [
 
-        
+        __context.elm.item["value"]
      ])
-     ]))() :
-(()=>([]))())
+     ]), 
+()=> ([]))
      ]));
 
 

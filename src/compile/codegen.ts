@@ -978,9 +978,9 @@ export const memberExpression2TS = (
 ) => {
   let target = expression2TS(ctx, n.head);
 
-  return n.tail instanceof ast.StringLiteral
-    ? `${target}[${string2TS(n.tail)}]`
-    : `${target}.${expression2TS(ctx, n.tail)}`;
+  return n.useBrackets ?
+     `${target}[${expression2TS(ctx,n.tail)}]`
+    : `${target}.${expression2TS(ctx, n.tail)}`
 };
 
 /**
