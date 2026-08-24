@@ -211,6 +211,7 @@ export class ViewFrame implements Frame {
   widget(w: Widget, attrs: Attrs): Content {
     let tree = w.render();
 
+    if(dom.isBrowser)
     DOMMonitor.getInstance().monitor(tree, w);
 
     if (attrs?.wml?.id) this.register(attrs.wml.id, tree, w);
