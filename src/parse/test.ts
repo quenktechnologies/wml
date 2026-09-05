@@ -416,6 +416,18 @@ export const tests: { [key: string]: any } = {
 
   "[context] should mark nested properties as optional if all are": `{% context Paper where object."type"?: String %}`,
 
+  "[context] should merge an optional parent with its nested paths": `{% context Account where
+                 credentials?: Object,
+                 credentials.email?: String,
+                 credentials.token: String
+             %}`,
+
+  "[context] should merge a typed parent with its nested paths": `{% context Account where
+                 profile?: Person,
+                 profile.age?: Number,
+                 profile.name: String
+             %}`,
+
   "should parse type statements": `{% type Type = String | Number | Boolean | Type[] | Type -> Type %}`,
 
   "should parse tupe types": `{% type Tuple = [Number, String, Number] %}`,

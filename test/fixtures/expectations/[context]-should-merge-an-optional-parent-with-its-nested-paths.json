@@ -1,0 +1,248 @@
+{
+  "imports": [],
+  "exports": [
+    {
+      "id": {
+        "value": "Account",
+        "location": {
+          "first_line": 1,
+          "first_column": 11,
+          "last_line": 1,
+          "last_column": 18,
+          "range": [
+            11,
+            18
+          ]
+        },
+        "type": "unqualified-constructor"
+      },
+      "typeParameters": [],
+      "members": [
+        {
+          "path": [
+            {
+              "value": "credentials",
+              "location": {
+                "first_line": 2,
+                "first_column": 17,
+                "last_line": 2,
+                "last_column": 28,
+                "range": [
+                  42,
+                  53
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "id": {
+              "value": "Object",
+              "location": {
+                "first_line": 2,
+                "first_column": 31,
+                "last_line": 2,
+                "last_column": 37,
+                "range": [
+                  56,
+                  62
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "typeParameters": [],
+            "location": {
+              "first_line": 2,
+              "first_column": 31,
+              "last_line": 2,
+              "last_column": 37,
+              "range": [
+                56,
+                62
+              ]
+            },
+            "type": "constructor-type"
+          },
+          "optional": true,
+          "location": {
+            "first_line": 2,
+            "first_column": 17,
+            "last_line": 2,
+            "last_column": 37,
+            "range": [
+              42,
+              62
+            ]
+          },
+          "type": "member-declaration"
+        },
+        {
+          "path": [
+            {
+              "value": "credentials",
+              "location": {
+                "first_line": 3,
+                "first_column": 17,
+                "last_line": 3,
+                "last_column": 28,
+                "range": [
+                  81,
+                  92
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            {
+              "value": "email",
+              "location": {
+                "first_line": 3,
+                "first_column": 29,
+                "last_line": 3,
+                "last_column": 34,
+                "range": [
+                  93,
+                  98
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "id": {
+              "value": "String",
+              "location": {
+                "first_line": 3,
+                "first_column": 37,
+                "last_line": 3,
+                "last_column": 43,
+                "range": [
+                  101,
+                  107
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "typeParameters": [],
+            "location": {
+              "first_line": 3,
+              "first_column": 37,
+              "last_line": 3,
+              "last_column": 43,
+              "range": [
+                101,
+                107
+              ]
+            },
+            "type": "constructor-type"
+          },
+          "optional": true,
+          "location": {
+            "first_line": 3,
+            "first_column": 17,
+            "last_line": 3,
+            "last_column": 43,
+            "range": [
+              81,
+              107
+            ]
+          },
+          "type": "member-declaration"
+        },
+        {
+          "path": [
+            {
+              "value": "credentials",
+              "location": {
+                "first_line": 4,
+                "first_column": 17,
+                "last_line": 4,
+                "last_column": 28,
+                "range": [
+                  126,
+                  137
+                ]
+              },
+              "type": "unqualified-identifier"
+            },
+            {
+              "value": "token",
+              "location": {
+                "first_line": 4,
+                "first_column": 29,
+                "last_line": 4,
+                "last_column": 34,
+                "range": [
+                  138,
+                  143
+                ]
+              },
+              "type": "unqualified-identifier"
+            }
+          ],
+          "kind": {
+            "id": {
+              "value": "String",
+              "location": {
+                "first_line": 4,
+                "first_column": 36,
+                "last_line": 4,
+                "last_column": 42,
+                "range": [
+                  145,
+                  151
+                ]
+              },
+              "type": "unqualified-constructor"
+            },
+            "typeParameters": [],
+            "location": {
+              "first_line": 4,
+              "first_column": 36,
+              "last_line": 4,
+              "last_column": 42,
+              "range": [
+                145,
+                151
+              ]
+            },
+            "type": "constructor-type"
+          },
+          "optional": false,
+          "location": {
+            "first_line": 4,
+            "first_column": 17,
+            "last_line": 4,
+            "last_column": 42,
+            "range": [
+              126,
+              151
+            ]
+          },
+          "type": "member-declaration"
+        }
+      ],
+      "location": {
+        "first_line": 1,
+        "first_column": 0,
+        "last_line": 5,
+        "last_column": 15,
+        "range": [
+          0,
+          167
+        ]
+      },
+      "type": "context-statement"
+    }
+  ],
+  "location": {
+    "first_line": 1,
+    "first_column": 0,
+    "last_line": 5,
+    "last_column": 15,
+    "range": [
+      0,
+      167
+    ]
+  },
+  "type": "module"
+}

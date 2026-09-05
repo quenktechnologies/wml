@@ -6,14 +6,7 @@
 
 import * as ast from "../parse/ast";
 
-import { set } from "@quenk/noni/lib/data/record/path";
-import {
-  Record,
-  merge,
-  mapTo,
-  reduce,
-  isRecord,
-} from "@quenk/noni/lib/data/record";
+import { Record, merge, mapTo } from "@quenk/noni/lib/data/record";
 import { contains, empty, find, partition } from "@quenk/noni/lib/data/array";
 
 import { transformTree } from "./transform";
@@ -38,22 +31,36 @@ const FOR_IN = `${UTILS}.forIn`;
 export type TypeScript = string;
 
 /**
- * TypeOrMap
- */
-export type TypeOrMap = TypeScript | ExpandedTypeMap;
-
-/**
- * TypeMap contains a recursive map of dotted paths to Type nodes.
- */
-export interface TypeMap extends Record<ast.Type> {}
-
-/**
- * ExpandedTypeMap is an expanded version of TypeMap.
+ * TypeTree is an intermediate representation of a list of MemberDeclarations.
  *
- * Each dotted path is expanded recursively into records
- * so that no path contain dots.
+ * Each dotted path ("a.b.c") is expanded so that every path segment becomes a
+ * node in the tree. A node may carry an explicit type (declared directly at
+ * that path) and/or child nodes (declared via longer, nested paths). This lets
+ * a path that is declared both as a leaf ("a: Object") and as the parent of
+ * other declarations ("a.b: String") be merged into a single member instead of
+ * producing a duplicate key.
  */
-export interface ExpandedTypeMap extends Record<TypeOrMap> {}
+export interface TypeTree extends Record<TypeTreeNode> {}
+
+/**
+ * TypeTreeNode is a single node in a TypeTree.
+ */
+export interface TypeTreeNode {
+  /**
+   * type explicitly declared at exactly this path, if any.
+   */
+  type?: ast.Type;
+
+  /**
+   * optional is true when this exact path was declared optional ("a?: X").
+   */
+  optional: boolean;
+
+  /**
+   * children declared via nested paths ("a.b: X").
+   */
+  children: TypeTree;
+}
 
 const prims = [
   "String",
@@ -407,85 +414,113 @@ export const recordType2Ts = (n: ast.RecordType) =>
 /**
  * memberDeclarations2TS converts a list of MemberDeclarations to TypeScript.
  *
- * The paths of the MemberDeclarations are expanded so that paths
- * using the "<path1>.<path2>.<path3>" syntax occur as nested records.
+ * The paths of the MemberDeclarations are expanded so that paths using the
+ * "<path1>.<path2>.<path3>" syntax occur as nested records. A path declared
+ * both directly and as the parent of nested paths (for example "creds?: Object"
+ * together with "creds.email?: String") is merged into a single member.
  */
 export const memberDeclarations2TS = (n: ast.MemberDeclaration[]) =>
-  typeMap2TS(expandTypeMap(typeMapFromMemberDecs(n)));
+  typeTree2TS(typeTreeFromMemberDecs(n));
 
 /**
- * typeMapFromMemberDecs creates a TypeMap from a list of memberDeclarations.
+ * typeTreeFromMemberDecs builds a TypeTree from a list of MemberDeclarations.
  *
- * This works recursively and any RecordTypes encountered will be flattened.
+ * This works recursively and any RecordTypes encountered are flattened onto
+ * the tree.
  */
-export const typeMapFromMemberDecs = (list: ast.MemberDeclaration[]) =>
-  list.reduce(
-    (p, m) => {
-      let paths = m.path.map((p) => p.value);
+export const typeTreeFromMemberDecs = (
+  list: ast.MemberDeclaration[],
+): TypeTree => {
+  let tree: TypeTree = {};
 
-      if (m.kind instanceof ast.RecordType) {
-        return typeMapFromRecordType(m.kind, p, paths);
-      } else {
-        let path = paths2String(paths);
+  list.forEach((m) => typeTreeInsert(tree, m.path.map((p) => p.value), m));
 
-        path = m.optional ? `${path}?` : path;
-
-        p[path] = m.kind;
-
-        return p;
-      }
-    },
-    <TypeMap>{},
-  );
+  return tree;
+};
 
 /**
- * typeMapFromRecordType produces a map of node.Type instances from
- * a RecordType recursively.
- *
- * Any encountered RecordTypes will be flattened.
+ * typeTreeInsert inserts a single MemberDeclaration into the tree at the given
+ * path, flattening RecordType kinds recursively.
  */
-export const typeMapFromRecordType = (
-  n: ast.RecordType,
-  init: TypeMap,
-  prefix: string[],
-): TypeMap =>
-  n.members.reduce((p, m) => {
-    let path = [...prefix, ...m.path.map((p) => p.value)];
+const typeTreeInsert = (
+  tree: TypeTree,
+  path: string[],
+  m: ast.MemberDeclaration,
+): void => {
+  let node = typeTreeNodeAt(tree, path);
 
-    if (m.kind instanceof ast.RecordType) {
-      return typeMapFromRecordType(m.kind, init, path);
-    } else {
-      p[paths2String(path)] = m.kind;
+  if (m.optional) node.optional = true;
 
-      return p;
+  if (m.kind instanceof ast.RecordType) {
+    m.kind.members.forEach((c) =>
+      typeTreeInsert(tree, [...path, ...c.path.map((p) => p.value)], c),
+    );
+  } else {
+    node.type = m.kind;
+  }
+};
+
+/**
+ * typeTreeNodeAt walks (creating nodes as needed) to the node at the given
+ * path.
+ */
+const typeTreeNodeAt = (tree: TypeTree, path: string[]): TypeTreeNode => {
+  let children = tree;
+  let node: TypeTreeNode = { optional: false, children: tree };
+
+  for (let seg of path) {
+    if (!children[seg]) children[seg] = { optional: false, children: {} };
+
+    node = children[seg];
+    children = node.children;
+  }
+
+  return node;
+};
+
+/**
+ * typeTree2TS converts a TypeTree to the body of a TypeScript record type.
+ */
+export const typeTree2TS = (tree: TypeTree): TypeScript =>
+  mapTo(tree, (node, key) => {
+    let hasChildren = Object.keys(node.children).length > 0;
+
+    let optional = node.optional || hasOptionalLeafChild(node);
+
+    if (!hasChildren) {
+      let type = node.type ? type2TS(node.type) : "{}";
+
+      return optional ? `${key}? : ${type}` : `${key} : ${type}`;
     }
-  }, init);
 
-const paths2String = (paths: string[]) => paths.join(".");
+    let body = `{${typeTree2TS(node.children)}}`;
 
-/**
- * expandTypeMap to an ExpandedTypeMap.
- */
-export const expandTypeMap = (m: TypeMap): ExpandedTypeMap =>
-  reduce(m, <ExpandedTypeMap>{}, (p, c, k) =>
-    set<TypeOrMap, ExpandedTypeMap>(k, type2TS(c), p),
-  );
+    let base =
+      node.type && !isStructurelessType(type2TS(node.type))
+        ? `${type2TS(node.type)} & `
+        : "";
 
-/**
- * typeMap2TS converts a map of type values to TypeScript.
- */
-export const typeMap2TS = (m: ExpandedTypeMap): TypeScript =>
-  mapTo(m, (t, k) => {
-    if (isRecord(t)) {
-      let key = isOptional(t) ? `${k}?` : `${k}`;
-      return `${key}: {${typeMap2TS(t)}}`;
-    } else {
-      return `${k} : ${t}`;
-    }
+    return `${optional ? `${key}?` : key}: ${base}${body}`;
   }).join(",\n");
 
-const isOptional = (m: ExpandedTypeMap) =>
-  reduce(m, false, (p, _, k) => (p ? p : k.indexOf("?") > -1));
+/**
+ * hasOptionalLeafChild is true when a node has at least one directly declared
+ * optional leaf child, mirroring the historical "optional if any are" rule for
+ * nested records.
+ */
+const hasOptionalLeafChild = (node: TypeTreeNode) =>
+  Object.keys(node.children).some((k) => {
+    let child = node.children[k];
+
+    return child.optional && Object.keys(child.children).length === 0;
+  });
+
+/**
+ * isStructurelessType is true for types that add nothing when intersected with
+ * a record body ("object", "{}"), so the intersection can be omitted.
+ */
+const isStructurelessType = (type: TypeScript) =>
+  type === "object" || type === "{}";
 
 /**
  * parameters2TS converts a list Parameter nodes into an parameter list
